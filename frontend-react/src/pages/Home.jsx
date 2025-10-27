@@ -7,7 +7,7 @@ export default function Home() {
   return (
     <>
       <section className="mt-6">
-        <div className="bg-white/60 rounded-2xl p-10 text-center shadow-sm">
+        <div className="p-10 text-center">
           <h1 className="text-3xl font-extrabold text-sky-800">
             Welcome to Blue Gate Initiative
           </h1>
