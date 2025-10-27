@@ -29,7 +29,7 @@ export default function Footer() {
           </ul>
         </div>
         <div className="md:ml-8">
-          <h4 className="font-bold text-lg mb-2">Follow</h4>
+          <h4 className="font-bold text-lg mb-2">Follow Us</h4>
           <ul className="text-sm text-gray-400 space-y-1">
             <li><a href="https://facebook.com/BlueGateInitiative" className="hover:text-sky-300 transition-colors">Facebook</a></li>
             <li><a href="https://twitter.com/BlueInitiative" className="hover:text-sky-300 transition-colors">Twitter</a></li>

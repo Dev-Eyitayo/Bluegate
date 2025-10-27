@@ -1,27 +1,29 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Menu, X, ChevronDown } from "lucide-react";
+import { Link, useLocation } from "react-router-dom";
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isProgramsOpen, setIsProgramsOpen] = useState(false);
+  const location = useLocation();
 
   const menuRef = useRef(null);
   const programsRef = useRef(null);
 
   const navItems = [
-    { href: "#", label: "HOME" },
-    { href: "#about", label: "ABOUT" },
-    { href: "#healthCommunication", label: "HEALTH COMMUNICATION" },
+    { href: "/", label: "HOME" },
+    { href: "/about", label: "ABOUT" },
+    { href: "/health-communication", label: "HEALTH COMMUNICATION" },
     {
       label: "PROGRAMMES",
       subItems: [
-        { href: "#", label: "EMPOWERMENT" },
-        { href: "#", label: "HUMAN RIGHTS" },
-        { href: "#", label: "UN DAYS ACTIVITIES" },
+        { href: "/empowerment", label: "EMPOWERMENT" },
+        { href: "/human-rights", label: "HUMAN RIGHTS" },
+        { href: "/un-days", label: "UN DAYS ACTIVITIES" },
       ],
     },
-    { href: "#volunteer", label: "VOLUNTEER" },
-    { href: "#donate", label: "DONATE", isButton: true },
+    { href: "/volunteer", label: "VOLUNTEER" },
+    { href: "/donate", label: "DONATE", isButton: true },
   ];
 
   // Close menus on outside click
@@ -53,6 +55,16 @@ export default function Header() {
     return () => document.removeEventListener("keydown", handleEsc);
   }, []);
 
+  // Helper to check if a link is active
+  const isActive = (path) => {
+    return location.pathname === path || (path === "/" && location.pathname === ""); // Handle root route
+  };
+
+  // Check if current route is under PROGRAMMES dropdown
+  const isProgrammesActive = navItems
+    .find((item) => item.label === "PROGRAMMES")
+    ?.subItems.some((sub) => isActive(sub.href));
+
   return (
     <header className="bg-white shadow-sm">
       {/* Top Bar */}
@@ -77,21 +89,21 @@ export default function Header() {
       {/* Main Nav */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5 flex items-center justify-between">
         {/* Logo */}
-        <div className="flex items-center gap-3">
-          <img
-            src="/assets/bluegate-logo.jpg"
-            alt="Blue Gate Initiative logo"
-            className="w-12 h-12 rounded-lg object-cover"
-          />
-          <div>
-            <h1 className="font-bold text-blue-900 text-xl tracking-tight">
-              Blue Gate Initiative
-            </h1>
-            <p className="text-xs text-gray-500 tracking-wide">
-              Public Health Promotion
-            </p>
+        <Link to="/">
+          <div className="flex items-center gap-3">
+            <img
+              src="/assets/bluegate-logo.jpg"
+              alt="Blue Gate Initiative logo"
+              className="w-12 h-12 rounded-lg object-cover"
+            />
+            <div>
+              <h1 className="font-bold text-blue-900 text-xl tracking-tight">
+                Blue Gate Initiative
+              </h1>
+              <p className="text-xs text-gray-500 tracking-wide">Public Health Promotion</p>
+            </div>
           </div>
-        </div>
+        </Link>
 
         {/* Desktop Nav */}
         <nav className="hidden lg:flex gap-10 items-center text-gray-700 font-medium text-sm">
@@ -101,7 +113,11 @@ export default function Header() {
                 <button
                   ref={programsRef}
                   onClick={() => setIsProgramsOpen((prev) => !prev)}
-                  className="flex items-center gap-1 hover:text-blue-600 transition-colors duration-200 focus:outline-none"
+                  className={`flex items-center gap-1 transition-colors duration-200 focus:outline-none ${
+                    isProgrammesActive
+                      ? "text-blue-600 font-semibold"
+                      : "hover:text-blue-600"
+                  }`}
                 >
                   {item.label}
                   <ChevronDown
@@ -115,12 +131,17 @@ export default function Header() {
                   <div className="absolute left-0 mt-3 w-56 bg-white shadow-sm border border-gray-100 z-20 transition-all duration-200 ease-in-out">
                     {item.subItems.map((sub, subIdx) => (
                       <React.Fragment key={subIdx}>
-                        <a
-                          href={sub.href}
-                          className="block px-4 py-2.5 text-sm text-gray-600 hover:bg-blue-50 hover:text-blue-700 transition-colors duration-150"
+                        <Link
+                          to={sub.href}
+                          className={`block px-4 py-2.5 text-sm transition-colors duration-150 ${
+                            isActive(sub.href)
+                              ? "text-blue-600 font-semibold bg-blue-50"
+                              : "text-gray-600 hover:bg-blue-50 hover:text-blue-700"
+                          }`}
+                          onClick={() => setIsProgramsOpen(false)}
                         >
                           {sub.label}
-                        </a>
+                        </Link>
                         {subIdx < item.subItems.length - 1 && (
                           <hr className="border-gray-200" />
                         )}
@@ -130,17 +151,17 @@ export default function Header() {
                 )}
               </div>
             ) : (
-              <a
+              <Link
                 key={index}
-                href={item.href}
-                className={
+                to={item.href}
+                className={`${
                   item.isButton
                     ? "bg-blue-600 text-white px-5 py-2 rounded-lg font-semibold hover:bg-blue-700 transition-colors duration-200"
                     : "hover:text-blue-600 transition-colors duration-200"
-                }
+                } ${isActive(item.href) ? "text-blue-600 font-semibold" : ""}`}
               >
                 {item.label}
-              </a>
+              </Link>
             )
           )}
         </nav>
@@ -199,12 +220,20 @@ export default function Header() {
                       <div className="mt-3 ml-4 border-l-2 border-blue-100 pl-4 flex flex-col gap-3">
                         {item.subItems.map((sub, subIndex) => (
                           <React.Fragment key={subIndex}>
-                            <a
-                              href={sub.href}
-                              className="block py-1.5 text-sm text-gray-600 hover:text-blue-600 transition-colors duration-150"
+                            <Link
+                              to={sub.href}
+                              className={`block py-1.5 text-sm transition-colors duration-150 ${
+                                isActive(sub.href)
+                                  ? "text-blue-600 font-semibold"
+                                  : "text-gray-600 hover:text-blue-600"
+                              }`}
+                              onClick={() => {
+                                setIsMenuOpen(false);
+                                setIsProgramsOpen(false);
+                              }}
                             >
                               {sub.label}
-                            </a>
+                            </Link>
                             {subIndex < item.subItems.length - 1 && (
                               <hr className="border-gray-200" />
                             )}
@@ -214,9 +243,9 @@ export default function Header() {
                     )}
                   </div>
                 ) : (
-                  <a
+                  <Link
                     key={index}
-                    href={item.href}
+                    to={item.href}
                     className={
                       item.isButton
                         ? "bg-blue-600 text-white px-5 py-2.5 rounded-lg text-center font-semibold text-sm uppercase tracking-wide hover:bg-blue-700 transition-colors duration-200"
@@ -224,7 +253,7 @@ export default function Header() {
                     }
                   >
                     {item.label}
-                  </a>
+                  </Link>
                 )
               )}
             </div>
