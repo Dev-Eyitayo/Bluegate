@@ -2,11 +2,12 @@ import React from 'react'
 import Header from './components/Header'
 import HeroCarousel from './components/HeroCarousel'
 import Cards from './components/Cards'
+import ProgramsAndEvents from './components/ProgramsAndEvents'
 import Footer from './components/Footer'
 
 export default function App() {
   return (
-    <div className="min-h-screen bg-gradient-to-b from-slate-50 to-slate-100 text-slate-900">
+    <div className="min-h-screen bg-gradient-to-b from-ehite to-amber-50 text-slate-900">
       <Header />
 
       <main className="max-w-6xl mx-auto px-4">
@@ -24,6 +25,10 @@ export default function App() {
 
         <section className="mt-8 mb-16">
           <Cards />
+        </section>
+
+         <section className="mt-8">
+          <ProgramsAndEvents />
         </section>
       </main>
 
