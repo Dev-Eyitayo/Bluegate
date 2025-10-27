@@ -119,7 +119,7 @@ export default function HeroCarousel() {
           aria-hidden={i !== current}
         >
           {/* Vertical Gradient Overlay (from bottom up) for text contrast */}
-          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent flex items-center">
+          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent flex items-center">
             {/* Content positioned towards the center/bottom */}
             <div className="max-w-2xl text-white mx-auto px-6 md:px-12 text-center self-end pb-12 md:pb-16">
               {/* Text sizes slightly increased for better impact within the existing space */}
