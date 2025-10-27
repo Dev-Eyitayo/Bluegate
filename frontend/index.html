@@ -1,21 +1,157 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta
-      name="description"
-      content="Blue Gate Initiative promotes public health through community engagement, advocacy, and education."
-    />
-    <meta
-      name="keywords"
-      content="Blue Gate Initiative, public health, community health, NGO, Nigeria"
-    />
-    <meta name="author" content="Blue Gate Initiative" />
-    <title>Blue Gate Initiative</title>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
-  </body>
+<head>
+  <!-- Meta Essentials -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Blue Gate Initiative — Public Health Promotion in Nigeria</title>
+  <meta name="description" content="Blue Gate Initiative is a Nigerian NGO promoting public health through education, advocacy, and community outreach. Join us to build healthier communities.">
+  <meta name="keywords" content="Blue Gate Initiative, public health, NGO, community health, Ibadan, Nigeria, advocacy, outreach">
+  <meta name="author" content="Blue Gate Initiative">
+
+  <!-- Open Graph / Social -->
+  <meta property="og:title" content="Blue Gate Initiative — Empowering Communities Through Health">
+  <meta property="og:description" content="We promote public health awareness and sustainable community programs in Nigeria.">
+  <meta property="og:image" content="assets/hero1.png">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://bluegateinitiative.org">
+
+  <!-- Favicon -->
+  <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
+
+  <!-- Fonts & Styles -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Performance -->
+  <link rel="preload" href="assets/hero1.png" as="image">
+  <link rel="preload" href="assets/hero2.jpg" as="image">
+  <link rel="preload" href="assets/hero3.jpg" as="image">
+</head>
+<body>
+
+  <!-- Topbar -->
+  <div class="topbar">
+    <div class="container">
+      <div>Emergency No: <strong>+234-806-590-3150</strong></div>
+      <div>Support: <a href="mailto:info@bluegateinitiative.org">info@bluegateinitiative.org</a></div>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header class="container">
+    <div class="header-inner">
+      <div class="brand">
+        <img src="assets/bluegate-logo.jpg" alt="Blue Gate Initiative Logo" width="44" height="44">
+        <div>
+          <div class="brand-title">Blue Gate Initiative</div>
+          <div class="brand-subtitle">Public Health Promotion</div>
+        </div>
+      </div>
+      <nav aria-label="Main navigation">
+        <a href="#">Home</a>
+        <a href="#about">About</a>
+        <a href="#programs">Programmes</a>
+        <a href="#volunteer">Volunteer</a>
+        <a class="cta" href="#donate">Donate</a>
+      </nav>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="#">Home</a>
+      <a href="#about">About</a>
+      <a href="#programs">Programmes</a>
+      <a href="#volunteer">Volunteer</a>
+      <a href="#donate" class="cta" style="text-align:center; color: white;">Donate</a>
+    </div>
+  </header>
+
+  <!-- Intro -->
+  <section class="container intro" id="about">
+    <h1>Welcome to Blue Gate Initiative</h1>
+    <p>
+      Blue Gate Public Health Promotion Initiative (Blue-Gate Initiative) is a Non-Governmental Organization
+      inaugurated in 2010 and incorporated in 2016. We are committed to improving community health awareness and outcomes across Nigeria.
+    </p>
+    <a href="#programs" class="btn-primary">Read More</a>
+  </section>
+
+  <!-- Hero Carousel -->
+  <section class="container hero" aria-label="Image carousel">
+    <div class="slide active" style="background-image:url('assets/hero1.png');">
+      <div class="caption">
+        <div class="caption-content">
+            <h2>Team at Olubadan Palace</h2>
+          <p>Advocating for healthier communities through leadership and partnership.</p>
+        </div>
+      </div>
+    </div>
+    <div class="slide" style="background-image:url('assets/hero2.jpg');">
+      <div class="caption">
+        <div class="caption-content">
+          <h2>Empowering Lives Through Health</h2>
+          <p>Driving change with evidence-based community programs and outreach.</p>
+        </div>
+      </div>
+    </div>
+    <div class="slide" style="background-image:url('assets/hero3.jpg');">
+      <div class="caption">
+        <div class="caption-content">
+          <h2>Better Care, Brighter Communities</h2>
+          <p>We are committed to promoting public health through community engagement, advocacy, and education.</p>
+        </div>
+      </div>
+    </div>
+
+    <button class="arrow left" id="prevBtn" aria-label="Previous slide">&#10094;</button>
+    <button class="arrow right" id="nextBtn" aria-label="Next slide">&#10095;</button>
+    <div class="dots" id="dots"></div>
+  </section>
+
+  <!-- Cards -->
+  <main class="container">
+    <section class="cards" id="programs">
+      <article class="card">
+        <h3>Our Vision</h3>
+        <p>To positively influence the health behaviour of individuals and communities through sustainable, evidence-based interventions.</p>
+      </article>
+      <article class="card">
+        <h3>Our Mission</h3>
+        <p>Deliver community-centered health promotion programs, capacity building, and advocacy to improve health outcomes.</p>
+      </article>
+      <article class="card">
+        <h3>Get Involved</h3>
+        <p>Volunteer, partner, or donate to support programmes that create real impact for vulnerable groups.</p>
+      </article>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div>
+        <h4>Blue Gate Initiative</h4>
+        <address>
+          64, Blue Gate House, Adeyi Avenue, Old Bodija, Ibadan, Nigeria<br>
+          Email: <a href="mailto:info@bluegateinitiative.org">info@bluegateinitiative.org</a>
+        </address>
+      </div>
+      <div>
+        <h4>Quick Links</h4>
+        <a href="#about">About Us</a> · 
+        <a href="#programs">Programmes</a> · 
+        <a href="#volunteer">Volunteer</a>
+      </div>
+      <div>
+        <h4>Follow</h4>
+        <p><a href="#">Facebook</a> · <a href="#">Twitter</a> · <a href="#">Instagram</a></p>
+      </div>
+    </div>
+    <p class="copyright">&copy; 2025 Blue Gate Initiative. All rights reserved.</p>
+  </footer>
+
+  <script src="script.js" defer></script>
+</body>
 </html>
