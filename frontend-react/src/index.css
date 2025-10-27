@@ -1,0 +1,16 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root{
+  --blue: #0b4fe0;
+}
+
+/* small custom styles preserved from original where utilities aren't enough */
+.rounded-2xl { border-radius: 14px; }
+
+/* ensure hero image fills */
+.hero-bg {
+  background-size: cover;
+  background-position: center;
+}
