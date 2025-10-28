@@ -1,6 +1,7 @@
 import React from "react";
 import SectionHeader from "../components/SectionHeader";
 import { HandHeart, Mail } from "lucide-react";
+import { Link } from "react-router-dom";
 
 export default function Volunteer() {
   return (
@@ -13,7 +14,7 @@ export default function Volunteer() {
         <div className="space-y-6 text-slate-700 leading-relaxed">
           {/* Introduction */}
           <div>
-            <h2 className="text-lg font-semibold mb-2 text-slate-800">
+            <h2 className="text-medium font-semibold mb-2 text-slate-800">
               Volunteer and Change Lives, Learn New Skills and Make New Friends!
             </h2>
             <p>
@@ -26,7 +27,7 @@ export default function Volunteer() {
 
           {/* Opportunities */}
           <div>
-            <h2 className="text-lg font-semibold mb-2 text-slate-800">
+            <h2 className="text-medium font-semibold mb-2 text-slate-800">
               We may be small, but our opportunities are big!
             </h2>
             <p>
@@ -81,14 +82,12 @@ export default function Volunteer() {
           <h3 className="text-md font-medium text-slate-700 mb-4">
             Click the button below to fill the Volunteer form
           </h3>
-          <a
-            href="/volunteer-form"
-            target="_blank"
-            rel="noopener noreferrer"
+          <Link
+            to="/volunteer-form"
             className="inline-block bg-sky-700 hover:bg-sky-800 text-white font-medium rounded-lg shadow-sm px-6 py-3 transition-colors"
           >
             Volunteer Form
-          </a>
+          </Link>
         </div>
       </section>
     </div>

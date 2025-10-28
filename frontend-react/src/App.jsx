@@ -10,6 +10,7 @@ import HealthPromotion from "./pages/HealthPromotion";
 import UnitedNationsDays from "./pages/UnitedNationsDays";
 import Volunteer from "./pages/Volunteer";
 import MedicalOutreach from "./pages/MedicalOutreach";
+import VolunteerForm from "./pages/VolunteerForm";
 // import Projects from "./pages/Projects";
 // import Contact from "./pages/Contact";
 
@@ -78,6 +79,14 @@ export default function App() {
           element={
             <MainLayout>
               <Volunteer />
+            </MainLayout>
+          }
+        />
+        <Route
+          path="/volunteer-form"
+          element={
+            <MainLayout>
+              <VolunteerForm />
             </MainLayout>
           }
         />

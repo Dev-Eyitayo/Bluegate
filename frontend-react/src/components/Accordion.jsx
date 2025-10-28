@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { ChevronDown } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const Accordion = ({ items }) => {
   const [openIndex, setOpenIndex] = useState(null);
@@ -34,12 +35,12 @@ const Accordion = ({ items }) => {
               className="p-4 bg-white text-slate-600 leading-relaxed transition-all duration-300"
             >
               <p>{item.content}</p>
-              <a
-                href={item.link}
+              <Link
+                to={item.link}
                 className="text-sky-700 hover:text-sky-900 font-medium inline-block mt-3 text-sm"
               >
                 {item.linkText}
-              </a>
+              </Link>
             </div>
           )}
         </div>
