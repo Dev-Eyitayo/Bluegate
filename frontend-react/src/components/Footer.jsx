@@ -19,21 +19,21 @@ export default function Footer() {
         <div className="mb-6 md:mb-0 md:mx-8">
           <h4 className="font-bold text-lg mb-2">Quick Links</h4>
           <ul className="text-sm text-gray-400 space-y-1">
-            <li><a href="#about" className="hover:text-sky-300 transition-colors">About Us</a></li>
-            <li><a href="#programs" className="hover:text-sky-300 transition-colors">Programme</a></li>
-            <li><a href="#health-comm" className="hover:text-sky-300 transition-colors">Health Communication</a></li>
-            <li><a href="#empowerment" className="hover:text-sky-300 transition-colors">Empowerment</a></li>
-            <li><a href="#human-rights" className="hover:text-sky-300 transition-colors">HUMAN RIGHTS</a></li>
-            <li><a href="#un-days" className="hover:text-sky-300 transition-colors">UN Days Activities</a></li>
-            <li><a href="#contact" className="hover:text-sky-300 transition-colors">Contact Us</a></li>
+            <li><a href="/about" className="hover:text-sky-300 transition-colors">About Us</a></li>
+            <li><a href="/health-promotion" className="hover:text-sky-300 transition-colors">Programme</a></li>
+            <li><a href="/health-communication" className="hover:text-sky-300 transition-colors">Health Communication</a></li>
+            <li><a href="/empowerment" className="hover:text-sky-300 transition-colors">Empowerment</a></li>
+            <li><a href="/human-rights" className="hover:text-sky-300 transition-colors">Human Rights</a></li>
+            <li><a href="/un-days" className="hover:text-sky-300 transition-colors">UN Days Activities</a></li>
+            <li><a href="/contact" className="hover:text-sky-300 transition-colors">Contact Us</a></li>
           </ul>
         </div>
         <div className="md:ml-8">
           <h4 className="font-bold text-lg mb-2">Follow Us</h4>
           <ul className="text-sm text-gray-400 space-y-1">
-            <li><a href="https://facebook.com/BlueGateInitiative" className="hover:text-sky-300 transition-colors">Facebook</a></li>
-            <li><a href="https://twitter.com/BlueInitiative" className="hover:text-sky-300 transition-colors">Twitter</a></li>
-            <li><a href="https://instagram.com/BlueGateInitiative" className="hover:text-sky-300 transition-colors">Instagram</a></li>
+            <li><a href="https://web.facebook.com/BlueGateInitiative" className="hover:text-sky-300 transition-colors">Facebook</a></li>
+            <li><a href="https://x.com/BlueInitiative" className="hover:text-sky-300 transition-colors">Twitter</a></li>
+            {/* <li><a href="https://instagram.com/BlueGateInitiative" className="hover:text-sky-300 transition-colors">Instagram</a></li> */}
           </ul>
           {/* Placeholder for Twitter/X widget - to be replaced with actual X integration */}
           

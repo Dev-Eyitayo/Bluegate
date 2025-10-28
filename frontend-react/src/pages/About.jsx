@@ -10,21 +10,21 @@ export default function About() {
       title: "Programme",
       content:
         "Our core health promotion programs focus on improving community health outcomes.",
-      link: "#",
+      link: "/health-promotion",
       linkText: "Learn more",
     },
     {
       title: "Medical Outreach",
       content:
         "Providing medical services and support to underserved communities across Nigeria.",
-      link: "#",
+      link: "/medical-outreach",
       linkText: "Learn more",
     },
     {
       title: "Health Communication",
       content:
         "Spreading health awareness through effective communication strategies.",
-      link: "#",
+      link: "/health-communication",
       linkText: "Learn more",
     },
   ];
@@ -84,7 +84,7 @@ export default function About() {
   return (
     <div className="min-h-screen bg-sky-200/10 text-gray-800">
       {/* Introduction Section */}
-      <section className="py-16 px-4 max-w-7xl mx-auto">
+      <section className="py-16 px-2 max-w-5xl mx-auto">
         <h1 className="text-3xl font-extrabold text-sky-800 text-center mb-12">
           About Us
         </h1>
@@ -114,14 +114,14 @@ export default function About() {
             <img
               src="/assets/about-intro.png" 
               alt="Blue Gate Initiative Team"
-              className="w-full h-72 object-cover rounded-xl shadow-md"
+              className="w-full h-64 object-cover rounded-lg shadow-sm"
             />
           </div>
         </div>
       </section>
 
       {/* Departments Section */}
-      <section className="py-16 px-4 max-w-7xl mx-auto">
+      <section className="py-16 px-2 max-w-5xl mx-auto">
         <SectionHeader icon={Activity} title="Departments" />
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           <div>
@@ -141,7 +141,7 @@ export default function About() {
       </section>
 
       {/* Competencies Section */}
-      <section className="py-16 px-4 max-w-7xl mx-auto">
+      <section className="py-16 px-2 max-w-5xl mx-auto">
         <SectionHeader icon={HeartHandshake} title="Our Competencies" />
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           <div>
@@ -172,7 +172,7 @@ export default function About() {
     </section>
 
     {/* Executives section */}
-    <section className="py-20 px-4 max-w-7xl mx-auto">
+    <section className="py-20 px-2 max-w-5xl mx-auto">
     <h2 className="text-3xl font-bold text-sky-800 text-center mb-12">
         Blue Gate Initiative Executives
     </h2>

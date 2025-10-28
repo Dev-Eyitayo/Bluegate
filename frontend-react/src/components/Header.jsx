@@ -24,7 +24,7 @@ export default function Header() {
       ],
     },
     { href: "/volunteer", label: "VOLUNTEER" },
-    { href: "/donate", label: "DONATE", isButton: true },
+    // { href: "/donate", label: "DONATE", isButton: true },  
   ];
 
   // Close menus on outside click

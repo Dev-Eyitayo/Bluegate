@@ -13,7 +13,7 @@ export default function Volunteer() {
         <div className="space-y-6 text-slate-700 leading-relaxed">
           {/* Introduction */}
           <div>
-            <h2 className="text-2xl font-semibold mb-2 text-slate-800">
+            <h2 className="text-lg font-semibold mb-2 text-slate-800">
               Volunteer and Change Lives, Learn New Skills and Make New Friends!
             </h2>
             <p>
@@ -26,7 +26,7 @@ export default function Volunteer() {
 
           {/* Opportunities */}
           <div>
-            <h2 className="text-2xl font-semibold mb-2 text-slate-800">
+            <h2 className="text-lg font-semibold mb-2 text-slate-800">
               We may be small, but our opportunities are big!
             </h2>
             <p>
@@ -78,7 +78,7 @@ export default function Volunteer() {
 
         {/* Volunteer Form CTA */}
         <div className="mt-12 text-center">
-          <h3 className="text-lg font-medium text-slate-700 mb-4">
+          <h3 className="text-md font-medium text-slate-700 mb-4">
             Click the button below to fill the Volunteer form
           </h3>
           <a

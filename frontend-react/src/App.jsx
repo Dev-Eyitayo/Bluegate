@@ -9,6 +9,7 @@ import HumanRight from "./pages/HumanRight";
 import HealthPromotion from "./pages/HealthPromotion";
 import UnitedNationsDays from "./pages/UnitedNationsDays";
 import Volunteer from "./pages/Volunteer";
+import MedicalOutreach from "./pages/MedicalOutreach";
 // import Projects from "./pages/Projects";
 // import Contact from "./pages/Contact";
 
@@ -77,6 +78,14 @@ export default function App() {
           element={
             <MainLayout>
               <Volunteer />
+            </MainLayout>
+          }
+        />
+        <Route
+          path="/medical-outreach"
+          element={
+            <MainLayout>
+              <MedicalOutreach />
             </MainLayout>
           }
         />
