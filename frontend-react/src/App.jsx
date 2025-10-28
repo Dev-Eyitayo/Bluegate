@@ -6,6 +6,9 @@ import About from "./pages/About";
 import HealthCommunication from "./pages/HealthCommunication";
 import Empowerment from "./pages/Empowerment";
 import HumanRight from "./pages/HumanRight";
+import HealthPromotion from "./pages/HealthPromotion";
+import UnitedNationsDays from "./pages/UnitedNationsDays";
+import Volunteer from "./pages/Volunteer";
 // import Projects from "./pages/Projects";
 // import Contact from "./pages/Contact";
 
@@ -53,22 +56,31 @@ export default function App() {
             </MainLayout>
           }
         />
-        {/* <Route
-          path="/projects"
+        <Route
+          path="/health-promotion"
           element={
             <MainLayout>
-              <Projects />
+              <HealthPromotion />
             </MainLayout>
           }
         />
         <Route
-          path="/contact"
+          path="/un-days"
           element={
             <MainLayout>
-              <Contact />
+              <UnitedNationsDays />
             </MainLayout>
           }
-        /> */}
+        />
+        <Route
+          path="/volunteer"
+          element={
+            <MainLayout>
+              <Volunteer />
+            </MainLayout>
+          }
+        />
+      
       </Routes>
     </Router>
   );

@@ -17,9 +17,10 @@ export default function Header() {
     {
       label: "PROGRAMMES",
       subItems: [
+        { href: "/health-promotion", label: "PROGRAMMES" },
         { href: "/empowerment", label: "EMPOWERMENT" },
         { href: "/human-rights", label: "HUMAN RIGHTS" },
-        { href: "/un-days", label: "UN DAYS ACTIVITIES" },
+        { href: "/un-days", label: "UN DAYS ACTIVITIES" },  
       ],
     },
     { href: "/volunteer", label: "VOLUNTEER" },

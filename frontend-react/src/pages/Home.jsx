@@ -1,4 +1,5 @@
 import React from "react";
+import {Link} from "react-router-dom";
 import HeroCarousel from "../components/HeroCarousel";
 import Cards from "../components/Cards";
 import ProgramsAndEvents from "../components/ProgramsAndEvents";
@@ -17,12 +18,12 @@ export default function Home() {
             incorporated in 2016. We are committed to improving community health
             awareness and outcomes across Nigeria.
           </p>
-          <a
-            href="#programs"
-            className="inline-block mt-6 bg-sky-600 hover:bg-sky-700 text-white font-semibold px-6 py-3 rounded-lg"
+          <Link
+            to="/about"
+            className="inline-block mt-6 bg-blue-700 hover:bg-blue-800 text-white font-semibold px-6 py-3 rounded-lg"
           >
             Read More
-          </a>
+          </Link>
         </div>
       </section>
 
