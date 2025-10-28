@@ -28,7 +28,7 @@ export default function Empowerment() {
   return (
     <div className="min-h-screen bg-sky-200/10 text-gray-800">
       {/* Row 1: Page Title */}
-      <section className="py-8 px-6 max-w-7xl mx-auto">
+      <section className="py-8 px-2 max-w-7xl mx-auto">
         <h1 className="text-3xl font-extrabold text-sky-800 text-center mb-2">
           Empowerment
         </h1>
@@ -36,7 +36,7 @@ export default function Empowerment() {
       </section>
 
       {/* Row 2: Empowerment Text */}
-      <section className="px-6 max-w-4xl mx-auto">
+      <section className="px-2 max-w-4xl mx-auto">
         <div className="space-y-3 text-slate-700 leading-relaxed text-justify">
           <p>
             At Blue Gate Initiative, we believe in the power of empowerment to create positive
@@ -63,7 +63,7 @@ export default function Empowerment() {
       </section>
 
       {/* Row 3: Carousel Section */}
-      <section className="py-8 px-6 max-w-4xl mx-auto">
+      <section className="py-8 px-2 max-w-4xl mx-auto">
         <div className="relative overflow-hidden rounded-lg">
           <div
             className="flex transition-transform duration-500 ease-in-out"
@@ -76,10 +76,10 @@ export default function Empowerment() {
                     src={slide.image}
                     alt={slide.title}
                     onError={() => setImageError(true)}
-                    className="w-full h-72 sm:h-80 md:h-96 object-cover rounded-2xl"
+                    className="w-full h-60 sm:h-72 md:h-96 object-cover rounded-xl"
                   />
                 ) : (
-                  <div className="w-full h-72 sm:h-80 md:h-96 flex items-center justify-center bg-gray-200 rounded-t-2xl">
+                  <div className="w-full h-60 sm:h-72 md:h-96 flex items-center justify-center bg-gray-200 rounded-xl">
                     <p className="text-gray-500 text-center">Image unavailable. Check asset path.</p>
                   </div>
                 )}

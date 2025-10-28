@@ -49,13 +49,13 @@ export default function HealthCommunication() {
 
   return (
     <div className="bg-sky-200/10 text-slate-700 min-h-screen">
-      <div className="max-w-7xl mx-auto px-6 py-12">
+      <div className="max-w-5xl mx-auto px-2 py-12">
         {/* Page header */}
         <header className="mb-8">
           <h1 className="text-3xl md:text-4xl font-extrabold text-center text-sky-800">
             Health Communication
           </h1>
-          <p className="mt-3 text-sm md:text-base text-slate-600 max-w-6xl text-center">
+          <p className="mt-3 text-sm md:text-base text-slate-600 max-w-5xl text-center">
             Health communication campaigns are vital for spreading awareness,
             promoting healthy behaviors, and educating the public about
             health-related issues. At Blue Gate, we believe in the power of
@@ -175,7 +175,7 @@ export default function HealthCommunication() {
 
             <div className="relative rounded-2xl overflow-hidden bg-white">
               {/* carousel viewport */}
-              <div className="relative w-full h-[420px] md:h-[520px]">
+              <div className="relative w-full h-[320px] md:h-[520px]">
                 {carouselImages.map((src, i) => {
                   const visible = i === index;
                   return (
@@ -227,7 +227,7 @@ export default function HealthCommunication() {
         </section>
 
         {/* optional: small caption or paragraph below carousel */}
-        <div className="mt-6 max-w-6xl mx-auto text-sm text-slate-600">
+        <div className="mt-6 max-w-5xl mx-auto text-sm text-slate-600">
           <p>
             Our communications team — scriptwriters, camera crew, editors and
             outreach coordinators — work closely with communities to produce

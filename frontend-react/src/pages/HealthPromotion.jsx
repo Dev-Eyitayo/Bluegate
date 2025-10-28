@@ -17,9 +17,9 @@ export default function HealthPromotion() {
     }
   ];
   return (
-    <div className="min-h-screen bg-sky-50 text-gray-800">
+    <div className="min-h-screen bg-sky-200/10 px-2 text-gray-800">
       {/* Intro Section */}
-      <section className="py-16 px-4 max-w-6xl mx-auto">
+      <section className="py-16 px-3 max-w-5xl mx-auto">
         <h1 className="text-3xl font-extrabold text-sky-800 text-center mb-8">
           Our Programme
         </h1>
@@ -55,7 +55,7 @@ export default function HealthPromotion() {
       </section>
 
       {/* Common Programme Elements */}
-      <section className="py-16 px-4 max-w-6xl mx-auto">
+      <section className="py-16 px-3 max-w-5xl mx-auto">
         <SectionHeader icon={Activity} title="Our Common Programme Elements" />
         <ul className="text-slate-700 list-decimal list-inside space-y-2 mt-4">
           <li>
@@ -90,7 +90,7 @@ export default function HealthPromotion() {
       </section>
 
       {/* Strategic Programme Areas */}
-      <section className="py-16 px-4 max-w-6xl mx-auto">
+      <section className="py-16 px-3 max-w-5xl mx-auto">
         <SectionHeader icon={HeartPulse} title="Strategic Programme Areas" />
 
         {/* Malaria Control */}
@@ -181,11 +181,11 @@ export default function HealthPromotion() {
         </div>
 
         {/* Maternal and Child Health */}
-        <div className="mt-20 grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+        <div className="mt-20 grid grid-cols-1 md:grid-cols-[auto_1fr] gap-10 items-center">
           <img
             src="/assets/maternal.png"
             alt="Maternal and Child Health"
-            className="rounded-xl "
+            className="rounded-xl w-auto h-auto max-w-sm mx-auto md:mx-0"
           />
           <div>
             <h3 className="text-2xl font-semibold text-sky-800 mb-4">

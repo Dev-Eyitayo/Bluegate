@@ -37,9 +37,9 @@ export default function UnitedNationsDays() {
   ];
 
   return (
-    <div className="min-h-screen bg-sky-50 text-gray-800">
+    <div className="min-h-screen bg-sky-200/10 text-gray-800">
       {/* Intro Section */}
-      <section className="py-16 px-4 max-w-6xl mx-auto">
+      <section className="py-16 px-4 max-w-4xl mx-auto">
         <SectionHeader icon={Globe2} title="United Nations Days" />
         <p className="text-slate-600 leading-relaxed mb-6">
           The international days are occasions to educate the general public on issues of concern,
@@ -53,7 +53,7 @@ export default function UnitedNationsDays() {
       </section>
 
       {/* World Sight Day */}
-      <section className="py-16 px-4 max-w-6xl mx-auto">
+      <section className="py-16 px-4 max-w-4xl mx-auto">
         <SectionHeader icon={Eye} title="2020 World Sight Day" />
         <p className="text-slate-600 leading-relaxed mb-6">
           On 8th October 2020, Blue Gate Initiative joined the world to observe World Sight Day—an
@@ -69,7 +69,7 @@ export default function UnitedNationsDays() {
       </section>
 
       {/* World Diabetes Day */}
-      <section className="py-16 px-4 max-w-6xl mx-auto">
+      <section className="py-16 px-4 max-w-4xl mx-auto">
         <SectionHeader icon={Activity} title="2020 World Diabetes Day" />
         <p className="text-slate-600 leading-relaxed mb-6">
           The 2020 World Diabetes Day was commemorated by Blue Gate Public Health Promotion
@@ -86,7 +86,7 @@ export default function UnitedNationsDays() {
       </section>
 
       {/* World AIDS Day */}
-      <section className="py-16 px-4 max-w-6xl mx-auto">
+      <section className="py-16 px-4 max-w-4xl mx-auto">
         <SectionHeader icon={HeartPulse} title="2020 World AIDS Day: Blue Gate Commemoration" />
         <p className="text-slate-600 leading-relaxed mb-6">
           The 2020 World AIDS Day was observed in the context of COVID-19 with the theme
@@ -102,7 +102,7 @@ export default function UnitedNationsDays() {
       </section>
 
       {/* Asthma Day */}
-      <section className="py-16 px-4 max-w-6xl mx-auto">
+      <section className="py-16 px-4 max-w-4xl mx-auto">
         <SectionHeader icon={Wind} title="Asthma Day 2017 Rally Walk" />
         <p className="text-slate-600 leading-relaxed mb-6">
           Blue Gate Public Health Promotion Initiative, in collaboration with the Association of
@@ -118,7 +118,7 @@ export default function UnitedNationsDays() {
       </section>
 
       {/* Malaria Day */}
-      <section className="py-16 px-4 max-w-6xl mx-auto">
+      <section className="py-16 px-4 max-w-4xl mx-auto">
         <SectionHeader icon={Activity} title="Malaria Day at Oranyan Community" />
         <p className="text-slate-600 leading-relaxed mb-6">
           The Blue Gate team carried out community outreach activities to mark the 2017 World Malaria

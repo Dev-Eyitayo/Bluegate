@@ -4,9 +4,9 @@ import { HandHeart, Mail } from "lucide-react";
 
 export default function Volunteer() {
   return (
-    <div className="min-h-screen bg-sky-50 text-gray-800">
+    <div className="min-h-screen bg-sky-200/10 text-gray-800">
       {/* Page Header */}
-      <section className="py-16 px-4 max-w-6xl mx-auto">
+      <section className="py-16 px-4 max-w-5xl mx-auto">
         <SectionHeader icon={HandHeart} title="Volunteer with Blue Gate Initiative" />
         
         {/* Intro */}
@@ -85,7 +85,7 @@ export default function Volunteer() {
             href="/volunteer-form"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-block bg-sky-700 hover:bg-sky-800 text-white font-medium rounded-xl shadow-md px-6 py-2 transition-colors"
+            className="inline-block bg-sky-700 hover:bg-sky-800 text-white font-medium rounded-lg shadow-sm px-6 py-3 transition-colors"
           >
             Volunteer Form
           </a>
