@@ -36,12 +36,12 @@ export default function Footer() {
             <li><a href="https://x.com/BlueInitiative" className="hover:text-sky-300 transition-colors">Twitter</a></li>
             {/* <li><a href="https://instagram.com/BlueGateInitiative" className="hover:text-sky-300 transition-colors">Instagram</a></li> */}
           </ul>
-          {/* Placeholder for Twitter/X widget - to be replaced with actual X integration */}
+          
           
         </div>
       </div>
       <div className="text-center text-sm text-gray-500 py-4 border-t border-gray-800">
-        &copy; 2025 Blue Gate Initiative. All rights reserved.
+        &copy; {new Date().getFullYear()} Blue Gate Initiative. All rights reserved.
       </div>
     </footer>
   );

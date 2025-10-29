@@ -183,7 +183,7 @@ export default function HealthPromotion() {
         {/* Maternal and Child Health */}
         <div className="mt-20 grid grid-cols-1 md:grid-cols-[auto_1fr] gap-10 items-center">
           <img
-            src="/assets/maternal.png"
+            src="../src/assets/maternal.png"
             alt="Maternal and Child Health"
             className="rounded-xl w-auto h-auto max-w-sm mx-auto md:mx-0"
           />
@@ -238,7 +238,7 @@ export default function HealthPromotion() {
         {/* Non-Communicable Diseases */}
         <div className="mt-20 grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
           <img
-            src="/assets/non-communicable.jpg"
+            src="../src/assets/non-communicable.jpg"
             alt="Non-Communicable Diseases"
             className="rounded-xl "
           />
