@@ -112,7 +112,7 @@ export default function About() {
           </div>
           <div className="order-1 lg:order-2">
             <img
-              src="/assets/about-intro.png" 
+              src="../src/assets/about-intro.png" 
               alt="Blue Gate Initiative Team"
               className="w-full h-64 object-cover rounded-lg shadow-sm"
             />

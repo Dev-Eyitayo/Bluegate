@@ -1,40 +1,19 @@
 import React from "react";
 import SectionHeader from "../components/SectionHeader";
 import ImageCarousel from "../components/ImageCarousel";
-import { Globe2, Eye, Activity, HeartPulse, Wind } from "lucide-react";
+import { loadSlides } from "../../utils/loadImages";
 
 export default function MedicalOutreach() {
   // Carousel slides
-  const sightDaySlides = [
-    { image: "/assets/olubadan1.jpg", title: "" },
-    { image: "/assets/worldsight2.jpg", title: "" },
-  ];
 
-  const diabetesDaySlides = [
-    { image: "/assets/diabetes1.jpg", title: "" },
-    { image: "/assets/diabetes2.jpg", title: "" },
-    { image: "/assets/diabetes3.jpg", title: "" },
-  ];
+  const olubadanSlides = loadSlides("olubadan outreach");
+  const apataSlides = loadSlides("apata outreach");
+  const foursquareSlides = loadSlides("foursquare outreach");
+  const inspirationfmSlides = loadSlides("inspirationfm outreach");
+  const nawojSlides = loadSlides("nawoj outreach");
+  const uiSlides = loadSlides("ui outreach");
+  const zontaSlides = loadSlides("zonta outreach");
 
-  const aidsDaySlides = [
-    { image: "/assets/aidsday1.jpg", title: "" },
-    { image: "/assets/aidsday2.jpg", title: "" },
-    { image: "/assets/aidsday3.jpg", title: ""},
-    { image: "/assets/aidsday4.jpg", title: "" },
-  ];
-
-  const asthmaDaySlides = [
-    { image: "/assets/asthma1.jpg", title: "" },
-    { image: "/assets/asthma2.jpg", title: "" },
-    { image: "/assets/asthma3.jpg", title: "" },
-  ];
-
-  const malariaDaySlides = [
-    { image: "/assets/malariaday1.jpg", title: "" },
-    { image: "/assets/malariaday2.jpg", title: "" },
-    { image: "/assets/malariaday3.jpg", title: "" },
-    { image: "/assets/malariaday4.jpg", title: "" },
-  ];
 
   return (
     <div className="min-h-screen bg-sky-200/10 text-gray-800">
@@ -81,7 +60,7 @@ export default function MedicalOutreach() {
           for the Community people, the Royal family and the Chiefs. Below are few pictures to illustrate the event:
         </p>
         <div className="max-w-3xl mx-auto">
-            <ImageCarousel slides={sightDaySlides} />
+            <ImageCarousel slides={olubadanSlides} />
         </div>
       </section>
 
@@ -93,7 +72,7 @@ export default function MedicalOutreach() {
           community people. The medical check-up include Blood pressure check, Blood glucose test, HIV testing among others. Pictures below:
         </p>
         <div className="max-w-3xl mx-auto">
-            <ImageCarousel slides={sightDaySlides} />
+            <ImageCarousel slides={apataSlides} />
         </div>
       </section>
 
@@ -110,7 +89,7 @@ export default function MedicalOutreach() {
           importance of early detection, regular check-ups, and preventive care for diabetes management.
         </p>
         <div className="max-w-3xl mx-auto">
-            <ImageCarousel slides={diabetesDaySlides} />
+            <ImageCarousel slides={nawojSlides} />
         </div>
       </section>
 
@@ -124,7 +103,7 @@ export default function MedicalOutreach() {
           finally medical screening and consultation.
         </p>
         <div className="max-w-3xl mx-auto">
-            <ImageCarousel slides={aidsDaySlides} />
+            <ImageCarousel slides={foursquareSlides} />
         </div>
       </section>
 
@@ -135,7 +114,7 @@ export default function MedicalOutreach() {
           Free medical services was carried out for the Nigerian Association of Adult Education Student (NAAES) University of Ibadan Chapter on the 16th of November 2017.
         </p>
         <div className="max-w-3xl mx-auto">
-            <ImageCarousel slides={asthmaDaySlides} />
+            <ImageCarousel slides={uiSlides} />
         </div>
       </section>
 
@@ -149,7 +128,7 @@ export default function MedicalOutreach() {
           9.20 am and about 80 persons were reached at the end of the outreach. The objective of the outreach was to determine the Body mass index, Blood sugar, Blood pressure and Temperature of the participants. Below are few pictures taken at the event:
         </p>
         <div className="max-w-3xl mx-auto">
-            <ImageCarousel slides={malariaDaySlides} />
+            <ImageCarousel slides={zontaSlides} />
         </div>
       </section>
     </div>

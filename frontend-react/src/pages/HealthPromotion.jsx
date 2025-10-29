@@ -6,13 +6,13 @@ import ImageCarousel from "../components/ImageCarousel";
 export default function HealthPromotion() {
     const slides = [
     {
-      image: "/assets/healthpromo3.jpg",
+      image: "../src/assets/healthpromo3.jpg",
       title: "Blue Gate team with the Oyo State Honorable commissioner for health (Dr Bello), the permanent secretary (Dr Ayoola), and Director of Public health (Dr Lawal) during the 2020 World AIDS Day celebration.",
     }
   ];
     const diabetes = [
     {
-      image: "/assets/diabetes.jpg",
+      image: "../src/assets/diabetes.jpg",
       title: "Non communicable diseases",
     }
   ];
@@ -96,7 +96,7 @@ export default function HealthPromotion() {
         {/* Malaria Control */}
         <div className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
           <img
-            src="/assets/malaria.jpg"
+            src="../src/assets/malaria.jpg"
             alt="Malaria Control"
             className="rounded-xl "
           />
@@ -170,7 +170,7 @@ export default function HealthPromotion() {
             </ul>
           </div>
           <img
-            src="/assets/hivaids.jpg"
+            src="../src/assets/hivaids.jpg"
             alt="HIV/AIDS Programme"
             className="rounded-xl "
           />
@@ -229,7 +229,7 @@ export default function HealthPromotion() {
             </p>
           </div>
           <img
-            src="/assets/environmental.jpg"
+            src="../src/assets/environmental.jpg"
             alt="Environmental Health"
             className="rounded-xl "
           />
@@ -293,7 +293,7 @@ export default function HealthPromotion() {
             </ul>
           </div>
           <img
-            src="/assets/tb.jpeg"
+            src="../src/assets/tb.jpeg"
             alt="Tuberculosis"
             className="rounded-xl "
           />

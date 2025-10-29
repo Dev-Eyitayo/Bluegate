@@ -2,39 +2,18 @@ import React from "react";
 import SectionHeader from "../components/SectionHeader";
 import ImageCarousel from "../components/ImageCarousel";
 import { Globe2, Eye, Activity, HeartPulse, Wind } from "lucide-react";
+import { loadUnitedNationSlides } from "../../utils/loadImages";
+
 
 export default function UnitedNationsDays() {
   // Carousel slides
-  const sightDaySlides = [
-    { image: "/assets/worldsight1.jpg", title: "World Sight Day awareness event with Blue Gate team members and community members." },
-    { image: "/assets/worldsight2.jpg", title: "Oyo State Ministry of Health officials joining the Blue Gate Initiative for the 2020 World Sight Day campaign." },
-  ];
 
-  const diabetesDaySlides = [
-    { image: "/assets/diabetes1.jpg", title: "Blue Gate Initiative 2020 World Diabetes Day health screening and awareness session." },
-    { image: "/assets/diabetes2.jpg", title: "Participants receiving diabetes screening and nutrition education during the 2020 World Diabetes Day." },
-    { image: "/assets/diabetes3.jpg", title: "Community members being attended to by medical volunteers during the Blue Gate Initiative World Diabetes Day outreach." },
-  ];
-
-  const aidsDaySlides = [
-    { image: "/assets/aidsday1.jpg", title: "Blue Gate Initiative 2020 World AIDS Day commemoration with Oyo State Ministry of Health officials." },
-    { image: "/assets/aidsday2.jpg", title: "Community outreach and sensitization programme for HIV prevention and testing." },
-    { image: "/assets/aidsday3.jpg", title: "Staff and volunteers promoting awareness on HIV testing and treatment adherence." },
-    { image: "/assets/aidsday4.jpg", title: "Blue Gate team photo during World AIDS Day community engagement." },
-  ];
-
-  const asthmaDaySlides = [
-    { image: "/assets/asthma1.jpg", title: "Asthma Day 2017 rally walk with Blue Gate Initiative and volunteers." },
-    { image: "/assets/asthma2.jpg", title: "Community sensitization event during World Asthma Day walk in Ibadan." },
-    { image: "/assets/asthma3.jpg", title: "Blue Gate team members raising awareness about respiratory health." },
-  ];
-
-  const malariaDaySlides = [
-    { image: "/assets/malariaday1.jpg", title: "Malaria Day outreach at Oranyan community with Blue Gate health workers." },
-    { image: "/assets/malariaday2.jpg", title: "Children and community members participating in malaria education activities." },
-    { image: "/assets/malariaday3.jpg", title: "Medical team providing malaria tests and consultations at the Oranyan community." },
-    { image: "/assets/malariaday4.jpg", title: "Sensitization session about malaria prevention and hygiene practices." },
-  ];
+  const diabetesSlides = loadUnitedNationSlides("diabetes");
+  const sightSlides = loadUnitedNationSlides("sight");
+  const aidsSlides = loadUnitedNationSlides("aids");
+  const asthmaSlides = loadUnitedNationSlides("asthma");
+  const malariaSlides = loadUnitedNationSlides("malaria");
+  const internationalDaySlides = loadUnitedNationSlides("internationalDay");
 
   return (
     <div className="min-h-screen bg-sky-200/10 text-gray-800">
@@ -50,6 +29,9 @@ export default function UnitedNationsDays() {
           observances related to health, education, and social justice as part of our efforts to raise
           awareness and support sustainable development goals (SDGs) in Nigeria.
         </p>
+        {/* <div className="max-w-3xl mx-auto">
+            <ImageCarousel slides={internationalDaySlides} />
+        </div> */}
       </section>
 
       {/* World Sight Day */}
@@ -64,7 +46,7 @@ export default function UnitedNationsDays() {
           with the Oyo State Ministry of Health.
         </p>
         <div className="max-w-3xl mx-auto">
-            <ImageCarousel slides={sightDaySlides} />
+            <ImageCarousel slides={sightSlides} />
         </div>
       </section>
 
@@ -81,7 +63,7 @@ export default function UnitedNationsDays() {
           importance of early detection, regular check-ups, and preventive care for diabetes management.
         </p>
         <div className="max-w-3xl mx-auto">
-            <ImageCarousel slides={diabetesDaySlides} />
+            <ImageCarousel slides={diabetesSlides} />
         </div>
       </section>
 
@@ -97,7 +79,7 @@ export default function UnitedNationsDays() {
           continued solidarity in the fight against HIV, even amidst a global pandemic.
         </p>
         <div className="max-w-3xl mx-auto">
-            <ImageCarousel slides={aidsDaySlides} />
+            <ImageCarousel slides={aidsSlides} />
         </div>
       </section>
 
@@ -113,7 +95,7 @@ export default function UnitedNationsDays() {
           public who joined the awareness march.
         </p>
         <div className="max-w-3xl mx-auto">
-            <ImageCarousel slides={asthmaDaySlides} />
+            <ImageCarousel slides={asthmaSlides} />
         </div>
       </section>
 
@@ -129,7 +111,7 @@ export default function UnitedNationsDays() {
           malaria prevention.
         </p>
         <div className="max-w-3xl mx-auto">
-            <ImageCarousel slides={malariaDaySlides} />
+            <ImageCarousel slides={malariaSlides} />
         </div>
       </section>
     </div>

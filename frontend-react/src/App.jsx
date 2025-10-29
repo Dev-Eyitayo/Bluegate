@@ -11,8 +11,7 @@ import UnitedNationsDays from "./pages/UnitedNationsDays";
 import Volunteer from "./pages/Volunteer";
 import MedicalOutreach from "./pages/MedicalOutreach";
 import VolunteerForm from "./pages/VolunteerForm";
-// import Projects from "./pages/Projects";
-// import Contact from "./pages/Contact";
+import ContactUs from "./pages/ContactUs";
 
 export default function App() {
   return (
@@ -95,6 +94,14 @@ export default function App() {
           element={
             <MainLayout>
               <MedicalOutreach />
+            </MainLayout>
+          }
+        />
+        <Route
+          path="/contact-us"
+          element={
+            <MainLayout>
+              <ContactUs />
             </MainLayout>
           }
         />

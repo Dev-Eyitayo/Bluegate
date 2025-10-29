@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 export default function Footer() {
   return (
@@ -19,13 +20,13 @@ export default function Footer() {
         <div className="mb-6 md:mb-0 md:mx-8">
           <h4 className="font-bold text-lg mb-2">Quick Links</h4>
           <ul className="text-sm text-gray-400 space-y-1">
-            <li><a href="/about" className="hover:text-sky-300 transition-colors">About Us</a></li>
-            <li><a href="/health-promotion" className="hover:text-sky-300 transition-colors">Programme</a></li>
-            <li><a href="/health-communication" className="hover:text-sky-300 transition-colors">Health Communication</a></li>
-            <li><a href="/empowerment" className="hover:text-sky-300 transition-colors">Empowerment</a></li>
-            <li><a href="/human-rights" className="hover:text-sky-300 transition-colors">Human Rights</a></li>
-            <li><a href="/un-days" className="hover:text-sky-300 transition-colors">UN Days Activities</a></li>
-            <li><a href="/contact" className="hover:text-sky-300 transition-colors">Contact Us</a></li>
+            <li><Link to="/about" className="hover:text-sky-300 transition-colors">About Us</Link></li>
+            <li><Link to="/health-promotion" className="hover:text-sky-300 transition-colors">Programme</Link></li>
+            <li><Link to="/health-communication" className="hover:text-sky-300 transition-colors">Health Communication</Link></li>
+            <li><Link to="/empowerment" className="hover:text-sky-300 transition-colors">Empowerment</Link></li>
+            <li><Link to="/human-rights" className="hover:text-sky-300 transition-colors">Human Rights</Link></li>
+            <li><Link to="/un-days" className="hover:text-sky-300 transition-colors">UN Days Activities</Link></li>
+            <li><Link to="/contact-us" className="hover:text-sky-300 transition-colors">Contact Us</Link></li>
           </ul>
         </div>
         <div className="md:ml-8">
