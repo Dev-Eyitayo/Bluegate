@@ -52,6 +52,16 @@ export default function HeroCarousel() {
     }
   };
 
+  useEffect(() => {
+  const img = new Image();
+  img.src = slides[current].img;
+
+  // Optionally preload the next one too
+  const nextImg = new Image();
+  nextImg.src = slides[(current + 1) % slides.length].img;
+  }, [current]);
+
+
   return (
     <div 
       // Reverted to original height classes

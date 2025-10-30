@@ -70,7 +70,7 @@ export default function Header() {
     <header className="bg-white shadow-sm">
       {/* Top Bar */}
       <div className="bg-gradient-to-r from-blue-600 to-blue-800 text-white text-sm">
-        <div className="max-w-7xl mx-auto px-4 py-3 flex flex-col sm:flex-row sm:justify-between sm:items-center gap-3">
+        <div className="max-w-7xl mx-auto px-4 py-2 flex flex-col sm:flex-row sm:justify-between sm:items-center gap-3">
           <div className="flex items-center gap-2">
             <span className="font-medium">Emergency:</span>
             <strong>+234-806-590-3150</strong>
