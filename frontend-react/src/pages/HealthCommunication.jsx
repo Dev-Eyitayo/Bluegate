@@ -2,8 +2,8 @@ import React, { useEffect, useRef, useState } from "react";
 
 
 const carouselImages = [
-  "../src/assets/crew1.jpg",   
-  "../src/assets/crew2.jpg",
+  "/assets/crew1.jpg",   
+  "/assets/crew2.jpg",
 ];
 
 export default function HealthCommunication() {
@@ -72,7 +72,7 @@ export default function HealthCommunication() {
           
             <div className="flex justify-center lg:justify-start">
               <img
-                src="../src/assets/communicate.png"
+                src="/assets/communicate.png"
                 alt="Communicate Health logo"
                 className="w-72 md:w-96 object-contain"
               />

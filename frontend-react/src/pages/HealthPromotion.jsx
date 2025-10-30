@@ -6,13 +6,13 @@ import ImageCarousel from "../components/ImageCarousel";
 export default function HealthPromotion() {
     const slides = [
     {
-      image: "../src/assets/healthpromo3.jpg",
+      image: "/assets/healthpromo3.jpg",
       title: "Blue Gate team with the Oyo State Honorable commissioner for health (Dr Bello), the permanent secretary (Dr Ayoola), and Director of Public health (Dr Lawal) during the 2020 World AIDS Day celebration.",
     }
   ];
     const diabetes = [
     {
-      image: "../src/assets/diabetes.jpg",
+      image: "/assets/diabetes.jpg",
       title: "Non communicable diseases",
     }
   ];
@@ -201,7 +201,7 @@ export default function HealthPromotion() {
               behavior of women.
             </p>
             <p className="text-slate-600 leading-relaxed">
-              We are a leading women’s health organization committed to ensuring
+              We are a leading women’s health organization committed to ens
               that every pregnancy is planned, every child is wanted, and every
               mother has the best chance at survival.
             </p>

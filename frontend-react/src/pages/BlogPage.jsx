@@ -11,7 +11,7 @@ const blogPosts = [
           reinforce achievements of humanity. Blue Gate Initiative joins the rest of the world in
           observing internationally declared days to showcase its efforts in addressing global health
           issues, social equity, and awareness creation in communities...`,
-    image: "../src/assets/unitedNations/internationalDay/internationalDay3.jpg",
+    image: "/assets/unitedNations/internationalDay/internationalDay3.jpg",
   },
   {
     id: "health-awareness-campaign",

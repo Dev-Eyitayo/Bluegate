@@ -4,11 +4,11 @@ export default function Persor() {
   // Slider Data
   const slides = [
     {
-      image: "../src/assets/bluegate.jpg",
+      image: "/assets/bluegate.jpg",
       title: "Blue Gate Initiative Logo",
     },
     {
-      image: "../src/assets/prison.png",
+      image: "/assets/prison.png",
       title: "Agodi Custodial Correctional Centre",
     },
   ];
@@ -160,7 +160,7 @@ export default function Persor() {
           The project will be managed by the Community Advisory Board (CAB), including representatives from Prison Fellowship Nigeria, donors, and Blue Gate Initiative. They provide oversight and meet monthly.
         </p>
         <img
-          src="../src/assets/prison2.png"
+          src="/assets/prison2.png"
           alt="Project Management"
           className="w-full h-auto rounded-lg"
         />

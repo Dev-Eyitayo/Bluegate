@@ -4,11 +4,11 @@ export default function Empowerment() {
   // Slider Data
   const slides = [
     {
-      image: "../src/assets/vocation-ibadan.jpg",
+      image: "/assets/vocation-ibadan.jpg",
       title: "Makeup vocational training for sex workers in Ibadan, Nigeria",
     },
     {
-      image: "../src/assets/chair-ceo.jpg",
+      image: "/assets/chair-ceo.jpg",
       title:
         "Professor Atinuke Agunloye (Blue Gate BOT Chair) and Dr. Ademola Adelekan (Blue Gate CEO)",
     },

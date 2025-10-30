@@ -4,7 +4,7 @@ export default function HumanRight() {
   // Slider Data
   const slides = [
     {
-      image: "../src/assets/humanright1.jpg",
+      image: "/assets/humanright1.jpg",
       title: "",
     }
   ];

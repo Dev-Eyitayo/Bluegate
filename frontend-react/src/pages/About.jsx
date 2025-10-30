@@ -35,49 +35,49 @@ export default function About() {
       name: "Prof. Ademola ADELEKAN",
       title: "CEO",
       email: "ademola.adelekan@bluegateinitiative.org",
-      image: "../src/assets/executives/ademola.png",
+      image: "/assets/executives/ademola.png",
     },
     {
       name: "Professor (Mrs.) Atinuke AGUNLOYE",
       title: "Board Chair",
       email: "atilnu.agunloye@bluegateinitiative.org",
-      image: "../src/assets/executives/atinuke.png",
+      image: "/assets/executives/atinuke.png",
     },
     {
       name: "Dr. Odekunle FAKUNLE",
       title: "Director, Community Health Services",
       email: "odekunle.fakunle@bluegateinitiative.org",
-      image: "../src/assets/executives/fakunle.png",
+      image: "/assets/executives/fakunle.png",
     },
     {
       name: "Dr. Oladipupo OLALEYE",
       title: "Director, Research, Monitoring & Evaluation",
       email: "olaidupo.olaeye@bluegateinitiative.org",
-      image: "../src/assets/executives/oladipupo.png",
+      image: "/assets/executives/oladipupo.png",
     },
     {
       name: "Mrs. Boluwatife AKINTUNDE",
       title: "Director, Administration",
       email: "boluwatife.akintunde@bluegateinitiative.org",
-      image: "../src/assets/executives/boluwatife.png",
+      image: "/assets/executives/boluwatife.png",
     },
     {
       name: "Mrs. Philomena OSAGIE",
       title: "Director, Consultancy Services",
       email: "philomena.osagie@bluegateinitiative.org",
-      image: "../src/assets/executives/philomena.png",
+      image: "/assets/executives/philomena.png",
     },
     {
       name: "Ms. Tunrayo ADETONA",
       title: "Director of Finance",
       email: "tunrayo.adetona@bluegateinitiative.org",
-      image: "../src/assets/executives/tunrayo.png",
+      image: "/assets/executives/tunrayo.png",
     },
     {
       name: "Dr. Opeyemi OLADUNNI",
       title: "Director of Training Services",
       email: "opeyemi.olaodunni@bluegateinitiative.org",
-      image: "../src/assets/executives/opeyemi.png",
+      image: "/assets/executives/opeyemi.png",
     },
   ];
 
@@ -112,7 +112,7 @@ export default function About() {
           </div>
           <div className="order-1 lg:order-2">
             <img
-              src="../src/assets/about-intro.png" 
+              src="/assets/about-intro.png" 
               alt="Blue Gate Initiative Team"
               className="w-full h-64 object-cover rounded-lg shadow-sm"
             />

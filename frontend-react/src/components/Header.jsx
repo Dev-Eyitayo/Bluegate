@@ -93,7 +93,7 @@ export default function Header() {
         <Link to="/">
           <div className="flex items-center gap-3">
             <img
-              src="../src/assets/bluegate-logo.jpg"
+              src="/assets/bluegate-logo.jpg"
               alt="Blue Gate Initiative logo"
               className="w-12 h-12 rounded-lg object-cover"
             />

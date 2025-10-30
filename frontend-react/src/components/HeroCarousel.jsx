@@ -1,8 +1,8 @@
 import React, { useEffect, useState, useRef } from 'react';
 // import { hero1 } from "../assets/hero1.png";
 const slides = [
-  { id: 1, title: 'Team at Olubadan Palace', text: 'Advocating for healthier communities through leadership and partnership.', img: '../src/assets/hero1.png' },
-  { id: 2, title: 'Empowering Lives Through Health', text: 'Driving change with evidence-based community programs and outreach.', img: '../src/assets/hero2.jpg' },
+  { id: 1, title: 'Team at Olubadan Palace', text: 'Advocating for healthier communities through leadership and partnership.', img: '/assets/hero1.png' },
+  { id: 2, title: 'Empowering Lives Through Health', text: 'Driving change with evidence-based community programs and outreach.', img: '/assets/hero2.jpg' },
   { id: 3, title: 'Better Care, Brighter Communities', text: 'We are committed to promoting public health through community engagement, advocacy, and education.', img: '../src/assets/hero3.jpg' }
 ];
 
