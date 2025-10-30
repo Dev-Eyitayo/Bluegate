@@ -12,6 +12,12 @@ import Volunteer from "./pages/Volunteer";
 import MedicalOutreach from "./pages/MedicalOutreach";
 import VolunteerForm from "./pages/VolunteerForm";
 import ContactUs from "./pages/ContactUs";
+import Persor from "./pages/Persor";
+import BlogPage from "./pages/BlogPage";
+import Publications from "./pages/Publications";
+import Research from "./pages/Research";
+import TrainingForm from "./pages/TrainingForm";
+import Training from "./pages/Training";
 
 export default function App() {
   return (
@@ -66,7 +72,7 @@ export default function App() {
           }
         />
         <Route
-          path="/un-days"
+          path="blogs/un-days"
           element={
             <MainLayout>
               <UnitedNationsDays />
@@ -105,6 +111,62 @@ export default function App() {
             </MainLayout>
           }
         />
+        <Route
+          path="/persor-project"
+          element={
+            <MainLayout>
+              <Persor />
+            </MainLayout>
+          }
+        />
+        <Route
+          path="/blogs"
+          element={
+            <MainLayout>
+              <BlogPage />
+            </MainLayout>
+          }
+        />
+        <Route
+          path="/publications"
+          element={
+            <MainLayout>
+              <Publications />
+            </MainLayout>
+          }
+        />
+        <Route
+          path="/research"
+          element={
+            <MainLayout>
+              <Research />
+            </MainLayout>
+          }
+        />
+        <Route
+          path="/training"
+          element={
+            <MainLayout>
+              <Training />
+            </MainLayout>
+          }
+        />
+        <Route
+          path="/training-form"
+          element={
+            <MainLayout>
+              <TrainingForm />
+            </MainLayout>
+          }
+        />
+        {/* <Route
+          path="/research"
+          element={
+            <MainLayout>
+              <Research />
+            </MainLayout>
+          }
+        /> */}
       
       </Routes>
     </Router>

@@ -4,10 +4,8 @@ import { HeartHandshake } from "lucide-react";
 const SupportSection = () => {
   return (
     <div>
-      <div className="flex flex-col items-center mb-6 text-center">
-        <div className="flex items-center justify-center w-14 h-14 rounded-full bg-sky-100 mb-3">
-          <HeartHandshake className="w-7 h-7 text-sky-700" />
-        </div>
+      <div className="flex flex-col items-center mb-4 text-center">
+        
         <h2 className="text-xl font-bold text-sky-800">Please Support Us</h2>
       </div>
       <div className="border border-slate-200 rounded-xl p-6 bg-slate-50">

@@ -25,43 +25,57 @@ const programmes = [
 const events = [
   {
     title:
-      "PERSONOR Project: A PROJECT TO PROMOTE ECONOMIC REHABILITATION AND SOCIAL REINTEGRATION OF EX-INMATES IN IBADAN, NIGERIA...",
+      "PERSOR Project: A PROJECT TO PROMOTE ECONOMIC REHABILITATION AND SOCIAL REINTEGRATION OF EX-INMATES IN IBADAN, NIGERIA. ",
     description:
-      "1. Implementation of a project to promote economic rehabilitation and social reintegration of ex-inmates in Ibadan, Nigeria (PERSONOR PROJECT) in partnership with Prison Fellowship of Nigeria (PFN), Oyo State Chapter...",
+      "",
+    href: "/persor-project"
   },
   {
-    title: "Implementation of WOMEN EMPOWERMENT project in Osun State...",
-    description: "2. Implementation of WOMEN EMPOWERMENT project in Osun State...",
+    title: "",
+    description:
+      "2. Implementation of a project to promote economic rehabilitation and social reintegration of ex-inmates in Ibadan, Nigeria (PERSONOR PROJECT) in partnership with Prison Fellowship of Nigeria (PFN), Oyo State Chapter.",
+  },
+  {
+    title: "",
+    description: "3. Implementation of WOMEN EMPOWERMENT project in Osun State.",
+  },
+  {
+    title: "",
+    description: "4. Public presentation of biography book in honour of HRM (Oba) Abioye Oyebode, Olokuku of Okukuland and community video documentary.",
   },
 ];
-
 export default function ProgramsAndEvents() {
   return (
     <section className="max-w-6xl mx-auto px-4 py-12">
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-        {/* Health Promotion Programmes */}
-        <div className="lg:col-span-1">
-          <SectionHeader icon={Activity} title="Health Promotion Programmes" />
-          <Accordion items={programmes} />
-        </div>
-
-        {/* Upcoming Events */}
-        <div className="lg:col-span-1">
-          <SectionHeader icon={CalendarDays} title="Upcoming Events" />
+      {/* Outer Grid: 2fr (events) and 1fr (right column) */}
+      <div className="grid grid-cols-1 lg:grid-cols-[3fr_2fr] gap-8 items-start">
+        {/* Left Column (Upcoming Events) */}
+        <div className="border border-slate-200 rounded-xl p-5 bg-slate-50">
+          <SectionHeader title="Upcoming Events" />
           <div className="space-y-6">
             {events.map((event, index) => (
               <EventCard
                 key={index}
                 title={event.title}
+                href={event.href}
                 description={event.description}
               />
             ))}
           </div>
         </div>
 
-        {/* Please Support Us */}
-        <div className="lg:col-span-1">
-          <SupportSection />
+        {/* Right Column (stacked content) */}
+        <div className="border border-slate-200 rounded-xl p-5 bg-slate-50 grid grid-cols-1 gap-6">
+          {/* Health Promotion Programmes */}
+          <div>
+            <SectionHeader title="Health Promotion Programmes" />
+            <Accordion items={programmes} />
+          </div>
+
+          {/* Support Section */}
+          <div>
+            <SupportSection />
+          </div>
         </div>
       </div>
     </section>

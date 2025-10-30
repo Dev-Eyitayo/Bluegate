@@ -13,14 +13,14 @@ export default function Header() {
   const navItems = [
     { href: "/", label: "HOME" },
     { href: "/about", label: "ABOUT" },
-    { href: "/health-communication", label: "HEALTH COMMUNICATION" },
+    { href: "/health-communication", label: "SBCC" },
     {
       label: "PROGRAMMES",
       subItems: [
-        { href: "/health-promotion", label: "PROGRAMMES" },
+        { href: "/health-promotion", label: "HEALTH PROGRAMMES" },
         { href: "/empowerment", label: "EMPOWERMENT" },
         { href: "/human-rights", label: "HUMAN RIGHTS" },
-        { href: "/un-days", label: "UN DAYS ACTIVITIES" },  
+        // { href: "/un-days", label: "UN DAYS ACTIVITIES" },  
       ],
     },
     { href: "/volunteer", label: "VOLUNTEER" },
