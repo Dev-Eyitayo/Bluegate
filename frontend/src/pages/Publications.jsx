@@ -96,7 +96,7 @@ export default function Publications() {
                   title="Download PDF"
                 >
                   <img
-                    src="/img/pdf-icon.png"
+                    src="/assets/pdf.png"
                     alt="PDF"
                     className="w-12 h-12"
                   />

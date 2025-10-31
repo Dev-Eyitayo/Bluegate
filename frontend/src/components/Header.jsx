@@ -1,15 +1,18 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Menu, X, ChevronDown } from "lucide-react";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isProgramsOpen, setIsProgramsOpen] = useState(false);
+  const [openDropdown, setOpenDropdown] = useState(null); // label of open dropdown
+
   const location = useLocation();
-
   const menuRef = useRef(null);
-  const programsRef = useRef(null);
+  const dropdownRefs = useRef({}); // { [label]: trigger ref }
 
+  // -------------------------------------------------
+  //  Navigation items
+  // -------------------------------------------------
   const navItems = [
     { href: "/", label: "HOME" },
     { href: "/about", label: "ABOUT" },
@@ -20,52 +23,73 @@ export default function Header() {
         { href: "/health-promotion", label: "HEALTH PROGRAMMES" },
         { href: "/empowerment", label: "EMPOWERMENT" },
         { href: "/human-rights", label: "HUMAN RIGHTS" },
-        // { href: "/un-days", label: "UN DAYS ACTIVITIES" },  
       ],
     },
-    { href: "/volunteer", label: "VOLUNTEER" },
-    // { href: "/donate", label: "DONATE", isButton: true },  
+    {
+      label: "CONSULTANCY",
+      subItems: [
+        { href: "/training", label: "TRAINING" },
+      ],
+    },
+    {
+      label: "RESOURCES",
+      subItems: [
+        { href: "/blogs", label: "BLOGS" },
+        { href: "/publications", label: "PUBLICATIONS" },
+        { href: "/volunteer", label: "VOLUNTEER" },
+      ],
+    },
+    // { href: "/resources", label: "RESOURCES" },
+    // { href: "/volunteer", label: "VOLUNTEER" },
   ];
 
-  // Close menus on outside click
-  useEffect(() => {
-    const handleClickOutside = (e) => {
-      if (
-        menuRef.current &&
-        !menuRef.current.contains(e.target) &&
-        programsRef.current &&
-        !programsRef.current.contains(e.target)
-      ) {
-        setIsMenuOpen(false);
-        setIsProgramsOpen(false);
-      }
-    };
-    document.addEventListener("click", handleClickOutside);
-    return () => document.removeEventListener("click", handleClickOutside);
-  }, []);
+  // -------------------------------------------------
+  //  Helpers
+  // -------------------------------------------------
+  const isActive = (path) =>
+    location.pathname === path || (path === "/" && location.pathname === "");
 
-  // Close menus on ESC
-  useEffect(() => {
-    const handleEsc = (e) => {
-      if (e.key === "Escape") {
-        setIsMenuOpen(false);
-        setIsProgramsOpen(false);
-      }
-    };
-    document.addEventListener("keydown", handleEsc);
-    return () => document.removeEventListener("keydown", handleEsc);
-  }, []);
-
-  // Helper to check if a link is active
-  const isActive = (path) => {
-    return location.pathname === path || (path === "/" && location.pathname === ""); // Handle root route
+  const isDropdownActive = (label) => {
+    const item = navItems.find((i) => i.label === label);
+    return item?.subItems?.some((sub) => isActive(sub.href)) ?? false;
   };
 
-  // Check if current route is under PROGRAMMES dropdown
-  const isProgrammesActive = navItems
-    .find((item) => item.label === "PROGRAMMES")
-    ?.subItems.some((sub) => isActive(sub.href));
+  const toggleDropdown = (label) => {
+    setOpenDropdown((prev) => (prev === label ? null : label));
+  };
 
+  // -------------------------------------------------
+  //  Close ONLY mobile menu on outside click / ESC
+  //  → Dropdowns stay open until trigger is clicked again
+  // -------------------------------------------------
+  useEffect(() => {
+    const handleClickOutside = (e) => {
+      // Close mobile menu if click is outside
+      if (menuRef.current && !menuRef.current.contains(e.target)) {
+        setIsMenuOpen(false);
+      }
+      // Dropdowns: do NOT close on outside click
+    };
+
+    const handleEsc = (e) => {
+      if (e.key === "Escape") {
+        setIsMenuOpen(false); // Only close mobile menu
+        // Do NOT close dropdown
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    document.addEventListener("keydown", handleEsc);
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+      document.removeEventListener("keydown", handleEsc);
+    };
+  }, []);
+
+  // -------------------------------------------------
+  //  Render
+  // -------------------------------------------------
   return (
     <header className="bg-white shadow-sm">
       {/* Top Bar */}
@@ -90,32 +114,33 @@ export default function Header() {
       {/* Main Nav */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5 flex items-center justify-between">
         {/* Logo */}
-        <Link to="/">
-          <div className="flex items-center gap-3">
-            <img
-              src="/assets/bluegate-logo.jpg"
-              alt="Blue Gate Initiative logo"
-              className="w-12 h-12 rounded-lg object-cover"
-            />
-            <div>
-              <h1 className="font-bold text-blue-900 text-xl tracking-tight">
-                Blue Gate Initiative
-              </h1>
-              <p className="text-xs text-gray-500 tracking-wide">Public Health Promotion</p>
-            </div>
+        <Link to="/" className="flex items-center gap-3">
+          <img
+            src="/assets/bluegate-logo.jpg"
+            alt="Blue Gate Initiative logo"
+            className="w-12 h-12 rounded-lg object-cover"
+          />
+          <div>
+            <h1 className="font-bold text-blue-900 text-xl tracking-tight">
+              Blue Gate Initiative
+            </h1>
+            <p className="text-xs text-gray-500 tracking-wide">
+              Public Health Promotion
+            </p>
           </div>
         </Link>
 
-        {/* Desktop Nav */}
-        <nav className="hidden lg:flex gap-10 items-center text-gray-700 font-medium text-sm">
-          {navItems.map((item, index) =>
+        {/* ---------- Desktop Nav ---------- */}
+        <nav className="hidden lg:flex items-center gap-10 text-gray-700 font-medium text-sm">
+          {navItems.map((item, idx) =>
             item.subItems ? (
-              <div key={index} className="relative">
+              <div key={idx} className="relative">
+                {/* Trigger */}
                 <button
-                  ref={programsRef}
-                  onClick={() => setIsProgramsOpen((prev) => !prev)}
+                  ref={(el) => (dropdownRefs.current[item.label] = el)}
+                  onClick={() => toggleDropdown(item.label)}
                   className={`flex items-center gap-1 transition-colors duration-200 focus:outline-none ${
-                    isProgrammesActive
+                    isDropdownActive(item.label)
                       ? "text-blue-600 font-semibold"
                       : "hover:text-blue-600"
                   }`}
@@ -123,27 +148,28 @@ export default function Header() {
                   {item.label}
                   <ChevronDown
                     className={`w-4 h-4 transition-transform duration-300 ${
-                      isProgramsOpen ? "rotate-180" : ""
+                      openDropdown === item.label ? "rotate-180" : ""
                     }`}
                   />
                 </button>
 
-                {isProgramsOpen && (
-                  <div className="absolute left-0 mt-3 w-56 bg-white shadow-sm border border-gray-100 z-20 transition-all duration-200 ease-in-out">
-                    {item.subItems.map((sub, subIdx) => (
-                      <React.Fragment key={subIdx}>
+                {/* Dropdown Panel – stays open until trigger clicked again */}
+                {openDropdown === item.label && (
+                  <div className="absolute left-0 mt-3 w-56 bg-white shadow-sm border border-gray-100 z-20">
+                    {item.subItems.map((sub, sIdx) => (
+                      <React.Fragment key={sIdx}>
                         <Link
                           to={sub.href}
+                          // No onClick to close dropdown
                           className={`block px-4 py-2.5 text-sm transition-colors duration-150 ${
                             isActive(sub.href)
                               ? "text-blue-600 font-semibold bg-blue-50"
                               : "text-gray-600 hover:bg-blue-50 hover:text-blue-700"
                           }`}
-                          onClick={() => setIsProgramsOpen(false)}
                         >
                           {sub.label}
                         </Link>
-                        {subIdx < item.subItems.length - 1 && (
+                        {sIdx < item.subItems.length - 1 && (
                           <hr className="border-gray-200" />
                         )}
                       </React.Fragment>
@@ -153,7 +179,7 @@ export default function Header() {
               </div>
             ) : (
               <Link
-                key={index}
+                key={idx}
                 to={item.href}
                 className={`${
                   item.isButton
@@ -167,12 +193,12 @@ export default function Header() {
           )}
         </nav>
 
-        {/* Mobile Menu */}
+        {/* ---------- Mobile Menu ---------- */}
         <div className="lg:hidden relative">
           <button
             onClick={(e) => {
               e.stopPropagation();
-              setIsMenuOpen((prev) => !prev);
+              setIsMenuOpen((p) => !p);
             }}
             aria-label="Toggle menu"
             className="p-4 rounded-lg hover:bg-gray-100 active:bg-gray-200 transition-colors duration-200 focus:outline-none"
@@ -184,58 +210,57 @@ export default function Header() {
             )}
           </button>
 
-          {/* Mobile Backdrop */}
+          {/* Backdrop */}
           {isMenuOpen && (
             <div
               className="fixed inset-0 bg-black bg-opacity-40 z-20"
               onClick={() => setIsMenuOpen(false)}
-            ></div>
+            />
           )}
 
-          {/* Mobile Dropdown */}
+          {/* Mobile Menu Dropdown */}
           {isMenuOpen && (
             <div
               ref={menuRef}
-              className="absolute right-0 mt-2 w-72 bg-white shadow-lg border border-gray-100 p-6 flex flex-col gap-4 z-30 transition-all duration-300 ease-in-out"
+              className="absolute right-0 mt-2 w-72 bg-white shadow-lg border border-gray-100 p-6 flex flex-col gap-4 z-30"
               onClick={(e) => e.stopPropagation()}
             >
-              {navItems.map((item, index) =>
+              {navItems.map((item, idx) =>
                 item.subItems ? (
-                  <div key={index}>
+                  <div key={idx}>
                     <button
-                      ref={programsRef}
+                      ref={(el) => (dropdownRefs.current[item.label] = el)}
                       onClick={(e) => {
                         e.stopPropagation();
-                        setIsProgramsOpen((prev) => !prev);
+                        toggleDropdown(item.label);
                       }}
                       className="w-full flex justify-between items-center py-2.5 text-gray-800 font-semibold text-sm uppercase tracking-wide hover:text-blue-600 transition-colors duration-200"
                     >
                       <span>{item.label}</span>
                       <ChevronDown
                         className={`w-5 h-5 transition-transform duration-300 ${
-                          isProgramsOpen ? "rotate-180" : ""
+                          openDropdown === item.label ? "rotate-180" : ""
                         }`}
                       />
                     </button>
-                    {isProgramsOpen && (
+
+                    {/* Mobile Submenu */}
+                    {openDropdown === item.label && (
                       <div className="mt-3 ml-4 border-l-2 border-blue-100 pl-4 flex flex-col gap-3">
-                        {item.subItems.map((sub, subIndex) => (
-                          <React.Fragment key={subIndex}>
+                        {item.subItems.map((sub, sIdx) => (
+                          <React.Fragment key={sIdx}>
                             <Link
                               to={sub.href}
+                              onClick={() => setIsMenuOpen(false)} // Close mobile menu only
                               className={`block py-1.5 text-sm transition-colors duration-150 ${
                                 isActive(sub.href)
                                   ? "text-blue-600 font-semibold"
                                   : "text-gray-600 hover:text-blue-600"
                               }`}
-                              onClick={() => {
-                                setIsMenuOpen(false);
-                                setIsProgramsOpen(false);
-                              }}
                             >
                               {sub.label}
                             </Link>
-                            {subIndex < item.subItems.length - 1 && (
+                            {sIdx < item.subItems.length - 1 && (
                               <hr className="border-gray-200" />
                             )}
                           </React.Fragment>
@@ -245,13 +270,14 @@ export default function Header() {
                   </div>
                 ) : (
                   <Link
-                    key={index}
+                    key={idx}
                     to={item.href}
-                    className={
+                    onClick={() => setIsMenuOpen(false)}
+                    className={`py-2.5 text-gray-800 font-semibold text-sm uppercase tracking-wide hover:text-blue-600 transition-colors duration-200 ${
                       item.isButton
-                        ? "bg-blue-600 text-white px-5 py-2.5 rounded-lg text-center font-semibold text-sm uppercase tracking-wide hover:bg-blue-700 transition-colors duration-200"
-                        : "py-2.5 text-gray-800 font-semibold text-sm uppercase tracking-wide hover:text-blue-600 transition-colors duration-200"
-                    }
+                        ? "bg-blue-600 text-white px-5 py-2.5 rounded-lg text-center"
+                        : ""
+                    }`}
                   >
                     {item.label}
                   </Link>

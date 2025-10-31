@@ -20,7 +20,7 @@ export default function Research() {
             <p className="text-gray-700 leading-relaxed">
               Blue Gate Initiative is a leading research organization in Nigeria. Our aim is to use research to shed light on the influence of the determinants of health — genetic, environmental, social, and more. We use this evidence-based knowledge to propose interventions and policies to improve health and well-being and reduce health inequalities in Nigeria.
             </p>
-          </div>
+          </div>  
 
           <div className="md:w-7/12">
             <h2 className="text-2xl font-bold text-sky-700 mb-4">Why Choose Us?</h2>
@@ -97,7 +97,7 @@ export default function Research() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div>
             <img
-              src="/img/research-consultancy.jpg"
+              src="/assets/research-consultancy.jpg"
               alt="Research and Consultancy Outreach"
               className="w-full h-auto rounded-lg shadow-md object-cover"
             />
@@ -108,7 +108,7 @@ export default function Research() {
               className="text-center"
             >
               <img
-                src="/img/researchConsultancy2.jpg"
+                src="/assets/researchConsultancy2.jpg"
                 alt="Training Programs"
                 className="w-full max-w-xs mx-auto rounded-lg shadow hover:shadow-lg transition-shadow"
               />

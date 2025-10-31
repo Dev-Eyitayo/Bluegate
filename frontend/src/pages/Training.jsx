@@ -3,19 +3,19 @@ import { Link } from "react-router-dom";
 
 export default function ResearchAcademy() {
   return (
-    <div className="min-h-screen bg-sky-200/10 text-gray-800">
+    <div className="min-h-screen bg-sky-200/10 px-4 text-gray-800">
       {/* Page Title */}
       <section className="py-8 px-2 max-w-7xl mx-auto">
         <h1 className="text-3xl font-extrabold text-sky-800 text-center mb-2">
           Research Academy
         </h1>
-        <p className="text-center text-lg text-sky-700 font-medium max-w-4xl mx-auto">
+        <p className="text-center text-lg text-sky-700 font-medium max-w-4lg mx-auto">
           Hands-on training and mentorship for young investigators in public health research
         </p>
       </section>
 
       {/* Intro + Images */}
-      <section className="px-2 max-w-6xl mx-auto py-6">
+      <section className="px-2 max-w-6lg mx-auto py-6">
         <div className="flex flex-col md:flex-row gap-8">
           {/* Left Column */}
           <div className="md:w-1/2 space-y-5">
@@ -39,7 +39,7 @@ export default function ResearchAcademy() {
             </ul>
 
             <img
-              src="/img/training.jpg"
+              src="/assets/training.jpg"
               alt="Research Training Session"
               className="w-full h-auto rounded-lg shadow-md object-cover mt-6"
             />
@@ -48,7 +48,7 @@ export default function ResearchAcademy() {
           {/* Right Column */}
           <div className="md:w-1/2">
             <img
-              src="/img/research1.jpg"
+              src="/assets/research1.jpg"
               alt="Research Academy Workshop"
               className="w-full h-auto rounded-lg shadow-md object-cover"
             />
@@ -57,7 +57,7 @@ export default function ResearchAcademy() {
       </section>
 
       {/* Main Training Details */}
-      <section className="px-2 max-w-5xl mx-auto py-10 bg-white rounded-xl shadow-lg">
+      <section className="max-w-5xl px-1 mx-auto py-10 ">
         <h2 className="text-2xl font-bold text-sky-700 text-center mb-8">
           Research Capacity Building Training
         </h2>
@@ -67,7 +67,7 @@ export default function ResearchAcademy() {
         </p>
 
         {/* Areas of Specialization */}
-        <h3 className="text-xl font-bold text-sky-700 mb-4">Areas of Specialization</h3>
+        <h3 className="text-ls font-bold text-sky-700 mb-4">Areas of Specialization</h3>
         <ol className="space-y-5 text-gray-700 mb-8 list-decimal list-inside">
           <li>
             <strong>Scientific Proposal and Grant Writing:</strong> Proposal Elements, Reference Management, Work Plan Development, Budget Writing
@@ -84,14 +84,14 @@ export default function ResearchAcademy() {
         </ol>
 
         {/* Target Participants */}
-        <h3 className="text-xl font-bold text-sky-700 mb-3">Target Participants</h3>
+        <h3 className="text-lg font-bold text-sky-700 mb-3">Target Participants</h3>
         <p className="text-gray-700 mb-8">
           Young investigators and postgraduate students in Public Health, Nursing, Clinical Sciences, Social Sciences, Environmental Management, Education, and any other related field.
         </p>
 
         {/* Training Fee */}
         <div className="bg-amber-50 p-6 rounded-lg mb-8">
-          <h3 className="text-xl font-bold text-amber-700 mb-3">Training Fee</h3>
+          <h3 className="text-lg font-bold text-amber-700 mb-3">Training Fee</h3>
           <ul className="space-y-2 text-gray-700">
             <li><strong>Scientific Proposal and Grant Writing:</strong> ₦150,000</li>
             <li><strong>Data Collection, Management & Analysis:</strong> ₦120,000</li>
@@ -102,14 +102,14 @@ export default function ResearchAcademy() {
 
         {/* Venue */}
         <div className="bg-sky-50 p-6 rounded-lg mb-8">
-          <h3 className="text-xl font-bold text-sky-700 mb-2">Venue</h3>
+          <h3 className="text-lg font-bold text-sky-700 mb-2">Venue</h3>
           <p className="text-gray-700">
             Blue Gate Office, 64, Adeyi Avenue, Off Awolowo Road, Old Bodija, Ibadan, Nigeria
           </p>
         </div>
 
         {/* Registration Procedures */}
-        <h2 className="text-2xl font-bold text-sky-700 mb-5">Registration Procedures</h2>
+        <h2 className="text-2lg font-bold text-sky-700 mb-5">Registration Procedures</h2>
         <ol className="space-y-6 text-gray-700 mb-8">
           <li>
             <strong>Make Payment:</strong> Deposit or transfer into the account below:
@@ -120,15 +120,15 @@ export default function ResearchAcademy() {
             </ul>
           </li>
           <li>
-            Complete the online registration form at:{" "}
-            <a
+            Complete the online registration form by clicking the button below:
+            {/* <a
               href="https://bluegateinitiative.org/trainingForm"
               target="_blank"
               rel="noopener noreferrer"
               className="text-sky-600 underline hover:text-sky-800"
             >
               https://bluegateinitiative.org/trainingForm
-            </a>
+            </a> */}
             <br />
             <em className="text-sm text-gray-600">
               You will be required to upload proof of payment.
