@@ -50,6 +50,27 @@ def get_all_applications(
     return applications
 
 
+@router.get("/{application_id}", response_model=VolunteerApplicationOut)
+def get_application_by_id(
+    application_id: int,
+    db: Session = Depends(get_db),
+    current_admin=Depends(get_current_admin),
+):
+    """
+    Admin-only endpoint — fetch a single volunteer application by ID.
+    """
+    app_record = (
+        db.query(VolunteerApplication)
+        .filter(VolunteerApplication.id == application_id)
+        .first()
+    )
+
+    if not app_record:
+        raise HTTPException(status_code=404, detail="Application not found")
+
+    return app_record
+
+
 @router.put("/{application_id}/review", response_model=VolunteerApplicationOut)
 def mark_reviewed(
     application_id: int,

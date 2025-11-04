@@ -18,10 +18,13 @@ import Publications from "./pages/Publications";
 import Research from "./pages/Research";
 import TrainingForm from "./pages/TrainingForm";
 import Training from "./pages/Training";
+import AdminLogin from "./pages/AdminLogin";
+import AdminDashboard from "./pages/admin/AdminDashboard";
+import VolunteerDetail from "./pages/admin/VolunteerDetail";
+import AdminRoute from "./components/AdminRoute";
 
 export default function App() {
   return (
-    <Router>
       <Routes>
         <Route
           path="/"
@@ -167,8 +170,28 @@ export default function App() {
             </MainLayout>
           }
         /> */}
+
+        {/* Admin auth */}
+        <Route path="/admin/login" element={<AdminLogin />} />
+
+        {/* Admin protected area */}
+        <Route
+          path="/admin"
+          element={
+            <AdminRoute>
+              <AdminDashboard />
+            </AdminRoute>
+          }
+        />
+        <Route
+          path="/admin/volunteers/:id"
+          element={
+            <AdminRoute>
+              <VolunteerDetail />
+            </AdminRoute>
+          }
+        />
       
       </Routes>
-    </Router>
   );
 }

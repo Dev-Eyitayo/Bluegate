@@ -60,9 +60,9 @@ export default function VolunteerForm() {
     }
 
     // Age must be 16+
-    if (formData.age && (isNaN(formData.age) || formData.age < 16)) {
-      newErrors.age = "You must be at least 16 years old";
-    }
+    // if (formData.age && (isNaN(formData.age) || formData.age < 16)) {
+    //   newErrors.age = "You must be at least 16 years old";
+    // }
 
     // At least one interest
     const interests = [
@@ -254,14 +254,17 @@ export default function VolunteerForm() {
         {/* Notification Toast */}
         {notification.message && (
           <div
-            className={`fixed top-4 right-4 z-50 flex items-center gap-2 px-6 py-3 rounded-md shadow-lg text-white animate-pulse ${
-              notification.type === "success" ? "bg-green-600" : "bg-red-600"
+            className={`fixed top-5 right-5 z-50 flex items-center gap-3 px-5 py-3 rounded-lg shadow-md text-sm sm:text-base font-medium transition-all duration-300 ease-in-out transform ${
+              notification.type === "success"
+                ? "bg-green-600 text-white"
+                : "bg-red-600 text-white"
             }`}
           >
-            <AlertCircle className="w-5 h-5" />
-            {notification.message}
+            <AlertCircle className="w-5 h-5 shrink-0" />
+            <span className="max-w-[80vw] sm:max-w-xs break-words">{notification.message}</span>
           </div>
         )}
+
 
         <form
           onSubmit={handleSubmit}
