@@ -3,6 +3,7 @@ from fastapi.openapi.models import OAuthFlows as OAuthFlowsModel, SecurityScheme
 from fastapi.security import OAuth2PasswordBearer
 from app.api.v1 import auth, admin, volunteer
 from app.db import models, session
+from fastapi.middleware.cors import CORSMiddleware
 
 models.Base.metadata.create_all(bind=session.engine)
 
@@ -18,6 +19,26 @@ app = FastAPI(
     docs_url="/api/docs",
     redoc_url="/api/redoc",
 )
+
+# Allowed origins — your frontend URLs
+origins = [
+    "http://localhost:5173",
+    "http://127.0.0.1:5173",
+    # Add your production URL later, e.g.:
+    # "https://my-production-site.com"
+]
+
+
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,          # allow these origins
+    allow_credentials=True,
+    allow_methods=["*"],            # allow all HTTP methods
+    allow_headers=["*"],            # allow all headers
+)
+
+
 
 # Include routers
 app.include_router(auth.router, prefix="/api/v1")

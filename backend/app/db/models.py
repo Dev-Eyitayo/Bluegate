@@ -1,7 +1,10 @@
-from sqlalchemy import Column, Integer, String, Boolean, JSON
+from sqlalchemy import Column, Integer, String, Boolean, JSON, func
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.dialects.postgresql import UUID
 import uuid
+from sqlalchemy import DateTime
+from sqlalchemy.sql import func
+
 
 Base = declarative_base()
 
@@ -22,3 +25,4 @@ class VolunteerApplication(Base):
     id = Column(Integer, primary_key=True, index=True)
     data = Column(JSON, nullable=False)  # to store all form data as JSON
     reviewed = Column(Boolean, default=False)
+    created_at = Column(DateTime(timezone=True), server_default=func.now(), nullable=False)

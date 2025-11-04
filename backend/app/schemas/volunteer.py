@@ -1,13 +1,15 @@
-from pydantic import BaseModel
-from typing import Any, Optional
+from pydantic import BaseModel, Field
+from datetime import datetime
+from typing import Any, Dict
 
 class VolunteerApplicationCreate(BaseModel):
-    data: Any  # the full form data object from frontend
+    data: Dict[str, Any] = Field(..., description="The raw volunteer form data")
 
 class VolunteerApplicationOut(BaseModel):
     id: int
-    data: Any
+    data: Dict[str, Any]
     reviewed: bool
+    created_at: datetime
 
     class Config:
         orm_mode = True
