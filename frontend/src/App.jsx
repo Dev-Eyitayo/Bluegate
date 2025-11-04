@@ -15,13 +15,13 @@ import ContactUs from "./pages/ContactUs";
 import Persor from "./pages/Persor";
 import BlogPage from "./pages/BlogPage";
 import Publications from "./pages/Publications";
-import Research from "./pages/Research";
 import TrainingForm from "./pages/TrainingForm";
 import Training from "./pages/Training";
 import AdminLogin from "./pages/AdminLogin";
 import AdminDashboard from "./pages/admin/AdminDashboard";
 import VolunteerDetail from "./pages/admin/VolunteerDetail";
 import AdminRoute from "./components/AdminRoute";
+import TrainingPrograms from "./pages/TrainingPrograms";
 
 export default function App() {
   return (
@@ -139,18 +139,18 @@ export default function App() {
           }
         />
         <Route
-          path="/research"
-          element={
-            <MainLayout>
-              <Research />
-            </MainLayout>
-          }
-        />
-        <Route
           path="/training"
           element={
             <MainLayout>
               <Training />
+            </MainLayout>
+          }
+        />
+        <Route
+          path="/training-programs"
+          element={
+            <MainLayout>
+              <TrainingPrograms />
             </MainLayout>
           }
         />

@@ -25,7 +25,7 @@ export default function HumanRight() {
 
       <section className="py-8 px-6 max-w-7xl mx-auto">
         <h1 className="text-3xl font-extrabold text-sky-800 text-center mb-2">
-          Human Right
+          Human Rights
         </h1>
         
       </section>

@@ -1,176 +1,132 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom'
 
-export default function ResearchAcademy() {
+export default function Traning() {
   return (
-    <div className="min-h-screen bg-sky-200/10 px-4 text-gray-800">
+    <div className="min-h-screen bg-sky-200/10 text-gray-800">
       {/* Page Title */}
       <section className="py-8 px-2 max-w-7xl mx-auto">
         <h1 className="text-3xl font-extrabold text-sky-800 text-center mb-2">
-          Research Academy
+          Research Consultancy Services
         </h1>
-        <p className="text-center text-lg text-sky-700 font-medium max-w-4lg mx-auto">
-          Hands-on training and mentorship for young investigators in public health research
+        <p className="text-center text-lg text-sky-700 font-medium max-w-4xl mx-auto">
+          Evidence-based research, program evaluation, and capacity building for public health impact
         </p>
       </section>
 
-      {/* Intro + Images */}
-      <section className="px-2 max-w-6lg mx-auto py-6">
+      {/* Intro Row */}
+      <section className="px-2 max-w-6xl mx-auto py-6">
         <div className="flex flex-col md:flex-row gap-8">
-          {/* Left Column */}
-          <div className="md:w-1/2 space-y-5">
+          <div className="md:w-5/12">
             <p className="text-gray-700 leading-relaxed">
-              We are dedicated to building the capacity of your staff, volunteers, and organization to undertake program improvement work. Blue Gate Initiative works in collaboration with your team to support program improvement.
+              Blue Gate Initiative is a leading research organization in Nigeria. Our aim is to use research to shed light on the influence of the determinants of health — genetic, environmental, social, and more. We use this evidence-based knowledge to propose interventions and policies to improve health and well-being and reduce health inequalities in Nigeria.
             </p>
-            <p className="text-gray-700 leading-relaxed">
-              We bring expert advice, technical expertise, and innovative solutions to every project. Our tried-and-tested project management methodology helps keep your project on track.
-            </p>
+          </div>  
 
-            <h3 className="text-lg font-bold text-sky-700">Training & Consultation Topics:</h3>
-            <ul className="list-disc list-inside text-gray-700 space-y-1">
-              <li>Proposal writing</li>
-              <li>Program development</li>
-              <li>Program monitoring and evaluation</li>
-              <li>Research methodology</li>
-              <li>Performance measurement systems</li>
-              <li>Quality improvement</li>
-              <li>Qualitative and Quantitative methodology including analysis</li>
-              <li>Manuscript development and publication in peer-reviewed journals</li>
+          <div className="md:w-7/12">
+            <h2 className="text-2xl font-bold text-sky-700 mb-4">Why Choose Us?</h2>
+            <p className="text-gray-700 leading-relaxed">
+              We are a team of public health specialists that support individuals, community-based agencies, non-profit organizations, public health units, and health institutes to deliver the most effective programs and services possible. We specialize in community services, program development, research, stakeholder consultations, evaluation, and training programs specific to public health.
+            </p>
+            <p className="text-gray-700 mt-3 leading-relaxed">
+              Our team members have extensive professional qualifications and combine years of experience with specialized training in health promotion, population health, and right to health. We engage in ongoing professional development to ensure that we deliver community services and programs based on the most current, innovative, and evidence-based information.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Capabilities Section */}
+      <section className="px-2 max-w-6xl mx-auto py-8">
+        <h2 className="text-2xl font-bold text-sky-700 text-center mb-6">Our Capabilities</h2>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {/* Capability 1 */}
+          <div className="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow">
+            <div className="flex items-center mb-4">
+              <div className="w-10 h-10 bg-sky-100 rounded-full flex items-center justify-center mr-3">
+                <span className="text-sky-700 text-xl font-bold">1</span>
+              </div>
+              <h3 className="text-lg font-bold text-sky-700">Proposal and Program Development</h3>
+            </div>
+            <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
+              <li>Grant proposal writing</li>
+              <li>Assessment of individual and community health needs</li>
+              <li>Policy development</li>
+              <li>Research planning and implementation</li>
+              <li>Stakeholder engagement</li>
+              <li>Plan, coordinate and implement health promotion programs</li>
+              <li>Advocate for health-related issues</li>
             </ul>
-
-            <img
-              src="/assets/training.jpg"
-              alt="Research Training Session"
-              className="w-full h-auto rounded-lg shadow-md object-cover mt-6"
-            />
           </div>
 
-          {/* Right Column */}
-          <div className="md:w-1/2">
+          {/* Capability 2 */}
+          <div className="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow">
+            <div className="flex items-center mb-4">
+              <div className="w-10 h-10 bg-sky-100 rounded-full flex items-center justify-center mr-3">
+                <span className="text-sky-700 text-xl font-bold">2</span>
+              </div>
+              <h3 className="text-lg font-bold text-sky-700">Program Monitoring and Evaluation</h3>
+            </div>
+            <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
+              <li>Monitoring of health programs</li>
+              <li>Indicators' development</li>
+              <li>Development of instruments for data collection</li>
+              <li>Data entry/transcription, analysis & interpretation</li>
+              <li>Development of actionable recommendations</li>
+            </ul>
+          </div>
+
+          {/* Capability 3 */}
+          <div className="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow">
+            <div className="flex items-center mb-4">
+              <div className="w-10 h-10 bg-sky-100 rounded-full flex items-center justify-center mr-3">
+                <span className="text-sky-700 text-xl font-bold">3</span>
+              </div>
+              <h3 className="text-lg font-bold text-sky-700">Program Dissemination</h3>
+            </div>
+            <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
+              <li>Develop social marketing and mass media campaigns</li>
+              <li>Develop audio, visual, print and electronic materials</li>
+              <li>Write scholarly articles and publication</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      {/* Image Gallery + CTA */}
+      <section className="px-2 max-w-6xl mx-auto py-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div>
             <img
-              src="/assets/research1.jpg"
-              alt="Research Academy Workshop"
+              src="/assets/research-consultancy.jpg"
+              alt="Research and Consultancy Outreach"
               className="w-full h-auto rounded-lg shadow-md object-cover"
             />
           </div>
-        </div>
-      </section>
-
-      {/* Main Training Details */}
-      <section className="max-w-5xl px-1 mx-auto py-10 ">
-        <h2 className="text-2xl font-bold text-sky-700 text-center mb-8">
-          Research Capacity Building Training
-        </h2>
-
-        <p className="text-gray-700 mb-8 leading-relaxed">
-          Blue Gate Initiative is committed to supporting investigators early in their research careers through mentorship and professional development. The training gives young investigators the opportunity to work one-on-one with experienced researchers for the planning, implementation, and dissemination of research. <strong>This training runs at least twice a year.</strong>
-        </p>
-
-        {/* Areas of Specialization */}
-        <h3 className="text-ls font-bold text-sky-700 mb-4">Areas of Specialization</h3>
-        <ol className="space-y-5 text-gray-700 mb-8 list-decimal list-inside">
-          <li>
-            <strong>Scientific Proposal and Grant Writing:</strong> Proposal Elements, Reference Management, Work Plan Development, Budget Writing
-          </li>
-          <li>
-            <strong>Data Collection, Management & Analysis:</strong> Instruments Development, Quantitative Data Coding and Entry, Electronic Data Collection Technique, Qualitative Data Transcription and Surface Reading, Qualitative and Quantitative Data Analysis
-          </li>
-          <li>
-            <strong>Research/Project Dissemination:</strong> Writing of Scholarly Articles, Abstract Writing for International Conferences and Publication in Peer-Reviewed Journals
-          </li>
-          <li>
-            <strong>Field-Based Monitoring and Evaluation:</strong> M&E Plan, Indicators, Data Collection, Management & Analysis, M&E Reporting
-          </li>
-        </ol>
-
-        {/* Target Participants */}
-        <h3 className="text-lg font-bold text-sky-700 mb-3">Target Participants</h3>
-        <p className="text-gray-700 mb-8">
-          Young investigators and postgraduate students in Public Health, Nursing, Clinical Sciences, Social Sciences, Environmental Management, Education, and any other related field.
-        </p>
-
-        {/* Training Fee */}
-        <div className="bg-amber-50 p-6 rounded-lg mb-8">
-          <h3 className="text-lg font-bold text-amber-700 mb-3">Training Fee</h3>
-          <ul className="space-y-2 text-gray-700">
-            <li><strong>Scientific Proposal and Grant Writing:</strong> ₦150,000</li>
-            <li><strong>Data Collection, Management & Analysis:</strong> ₦120,000</li>
-            <li><strong>Research/Project Dissemination:</strong> ₦60,000</li>
-            <li><strong>Field-Based Monitoring and Evaluation:</strong> ₦200,000</li>
-          </ul>
-        </div>
-
-        {/* Venue */}
-        <div className="bg-sky-50 p-6 rounded-lg mb-8">
-          <h3 className="text-lg font-bold text-sky-700 mb-2">Venue</h3>
-          <p className="text-gray-700">
-            Blue Gate Office, 64, Adeyi Avenue, Off Awolowo Road, Old Bodija, Ibadan, Nigeria
-          </p>
-        </div>
-
-        {/* Registration Procedures */}
-        <h2 className="text-2lg font-bold text-sky-700 mb-5">Registration Procedures</h2>
-        <ol className="space-y-6 text-gray-700 mb-8">
-          <li>
-            <strong>Make Payment:</strong> Deposit or transfer into the account below:
-            <ul className="ml-8 mt-2 space-y-1 list-disc">
-              <li><strong>Account Name:</strong> Blue Gate Public Health Promotion Initiative</li>
-              <li><strong>Account Number:</strong> 0122-6530-54</li>
-              <li><strong>Bank:</strong> WEMA Bank PLC</li>
-            </ul>
-          </li>
-          <li>
-            Complete the online registration form by clicking the button below:
-            {/* <a
-              href="https://bluegateinitiative.org/trainingForm"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-sky-600 underline hover:text-sky-800"
+          <div className="flex items-center justify-center bg-gray-50 rounded-lg shadow-md p-6">
+            <Link
+              to="/training-programs"
+              className="text-center"
             >
-              https://bluegateinitiative.org/trainingForm
-            </a> */}
-            <br />
-            <em className="text-sm text-gray-600">
-              You will be required to upload proof of payment.
-            </em>
-          </li>
-        </ol>
-
-        {/* CTA Button */}
-        <div className="text-center mb-8">
-          <Link
-            to="/training-form"
-            // target="_blank"
-            // rel="noopener noreferrer"
-            className="inline-block bg-sky-600 text-white font-bold py-3 px-10 rounded-lg hover:bg-sky-700 transition shadow-md text-lg"
-          >
-            Fill Training Form Now
-          </Link>
-        </div>
-
-        {/* Contact Info */}
-        <div className="text-center text-gray-700 mb-8">
-          <p>
-            For inquiries: <br />
-            <a href="mailto:training@bluegateinitiative.org" className="text-sky-600 underline">
-              training@bluegateinitiative.org
-            </a>{" "}
-            | Call: <strong>0806-590-3150</strong>
-          </p>
-        </div>
-
-        {/* Notes */}
-        <div className="bg-blue-50 p-6 rounded-lg">
-          <h3 className="text-lg font-bold text-sky-700 mb-3">Important Notes:</h3>
-          <ol className="space-y-2 text-gray-700 list-decimal list-inside">
-            <li>This is a full-time training program. Part-time training is available on request.</li>
-            <li><strong>Only 10 candidates</strong> will be admitted per session.</li>
-          </ol>
+              <img
+                src="/assets/researchConsultancy2.jpg"
+                alt="Training Programs"
+                className="w-full max-w-xs mx-auto rounded-lg shadow hover:shadow-lg transition-shadow"
+              />
+              <h3 className="mt-4 text-xl font-bold text-sky-700 hover:text-sky-800 transition">
+                Click here for Training Programs
+              </h3>
+            </Link>
+          </div>
         </div>
       </section>
 
-      {/* Bottom Spacing */}
-      <div className="h-16"></div>
+      {/* Final Note */}
+      <section className="px-2 max-w-4xl mx-auto py-6 text-center">
+        <p className="text-sm text-gray-600">
+          We run a <strong>Research Academy</strong> to build capacity for young investigators. We also partner with organizations in data collection, analysis, and peer-reviewed publication.
+        </p>
+      </section>
     </div>
   );
 }

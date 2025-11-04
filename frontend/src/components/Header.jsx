@@ -16,19 +16,29 @@ export default function Header() {
   const navItems = [
     { href: "/", label: "HOME" },
     { href: "/about", label: "ABOUT" },
-    { href: "/health-communication", label: "SBCC" },
     {
       label: "PROGRAMMES",
       subItems: [
-        { href: "/health-promotion", label: "HEALTH PROGRAMMES" },
+        { href: "/health-promotion", label: "HEALTH PROMOTION" },
         { href: "/empowerment", label: "EMPOWERMENT" },
         { href: "/human-rights", label: "HUMAN RIGHTS" },
       ],
     },
     {
+      label: "RESEARCH",
+      subItems: [
+        { href: "/implementation-research", label: "IMPLEMENTATION RESEARCH" },
+        { href: "/operation-research", label: "OPERATION RESEARCH" },
+        { href: "/environmental-research", label: "ENVIRONMENTAL RESEARCH" },
+        { href: "/rct", label: "RCT" },
+      ],
+    },
+    { href: "/health-communication", label: "SBCC" },
+    {
       label: "CONSULTANCY",
       subItems: [
         { href: "/training", label: "TRAINING" },
+        { href: "/m-and-e", label: "M & E" },
       ],
     },
     {
