@@ -21,7 +21,7 @@ export default function AdminLayout({ children }) {
 
       <div className="flex flex-1 flex-col overflow-hidden">
         <AdminTopbar onMenuClick={() => setSidebarOpen(true)} />
-        <main className="flex-1 overflow-y-auto bg-gradient-to-b from-gray-50 to-gray-100 p-4 md:p-6 lg:p-8">
+        <main className="flex-1 overflow-y-auto bg-sky-100/10 p-4 md:p-6 lg:p-8">
           <div className="mx-auto max-w-7xl">{children}</div>
         </main>
       </div>

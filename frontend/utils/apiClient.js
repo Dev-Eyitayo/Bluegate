@@ -1,76 +1,58 @@
-// import API_BASE_URL from "../src/config/api";
-
-// export async function apiRequest(endpoint, method = "GET", data = null, token = null) {
-//   const options = {
-//     method,
-//     headers: {
-//       "Content-Type": "application/json",
-//     },
-//   };
-
-//   if (data) options.body = JSON.stringify(data);
-//   if (token) options.headers["Authorization"] = `Bearer ${token}`;
-
-//   const response = await fetch(`${API_BASE_URL}${endpoint}`, options);
-
-//   let result;
-//   const contentType = response.headers.get("content-type");
-
-//   if (contentType && contentType.includes("application/json")) {
-//     result = await response.json();
-//   } else {
-//     result = await response.text();
-//   }
-
-//   if (!response.ok) {
-//     // Try to extract a clear error message
-//     const message =
-//       typeof result === "object"
-//         ? result?.message || JSON.stringify(result)
-//         : result || `Request failed with status ${response.status}`;
-//     throw new Error(message);
-//   }
-
-//   return result;
-// }
-
-
-
-
 import API_BASE_URL from "../src/config/api";
 
+/**
+ * Universal API client
+ * - JSON by default
+ * - FormData (multipart) when `data instanceof FormData`
+ * - Auto-401 logout
+ * - Proper error messages
+ */
 export async function apiRequest(endpoint, method = "GET", data = null, token = null) {
-  const headers = { "Content-Type": "application/json" };
   const authToken = token || localStorage.getItem("ACCESS_TOKEN");
+
+  // Base headers – only add Content-Type for JSON
+  const headers = {};
   if (authToken) headers["Authorization"] = `Bearer ${authToken}`;
 
-  const options = {
-    method,
-    headers,
-  };
+  const options = { method, headers };
 
-  if (data) options.body = JSON.stringify(data);
+  // === BODY HANDLING ===
+  if (data) {
+    if (data instanceof FormData) {
+      // Let browser set Content-Type + boundary
+      options.body = data;
+    } else {
+      // JSON payload
+      headers["Content-Type"] = "application/json";
+      options.body = JSON.stringify(data);
+    }
+  }
 
+  // === FETCH ===
   const response = await fetch(`${API_BASE_URL}${endpoint}`, options);
 
-  const contentType = response.headers.get("content-type");
+  // === RESPONSE PARSING ===
+  const contentType = response.headers.get("content-type") || "";
   let result;
-  if (contentType && contentType.includes("application/json")) {
+  if (contentType.includes("application/json")) {
     result = await response.json();
   } else {
     result = await response.text();
   }
 
+  // === ERROR HANDLING ===
   if (!response.ok) {
-    const message =
+    let message =
       typeof result === "object"
-        ? result?.message || JSON.stringify(result)
+        ? result?.detail || result?.message || JSON.stringify(result)
         : result || `Request failed with status ${response.status}`;
 
-    // optional: if 401, clear token so UI naturally logs out
+    // Auto-logout on 401
     if (response.status === 401) {
       localStorage.removeItem("ACCESS_TOKEN");
       localStorage.removeItem("USER");
+      // Optional: redirect to login
+      window.location.href = "/admin/login";
     }
 
     throw new Error(message);

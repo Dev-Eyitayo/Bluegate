@@ -22,9 +22,16 @@ import AdminDashboard from "./pages/admin/AdminDashboard";
 import VolunteerDetail from "./pages/admin/VolunteerDetail";
 import AdminRoute from "./components/AdminRoute";
 import TrainingPrograms from "./pages/TrainingPrograms";
+import AdminBlogList from "./pages/admin/AdminBlogList";
+import AdminBlogForm from "./pages/admin/AdminBlogForm";
+import BlogDetailPage from "./pages/BlogDetailPage";
+import ToastContainer from "./components/ToastContainer";
+// import Research from "./pages/Research";
 
 export default function App() {
   return (
+    <>
+    {/* <ToastContainer toasts={toasts} removeToast={removeToast} /> */}
       <Routes>
         <Route
           path="/"
@@ -191,7 +198,12 @@ export default function App() {
             </AdminRoute>
           }
         />
+        <Route path="/admin/blogs" element={<AdminBlogList />} />
+        <Route path="/admin/blogs/create" element={<AdminBlogForm />} />
+        <Route path="/admin/blogs/edit/:id" element={<AdminBlogForm />} />
+        <Route path="/blogs/:slug" element={<BlogDetailPage />} />
       
       </Routes>
+      </>
   );
 }

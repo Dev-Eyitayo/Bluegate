@@ -1,7 +1,8 @@
 from fastapi import (
     APIRouter, Depends, HTTPException, Query, UploadFile, File, Form, status
 )
-from sqlalchemy.orm import Session
+from sqlalchemy import func
+from sqlalchemy.orm import Session, joinedload
 from typing import List, Optional
 from uuid import UUID
 from app.db.models import BlogPost, BlogImage
@@ -12,7 +13,196 @@ from app.core.cloudinary_service import upload_image, delete_image
 router = APIRouter(prefix="/blogs", tags=["Blog"])
 
 
-# === PUBLIC: List all published posts ===
+
+
+# ==============================
+# ADMIN ENDPOINTS (protected)
+# ==============================
+
+@router.get("/admin", response_model=List[BlogPostOut])
+def admin_list_all_posts(
+    db: Session = Depends(get_db),
+    admin=Depends(get_current_admin),
+    skip: int = Query(0, ge=0),
+    limit: int = Query(100, ge=1, le=200),
+):
+    posts = (
+        db.query(BlogPost)
+        .order_by(BlogPost.created_at.desc())
+        .offset(skip)
+        .limit(limit)
+        .all()
+    )
+    return posts
+
+
+@router.get("/admin/{post_id}", response_model=BlogPostOut)
+def admin_get_post(
+    post_id: UUID,
+    db: Session = Depends(get_db),
+    admin=Depends(get_current_admin),
+):
+    post = db.get(BlogPost, post_id)
+    if not post:
+        raise HTTPException(status_code=404, detail="Post not found")
+    return post
+
+
+@router.post("/admin", response_model=BlogPostOut, status_code=status.HTTP_201_CREATED)
+async def admin_create_post(
+    title: str = Form(...),
+    slug: str = Form(...),
+    content: str = Form(...),
+    excerpt: Optional[str] = Form(None),
+    is_published: bool = Form(True),
+    images: List[UploadFile] = File([]),
+    captions: List[str] = Form([]),
+    db: Session = Depends(get_db),
+    admin=Depends(get_current_admin),
+):
+    # Validate slug
+    if db.query(BlogPost).filter(BlogPost.slug == slug).first():
+        raise HTTPException(status_code=400, detail="Slug already exists")
+
+    # Create post
+    post = BlogPost(
+        title=title,
+        slug=slug,
+        content=content,
+        excerpt=excerpt,
+        is_published=is_published,
+    )
+    db.add(post)
+    db.commit()
+    db.refresh(post)
+
+    # Upload images
+    for idx, file in enumerate(images):
+        if file.content_type not in ["image/jpeg", "image/png", "image/webp", "image/gif"]:
+            raise HTTPException(status_code=400, detail=f"Invalid file type: {file.filename}")
+
+        result = upload_image(file.file, folder=f"blog/{slug}")
+        caption = captions[idx] if idx < len(captions) else None
+
+        img = BlogImage(
+            post_id=post.id,
+            image_url=result["secure_url"],
+            public_id=result["public_id"],
+            caption=caption,
+            order=idx,
+        )
+        db.add(img)
+
+    db.commit()
+    db.refresh(post)
+    return post
+
+
+@router.put("/admin/{post_id}", response_model=BlogPostOut)
+async def admin_update_post(
+    post_id: UUID,
+    title: Optional[str] = Form(None),
+    slug: Optional[str] = Form(None),
+    content: Optional[str] = Form(None),
+    excerpt: Optional[str] = Form(None),
+    is_published: Optional[bool] = Form(None),
+    images: Optional[List[UploadFile]] = File(None),           # new images
+    captions: Optional[List[str]] = Form(None),                # captions for new images
+    remove_images: Optional[List[str]] = Form(None),           # list of image IDs to delete
+    db: Session = Depends(get_db),
+    admin=Depends(get_current_admin),
+):
+    post = db.get(BlogPost, post_id)
+    if not post:
+        raise HTTPException(status_code=404, detail="Post not found")
+
+    # === UPDATE TEXT FIELDS ===
+    if title is not None:
+        post.title = title
+    if slug is not None:
+        existing = db.query(BlogPost).filter(BlogPost.slug == slug, BlogPost.id != post_id).first()
+        if existing:
+            raise HTTPException(status_code=400, detail="Slug already in use")
+        post.slug = slug
+    if content is not None:
+        post.content = content
+    if excerpt is not None:
+        post.excerpt = excerpt
+    if is_published is not None:
+        post.is_published = is_published
+
+    # === HANDLE IMAGE REMOVALS ===
+    if remove_images:
+        for img_id in remove_images:
+            img = db.query(BlogImage).filter(BlogImage.id == img_id, BlogImage.post_id == post_id).first()
+            if img:
+                try:
+                    delete_image(img.public_id)
+                except:
+                    pass  # ignore Cloudinary errors
+                db.delete(img)
+
+    # === ADD NEW IMAGES (only if provided) ===
+    if images and images != [None]:  # FastAPI sends [None] if no file
+        # Optional: delete all old if you want "replace" behavior
+        # But we want "add", so skip
+
+        base_order = db.query(func.max(BlogImage.order)).filter(BlogImage.post_id == post_id).scalar() or -1
+
+        for idx, file in enumerate(images):
+            if not file.filename:
+                continue  # skip empty
+
+            if file.content_type not in ["image/jpeg", "image/png", "image/webp", "image/gif"]:
+                raise HTTPException(status_code=400, detail=f"Invalid file type: {file.filename}")
+
+            result = upload_image(file.file, folder=f"blog/{post.slug or post_id}")
+            caption = captions[idx] if captions and idx < len(captions) else None
+
+            img = BlogImage(
+                post_id=post.id,
+                image_url=result["secure_url"],
+                public_id=result["public_id"],
+                caption=caption,
+                order=base_order + idx + 1,
+            )
+            db.add(img)
+
+    db.commit()
+    db.refresh(post)
+    return post
+
+
+@router.delete("/admin/{post_id}", status_code=status.HTTP_204_NO_CONTENT)
+def admin_delete_post(
+    post_id: UUID,
+    db: Session = Depends(get_db),
+    admin=Depends(get_current_admin),
+):
+    post = db.get(BlogPost, post_id)
+    if not post:
+        raise HTTPException(status_code=404, detail="Post not found")
+
+    # Delete images from Cloudinary
+    for img in post.images:
+        try:
+            delete_image(img.public_id)
+        except:
+            pass
+
+    db.delete(post)
+    db.commit()
+    return None
+
+
+
+
+
+
+# ==============================
+# PUBLIC ENDPOINTS
+# ==============================
+
 @router.get("/", response_model=List[BlogPostOut])
 def list_published_posts(
     db: Session = Depends(get_db),
@@ -30,11 +220,11 @@ def list_published_posts(
     return posts
 
 
-# === PUBLIC: Get single post by slug ===
 @router.get("/{slug}", response_model=BlogPostOut)
 def get_post_by_slug(slug: str, db: Session = Depends(get_db)):
     post = (
         db.query(BlogPost)
+        .options(joinedload(BlogPost.images))  # ← CRITICAL: Load images!
         .filter(BlogPost.slug == slug, BlogPost.is_published == True)
         .first()
     )
@@ -42,116 +232,3 @@ def get_post_by_slug(slug: str, db: Session = Depends(get_db)):
         raise HTTPException(status_code=404, detail="Blog post not found")
     return post
 
-
-# === ADMIN: Create post (with Cloudinary upload) ===
-@router.post("/", response_model=BlogPostOut, status_code=status.HTTP_201_CREATED)
-async def create_post(
-    title: str = Form(...),
-    slug: str = Form(...),
-    content: str = Form(...),
-    excerpt: Optional[str] = Form(None),
-    is_published: bool = Form(True),
-    images: List[UploadFile] = File([]),
-    captions: Optional[List[str]] = Form([]),
-    db: Session = Depends(get_db),
-    admin=Depends(get_current_admin),
-):
-    # --- Check slug uniqueness ---
-    if db.query(BlogPost).filter(BlogPost.slug == slug).first():
-        raise HTTPException(status_code=400, detail="Slug already exists")
-
-    # --- Create post ---
-    post = BlogPost(
-        title=title,
-        slug=slug,
-        content=content,
-        excerpt=excerpt,
-        is_published=is_published,
-    )
-    db.add(post)
-    db.commit()
-    db.refresh(post)
-
-    # --- Upload images to Cloudinary ---
-    for idx, file in enumerate(images):
-        if file.content_type not in ["image/jpeg", "image/png", "image/webp"]:
-            raise HTTPException(status_code=400, detail=f"Invalid file type: {file.filename}")
-
-        upload_result = upload_image(file.file, folder=f"blog/{slug}")
-
-        img = BlogImage(
-            post_id=post.id,
-            image_url=upload_result["secure_url"],
-            public_id=upload_result["public_id"],
-            caption=captions[idx] if idx < len(captions) else None,
-            order=idx,
-        )
-        db.add(img)
-
-    db.commit()
-    db.refresh(post)
-    return post
-
-
-# === ADMIN: Update post ===
-@router.put("/{post_id}", response_model=BlogPostOut)
-def update_post(
-    post_id: UUID,
-    update_data: BlogPostUpdate,
-    db: Session = Depends(get_db),
-    admin=Depends(get_current_admin),
-):
-    post = db.query(BlogPost).filter(BlogPost.id == post_id).first()
-    if not post:
-        raise HTTPException(status_code=404, detail="Post not found")
-
-    update_dict = update_data.dict(exclude_unset=True)
-
-    # --- Validate new slug ---
-    if "slug" in update_dict:
-        slug_exists = (
-            db.query(BlogPost)
-            .filter(BlogPost.slug == update_dict["slug"], BlogPost.id != post_id)
-            .first()
-        )
-        if slug_exists:
-            raise HTTPException(status_code=400, detail="Slug already in use")
-
-    # --- Update fields ---
-    for key, value in update_dict.items():
-        if key != "images":
-            setattr(post, key, value)
-
-    # --- Replace images if provided ---
-    if update_data.images is not None:
-        old_images = db.query(BlogImage).filter(BlogImage.post_id == post_id).all()
-        for old in old_images:
-            delete_image(old.public_id)
-        db.query(BlogImage).filter(BlogImage.post_id == post_id).delete()
-
-        for idx, img_data in enumerate(update_data.images):
-            img = BlogImage(post_id=post_id, **img_data.dict(), order=idx)
-            db.add(img)
-
-    db.commit()
-    db.refresh(post)
-    return post
-
-
-# === ADMIN: Delete post (and Cloudinary images) ===
-@router.delete("/{post_id}", status_code=status.HTTP_204_NO_CONTENT)
-def delete_post(
-    post_id: UUID,
-    db: Session = Depends(get_db),
-    admin=Depends(get_current_admin),
-):
-    post = db.query(BlogPost).filter(BlogPost.id == post_id).first()
-    if not post:
-        raise HTTPException(status_code=404, detail="Post not found")
-
-    for img in post.images:
-        delete_image(img.public_id)
-
-    db.delete(post)
-    db.commit()
-    return None

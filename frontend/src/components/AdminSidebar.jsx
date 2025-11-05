@@ -1,12 +1,12 @@
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
-import { X, LayoutDashboard, Users, Settings, LogOut } from "lucide-react";
+import { X, LayoutDashboard, Users, Settings, LogOut, PenSquare } from "lucide-react";
 import clsx from "clsx";
 
 const navItems = [
   { to: "/admin", label: "Dashboard", icon: LayoutDashboard },
   { to: "/admin/volunteers", label: "Volunteers", icon: Users },
-  { to: "/admin/settings", label: "Settings", icon: Settings },
+  { to: "/admin/blogs", label: "Blog", icon: PenSquare },
 ];
 
 export default function AdminSidebar({ isOpen, onClose }) {
