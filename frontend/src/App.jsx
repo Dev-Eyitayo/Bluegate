@@ -210,10 +210,10 @@ export default function App() {
         <Route path="/admin/outreach/edit/:id" element={<AdminBlogForm />} />
         <Route path="/outreach/:slug" element={<BlogDetailPage />} />
 
-        <Route path="/heatlh-promotion/communicable-diseases" element={<MainLayout><CommunicableDiseases /></MainLayout>} />
-        <Route path="/heatlh-promotion/non-communicable-diseases" element={<MainLayout><NonCommunicableDiseases /></MainLayout>} />
-        <Route path="/heatlh-promotion/maternal-child-health" element={<MainLayout><MaternalChildHealth /></MainLayout>} />
-        <Route path="/heatlh-promotion/environmental-health" element={<MainLayout><EnvironmentalHealth /></MainLayout>} />
+        <Route path="/health-promotion/communicable-diseases" element={<MainLayout><CommunicableDiseases /></MainLayout>} />
+        <Route path="/health-promotion/non-communicable-diseases" element={<MainLayout><NonCommunicableDiseases /></MainLayout>} />
+        <Route path="/health-promotion/maternal-child-health" element={<MainLayout><MaternalChildHealth /></MainLayout>} />
+        <Route path="/health-promotion/environmental-health" element={<MainLayout><EnvironmentalHealth /></MainLayout>} />
         <Route path="/research" element={<MainLayout><Research /></MainLayout>} />
         <Route path="/mel" element={<MainLayout><MEL /></MainLayout>} />
       

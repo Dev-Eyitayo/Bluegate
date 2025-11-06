@@ -24,25 +24,25 @@ export default function HealthPromotion() {
       title: "Communicable Diseases",
       excerpt: "Tackling malaria, HIV/AIDS, TB, leprosy, and Buruli ulcer through prevention, treatment, and community education to reduce incidence and improve outcomes.",
       image: "/assets/malaria.jpg", // Representative image (Malaria as lead)
-      link: "/heatlh-promotion/communicable-diseases",
+      link: "/health-promotion/communicable-diseases",
     },
     {
       title: "Non-Communicable Diseases",
       excerpt: "Early detection and lifestyle promotion to combat diabetes, hypertension, and cancers through screening, education, and healthy behavior change.",
       image: "/assets/non-communicable.jpg",
-      link: "/heatlh-promotion/non-communicable-diseases",
+      link: "/health-promotion/non-communicable-diseases",
     },
     {
       title: "Maternal and Child Health",
       excerpt: "Ensuring safe pregnancies, child nutrition, immunization, and addressing sociocultural barriers to improve maternal and child survival rates.",
       image: "/assets/maternal.png",
-      link: "/heatlh-promotion/maternal-child-health",
+      link: "/health-promotion/maternal-child-health",
     },
     {
       title: "Environmental Health Services",
       excerpt: "Promoting safe water, sanitation, food safety, and conducting impact assessments to prevent disease linked to environmental interactions.",
       image: "/assets/environmental.jpg",
-      link: "/heatlh-promotion/environmental-health",
+      link: "/health-promotion/environmental-health",
     },
   ];
 
