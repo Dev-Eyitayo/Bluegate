@@ -25,20 +25,13 @@ export default function Header() {
       ],
     },
     {
-      label: "RESEARCH",
-      subItems: [
-        { href: "/implementation-research", label: "IMPLEMENTATION RESEARCH" },
-        { href: "/operation-research", label: "OPERATION RESEARCH" },
-        { href: "/environmental-research", label: "ENVIRONMENTAL RESEARCH" },
-        { href: "/rct", label: "RCT" },
-      ],
-    },
+      label: "RESEARCH", href: "/research" },
     { href: "/health-communication", label: "SBCC" },
     {
       label: "CONSULTANCY",
       subItems: [
         { href: "/training", label: "TRAINING" },
-        { href: "/m-and-e", label: "M & E" },
+        { href: "/mel", label: "M & E" },
       ],
     },
     {

@@ -1,26 +1,56 @@
 import React from "react";
-import { Activity, HeartPulse, Heart, ShieldCheck } from "lucide-react";
+import { Activity, HeartPulse, Heart, ShieldCheck, ChevronRight } from "lucide-react";
 import SectionHeader from "../components/SectionHeader";
 import ImageCarousel from "../components/ImageCarousel";
+import { Link } from "react-router-dom"; 
 
 export default function HealthPromotion() {
-    const slides = [
+  const slides = [
     {
       image: "/assets/healthpromo3.jpg",
       title: "Blue Gate team with the Oyo State Honorable commissioner for health (Dr Bello), the permanent secretary (Dr Ayoola), and Director of Public health (Dr Lawal) during the 2020 World AIDS Day celebration.",
     }
   ];
-    const diabetes = [
+  const diabetes = [
     {
       image: "/assets/diabetes.jpg",
       title: "Non communicable diseases",
     }
   ];
+
+  // Strategic Area Cards Data (with excerpts and image paths from existing content)
+  const strategicAreas = [
+    {
+      title: "Communicable Diseases",
+      excerpt: "Tackling malaria, HIV/AIDS, TB, leprosy, and Buruli ulcer through prevention, treatment, and community education to reduce incidence and improve outcomes.",
+      image: "/assets/malaria.jpg", // Representative image (Malaria as lead)
+      link: "/heatlh-promotion/communicable-diseases",
+    },
+    {
+      title: "Non-Communicable Diseases",
+      excerpt: "Early detection and lifestyle promotion to combat diabetes, hypertension, and cancers through screening, education, and healthy behavior change.",
+      image: "/assets/non-communicable.jpg",
+      link: "/heatlh-promotion/non-communicable-diseases",
+    },
+    {
+      title: "Maternal and Child Health",
+      excerpt: "Ensuring safe pregnancies, child nutrition, immunization, and addressing sociocultural barriers to improve maternal and child survival rates.",
+      image: "/assets/maternal.png",
+      link: "/heatlh-promotion/maternal-child-health",
+    },
+    {
+      title: "Environmental Health Services",
+      excerpt: "Promoting safe water, sanitation, food safety, and conducting impact assessments to prevent disease linked to environmental interactions.",
+      image: "/assets/environmental.jpg",
+      link: "/heatlh-promotion/environmental-health",
+    },
+  ];
+
   return (
     <div className="min-h-screen bg-sky-200/10 px-2 text-gray-800">
       {/* Intro Section */}
       <section className="py-16 px-3 max-w-5xl mx-auto">
-        <h1 className="text-3xl font-extrabold text-sky-800 text-center mb-8">
+        <h1 className="text-3xl sm:text-2xl font-extrabold text-sky-800 text-center mb-8">
           Our Programme
         </h1>
         <p className="text-slate-600 leading-relaxed mb-6 text-left">
@@ -89,215 +119,49 @@ export default function HealthPromotion() {
         </ul>
       </section>
 
-      {/* Strategic Programme Areas */}
-      <section className="py-16 px-3 max-w-5xl mx-auto">
+      {/* Strategic Programme Areas - Now as Cards */}
+      <section className="py-16 px-3 max-w-7xl mx-auto">
         <SectionHeader icon={HeartPulse} title="Strategic Programme Areas" />
 
-        {/* Malaria Control */}
-        <div className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
-          <img
-            src="../src/assets/malaria.jpg"
-            alt="Malaria Control"
-            className="rounded-xl "
-          />
-          <div>
-            <h3 className="text-2xl font-semibold text-sky-800 mb-4">
-              Malaria Control
-            </h3>
-            <p className="text-slate-600 leading-relaxed mb-4">
-              Blue Gate Initiative’s objectives are to:
-            </p>
-            <ul className="list-disc list-inside text-slate-600 space-y-1">
-              <li>
-                Ensure adequate treatment of all individuals with confirmed
-                malaria seen in private or public facilities who offer
-                affordable diagnosis.
-              </li>
-              <li>
-                Promote the timely use of appropriate antimalarial medicines and
-                commodities as needed to prevent and treat malaria in Nigeria.
-              </li>
-              <li>
-                Protect access to effective case management and rapid scale-up
-                of proven and advanced prevention interventions.
-              </li>
-              <li>
-                Ensure appropriate and equitable distribution of Insecticide
-                Treated Nets (ITNs) and Intermittent Preventive Treatment for
-                pregnant women.
-              </li>
-              <li>
-                Increase access to free malaria prevention education, including
-                community outreach and sensitization.
-              </li>
-            </ul>
+        <div className="mt-12 grid max-w-4xl rounded-xl mx-auto grid-cols-1 md:grid-cols-2 gap-8">
+          {strategicAreas.map((area) => (
+            <Link
+              key={area.title}
+              to={area.link}
+              className="group block bg-white rounded-xl border border-slate-200"
+            >
+              <div className="aspect-w-16 rounded-t-xl aspect-h-9 relative overflow-hidden">
+                <img
+                  src={area.image}
+                  alt={area.title}
+                  className="w-full  h-48 object-cover group-hover:scale-105 transition-transform duration-300"
+                />
+              </div>
+              <div className="p-6">
+                <h3 className="text-xl font-semibold text-sky-800 mb-2 group-hover:text-sky-600 transition-colors">
+                  {area.title}
+                </h3>
+                <p className="text-slate-600 text-sm leading-relaxed mb-4 line-clamp-3">
+                  {area.excerpt}
+                </p>
+                <div className="flex items-center text-sky-700 font-medium text-sm group-hover:text-sky-900">
+                  <span>Read More</span>
+                  <ChevronRight className="w-4 h-4 ml-1 transition-transform group-hover:translate-x-1" />
+                </div>
+              </div>
+            </Link>
+          ))}
+        </div>
+
+        {/* Retained Carousels for Visual Context */}
+        {/* <div className="mt-16 grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+          <div className="max-w-md mx-auto">
+            <ImageCarousel slides={slides} />
           </div>
-        </div>
-
-        {/* HIV/AIDS */}
-        <div className="mt-20 grid grid-cols-1 md:grid-cols-2 mb-4 gap-10 items-center">
-          <div>
-            <h3 className="text-2xl font-semibold text-sky-800 mb-4">HIV/AIDS</h3>
-            <p className="text-slate-600 leading-relaxed mb-4">
-              Blue Gate Initiative’s goal is to reduce the incidence of HIV by
-              scaling up the implementation of effective HIV and AIDS Prevention
-              interventions within the context of the National HIV/AIDS Policy
-              and Strategy. Our objectives are to:
-            </p>
-            <ul className="list-disc list-inside text-slate-600 space-y-1">
-              <li>
-                Promote and scale-up HIV counselling and testing, including both
-                client-initiated and provider-initiated counselling.
-              </li>
-              <li>
-                Promote and scale-up interventions for the prevention of
-                mother-to-child transmission of HIV, including early infant
-                diagnosis.
-              </li>
-              <li>
-                Implement HIV/AIDS-related advocacy among the general population
-                and subgroups considered at high risk for HIV infection in
-                Nigeria.
-              </li>
-              <li>
-                Increase knowledge about dual protection benefits and promote
-                appropriate use of male and female condoms.
-              </li>
-              <li>
-                Promote early treatment and strengthen control of sexually
-                transmitted infections to reduce the risk of HIV transmission.
-              </li>
-            </ul>
+          <div className="max-w-md mx-auto">
+            <ImageCarousel slides={diabetes} />
           </div>
-          <img
-            src="../src/assets/hivaids.jpg"
-            alt="HIV/AIDS Programme"
-            className="rounded-xl "
-          />
-        </div>
-
-        <div className="max-w-3xl mt-12 mx-auto">
-            <ImageCarousel slides={slides}/>
-        </div>
-
-        {/* Maternal and Child Health */}
-        <div className="mt-20 grid grid-cols-1 md:grid-cols-[auto_1fr] gap-10 items-center">
-          <img
-            src="../src/assets/maternal.png"
-            alt="Maternal and Child Health"
-            className="rounded-xl w-auto h-auto max-w-sm mx-auto md:mx-0"
-          />
-          <div>
-            <h3 className="text-2xl font-semibold text-sky-800 mb-4">
-              Maternal and Child Health
-            </h3>
-            <p className="text-slate-600 leading-relaxed mb-4">
-              Blue Gate Initiative’s common interventions among women focus on
-              some of the sociocultural factors contributing to adverse maternal
-              health outcomes in Nigeria, which include inadequate access to
-              education, poor socio-economic and cultural practices, poor health
-              knowledge, immunization, malnutrition, distribution for pregnant
-              women, food supplements for under-five children, and health-seeking
-              behavior of women.
-            </p>
-            <p className="text-slate-600 leading-relaxed">
-              We are a leading women’s health organization committed to ens
-              that every pregnancy is planned, every child is wanted, and every
-              mother has the best chance at survival.
-            </p>
-          </div>
-        </div>
-
-        {/* Environmental Health Services */}
-        <div className="mt-20 grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
-          <div>
-            <h3 className="text-2xl font-semibold text-sky-800 mb-4">
-              Environmental Health Services
-            </h3>
-            <p className="text-slate-600 leading-relaxed mb-4">
-              Our environmental health services consist of preventing or
-              controlling disease, injury, and disability related to the
-              interactions between people and their environment.
-            </p>
-            <p className="text-slate-600 leading-relaxed">
-              We provide WASH services and conduct inspections and surveillance
-              activities in food safety, drinking water quality, and waste
-              disposal. We also investigate human–work relationships and
-              environment relationships by carrying out Environmental Impact
-              Assessments (EIA) and Health Impact Assessments (HIA) at various
-              levels of project implementation.
-            </p>
-          </div>
-          <img
-            src="../src/assets/environmental.jpg"
-            alt="Environmental Health"
-            className="rounded-xl "
-          />
-        </div>
-
-        {/* Non-Communicable Diseases */}
-        <div className="mt-20 grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
-          <img
-            src="../src/assets/non-communicable.jpg"
-            alt="Non-Communicable Diseases"
-            className="rounded-xl "
-          />
-          <div>
-            <h3 className="text-2xl font-semibold text-sky-800 mb-4">
-              Non-Communicable Diseases
-            </h3>
-            <p className="text-slate-600 leading-relaxed mb-4">
-              Blue Gate improves detection and screening by implementing
-              programmes for early detection of NCDs, such as screening for
-              diabetes, hypertension, and breast and cervical cancer screening.
-            </p>
-            <p className="text-slate-600 leading-relaxed">
-              We also promote healthy lifestyles by encouraging healthy eating
-              habits, regular physical activity, and behaviours that reduce the
-              risk of NCDs.
-            </p>
-          </div>
-        </div>
-
-        <div className="max-w-3xl mt-12 mx-auto">
-            <ImageCarousel slides={diabetes}/>
-        </div>
-
-        {/* TB/Leprosy/BU */}
-        <div className="mt-20 grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
-          <div>
-            <h3 className="text-2xl font-semibold text-sky-800 mb-4">
-              TB / Leprosy / Buruli Ulcer (BU)
-            </h3>
-            <p className="text-slate-600 leading-relaxed mb-4">
-              Our objective aligns with the National Tuberculosis, Leprosy and
-              Buruli Ulcer Control Programme (NTBLCP) in Nigeria, which is also
-              aligned with global strategies, particularly the World Health
-              Organization’s End TB Strategy and the Sustainable Development
-              Goals (SDGs).
-            </p>
-            <ul className="list-disc list-inside text-slate-600 space-y-1">
-              <li>
-                <strong>Ending the TB epidemic</strong> by achieving zero death,
-                disease, and suffering due to TB.
-              </li>
-              <li>
-                <strong>Reducing prevalence</strong> of TB and Leprosy to a
-                level where they no longer constitute public health problems.
-              </li>
-              <li>
-                <strong>Preventing and reducing</strong> reinfections associated
-                with Leprosy and providing appropriate rehabilitation for those
-                affected.
-              </li>
-            </ul>
-          </div>
-          <img
-            src="../src/assets/tb.jpeg"
-            alt="Tuberculosis"
-            className="rounded-xl "
-          />
-        </div>
+        </div> */}
       </section>
     </div>
   );

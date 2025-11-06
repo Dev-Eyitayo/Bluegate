@@ -41,7 +41,7 @@ export default function Traning() {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {/* Capability 1 */}
-          <div className="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow">
+          <div className="bg-white rounded-lg border border-sky-100 p-4">
             <div className="flex items-center mb-4">
               <div className="w-10 h-10 bg-sky-100 rounded-full flex items-center justify-center mr-3">
                 <span className="text-sky-700 text-xl font-bold">1</span>
@@ -60,7 +60,7 @@ export default function Traning() {
           </div>
 
           {/* Capability 2 */}
-          <div className="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow">
+          <div className="bg-white rounded-lg border border-sky-100 p-4">
             <div className="flex items-center mb-4">
               <div className="w-10 h-10 bg-sky-100 rounded-full flex items-center justify-center mr-3">
                 <span className="text-sky-700 text-xl font-bold">2</span>
@@ -77,7 +77,7 @@ export default function Traning() {
           </div>
 
           {/* Capability 3 */}
-          <div className="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow">
+          <div className="bg-white rounded-lg border border-sky-100 p-4">
             <div className="flex items-center mb-4">
               <div className="w-10 h-10 bg-sky-100 rounded-full flex items-center justify-center mr-3">
                 <span className="text-sky-700 text-xl font-bold">3</span>
@@ -111,7 +111,7 @@ export default function Traning() {
               <img
                 src="/assets/researchConsultancy2.jpg"
                 alt="Training Programs"
-                className="w-full max-w-xs mx-auto rounded-lg shadow hover:shadow-lg transition-shadow"
+                className="w-full mx-auto rounded-lg shadow hover:shadow-lg transition-shadow"
               />
               <h3 className="mt-4 text-xl font-bold text-sky-700 hover:text-sky-800 transition">
                 Click here for Training Programs
