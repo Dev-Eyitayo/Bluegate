@@ -44,7 +44,7 @@ export default function Header() {
     {
       label: "RESOURCES",
       subItems: [
-        { href: "/blogs", label: "BLOGS" },
+        { href: "/outreach", label: "OUTREACH" },
         { href: "/publications", label: "PUBLICATIONS" },
         { href: "/volunteer", label: "VOLUNTEER" },
       ],

@@ -6,7 +6,7 @@ import clsx from "clsx";
 const navItems = [
   { to: "/admin", label: "Dashboard", icon: LayoutDashboard },
   { to: "/admin/volunteers", label: "Volunteers", icon: Users },
-  { to: "/admin/blogs", label: "Blog", icon: PenSquare },
+  { to: "/admin/outreach", label: "Outreach Post", icon: PenSquare },
 ];
 
 export default function AdminSidebar({ isOpen, onClose }) {

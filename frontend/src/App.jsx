@@ -82,7 +82,7 @@ export default function App() {
           }
         />
         <Route
-          path="blogs/un-days"
+          path="outreach/un-days"
           element={
             <MainLayout>
               <UnitedNationsDays />
@@ -130,7 +130,7 @@ export default function App() {
           }
         />
         <Route
-          path="/blogs"
+          path="/outreach"
           element={
             <MainLayout>
               <BlogPage />
@@ -198,10 +198,10 @@ export default function App() {
             </AdminRoute>
           }
         />
-        <Route path="/admin/blogs" element={<AdminBlogList />} />
-        <Route path="/admin/blogs/create" element={<AdminBlogForm />} />
-        <Route path="/admin/blogs/edit/:id" element={<AdminBlogForm />} />
-        <Route path="/blogs/:slug" element={<BlogDetailPage />} />
+        <Route path="/admin/outreach" element={<AdminBlogList />} />
+        <Route path="/admin/outreach/create" element={<AdminBlogForm />} />
+        <Route path="/admin/outreach/edit/:id" element={<AdminBlogForm />} />
+        <Route path="/outreach/:slug" element={<BlogDetailPage />} />
       
       </Routes>
       </>

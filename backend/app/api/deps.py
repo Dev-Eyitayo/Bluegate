@@ -18,8 +18,12 @@ def get_db():
     db = session.SessionLocal()
     try:
         yield db
+    except Exception:
+        db.rollback()  
+        raise
     finally:
         db.close()
+
 
 def get_current_admin(token: str = Depends(oauth2_scheme), db: Session = Depends(get_db)) -> Admin:
     credentials_exception = HTTPException(

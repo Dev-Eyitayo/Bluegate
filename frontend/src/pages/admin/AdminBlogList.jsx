@@ -65,7 +65,7 @@ export default function AdminBlogList() {
           <p className="mt-1 text-sm text-gray-600">{posts.length} total</p>
         </div>
         <Link
-          to="/admin/blogs/create"
+          to="/admin/outreach/create"
           className="flex items-center gap-2 px-4 py-2 bg-sky-600 text-white rounded-lg hover:bg-sky-700 transition"
         >
           <Plus className="h-4 w-4" />
@@ -91,7 +91,7 @@ export default function AdminBlogList() {
             </div>
             <div className="mt-3 flex gap-2">
               <Link
-                to={`/admin/blogs/edit/${p.id}`}
+                to={`/admin/outreach/edit/${p.id}`}
                 className="flex items-center gap-1 text-sky-600 text-sm"
               >
                 <Edit className="h-4 w-4" />

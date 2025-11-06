@@ -5,7 +5,8 @@ import { apiRequest } from "../../utils/apiClient";
 import BlogImages from "../components/BlogImages";
 import { format } from "date-fns";
 import { Calendar, User, ArrowLeft } from "lucide-react";
-import MainLayout from "../layouts/MainLayout"; // ✅ Make sure you wrap this in the same layout as BlogPage
+import MainLayout from "../layouts/MainLayout"; 
+import { LoaderCircle } from "lucide-react";
 
 export default function BlogDetailPage() {
   const { slug } = useParams();
@@ -29,7 +30,10 @@ export default function BlogDetailPage() {
     return (
       <MainLayout>
         <div className="min-h-screen bg-sky-200/10 flex items-center justify-center">
-          <p className="text-gray-600">Loading...</p>
+          <div className="flex items-center gap-3">
+            <LoaderCircle className="h-12 w-12 animate-spin text-sky-600" />
+            {/* <span className="text-lg text-gray-700">Loading posts...</span> */}
+          </div>
         </div>
       </MainLayout>
     );
@@ -45,22 +49,22 @@ export default function BlogDetailPage() {
 
   return (
     <MainLayout>
-      <div className="min-h-screen bg-sky-200/10 py-12 px-4">
-        <div className="max-w-4xl mx-auto bg-white shadow-sm rounded-2xl overflow-hidden">
+      <div className="min-h-screen px-0 py-2">
+        <div className="max-w-5xl mx-auto bg-white overflow-hidden">
           {/* Back link */}
-          <div className="p-6 border-b border-slate-100 flex items-center justify-between">
+          <div className="p-2 flex items-center justify-between">
             <Link
-              to="/blogs"
+              to="/outreach"
               className="flex items-center gap-2 text-sky-700 hover:text-sky-900 transition"
             >
-              <ArrowLeft className="h-4 w-4" /> Back to Blog
+              <ArrowLeft className="h-4 w-4" /> Back to Outreaches
             </Link>
           </div>
 
           {/* Blog content */}
-          <div className="p-6 md:p-10">
-            <header className="mb-8">
-              <h1 className="text-3xl md:text-4xl font-bold text-sky-800 mb-4">
+          <div className="p-2 md:p-4">
+            <header className="mb-4">
+              <h1 className="text-xl md:text-2xl font-bold text-sky-800 mb-3">
                 {post.title}
               </h1>
               <div className="flex flex-wrap items-center gap-4 text-sm text-gray-600">
@@ -93,9 +97,12 @@ export default function BlogDetailPage() {
             )}
 
             <div
-              className="prose prose-sky max-w-none leading-relaxed text-slate-800"
-              dangerouslySetInnerHTML={{ __html: post.content }}
+              className="prose prose-sky max-w-none leading-relaxed text-slate-800 whitespace-pre-wrap"
+              dangerouslySetInnerHTML={{
+                __html: post.content.replace(/\n/g, "<br />"),
+              }}
             />
+
           </div>
         </div>
       </div>
