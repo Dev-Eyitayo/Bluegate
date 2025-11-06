@@ -28,7 +28,7 @@ origins = [
     "http://localhost:5173",
     "http://127.0.0.1:5173",
     # Add your production URL later, e.g.:
-    # "https://my-production-site.com"
+    "https://bluegateinitiative.vercel.app"
 ]
 
 
