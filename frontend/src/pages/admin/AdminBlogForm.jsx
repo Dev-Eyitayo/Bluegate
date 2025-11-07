@@ -140,7 +140,7 @@ export default function AdminBlogForm() {
         await apiRequest("/blogs/admin", "POST", formData);
       }
       addToast(isEdit ? "Post updated!" : "Post created!", "success");
-      setTimeout(() => navigate("/admin/blogs"), 800);
+      setTimeout(() => navigate("/admin/outreach"), 800);
     } catch (err) {
       addToast(err.message || "Save failed", "error");
     } finally {
@@ -164,10 +164,10 @@ export default function AdminBlogForm() {
 
       <div className="mb-8">
         <h1 className="text-3xl font-bold text-gray-900">
-          {isEdit ? "Edit Blog Post" : "Create New Post"}
+          {isEdit ? "Edit Outreach Post" : "Create New Post"}
         </h1>
         <p className="mt-1 text-sm text-gray-600">
-          {isEdit ? "Update your blog post" : "Share your story with the world"}
+          {isEdit ? "Update your outreach post" : "Share your story with the world"}
         </p>
       </div>
 
@@ -327,7 +327,7 @@ export default function AdminBlogForm() {
             )}
           </button>
           <Link
-            to="/admin/blogs"
+            to="/admin/outreach"
             className="px-6 py-3 border border-gray-300 text-gray-700 font-medium rounded-xl hover:bg-gray-50 transition"
           >
             Cancel

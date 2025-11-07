@@ -1,4 +1,3 @@
-// src/pages/admin/AdminBlogList.jsx
 import React, { useEffect, useState, useMemo } from "react";
 import { apiRequest } from "../../../utils/apiClient";
 import { Link } from "react-router-dom";
@@ -42,9 +41,10 @@ export default function AdminBlogList() {
     setDeleting((prev) => ({ ...prev, [id]: true }));
     try {
       await apiRequest(`/blogs/admin/${id}`, "DELETE");
+      window.location.reload();
       setPosts((prev) => prev.filter((p) => p.id !== id));
     } catch (err) {
-      alert("Delete failed: " + err.message);
+      // alert("Delete failed: " + err.message);
     } finally {
       setDeleting((prev) => ({ ...prev, [id]: false }));
     }
@@ -61,7 +61,7 @@ export default function AdminBlogList() {
     <AdminLayout>
       <div className="mb-6 flex items-center justify-between">
         <div>
-          <h1 className="text-2xl font-bold text-gray-900">Blog Posts</h1>
+          <h1 className="text-2xl font-bold text-gray-900">Outreach Posts</h1>
           <p className="mt-1 text-sm text-gray-600">{posts.length} total</p>
         </div>
         <Link
@@ -148,7 +148,7 @@ export default function AdminBlogList() {
                 <td className="px-6 py-4">
                   <div className="flex items-center justify-end gap-3">
                     <Link
-                      to={`/admin/blogs/edit/${p.id}`}
+                      to={`/admin/outreach/edit/${p.id}`}
                       className="text-sky-600 hover:text-sky-800"
                     >
                       <Edit className="h-4 w-4" />
