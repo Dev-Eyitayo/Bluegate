@@ -11,7 +11,7 @@ class TrainingPaymentBase(BaseModel):
 
 
 class TrainingPaymentResponse(TrainingPaymentBase):
-    id: UUID
+    id: UUID | str
     uploaded_at: datetime
 
     class Config:
@@ -27,8 +27,9 @@ class TrainingApplicationCreate(TrainingApplicationBase):
 
 
 class TrainingApplicationResponse(TrainingApplicationBase):
-    id: UUID
+    id: int
     created_at: datetime
+    reviewed: bool
     payment: Optional[TrainingPaymentResponse] = None
 
     @field_validator("created_at", mode="before")

@@ -32,6 +32,10 @@ import MaternalChildHealth from "./pages/MaternalChildHealth";
 import EnvironmentalHealth from "./pages/EnvironmentalHealth";
 import Research from "./pages/Research";
 import MEL from "./pages/MEL";
+import AdminTrainingDashboard from "./pages/admin/AdminTrainingDashboard";
+import TrainingApplicationDetail from "./pages/admin/TrainingApplicationDetail";
+
+
 
 // import Research from "./pages/Research";
 
@@ -198,10 +202,26 @@ export default function App() {
           }
         />
         <Route
+          path="/admin/training"
+          element={
+            <AdminRoute>
+              <AdminTrainingDashboard />
+            </AdminRoute>
+          }
+        />
+        <Route
           path="/admin/volunteers/:id"
           element={
             <AdminRoute>
               <VolunteerDetail />
+            </AdminRoute>
+          }
+        />
+        <Route
+          path="/admin/training/:id"
+          element={
+            <AdminRoute>
+              <TrainingApplicationDetail />
             </AdminRoute>
           }
         />

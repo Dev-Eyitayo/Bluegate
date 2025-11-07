@@ -5,6 +5,7 @@ from sqlalchemy.dialects.postgresql import UUID
 import uuid
 from sqlalchemy import DateTime
 from sqlalchemy.sql import func
+import sqlalchemy as sa
 
 
 Base = declarative_base()
@@ -63,7 +64,7 @@ class BlogImage(Base):
 class TrainingApplication(Base):
     __tablename__ = "training_applications"
 
-    id = Column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4, index=True)
+    id = Column(Integer, primary_key=True, index=True)
     data = Column(JSON, nullable=False)  # Store entire form as JSON
     reviewed = Column(Boolean, default=False)
     created_at = Column(DateTime(timezone=True), server_default=func.now())
@@ -76,7 +77,7 @@ class TrainingPayment(Base):
     __tablename__ = "training_payments"
 
     id = Column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4, index=True)
-    application_id = Column(UUID(as_uuid=True), ForeignKey("training_applications.id"), nullable=False)
+    application_id = Column(sa.Integer, sa.ForeignKey("training_applications.id"), nullable=False)
     file_url = Column(String(500), nullable=False)       # Cloudinary secure URL or upload path
     public_id = Column(String(255), nullable=False)      # Cloudinary public_id for file management
     file_type = Column(String(50), nullable=True)        # e.g. 'image/png', 'application/pdf'

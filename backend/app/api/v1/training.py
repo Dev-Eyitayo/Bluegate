@@ -102,7 +102,7 @@ def get_all_training_applications(
 
 @router.get("/{application_id}", response_model=TrainingApplicationResponse)
 def get_training_application(
-    application_id: UUID,
+    application_id: int,
     db: Session = Depends(get_db),
     current_admin=Depends(get_current_admin),
 ):
@@ -135,7 +135,7 @@ def get_training_application(
 
 @router.delete("/{application_id}", status_code=status.HTTP_204_NO_CONTENT)
 def delete_training_application(
-    application_id: UUID,
+    application_id: int,
     db: Session = Depends(get_db),
     current_admin=Depends(get_current_admin),
 ):
@@ -170,7 +170,7 @@ def delete_training_application(
 
 @router.put("/{application_id}/review", response_model=TrainingApplicationResponse)
 def mark_training_application_reviewed(
-    application_id: UUID,
+    application_id: int,
     db: Session = Depends(get_db),
     current_admin=Depends(get_current_admin),
 ):
