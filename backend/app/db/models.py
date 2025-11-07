@@ -58,3 +58,29 @@ class BlogImage(Base):
     order = Column(Integer, default=0)
 
     post = relationship("BlogPost", back_populates="images")
+
+
+class TrainingApplication(Base):
+    __tablename__ = "training_applications"
+
+    id = Column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4, index=True)
+    data = Column(JSON, nullable=False)  # Store entire form as JSON
+    reviewed = Column(Boolean, default=False)
+    created_at = Column(DateTime(timezone=True), server_default=func.now())
+
+    # Relationship
+    payment = relationship("TrainingPayment", back_populates="application", uselist=False, cascade="all, delete-orphan")
+
+
+class TrainingPayment(Base):
+    __tablename__ = "training_payments"
+
+    id = Column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4, index=True)
+    application_id = Column(UUID(as_uuid=True), ForeignKey("training_applications.id"), nullable=False)
+    file_url = Column(String(500), nullable=False)       # Cloudinary secure URL or upload path
+    public_id = Column(String(255), nullable=False)      # Cloudinary public_id for file management
+    file_type = Column(String(50), nullable=True)        # e.g. 'image/png', 'application/pdf'
+    uploaded_at = Column(DateTime(timezone=True), server_default=func.now())
+
+    # Relationship
+    application = relationship("TrainingApplication", back_populates="payment")

@@ -1,7 +1,7 @@
 from fastapi import FastAPI
 from fastapi.openapi.models import OAuthFlows as OAuthFlowsModel, SecurityScheme
 from fastapi.security import OAuth2PasswordBearer
-from app.api.v1 import auth, admin, volunteer, blog
+from app.api.v1 import auth, admin, volunteer, blog, training
 from app.db import models, session
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
@@ -50,6 +50,8 @@ app.include_router(auth.router, prefix="/api/v1")
 app.include_router(admin.router, prefix="/api/v1")
 app.include_router(volunteer.router, prefix="/api/v1")
 app.include_router(blog.router, prefix="/api/v1")
+app.include_router(training.router, prefix="/api/v1")
+
 @app.get("/")
 def read_root():
     return {"message": "Hello ! This is an api built by @dev_eyitayo, follow me on X !"}
