@@ -92,3 +92,27 @@ def mark_reviewed(
     db.commit()
     db.refresh(app_record)
     return app_record
+
+
+
+@router.delete("/{application_id}", status_code=204)
+def delete_application(
+    application_id: int,
+    db: Session = Depends(get_db),
+    current_admin=Depends(get_current_admin),
+):
+    """
+    Admin-only — delete a volunteer application by ID.
+    """
+    app_record = (
+        db.query(VolunteerApplication)
+        .filter(VolunteerApplication.id == application_id)
+        .first()
+    )
+
+    if not app_record:
+        raise HTTPException(status_code=404, detail="Application not found")
+
+    db.delete(app_record)
+    db.commit()
+    return

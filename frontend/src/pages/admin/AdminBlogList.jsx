@@ -1,10 +1,13 @@
+// src/pages/admin/AdminBlogList.jsx
 import React, { useEffect, useState, useMemo } from "react";
 import { apiRequest } from "../../../utils/apiClient";
 import { Link } from "react-router-dom";
 import AdminLayout from "../../layouts/AdminLayout";
 import { format } from "date-fns";
 import { Eye, Edit, Trash2, Plus, Globe, Lock, Loader2 } from "lucide-react";
+import ToastContainer from "../../components/ToastContainer";
 
+// Status Badge
 const StatusBadge = ({ published }) => (
   <span
     className={`inline-flex items-center gap-1 rounded-full px-2.5 py-0.5 text-xs font-medium ${
@@ -23,13 +26,26 @@ export default function AdminBlogList() {
   const [loading, setLoading] = useState(true);
   const [deleting, setDeleting] = useState({});
 
+  // Toast state (same as AdminBlogForm)
+  const [toasts, setToasts] = useState([]);
+
+  const addToast = (message, type = "info") => {
+    const id = Date.now();
+    setToasts((prev) => [...prev, { id, message, type }]);
+    setTimeout(() => removeToast(id), 5000);
+  };
+
+  const removeToast = (id) => {
+    setToasts((prev) => prev.filter((t) => t.id !== id));
+  };
+
   useEffect(() => {
     (async () => {
       try {
         const res = await apiRequest("/blogs/admin?limit=100", "GET");
         setPosts(res || []);
       } catch (err) {
-        alert("Failed to load: " + err.message);
+        addToast("Failed to load posts: " + err.message, "error");
       } finally {
         setLoading(false);
       }
@@ -37,14 +53,19 @@ export default function AdminBlogList() {
   }, []);
 
   const handleDelete = async (id) => {
-    if (!confirm("Delete this post?")) return;
+    if (!window.confirm("Are you sure you want to delete this post?")) {
+      return;
+    }
+
     setDeleting((prev) => ({ ...prev, [id]: true }));
     try {
       await apiRequest(`/blogs/admin/${id}`, "DELETE");
-      window.location.reload();
+
+      // Remove from UI immediately
       setPosts((prev) => prev.filter((p) => p.id !== id));
+      addToast("Post deleted successfully", "success");
     } catch (err) {
-      // alert("Delete failed: " + err.message);
+      addToast("Delete failed: " + err.message, "error");
     } finally {
       setDeleting((prev) => ({ ...prev, [id]: false }));
     }
@@ -59,6 +80,9 @@ export default function AdminBlogList() {
 
   return (
     <AdminLayout>
+      {/* Toast Container */}
+      <ToastContainer toasts={toasts} removeToast={removeToast} />
+
       <div className="mb-6 flex items-center justify-between">
         <div>
           <h1 className="text-2xl font-bold text-gray-900">Outreach Posts</h1>
@@ -78,21 +102,23 @@ export default function AdminBlogList() {
         {posts.map((p) => (
           <div
             key={p.id}
-            className="rounded-xl border border-gray-200 bg-white p-4 shadow-sm"
+            className="rounded-xl border border-gray-200 bg-white p-4 shadow-sm transition hover:shadow-md"
           >
             <div className="flex justify-between items-start">
               <div className="flex-1">
-                <h3 className="font-semibold text-gray-900">{p.title}</h3>
+                <h3 className="font-semibold text-gray-900 line-clamp-2">
+                  {p.title}
+                </h3>
                 <p className="text-xs text-gray-500 mt-1">
                   {format(new Date(p.created_at), "MMM d, yyyy")}
                 </p>
               </div>
               <StatusBadge published={p.is_published} />
             </div>
-            <div className="mt-3 flex gap-2">
+            <div className="mt-3 flex gap-3">
               <Link
                 to={`/admin/outreach/edit/${p.id}`}
-                className="flex items-center gap-1 text-sky-600 text-sm"
+                className="flex items-center gap-1 text-sky-600 text-sm font-medium hover:underline"
               >
                 <Edit className="h-4 w-4" />
                 Edit
@@ -100,7 +126,7 @@ export default function AdminBlogList() {
               <button
                 onClick={() => handleDelete(p.id)}
                 disabled={deleting[p.id]}
-                className="flex items-center gap-1 text-red-600 text-sm"
+                className="flex items-center gap-1 text-red-600 text-sm font-medium hover:underline disabled:opacity-60"
               >
                 {deleting[p.id] ? (
                   <Loader2 className="h-4 w-4 animate-spin" />
@@ -119,25 +145,27 @@ export default function AdminBlogList() {
         <table className="min-w-full divide-y divide-gray-200">
           <thead className="bg-gray-50">
             <tr>
-              <th className="px-6 py-3 text-left text-xs font-medium uppercase text-gray-500">
+              <th className="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider text-gray-500">
                 Title
               </th>
-              <th className="px-6 py-3 text-left text-xs font-medium uppercase text-gray-500">
+              <th className="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider text-gray-500">
                 Created
               </th>
-              <th className="px-6 py-3 text-left text-xs font-medium uppercase text-gray-500">
+              <th className="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider text-gray-500">
                 Status
               </th>
-              <th className="px-6 py-3 text-right text-xs font-medium uppercase text-gray-500">
+              <th className="px-6 py-3 text-right text-xs font-medium uppercase tracking-wider text-gray-500">
                 Actions
               </th>
             </tr>
           </thead>
           <tbody className="divide-y divide-gray-200 bg-white">
             {posts.map((p) => (
-              <tr key={p.id} className="hover:bg-gray-50">
-                <td className="px-6 py-4 text-sm text-gray-900 max-w-xs truncate">
-                  {p.title}
+              <tr key={p.id} className="hover:bg-gray-50 transition">
+                <td className="px-6 py-4 text-sm text-gray-900 max-w-xs">
+                  <div className="truncate" title={p.title}>
+                    {p.title}
+                  </div>
                 </td>
                 <td className="px-6 py-4 text-sm text-gray-600 whitespace-nowrap">
                   {format(new Date(p.created_at), "MMM d, yyyy")}
@@ -149,14 +177,16 @@ export default function AdminBlogList() {
                   <div className="flex items-center justify-end gap-3">
                     <Link
                       to={`/admin/outreach/edit/${p.id}`}
-                      className="text-sky-600 hover:text-sky-800"
+                      className="text-sky-600 hover:text-sky-800 transition"
+                      title="Edit post"
                     >
                       <Edit className="h-4 w-4" />
                     </Link>
                     <button
                       onClick={() => handleDelete(p.id)}
                       disabled={deleting[p.id]}
-                      className="text-red-600 hover:text-red-800"
+                      className="text-red-600 hover:text-red-800 transition disabled:opacity-60"
+                      title="Delete post"
                     >
                       {deleting[p.id] ? (
                         <Loader2 className="h-4 w-4 animate-spin" />

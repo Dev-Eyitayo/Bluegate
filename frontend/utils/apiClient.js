@@ -1,3 +1,4 @@
+// utils/apiClient.js
 import API_BASE_URL from "../src/config/api";
 
 /**
@@ -10,7 +11,6 @@ import API_BASE_URL from "../src/config/api";
 export async function apiRequest(endpoint, method = "GET", data = null, token = null) {
   const authToken = token || localStorage.getItem("ACCESS_TOKEN");
 
-  // Base headers – only add Content-Type for JSON
   const headers = {};
   if (authToken) headers["Authorization"] = `Bearer ${authToken}`;
 
@@ -19,10 +19,8 @@ export async function apiRequest(endpoint, method = "GET", data = null, token = 
   // === BODY HANDLING ===
   if (data) {
     if (data instanceof FormData) {
-      // Let browser set Content-Type + boundary
       options.body = data;
     } else {
-      // JSON payload
       headers["Content-Type"] = "application/json";
       options.body = JSON.stringify(data);
     }
@@ -33,30 +31,40 @@ export async function apiRequest(endpoint, method = "GET", data = null, token = 
 
   // === RESPONSE PARSING ===
   const contentType = response.headers.get("content-type") || "";
-  let result;
+  let result = null;
+
+  // Only try to parse JSON if content-type is JSON
   if (contentType.includes("application/json")) {
-    result = await response.json();
-  } else {
+    try {
+      result = await response.json();
+    } catch {
+      result = null;
+    }
+  } else if (response.status !== 204) {
+    // For non-JSON, non-204 responses
     result = await response.text();
+  }
+  // For 204: result stays null → perfect
+
+  // === SUCCESS: 200–299 OR 204 ===
+  if (response.ok || response.status === 204) {
+    return result; // null for 204, parsed JSON or text otherwise
   }
 
   // === ERROR HANDLING ===
-  if (!response.ok) {
-    let message =
-      typeof result === "object"
-        ? result?.detail || result?.message || JSON.stringify(result)
-        : result || `Request failed with status ${response.status}`;
+  let message =
+    typeof result === "object"
+      ? result?.detail || result?.message || JSON.stringify(result)
+      : result || `Request failed with status ${response.status}`;
 
-    // Auto-logout on 401
-    if (response.status === 401) {
-      localStorage.removeItem("ACCESS_TOKEN");
-      localStorage.removeItem("USER");
-      // Optional: redirect to login
-      window.location.href = "/admin/login";
-    }
-
-    throw new Error(message);
+  // Auto-logout on 401
+  if (response.status === 401) {
+    localStorage.removeItem("ACCESS_TOKEN");
+    localStorage.removeItem("USER");
+    window.location.href = "/admin/login";
   }
 
-  return result;
+  const error = new Error(message);
+  error.status = response.status;
+  throw error;
 }

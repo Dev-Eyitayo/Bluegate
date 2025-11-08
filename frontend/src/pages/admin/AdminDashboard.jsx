@@ -4,7 +4,8 @@ import { apiRequest } from "../../../utils/apiClient";
 import { Link } from "react-router-dom";
 import AdminLayout from "../../layouts/AdminLayout";
 import { format } from "date-fns";
-import { Eye, Clock, CheckCircle, Loader2 } from "lucide-react";
+import { Eye, Clock, CheckCircle, Loader2, Trash2 } from "lucide-react";
+import ToastContainer from "../../components/ToastContainer";
 
 // Status Badge
 const StatusBadge = ({ reviewed }) => (
@@ -29,6 +30,21 @@ export default function AdminDashboard() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
   const [marking, setMarking] = useState({}); // { id: true }
+  const [deleting, setDeleting] = useState({}); // { id: true }
+
+  // Toast state (same as AdminBlogForm)
+  const [toasts, setToasts] = useState([]);
+
+  const addToast = (message, type = "info") => {
+    const id = Date.now();
+    setToasts((prev) => [...prev, { id, message, type }]);
+    // Auto-remove after 5 seconds
+    setTimeout(() => removeToast(id), 5000);
+  };
+
+  const removeToast = (id) => {
+    setToasts((prev) => prev.filter((t) => t.id !== id));
+  };
 
   useEffect(() => {
     (async () => {
@@ -37,6 +53,7 @@ export default function AdminDashboard() {
         setApps(res || []);
       } catch (err) {
         setError(err.message || "Failed to load");
+        addToast("Failed to load submissions", "error");
       } finally {
         setLoading(false);
       }
@@ -51,7 +68,7 @@ export default function AdminDashboard() {
     [apps]
   );
 
-  // Mark as Reviewed (PUT /volunteers/{id}/review)
+  // Mark as Reviewed
   const handleMarkReviewed = useCallback(async (id) => {
     setMarking((prev) => ({ ...prev, [id]: true }));
     try {
@@ -62,10 +79,30 @@ export default function AdminDashboard() {
           app.id === id ? { ...app, reviewed: true } : app
         )
       );
+      addToast("Marked as reviewed", "success");
     } catch (err) {
-      alert(`Failed to mark as reviewed: ${err.message}`);
+      addToast(`Failed to mark as reviewed: ${err.message}`, "error");
     } finally {
       setMarking((prev) => ({ ...prev, [id]: false }));
+    }
+  }, []);
+
+  // Delete Submission
+  const handleDelete = useCallback(async (id) => {
+    if (!window.confirm("Are you sure you want to delete this submission?")) {
+      return;
+    }
+
+    setDeleting((prev) => ({ ...prev, [id]: true }));
+    try {
+      await apiRequest(`/volunteers/${id}`, "DELETE");
+
+      setApps((prev) => prev.filter((app) => app.id !== id));
+      addToast("Submission deleted successfully", "success");
+    } catch (err) {
+      addToast(`Failed to delete: ${err.message}`, "error");
+    } finally {
+      setDeleting((prev) => ({ ...prev, [id]: false }));
     }
   }, []);
 
@@ -85,6 +122,9 @@ export default function AdminDashboard() {
 
   return (
     <AdminLayout>
+      {/* Toast Container */}
+      <ToastContainer toasts={toasts} removeToast={removeToast} />
+
       <div className="mb-6">
         <h1 className="text-2xl font-bold text-gray-900">
           Volunteer Submissions
@@ -114,7 +154,7 @@ export default function AdminDashboard() {
               <StatusBadge reviewed={a.reviewed} />
             </div>
 
-            <div className="mt-4 flex items-center justify-between gap-3">
+            <div className="mt-4 flex items-center justify-between gap-2">
               <Link
                 to={`/admin/volunteers/${a.id}`}
                 className="flex items-center gap-1 text-sky-600 text-sm font-medium hover:underline"
@@ -123,25 +163,33 @@ export default function AdminDashboard() {
                 View
               </Link>
 
-              {!a.reviewed && (
-                <button
-                  onClick={() => handleMarkReviewed(a.id)}
-                  disabled={marking[a.id]}
-                  className="flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium text-white bg-emerald-600 rounded-md hover:bg-emerald-700 disabled:opacity-60 disabled:cursor-not-allowed transition"
-                >
-                  {marking[a.id] ? (
-                    <>
+              <div className="flex gap-2">
+                {!a.reviewed && (
+                  <button
+                    onClick={() => handleMarkReviewed(a.id)}
+                    disabled={marking[a.id]}
+                    className="flex items-center gap-1.5 px-2.5 py-1.5 text-xs font-medium text-white bg-emerald-600 rounded-md hover:bg-emerald-700 disabled:opacity-60 disabled:cursor-not-allowed transition"
+                  >
+                    {marking[a.id] ? (
                       <Loader2 className="h-3 w-3 animate-spin" />
-                      Saving...
-                    </>
-                  ) : (
-                    <>
+                    ) : (
                       <CheckCircle className="h-3 w-3" />
-                      Mark Reviewed
-                    </>
+                    )}
+                  </button>
+                )}
+
+                <button
+                  onClick={() => handleDelete(a.id)}
+                  disabled={deleting[a.id]}
+                  className="flex items-center gap-1 px-2.5 py-1.5 text-xs font-medium text-red-600 bg-red-50 rounded-md hover:bg-red-100 disabled:opacity-60 disabled:cursor-not-allowed transition"
+                >
+                  {deleting[a.id] ? (
+                    <Loader2 className="h-3 w-3 animate-spin" />
+                  ) : (
+                    <Trash2 className="h-3 w-3" />
                   )}
                 </button>
-              )}
+              </div>
             </div>
           </div>
         ))}
@@ -192,7 +240,6 @@ export default function AdminDashboard() {
                   <StatusBadge reviewed={a.reviewed} />
                 </td>
                 <td className="px-6 py-4">
-                  {/* Flex container to align buttons with header */}
                   <div className="flex items-center justify-end gap-3">
                     {!a.reviewed && (
                       <button
@@ -221,6 +268,18 @@ export default function AdminDashboard() {
                       <Eye className="h-4 w-4" />
                       View
                     </Link>
+
+                    <button
+                      onClick={() => handleDelete(a.id)}
+                      disabled={deleting[a.id]}
+                      className="flex items-center gap-1 text-red-600 hover:text-red-800 font-medium text-sm transition disabled:opacity-60"
+                    >
+                      {deleting[a.id] ? (
+                        <Loader2 className="h-4 w-4 animate-spin" />
+                      ) : (
+                        <Trash2 className="h-4 w-4" />
+                      )}
+                    </button>
                   </div>
                 </td>
               </tr>
