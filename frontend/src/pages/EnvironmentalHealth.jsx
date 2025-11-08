@@ -1,12 +1,11 @@
-// pages/EnvironmentalHealth.jsx
 import React from "react";
 import { Droplets, Wind, Trees, HeartHandshake } from "lucide-react";
 
 export default function EnvironmentalHealth() {
   return (
-    <div className="min-h-screen bg-sky-200/10 px-2 text-gray-800">
+    <div className="min-h-screen bg-sky-200/10 px-2 py-4 text-gray-800">
       <section className="py-16 px-3 max-w-5xl mx-auto">
-        <h1 className="text-3xl font-extrabold text-sky-800 text-center mb-8">
+        <h1 className="text-2xl font-extrabold text-sky-800 text-center mb-8">
           Environmental Health Services
         </h1>
         <p className="text-slate-600 leading-relaxed mb-6 text-left">
@@ -17,15 +16,17 @@ export default function EnvironmentalHealth() {
         </p>
       </section>
 
-      <section className="py-12 px-3 max-w-5xl mx-auto space-y-20">
-        <img
-          src="/assets/environmental.jpg"
-          alt="Environmental Health"
-          className="rounded-xl mx-auto max-w-2xl"
-        />
+      <section className="py-12 px-1 max-w-5xl mx-auto space-y-20">
+        <div className="flex justify-center">
+          <img
+            src="/assets/environmental.jpg"
+            alt="Environmental Health"
+            className="rounded-xl w-full max-w-2xl h-auto object-cover mx-auto"
+          />
+        </div>
 
         {/* 1. WASH */}
-        <div className="bg-white p-8 rounded-xl">
+        <div className="bg-white p-8 boder border-slate-300 rounded-xl">
           <h3 className="text-xl font-bold text-sky-800 mb-4 flex items-center">
             {/* <Droplets className="w-7 h-7 mr-3 text-blue-600" /> */}
             1. Water, Sanitation and Hygiene (WASH)
@@ -63,7 +64,7 @@ export default function EnvironmentalHealth() {
         </div>
 
         {/* 2. Menstrual Health */}
-        <div className="bg-white p-8 rounded-xl shadow-md">
+        <div className="bg-white p-8 rounded-xl boder border-slate-300">
           <h3 className="text-xl font-bold text-sky-800 mb-4 flex items-center">
             {/* <HeartHandshake className="w-7 h-7 mr-3 text-pink-600" /> */}
             2. Menstrual Health and Hygiene (MHH)
@@ -104,7 +105,7 @@ export default function EnvironmentalHealth() {
         </div>
 
         {/* 3. Climate Resilience */}
-        <div className="bg-white p-8 rounded-xl shadow-md">
+        <div className="bg-white p-8 rounded-xl boder border-slate-300">
           <h3 className="text-xl font-bold text-sky-800 mb-4 flex items-center">
             {/* <Wind className="w-7 h-7 mr-3 text-green-600" /> */}
             3. Climate Change and Community Resilience

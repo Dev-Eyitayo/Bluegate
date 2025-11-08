@@ -231,25 +231,6 @@ export default function Research() {
         </div>
       </section>
 
-      {/* Call to Action */}
-      {/* <section className="py-14 px-3 max-w-4xl mx-auto text-center">
-        <div className="bg-gradient-to-r from-sky-700 to-sky-900 text-white p-8 md:p-10 rounded-2xl shadow-xl">
-          <h3 className="text-2xl md:text-3xl font-bold mb-4">
-            Partner with Us on Evidence-Based Solutions
-          </h3>
-          <p className="mb-6 text-sky-100 max-w-2xl mx-auto">
-            Let’s co-design research that drives real change in public health.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="bg-white text-sky-800 font-bold px-8 py-3 rounded-full hover:bg-sky-50 transition shadow-md">
-              Request a Research Consultation
-            </button>
-            <button className="border-2 border-white text-white font-bold px-8 py-3 rounded-full hover:bg-white/10 transition">
-              Download Research Brochure
-            </button>
-          </div>
-        </div>
-      </section> */}
     </div>
   );
 }

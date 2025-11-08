@@ -21,12 +21,12 @@ export default function Footer() {
           <h4 className="font-bold text-lg mb-2">Quick Links</h4>
           <ul className="text-sm text-gray-400 space-y-1">
             <li><Link to="/about" className="hover:text-sky-300 transition-colors">About Us</Link></li>
-            <li><Link to="/health-promotion" className="hover:text-sky-300 transition-colors">Programme</Link></li>
+            <li><Link to="/health-promotion" className="hover:text-sky-300 transition-colors">Health Promotion</Link></li>
             <li><Link to="/health-communication" className="hover:text-sky-300 transition-colors">SBCC</Link></li>
             <li><Link to="/empowerment" className="hover:text-sky-300 transition-colors">Empowerment</Link></li>
             <li><Link to="/human-rights" className="hover:text-sky-300 transition-colors">Human Rights</Link></li>
             {/* <li><Link to="/un-days" className="hover:text-sky-300 transition-colors">UN Days Activities</Link></li> */}
-            <li><Link to="/blogs" className="hover:text-sky-300 transition-colors">Blogs</Link></li>
+            <li><Link to="/outreach" className="hover:text-sky-300 transition-colors">Outreach Posts</Link></li>
             <li><Link to="/contact-us" className="hover:text-sky-300 transition-colors">Contact Us</Link></li>
           </ul>
         </div>
@@ -35,7 +35,7 @@ export default function Footer() {
           <ul className="text-sm text-gray-400 space-y-1">
             <li><a href="https://web.facebook.com/BlueGateInitiative" className="hover:text-sky-300 transition-colors">Facebook</a></li>
             <li><a href="https://x.com/BlueInitiative" className="hover:text-sky-300 transition-colors">Twitter</a></li>
-            {/* <li><a href="https://instagram.com/BlueGateInitiative" className="hover:text-sky-300 transition-colors">Instagram</a></li> */}
+            <li><a href="https://instagram.com/BlueGateInitiative" className="hover:text-sky-300 transition-colors">Instagram</a></li>
           </ul>
           
           

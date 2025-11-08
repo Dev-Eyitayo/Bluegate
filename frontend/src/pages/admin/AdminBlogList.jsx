@@ -1,4 +1,3 @@
-// src/pages/admin/AdminBlogList.jsx
 import React, { useEffect, useState, useMemo } from "react";
 import { apiRequest } from "../../../utils/apiClient";
 import { Link } from "react-router-dom";

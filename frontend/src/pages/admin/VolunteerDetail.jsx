@@ -1,4 +1,3 @@
-// src/pages/admin/VolunteerDetail.jsx
 import React, { useEffect, useState, useCallback } from "react";
 import { useParams } from "react-router-dom";
 import { apiRequest } from "../../../utils/apiClient";

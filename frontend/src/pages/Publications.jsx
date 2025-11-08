@@ -63,7 +63,7 @@ export default function Publications() {
       authors: "Ademola L. Adelekan, Gabriel Musa, Agada Gloria, Matthias Okpanachi, Ogundipe Love, Onoja Johnson, Williams Shaibu, Patrick Adah, Adetunji Adetayo, Oladipupo S. Olaleye, Segun Adeoye, Michael Olugbile, Philomena Omoregie, Aliyu Sani, Emmanuel Alhassan, Tobias John, Oluwakemi Ladeinde",
       pdf: "/pdfs/ISY.pdf",
     },
-    // Add more as needed...
+    
   ];
 
   return (

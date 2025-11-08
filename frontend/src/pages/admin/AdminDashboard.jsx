@@ -1,4 +1,3 @@
-// src/pages/admin/AdminDashboard.jsx
 import React, { useEffect, useState, useMemo, useCallback } from "react";
 import { apiRequest } from "../../../utils/apiClient";
 import { Link } from "react-router-dom";
