@@ -224,7 +224,7 @@ def list_published_posts(
 def get_post_by_slug(slug: str, db: Session = Depends(get_db)):
     post = (
         db.query(BlogPost)
-        .options(joinedload(BlogPost.images))  # ← CRITICAL: Load images!
+        .options(joinedload(BlogPost.images)) 
         .filter(BlogPost.slug == slug, BlogPost.is_published == True)
         .first()
     )

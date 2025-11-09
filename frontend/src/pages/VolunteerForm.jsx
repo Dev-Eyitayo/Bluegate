@@ -256,8 +256,8 @@ export default function VolunteerForm() {
           <div
             className={`fixed top-5 right-5 z-50 flex items-center gap-3 px-5 py-3 rounded-lg shadow-md text-sm sm:text-base font-medium transition-all duration-300 ease-in-out transform ${
               notification.type === "success"
-                ? "bg-green-600 text-white"
-                : "bg-red-600 text-white"
+                ? "bg-emerald-50 border-emerald-200 text-white"
+                : "bg-red-50 boder-red-200 text-white"
             }`}
           >
             <AlertCircle className="w-5 h-5 shrink-0" />
