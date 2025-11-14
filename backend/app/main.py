@@ -1,11 +1,13 @@
 from fastapi import FastAPI
 from fastapi.openapi.models import OAuthFlows as OAuthFlowsModel, SecurityScheme
 from fastapi.security import OAuth2PasswordBearer
-from app.api.v1 import auth, admin, volunteer, blog, training
+from app.api.v1 import auth, admin, volunteer, blog, training, event
 from app.db import models, session
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
 from .core.cloudinary_config import init_cloudinary
+from fastapi.openapi.utils import get_openapi
+
 
 models.Base.metadata.create_all(bind=session.engine)
 init_cloudinary()
@@ -51,13 +53,13 @@ app.include_router(admin.router, prefix="/api/v1")
 app.include_router(volunteer.router, prefix="/api/v1")
 app.include_router(blog.router, prefix="/api/v1")
 app.include_router(training.router, prefix="/api/v1")
+app.include_router(event.router, prefix="/api/v1")
 
 @app.get("/")
 def read_root():
     return {"message": "Hello ! This is an api built by @dev_eyitayo, follow me on X !"}
 
-# Add security scheme for Swagger UI
-from fastapi.openapi.utils import get_openapi
+
 
 def custom_openapi():
     if app.openapi_schema:

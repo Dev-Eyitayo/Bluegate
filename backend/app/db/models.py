@@ -85,3 +85,27 @@ class TrainingPayment(Base):
 
     # Relationship
     application = relationship("TrainingApplication", back_populates="payment")
+
+
+class Event(Base):
+    __tablename__ = "events"
+    id = Column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4, index=True)
+    title = Column(String(200), nullable=False)
+    description = Column(Text, nullable=False)
+    event_date = Column(DateTime(timezone=True), nullable=False)
+    location = Column(String(300), nullable=True)
+    created_at = Column(DateTime(timezone=True), server_default=func.now())
+    updated_at = Column(DateTime(timezone=True), onupdate=func.now())
+    
+    images = relationship("EventImage", back_populates="event", cascade="all, delete-orphan")
+
+class EventImage(Base):
+    __tablename__ = "event_images"
+    id = Column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4, index=True)
+    event_id = Column(UUID(as_uuid=True), ForeignKey("events.id"), nullable=False)
+    image_url = Column(String(500), nullable=False)     # Cloudinary secure URL
+    public_id = Column(String(255), nullable=False)     # Cloudinary public_id
+    caption = Column(String(300), nullable=True)
+    order = Column(Integer, default=0)
+
+    event = relationship("Event", back_populates="images")
