@@ -34,6 +34,9 @@ import Research from "./pages/Research";
 import MEL from "./pages/MEL";
 import AdminTrainingDashboard from "./pages/admin/AdminTrainingDashboard";
 import TrainingApplicationDetail from "./pages/admin/TrainingApplicationDetail";
+import AdminEventList from "./pages/admin/AdminEventList";
+import AdminEventForm from "./pages/admin/AdminEventForm";
+import EventDetailPage from "./pages/EventDetailPage";
 
 
 
@@ -229,6 +232,10 @@ export default function App() {
         <Route path="/admin/outreach/create" element={<AdminBlogForm />} />
         <Route path="/admin/outreach/edit/:id" element={<AdminBlogForm />} />
         <Route path="/outreach/:slug" element={<BlogDetailPage />} />
+        <Route path="/admin/event" element={<AdminEventList />} />
+        <Route path="/admin/event/create" element={<AdminEventForm />} />
+        <Route path="/admin/event/edit/:id" element={<AdminEventForm />} />
+        <Route path="/events/:id" element={<EventDetailPage />} />
 
         <Route path="/health-promotion/communicable-diseases" element={<MainLayout><CommunicableDiseases /></MainLayout>} />
         <Route path="/health-promotion/non-communicable-diseases" element={<MainLayout><NonCommunicableDiseases /></MainLayout>} />
