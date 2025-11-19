@@ -59,6 +59,9 @@ app.include_router(event.router, prefix="/api/v1")
 def read_root():
     return {"message": "Hello ! This is an api built by @dev_eyitayo, follow me on X !"}
 
+@app.get("/health", include_in_schema=False)
+def health_check():
+    return {"status": "ok"}
 
 
 def custom_openapi():
