@@ -24,9 +24,8 @@ export function AuthProvider({ children }) {
   }, [token]);
 
   const login = async ({ email, password }) => {
-    // adapt endpoint to your backend (logs show /api/v1/auth/login)
+  
     const res = await apiRequest("/auth/login", "POST", { email, password });
-    // backend may return different shapes, handle common cases:
     const accessToken = res.access_token
     const userPayload = res.user
     if (!accessToken) {

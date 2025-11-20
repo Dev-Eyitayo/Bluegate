@@ -9,6 +9,16 @@ const slides = [
     title: "Blue Gate team with the Oyo State Honorable commissioner for health (Dr Bello), the permanent secretary (Dr Ayoola), and Director of Public health (Dr Lawal) during the 2020 World AIDS Day celebration.",
   }
 ];
+const malariaSlides = [
+  {
+    image: "/assets/updatedImages/Malaria.jpg",
+    title: "",
+  },
+  {
+    image: "/assets/malaria.jpg",
+    title: "",
+  }
+];
 
 export default function CommunicableDiseases() {
   return (
@@ -30,11 +40,12 @@ export default function CommunicableDiseases() {
       <section className="py-12 px-3 max-w-5xl mx-auto space-y-20">
         {/* 1. Malaria Prevention and Control */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-start">
-          <img
+          {/* <img
             src="/assets/malaria.jpg"
             alt="Malaria Control"
             className="rounded-xl shadow-md w-full h-auto"
-          />
+          /> */}
+          <ImageCarousel slides={malariaSlides} />
           <div>
             <h3 className="text-xl font-bold text-sky-800 mb-4 flex items-center">
               {/* <Shield className="w-6 h-6 mr-2 text-sky-600" /> */}

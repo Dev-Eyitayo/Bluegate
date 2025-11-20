@@ -18,7 +18,7 @@ import Publications from "./pages/Publications";
 import TrainingForm from "./pages/TrainingForm";
 import Training from "./pages/Training";
 import AdminLogin from "./pages/AdminLogin";
-import AdminDashboard from "./pages/admin/AdminDashboard";
+import AdminDashboard from "./pages/admin/AdminVolunteer";
 import VolunteerDetail from "./pages/admin/VolunteerDetail";
 import AdminRoute from "./components/AdminRoute";
 import TrainingPrograms from "./pages/TrainingPrograms";
@@ -37,6 +37,7 @@ import TrainingApplicationDetail from "./pages/admin/TrainingApplicationDetail";
 import AdminEventList from "./pages/admin/AdminEventList";
 import AdminEventForm from "./pages/admin/AdminEventForm";
 import EventDetailPage from "./pages/EventDetailPage";
+import NotFoundPage from "./pages/NotFoundPage";
 
 
 
@@ -45,8 +46,9 @@ import EventDetailPage from "./pages/EventDetailPage";
 export default function App() {
   return (
     <>
-    {/* <ToastContainer toasts={toasts} removeToast={removeToast} /> */}
+      
       <Routes>
+        <Route path="*" element={<NotFoundPage />} />
         <Route
           path="/"
           element={
@@ -55,6 +57,7 @@ export default function App() {
             </MainLayout>
           }
         />
+
         <Route
           path="/about"
           element={
@@ -197,7 +200,7 @@ export default function App() {
 
         {/* Admin protected area */}
         <Route
-          path="/admin"
+          path="/admin/volunteers"
           element={
             <AdminRoute>
               <AdminDashboard />

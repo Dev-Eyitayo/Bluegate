@@ -139,7 +139,7 @@ export default function TrainingApplicationDetail() {
 
     // Add payment image if available
     if (payment?.file_url) {
-      const img = new Image();
+      const img = new window.Image();
       img.crossOrigin = "anonymous";
       img.onload = () => {
         const canvas = document.createElement("canvas");

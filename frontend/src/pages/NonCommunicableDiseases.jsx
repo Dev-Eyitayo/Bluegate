@@ -1,13 +1,16 @@
-// pages/NonCommunicableDiseases.jsx
 import React from "react";
 import { Activity, HeartPulse, AlertCircle } from "lucide-react";
 import SectionHeader from "../components/SectionHeader";
 import ImageCarousel from "../components/ImageCarousel";
 
-const diabetesSlides = [
+const ncdSlides = [
   {
-    image: "/assets/diabetes.jpg",
-    title: "Non communicable diseases",
+    image: "/assets/updatedImages/Hypertension.jpg",
+    title: "",
+  },
+  {
+    image: "/assets/updatedImages/Diabetes.jpg",
+    title: "",
   },
 
 ];
@@ -31,13 +34,13 @@ export default function NonCommunicableDiseases() {
         {/* 1. Hypertension & Diabetes */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-start">
           <img
-            src="/assets/non-communicable.jpg"
-            alt="NCD Screening"
+            src="/assets/diabetes.jpg"
+            alt="Diabetes and Hypertension Control"
             className="rounded-xl shadow-md w-full h-auto"
           />
           <div>
             <h3 className="text-xl font-bold text-sky-800 mb-4 flex items-center">
-              {/* <HeartPulse className="w-6 h-6 mr-2 text-red-600" /> */}
+            
               1. Hypertension & Diabetes Prevention and Control
             </h3>
             <p className="text-slate-600 leading-relaxed mb-4">
@@ -59,7 +62,7 @@ export default function NonCommunicableDiseases() {
         </div>
 
         <div className="max-w-3xl mx-auto">
-          <ImageCarousel slides={diabetesSlides} />
+          <ImageCarousel slides={ncdSlides} />
         </div>
 
         {/* 2. Cancer Awareness */}
@@ -80,8 +83,12 @@ export default function NonCommunicableDiseases() {
               <li>Survivor support networks and caregiver education</li>
             </ul>
           </div>
-          <div className="bg-gray-200 border-2 border-dashed rounded-xl w-full h-64 flex items-center justify-center text-slate-500">
-            <p>[Cancer Program Image Here]</p>
+          <div className="bg-gray-200 border-2 border-dashed rounded-xl mt-4 w-full h-64 flex items-center justify-center text-slate-500">
+            <img
+            src="/assets/updatedImages/Cervical cancer screening.jpg"
+            alt="Cancer screening"
+            className="rounded-xl shadow-md w-full h-auto"
+          />
           </div>
         </div>
       </section>

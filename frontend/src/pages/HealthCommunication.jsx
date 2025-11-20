@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import { Megaphone, Users, Radio, Film, ChevronLeft, ChevronRight } from "lucide-react";
 
 const carouselImages = [
+  "/assets/updatedImages/SBCC.jpg",
   "/assets/crew1.jpg",
   "/assets/crew2.jpg",
 ];
@@ -393,9 +394,9 @@ export default function HealthCommunication() {
             ))}
           </div>
         </div>
-        <p className="mt-6 text-center text-sm text-slate-600 max-w-3xl mx-auto">
+        {/* <p className="mt-6 text-center text-sm text-slate-600 max-w-3xl mx-auto">
           Our communications team — scriptwriters, camera crew, editors, and outreach coordinators — work closely with communities to produce <strong>culturally-sensitive, engaging content</strong> that resonates with our audiences.
-        </p>
+        </p> */}
       </section>
     </div>
   );

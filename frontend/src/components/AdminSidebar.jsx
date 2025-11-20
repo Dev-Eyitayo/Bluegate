@@ -1,11 +1,10 @@
 import React from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";  // Added useNavigate
 import { X, LayoutDashboard, Users, Settings, LogOut, PenSquare, Brain, CalendarCheck } from "lucide-react";
 import clsx from "clsx";
 
 const navItems = [
-  // { to: "/admin", label: "Dashboard", icon: LayoutDashboard },
-  { to: "/admin", label: "Volunteer Application", icon: Users },
+  { to: "/admin/volunteers", label: "Volunteer Application", icon: Users },
   { to: "/admin/outreach", label: "Outreach Post", icon: PenSquare },
   { to: "/admin/training", label: "Training Application", icon: Brain },
   { to: "/admin/event", label: "Events", icon: CalendarCheck },
@@ -13,6 +12,17 @@ const navItems = [
 
 export default function AdminSidebar({ isOpen, onClose }) {
   const location = useLocation();
+  const navigate = useNavigate(); 
+  const handleLogout = () => {
+    // Clear all auth data from localStorage
+    localStorage.removeItem("ACCESS_TOKEN");
+    localStorage.removeItem("USER");
+
+    onClose();
+
+    // Redirect to login page
+    navigate("/admin/login");
+  };
 
   return (
     <>
@@ -47,7 +57,7 @@ export default function AdminSidebar({ isOpen, onClose }) {
           <nav className="flex-1 space-y-1 p-4">
             {navItems.map((item) => {
               const Icon = item.icon;
-              const isActive = location.pathname === item.to;
+              const isActive = location.pathname.startsWith(item.to);
               return (
                 <Link
                   key={item.to}
@@ -68,7 +78,10 @@ export default function AdminSidebar({ isOpen, onClose }) {
           </nav>
 
           <div className="border-t border-gray-200 p-4">
-            <button className="flex w-full items-center gap-3 rounded-xl px-4 py-3 text-sm font-medium text-red-600 hover:bg-red-50">
+            <button
+              onClick={handleLogout}
+              className="flex w-full items-center gap-3 rounded-xl px-4 py-3 text-sm font-medium text-red-600 hover:bg-red-50 transition-all"
+            >
               <LogOut className="h-5 w-5" />
               <span>Logout</span>
             </button>

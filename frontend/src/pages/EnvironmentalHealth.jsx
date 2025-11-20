@@ -1,11 +1,21 @@
 import React from "react";
+import ImageCarousel from "../components/ImageCarousel";
 import { Droplets, Wind, Trees, HeartHandshake } from "lucide-react";
 
+const slides = [
+  {
+    image: "/assets/updatedImages/EnvironmentalHealth.jpg",
+    title: "",
+  }
+];
+
 export default function EnvironmentalHealth() {
+
+  
   return (
     <div className="min-h-screen bg-sky-200/10 px-2 py-4 text-gray-800">
       <section className="py-16 px-3 max-w-5xl mx-auto">
-        <h1 className="text-2xl font-extrabold text-sky-800 text-center mb-8">
+        <h1 className="text-2xl font-bold text-sky-800 text-center mb-8">
           Environmental Health Services
         </h1>
         <p className="text-slate-600 leading-relaxed mb-6 text-left">
@@ -18,11 +28,12 @@ export default function EnvironmentalHealth() {
 
       <section className="py-12 px-1 max-w-5xl mx-auto space-y-20">
         <div className="flex justify-center">
-          <img
+          {/* <img
             src="/assets/environmental.jpg"
             alt="Environmental Health"
             className="rounded-xl w-full max-w-2xl h-auto object-cover mx-auto"
-          />
+          /> */}
+          <ImageCarousel slides={slides} />
         </div>
 
         {/* 1. WASH */}

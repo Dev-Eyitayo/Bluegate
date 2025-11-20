@@ -5,17 +5,9 @@ export default function HumanRight() {
   // Enhanced Slider Data with meaningful captions
   const slides = [
     {
-      image: "/assets/humanright1.jpg",
+      image: "/assets/updatedImages/Human Right.jpg",
       title: "",
     },
-    // {
-    //   image: "/assets/humanright2.jpg", // Placeholder – replace with actual
-    //   title: "Healthcare provider training on inclusive care in Osun State",
-    // },
-    // {
-    //   image: "/assets/humanright3.jpg", // Placeholder – replace with actual
-    //   title: "Peer advocacy workshop with sexual and gender minorities in Ondo State",
-    // },
   ];
 
   const [current, setCurrent] = useState(0);

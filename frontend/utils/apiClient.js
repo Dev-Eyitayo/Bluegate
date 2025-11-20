@@ -1,4 +1,3 @@
-// utils/apiClient.js
 import API_BASE_URL from "../src/config/api";
 
 /**

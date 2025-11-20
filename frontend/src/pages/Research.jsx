@@ -1,4 +1,5 @@
 import React from "react";
+import ImageCarousel from "../components/ImageCarousel";
 import { Beaker, Brain, Globe, ChevronRight, FileSearch, Activity, Wind } from "lucide-react";
 
 export default function Research() {

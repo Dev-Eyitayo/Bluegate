@@ -5,6 +5,10 @@ export default function Empowerment() {
   // Enhanced Slider Data
   const slides = [
     {
+      image: "/assets/updatedImages/Empowerment.jpg",
+      title: "",
+    },
+    {
       image: "/assets/vocation-ibadan.jpg",
       title: "Makeup vocational training for sex workers in Ibadan, Nigeria",
     },
