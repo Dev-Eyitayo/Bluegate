@@ -1,5 +1,11 @@
 import React from "react";
 import { Link } from 'react-router-dom'
+import ImageCarousel from "../components/ImageCarousel";
+
+const trainingImages = [
+  { image: "/assets/updatedImages/Training.jpg", title: "" },
+  { image: "/assets/updatedImages/Training2.jpg", title: "" },
+];
 
 export default function Traning() {
   return (
@@ -32,6 +38,9 @@ export default function Traning() {
               Our team members have extensive professional qualifications and combine years of experience with specialized training in health promotion, population health, and right to health. We engage in ongoing professional development to ensure that we deliver community services and programs based on the most current, innovative, and evidence-based information.
             </p>
           </div>
+        </div>
+        <div className="py-4 max-w-4xl mt-6 mx-auto ">
+          <ImageCarousel slides={trainingImages} />
         </div>
       </section>
 
