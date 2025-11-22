@@ -108,7 +108,7 @@ export default function ImageCarousel({
                     isLoaded ? "opacity-100" : "opacity-0"
                   }`}
                   // loading={index === 0 ? "eager" : "lazy"}
-                  loading="lazy"
+                  rel="prefetch"
                   onError={(e) => {
                     e.target.src = "/assets/fallback-image.jpg"; // optional fallback
                   }}

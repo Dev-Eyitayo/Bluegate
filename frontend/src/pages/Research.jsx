@@ -197,11 +197,11 @@ import ImageCarousel from "../components/ImageCarousel";
 
 const behaviouralSlides = [
     {
-        image: "/assets/updatedImages/Implementation Research.jpg",
+        image: "/assets/updatedImages/ImplementationResearch.jpg",
         title: "",
     },
     {
-        image: "/assets/updatedImages/Implementation Research 2.jpg",
+        image: "/assets/updatedImages/ImplementatioResearch 2.jpg",
         title: "",
     }
 ];
