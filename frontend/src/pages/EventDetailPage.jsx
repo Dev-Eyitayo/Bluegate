@@ -98,7 +98,7 @@ export default function EventDetailPage() {
             {/* Content */}
             <div className="p-6 md:p-10 lg:p-12">
               {/* Event Title */}
-              <h1 className="text-3xl md:text-4xl font-bold text-sky-900 mb-6 leading-tight">
+              <h1 className="text-2xl font-bold text-sky-900 mb-6 leading-tight">
                 {event.title}
               </h1>
 

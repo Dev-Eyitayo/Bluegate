@@ -3,6 +3,8 @@ import { Megaphone, Users, Radio, Film, ChevronLeft, ChevronRight } from "lucide
 
 const carouselImages = [
   "/assets/updatedImages/SBCC.jpg",
+  "/assets/updatedImages/SocialMobilisation.jpg",
+  "/assets/updatedImages/SocialMobilisation2.jpg",
   "/assets/crew1.jpg",
   "/assets/crew2.jpg",
 ];
