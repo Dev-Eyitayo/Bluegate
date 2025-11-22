@@ -79,7 +79,7 @@ export default function ImageCarousel({
       onMouseLeave={handleMouseLeave}
     >
      
-      <div className="relative w-full h-72 border border-gray-300 bg-sky-200 md:h-96 lg:h-112 overflow-hidden">
+      <div className="relative w-full h-72 border border-gray-300 md:h-96 lg:h-112 overflow-hidden">
         {/* Slides */}
         <div
           className="absolute inset-0 flex transition-transform duration-700 ease-in-out"
@@ -108,6 +108,7 @@ export default function ImageCarousel({
                     isLoaded ? "opacity-100" : "opacity-0"
                   }`}
                   // loading={index === 0 ? "eager" : "lazy"}
+                  loading="lazy"
                   onError={(e) => {
                     e.target.src = "/assets/fallback-image.jpg"; // optional fallback
                   }}
