@@ -7,7 +7,7 @@ const behaviouralSlides = [
         title: "",
     },
     {
-        image: "/assets/updatedImages/ImplementatioResearch2.jpg",
+        image: "/assets/updatedImages/ImplementationResearch2.jpg",
         title: "",
     }
 ];
