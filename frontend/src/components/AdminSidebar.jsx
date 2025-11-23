@@ -8,7 +8,7 @@ const navItems = [
   { to: "/admin/outreach", label: "Outreach Post", icon: PenSquare },
   { to: "/admin/training", label: "Training Application", icon: Brain },
   { to: "/admin/event", label: "Events", icon: CalendarCheck },
-  { to: "/admin/contact", label: "Contact Messages", icon: MessageCircle },
+  { to: "/admin/messages", label: "Contact Messages", icon: MessageCircle },
 ];
 
 export default function AdminSidebar({ isOpen, onClose }) {

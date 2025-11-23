@@ -241,8 +241,8 @@ export default function App() {
         <Route path="/admin/event/create" element={<AdminEventForm />} />
         <Route path="/admin/event/edit/:id" element={<AdminEventForm />} />
         <Route path="/events/:id" element={<EventDetailPage />} />
-        <Route path="/admin/contact/" element={<AdminContactList />} />
-        <Route path="/admin/contact/:id" element={<AdminContactDetail />} />
+        <Route path="/admin/messages/" element={<AdminContactList />} />
+        <Route path="/admin/messages/:id" element={<AdminContactDetail />} />
         {/* <Route path="/events/:id" element={<EventDetailPage />} /> */}
 
         <Route path="/health-promotion/communicable-diseases" element={<MainLayout><CommunicableDiseases /></MainLayout>} />

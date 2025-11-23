@@ -119,7 +119,7 @@ export default function AdminContactList() {
 
             <div className="mt-4 flex justify-between items-center">
               <Link
-                to={`/admin/contact/${msg.id}`}
+                to={`/admin/messages/${msg.id}`}
                 className="text-sky-600 text-sm font-medium flex items-center gap-1"
               >
                 <Eye className="h-4 w-4" /> View
@@ -216,7 +216,7 @@ export default function AdminContactList() {
                   )}
 
                   <Link
-                    to={`/admin/contact/${msg.id}`}
+                    to={`/admin/messages/${msg.id}`}
                     className="flex items-center gap-1 text-sky-600 hover:text-sky-800 text-sm"
                   >
                     <Eye className="h-4 w-4" /> View

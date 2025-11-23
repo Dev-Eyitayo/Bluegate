@@ -95,7 +95,7 @@ export default function AdminContactDetail() {
       <div className="max-w-3xl mx-auto">
         {/* Back Button */}
         <button
-          onClick={() => navigate("/admin/contact")}
+          onClick={() => navigate("/admin/messages")}
           className="flex items-center gap-1 text-sky-600 hover:text-sky-800 mb-6"
         >
           <ArrowLeft className="h-4 w-4" />
