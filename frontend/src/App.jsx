@@ -38,6 +38,8 @@ import AdminEventList from "./pages/admin/AdminEventList";
 import AdminEventForm from "./pages/admin/AdminEventForm";
 import EventDetailPage from "./pages/EventDetailPage";
 import NotFoundPage from "./pages/NotFoundPage";
+import AdminContactList from "./pages/admin/AdminContactList";
+import AdminContactDetail from "./pages/admin/AdminContactDetail";
 
 
 
@@ -239,6 +241,9 @@ export default function App() {
         <Route path="/admin/event/create" element={<AdminEventForm />} />
         <Route path="/admin/event/edit/:id" element={<AdminEventForm />} />
         <Route path="/events/:id" element={<EventDetailPage />} />
+        <Route path="/admin/contact/" element={<AdminContactList />} />
+        <Route path="/admin/contact/:id" element={<AdminContactDetail />} />
+        {/* <Route path="/events/:id" element={<EventDetailPage />} /> */}
 
         <Route path="/health-promotion/communicable-diseases" element={<MainLayout><CommunicableDiseases /></MainLayout>} />
         <Route path="/health-promotion/non-communicable-diseases" element={<MainLayout><NonCommunicableDiseases /></MainLayout>} />

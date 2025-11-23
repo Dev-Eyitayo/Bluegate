@@ -109,3 +109,17 @@ class EventImage(Base):
     order = Column(Integer, default=0)
 
     event = relationship("Event", back_populates="images")
+
+class Contact(Base):
+    __tablename__ = "contact_messages"
+
+    id = Column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
+    full_name = Column(String(255), nullable=False)
+    email = Column(String(255), nullable=False)
+    number = Column(String(50), nullable=True)
+    subject = Column(String(255), nullable=True)
+    message = Column(Text, nullable=False)
+
+    reviewed = Column(Boolean, default=False)
+
+    created_at = Column(DateTime(timezone=True), server_default=func.now())

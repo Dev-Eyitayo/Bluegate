@@ -1,7 +1,7 @@
 from fastapi import FastAPI
 from fastapi.openapi.models import OAuthFlows as OAuthFlowsModel, SecurityScheme
 from fastapi.security import OAuth2PasswordBearer
-from app.api.v1 import auth, admin, volunteer, blog, training, event
+from app.api.v1 import auth, admin, volunteer, blog, training, event, contact
 from app.db import models, session
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
@@ -54,6 +54,7 @@ app.include_router(volunteer.router, prefix="/api/v1")
 app.include_router(blog.router, prefix="/api/v1")
 app.include_router(training.router, prefix="/api/v1")
 app.include_router(event.router, prefix="/api/v1")
+app.include_router(contact.router, prefix="/api/v1")
 
 @app.get("/")
 def read_root():
