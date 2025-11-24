@@ -8,7 +8,7 @@ export default function About() {
   // Data for Departments (using Accordion)
   const departments = [
     {
-      title: "Programme",
+      title: "Health Promotion",
       content:
         "Our core health promotion programs focus on improving community health outcomes.",
       link: "/health-promotion",
@@ -22,7 +22,7 @@ export default function About() {
       linkText: "Learn more",
     },
     {
-      title: "Health Communication",
+      title: "SBCC",
       content:
         "Spreading health awareness through effective communication strategies.",
       link: "/health-communication",
@@ -33,16 +33,16 @@ export default function About() {
   // Data for Executives
   const executives = [
     {
+      name: "Prof. (Mrs.) Atinuke AGUNLOYE",
+      title: "Board Chair",
+      email: "atinuke.agunloye@bluegateinitiative.org",
+      image: "/assets/executives/atinuke.png",
+    },
+    {
       name: "Prof. Ademola ADELEKAN",
       title: "CEO",
       email: "ademola.adelekan@bluegateinitiative.org",
       image: "/assets/executives/ademola.png",
-    },
-    {
-      name: "Professor (Mrs.) Atinuke AGUNLOYE",
-      title: "Board Chair",
-      email: "atinuke.agunloye@bluegateinitiative.org",
-      image: "/assets/executives/atinuke.png",
     },
     {
       name: "Dr. Adekunle FAKUNLE",
