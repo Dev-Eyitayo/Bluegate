@@ -61,7 +61,7 @@ export default function Research() {
                 <div className="space-y-8">
                     <div className="text-center">
                         <h3 className="text-xl text-left font-bold text-sky-800 mb-6">
-                            1. Behavioural and Social Research
+                            1. Social and Behavioural Research
                         </h3>
                     </div>
 

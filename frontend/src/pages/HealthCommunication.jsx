@@ -76,6 +76,70 @@ export default function HealthCommunication() {
         </div>
       </section>
 
+      <section
+        className="py-16 px-3 max-w-4xl mx-auto"
+        onMouseEnter={() => setIsPaused(true)}
+        onMouseLeave={() => setIsPaused(false)}
+        onTouchStart={onTouchStart}
+        onTouchEnd={onTouchEnd}
+      >
+      
+        <div className="relative rounded-2xl overflow-hidden bg-white ">
+          <div className="relative w-full h-[320px] md:h-[520px]">
+            {carouselImages.map((src, i) => {
+              const visible = i === index;
+              return (
+                <img
+                  key={src}
+                  src={src}
+                  alt={`SBCC activity ${i + 1}`}
+                  className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-700 ease-in-out ${
+                    visible ? "opacity-100 z-10" : "opacity-0 z-0"
+                  }`}
+                  loading="lazy"
+                />
+              );
+            })}
+          </div>
+
+          {/* Controls */}
+          <button
+            onClick={prev}
+            aria-label="Previous image"
+            className="absolute left-5 z-20 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white text-sky-800 rounded-full p-3 shadow-xl transition-all"
+          >
+            <ChevronLeft className="w-6 h-6" />
+          </button>
+          <button
+            onClick={next}
+            aria-label="Next image"
+            className="absolute right-5 z-20 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white text-sky-800 rounded-full p-3 shadow-xl transition-all"
+          >
+            <ChevronRight className="w-6 h-6" />
+          </button>
+
+          {/* Indicators */}
+          <div className="absolute z-20 bottom-5 left-1/2 -translate-x-1/2 flex gap-2">
+            {carouselImages.map((_, i) => (
+              <button
+                key={i}
+                onClick={() => setIndex(i)}
+                aria-label={`Go to slide ${i + 1}`}
+                className={`transition-all duration-300 ${
+                  i === index
+                    ? "w-12 h-3 bg-white rounded-full shadow-md"
+                    : "w-3 h-3 bg-white/60 rounded-full hover:bg-white"
+                }`}
+              />
+            ))}
+          </div>
+        </div>
+        {/* <p className="mt-6 text-center text-sm text-slate-600 max-w-3xl mx-auto">
+          Our communications team — scriptwriters, camera crew, editors, and outreach coordinators — work closely with communities to produce <strong>culturally-sensitive, engaging content</strong> that resonates with our audiences.
+        </p> */}
+      </section>
+
+
       {/* Our SBCC Approaches */}
       <section className="py-16 px-3 max-w-4xl mx-auto">
         <h2 className="text-xl font-bold text-sky-800 text-center mb-12">
@@ -337,69 +401,8 @@ export default function HealthCommunication() {
         </div>
       </section>
 
-      {/* Carousel */}
-      <section
-        className="py-16 px-3 max-w-4xl mx-auto"
-        onMouseEnter={() => setIsPaused(true)}
-        onMouseLeave={() => setIsPaused(false)}
-        onTouchStart={onTouchStart}
-        onTouchEnd={onTouchEnd}
-      >
       
-        <div className="relative rounded-2xl overflow-hidden bg-white ">
-          <div className="relative w-full h-[320px] md:h-[520px]">
-            {carouselImages.map((src, i) => {
-              const visible = i === index;
-              return (
-                <img
-                  key={src}
-                  src={src}
-                  alt={`SBCC activity ${i + 1}`}
-                  className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-700 ease-in-out ${
-                    visible ? "opacity-100 z-10" : "opacity-0 z-0"
-                  }`}
-                  loading="lazy"
-                />
-              );
-            })}
-          </div>
-
-          {/* Controls */}
-          <button
-            onClick={prev}
-            aria-label="Previous image"
-            className="absolute left-5 z-20 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white text-sky-800 rounded-full p-3 shadow-xl transition-all"
-          >
-            <ChevronLeft className="w-6 h-6" />
-          </button>
-          <button
-            onClick={next}
-            aria-label="Next image"
-            className="absolute right-5 z-20 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white text-sky-800 rounded-full p-3 shadow-xl transition-all"
-          >
-            <ChevronRight className="w-6 h-6" />
-          </button>
-
-          {/* Indicators */}
-          <div className="absolute z-20 bottom-5 left-1/2 -translate-x-1/2 flex gap-2">
-            {carouselImages.map((_, i) => (
-              <button
-                key={i}
-                onClick={() => setIndex(i)}
-                aria-label={`Go to slide ${i + 1}`}
-                className={`transition-all duration-300 ${
-                  i === index
-                    ? "w-12 h-3 bg-white rounded-full shadow-md"
-                    : "w-3 h-3 bg-white/60 rounded-full hover:bg-white"
-                }`}
-              />
-            ))}
-          </div>
-        </div>
-        {/* <p className="mt-6 text-center text-sm text-slate-600 max-w-3xl mx-auto">
-          Our communications team — scriptwriters, camera crew, editors, and outreach coordinators — work closely with communities to produce <strong>culturally-sensitive, engaging content</strong> that resonates with our audiences.
-        </p> */}
-      </section>
+      
     </div>
   );
 }

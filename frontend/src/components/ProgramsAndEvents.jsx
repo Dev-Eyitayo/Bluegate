@@ -1,4 +1,3 @@
-// src/components/ProgramsAndEvents.jsx
 import React, { useEffect, useState } from "react";
 import { CalendarDays, AlertCircle } from "lucide-react";
 import Accordion from "./Accordion";

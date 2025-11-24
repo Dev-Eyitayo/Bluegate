@@ -40,19 +40,19 @@ export default function About() {
     {
       name: "Professor (Mrs.) Atinuke AGUNLOYE",
       title: "Board Chair",
-      email: "atilnu.agunloye@bluegateinitiative.org",
+      email: "atinuke.agunloye@bluegateinitiative.org",
       image: "/assets/executives/atinuke.png",
     },
     {
-      name: "Dr. Odekunle FAKUNLE",
-      title: "Director, Community Health Services",
-      email: "odekunle.fakunle@bluegateinitiative.org",
+      name: "Dr. Adekunle FAKUNLE",
+      title: "Director, Environmental Health Services",
+      email: "adekunle.fakunle@bluegateinitiative.org",
       image: "/assets/executives/fakunle.png",
     },
     {
       name: "Dr. Oladipupo OLALEYE",
       title: "Director, Research, Monitoring & Evaluation",
-      email: "olaidupo.olaeye@bluegateinitiative.org",
+      email: "oladipupo.olaleye@bluegateinitiative.org",
       image: "/assets/executives/oladipupo.png",
     },
     {
@@ -76,7 +76,7 @@ export default function About() {
     {
       name: "Dr. Opeyemi OLADUNNI",
       title: "Director of Training Services",
-      email: "opeyemi.olaodunni@bluegateinitiative.org",
+      email: "opeyemi.oladunni@bluegateinitiative.org",
       image: "/assets/executives/opeyemi.png",
     },
   ];

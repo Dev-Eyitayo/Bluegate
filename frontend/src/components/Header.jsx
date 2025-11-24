@@ -404,9 +404,7 @@ export default function Header() {
   }, [isMenuOpen, openDropdown]);
 
 
-  // -------------------------------------------------
   // Components for Cleaner Markup
-  // -------------------------------------------------
 
   // Single Nav Item / Dropdown Trigger (Used for both Desktop and Mobile)
   const NavItem = ({ item, isMobile = false }) => {
@@ -502,9 +500,7 @@ export default function Header() {
     );
   };
 
-  // -------------------------------------------------
-  // Render
-  // -------------------------------------------------
+  
   return (
     <header className="bg-white sticky top-0 z-30 shadow-sm border-b border-slate-200" ref={headerRef}>
       {/* Top Bar - Contact Info */}
@@ -534,18 +530,18 @@ export default function Header() {
         {/* Logo and Branding */}
         <Link to="/" className="flex items-center gap-3 group">
           <img
-            src="/assets/bluegate-logo.jpg" 
+            src="/assets/logo.jpg" 
             alt="Blue Gate Initiative logo"
-            className="w-14 h-14 rounded-full object-cover border-2 border-blue-600 group-hover:shadow-lg transition-all duration-300"
+            className="w-full h-16 sm:h-14"
           />
-          <div>
+          {/* <div>
             <h1 className="font-extrabold text-blue-900 text-lg md:text-xl tracking-tight leading-none">
               Blue Gate Initiative
             </h1>
             <p className="text-sm text-gray-500 tracking-wider font-light mt-0.5">
               Public Health Promotion
             </p>
-          </div>
+          </div> */}
         </Link>
 
         {/* ---------- Desktop Navigation ---------- */}
