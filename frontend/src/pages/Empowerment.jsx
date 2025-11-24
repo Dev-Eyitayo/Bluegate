@@ -49,7 +49,7 @@ export default function Empowerment() {
       {/* Carousel Slides */}
 
       <section className="py-16 px-3 max-w-5xl mx-auto">
-        <h2 className="text-2xl md:text-3xl font-bold text-sky-800 text-center mb-10">
+        <h2 className="text-xl  font-bold text-sky-800 text-center mb-10">
           Empowerment in Action
         </h2>
         <div className="relative overflow-hidden rounded-2xl border border-slate-200">
@@ -146,7 +146,7 @@ export default function Empowerment() {
 
       {/* Our Strategies - Icon Cards */}
       <section className="py-16 px-3 max-w-5xl mx-auto">
-        <h2 className="text-3xl font-bold text-sky-800 text-center mb-12">
+        <h2 className="text-2xl font-bold text-sky-800 text-center mb-12">
           Our Empowerment Strategies & Activities
         </h2>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-3">

@@ -115,12 +115,12 @@ export default function Publications() {
       </section>
 
       {/* Publications Grid */}
-      <section className="px-2 max-w-7xl mx-auto py-6">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <section className="px-4 max-w-7xl mx-auto py-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
           {publications.map((pub, index) => (
             <div
               key={index}
-              className="bg-white rounded-lg hover:shadow-sm transition-shadow duration-300 p-5 flex flex-col h-full"
+              className="bg-white border border-slate-100 rounded-lg hover:shadow-sm transition-shadow duration-300 p-5 flex flex-col h-full"
             >
               {/* PDF Icon + Download */}
               <div className="flex justify-end mb-3">

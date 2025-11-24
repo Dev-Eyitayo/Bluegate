@@ -74,7 +74,7 @@ export default function ImageCarousel({
 
   return (
     <div
-      className="relative group overflow-hidden rounded-2xl shadow-lg bg-gray-50"
+      className="relative group overflow-hidden rounded-2xl bg-gray-50"
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
