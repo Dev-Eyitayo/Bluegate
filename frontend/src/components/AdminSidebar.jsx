@@ -1,6 +1,6 @@
 import React from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";  // Added useNavigate
-import { X, LayoutDashboard, Users, Settings, LogOut, PenSquare, Brain, CalendarCheck, MessageCircle } from "lucide-react";
+import { X, LayoutDashboard, Users, Settings, LogOut, PenSquare, Brain, CalendarCheck, Mail } from "lucide-react";
 import clsx from "clsx";
 
 const navItems = [
@@ -8,7 +8,7 @@ const navItems = [
   { to: "/admin/outreach", label: "Outreach Post", icon: PenSquare },
   { to: "/admin/training", label: "Training Application", icon: Brain },
   { to: "/admin/event", label: "Events", icon: CalendarCheck },
-  { to: "/admin/messages", label: "Contact Messages", icon: MessageCircle },
+  { to: "/admin/messages", label: "Contact Messages", icon: Mail },
 ];
 
 export default function AdminSidebar({ isOpen, onClose }) {

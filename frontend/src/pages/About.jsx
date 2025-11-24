@@ -2,6 +2,7 @@ import React from "react";
 import { Activity, HeartHandshake } from "lucide-react";
 import SectionHeader from "../components/SectionHeader";
 import Accordion from "../components/Accordion";
+import ImageCarousel from "../components/ImageCarousel";
 
 export default function About() {
   // Data for Departments (using Accordion)
@@ -79,7 +80,18 @@ export default function About() {
       email: "opeyemi.oladunni@bluegateinitiative.org",
       image: "/assets/executives/opeyemi.png",
     },
+    {
+      name: "Dr. Omotayo SINDIKU",
+      title: "Director of Laboratory Services",
+      email: "omotayo.sindiku@bluegateinitiative.org",
+      image: "/assets/executives/omotayo.jpg",
+    },
   ];
+
+  const aboutSlides = [
+    { image: "/assets/AboutUse.jpeg", title: "" },
+    { image: "/assets/about-intro.png", title: "" },
+  ]
 
   return (
     <div className="min-h-screen bg-sky-200/10 text-gray-800">
@@ -88,8 +100,8 @@ export default function About() {
         <h1 className="text-3xl font-extrabold text-sky-800 text-center mb-12">
           About Us
         </h1>
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-          <div className="order-2 lg:order-1">
+        {/* <div className="grid grid-cols-1 gap-12"> */}
+          <div className="">
             <h2 className="text-2xl font-semibold text-sky-800 mb-6">
               Blue Gate Public Health Promotion Initiative
             </h2>
@@ -110,14 +122,12 @@ export default function About() {
               profession with ability to influence policies to improve the public's health.
             </p>
           </div>
-          <div className="order-1 lg:order-2">
-            <img
-              src="/assets/about-intro.png" 
-              alt="Blue Gate Initiative Team"
-              className="w-full h-64 object-cover rounded-lg shadow-sm"
-            />
+
+          <div className="max-w-3xl mt-6 pt-8 mx-auto">
+            <ImageCarousel slides = {aboutSlides} />
           </div>
-        </div>
+          
+        {/* </div> */}
       </section>
 
       {/* Departments Section */}

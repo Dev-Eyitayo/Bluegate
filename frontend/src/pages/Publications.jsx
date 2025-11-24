@@ -63,6 +63,42 @@ export default function Publications() {
       authors: "Ademola L. Adelekan, Gabriel Musa, Agada Gloria, Matthias Okpanachi, Ogundipe Love, Onoja Johnson, Williams Shaibu, Patrick Adah, Adetunji Adetayo, Oladipupo S. Olaleye, Segun Adeoye, Michael Olugbile, Philomena Omoregie, Aliyu Sani, Emmanuel Alhassan, Tobias John, Oluwakemi Ladeinde",
       pdf: "/pdfs/ISY.pdf",
     },
+    {
+      title: "Socio-environmental Factors as Determinants of Social Well-being of Adolescents in Foster Homes in Southwestern Nigeria",
+      journal: "International Journal of TROPICAL DISEASE & Health",
+      authors: "Christiana A. Oluwamotemi, Bolatito T. Olonisakin and Ademola L. Adelekan ",
+      pdf: "/pdfs/SEFDS.pdf",
+    },
+    {
+      title: "Occurrence of Heavy Metal and Antibiotic Resistant Bacteria in Soils from Selected Mechanic Workshops in Ibadan Metropolis, Nigeria",
+      journal: "Journal of Scientific Research & Reports",
+      authors: "Omotayo Sindiku, Omolola Oluboyede, Victor Oripenaye, Felicia Adesina and Ademola Adelekan",
+      pdf: "/pdfs/OHMA.pdf",
+    },
+    {
+      title: "Determinants of Knowledge and Acceptance of Childhood Routine Immunisation among Community Members and Mothers of Under-Two Children in Ibadan, Nigeria ",
+      journal: "International Journal of Innovative Science and Research Technology",
+      authors: "Christiana Adeyoola Oluwamotemi; Bolatito Toyin Olonisakin; Adeyemi ldowu Akinboade; Yemisi Abidemi Fatokunbo; Ademola Lukman Adelekan",
+      pdf: "/pdfs/DKACR.pdf",
+    },
+    {
+      title: "Factors Associated with Utilization of Antenatal Care Services among Women of Child Bearing in Osogbo, Nigeria",
+      journal: "International Journal of Research and Reports in Gynaecology",
+      authors: "Christiana A. Oluwamotemi, Elizabeth E. Edoni, Chidinma E. Ukoha and Ademola L. Adelekan",
+      pdf: "/pdfs/FAUA.pdf",
+    },
+    {
+      title: "STATUS OF HIV TESTING SERVICES AND COMPETENCY LEVEL OF HIV TESTERS AND COUNSELORS IN PRIMARY HEALTH CARE CENTERS IN IBADAN METROPOLIS, OYO-STATE, NIGERIA",
+      journal: "European Journal of Biomedical AND Pharmaceutical sciences ",
+      authors: "Christiana Adeyoola Oluwamotemi, F. A. Okanlawon, Ademola Adelekan, Oluwatomi Olunuga",
+      pdf: "/pdfs/SHTS.pdf",
+    },
+    {
+      title: "COMPARATIVE ASSESSMENT OF WATER AND SANITATION PRACTICES IN CHOLERA AFFECTED AND NON-CHOLERA AFFECTED COMMUNITIES IN 2011 OUTBREAK IN IBADAN, NIGERIA",
+      journal: "European Journal of Biomedical AND Pharmaceutical sciences ",
+      authors: "Philomena Omoregie, Oladimeji Oladepo and Ademola Adelekan",
+      pdf: "/pdfs/CAWS.pdf",
+    },
     
   ];
 
