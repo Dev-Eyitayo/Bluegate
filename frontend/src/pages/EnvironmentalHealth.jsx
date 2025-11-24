@@ -27,7 +27,7 @@ export default function EnvironmentalHealth() {
       </section>
 
       <section className="py-12 px-1 max-w-5xl mx-auto space-y-20">
-        <div className="flex justify-center">
+        <div className="max-w-4xl mx-auto mb-4">
           {/* <img
             src="/assets/environmental.jpg"
             alt="Environmental Health"
