@@ -13,7 +13,6 @@ export default function Footer() {
             <li>Ibadan, Nigeria.</li>
             <li><a href="tel:+2348065903150" className="underline hover:text-sky-300 transition-colors">+234-806-590-3150</a></li>
             <li><a href="tel:+2348051659422" className="underline hover:text-sky-300 transition-colors">+234-805-165-9422</a></li>
-            <li><a href="tel:+2348030676992" className="underline hover:text-sky-300 transition-colors">+234-8030-676-992</a></li>
             <li><a href="mailto:info@bluegateinitiative.org" className="underline hover:text-sky-300 transition-colors">info@bluegateinitiative.org</a></li>
           </ul>
         </div>
