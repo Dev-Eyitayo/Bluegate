@@ -123,7 +123,7 @@ export default function AdminEventList() {
                 </div>
                 <div className="flex gap-4">
                   <Link
-                    to={`/admin/events/edit/${event.id}`}
+                    to={`/admin/event/edit/${event.id}`}
                     className="flex items-center gap-1 text-sky-600 text-sm font-medium hover:underline"
                   >
                     <Edit className="h-4 w-4" />
