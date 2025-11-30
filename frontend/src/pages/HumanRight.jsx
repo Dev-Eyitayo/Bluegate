@@ -141,7 +141,7 @@ export default function HumanRight() {
       </section>
 
       {/* Enhanced Carousel */}
-      <section className="py-16 px-3 max-w-5xl mx-auto">
+      <section className="py-4 px-3 max-w-5xl mx-auto">
         {/* <h2 className="text-2xl md:text-3xl font-bold text-sky-800 text-center mb-10">
           Human Rights in Action
         </h2> */}
@@ -164,7 +164,7 @@ export default function HumanRight() {
                     src={slide.image}
                     alt={slide.title}
                     onError={() => setImageError((prev) => ({ ...prev, [index]: true }))}
-                    className="w-full h-80 md:h-96 object-cover"
+                    className="w-full h-auto object-contain"
                   />
                 )}
                 <div className="absolute inset-x-0 p-6 text-white">
