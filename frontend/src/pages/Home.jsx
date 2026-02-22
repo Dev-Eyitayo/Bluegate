@@ -20,7 +20,7 @@ export default function Home() {
           </p>
           <Link
             to="/about"
-            className="inline-block mt-6 bg-blue-700 hover:bg-blue-800 text-white font-semibold px-6 py-3 rounded-lg"
+            className="inline-block mt-6 bg-blue-700 hover:bg-blue-800 text-white font-semibold px-8 py-3 rounded-full transition duration-300"
           >
             Read More
           </Link>
