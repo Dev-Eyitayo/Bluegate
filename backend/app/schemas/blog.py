@@ -6,8 +6,8 @@ from uuid import UUID
 
 
 class BlogImageBase(BaseModel):
-    image_url: HttpUrl  # Cloudinary secure URL
-    public_id: str      # Cloudinary public ID (used for delete/transform)
+    image_url: HttpUrl 
+    public_id: str     
     caption: Optional[str] = None
     order: int = 0
 
