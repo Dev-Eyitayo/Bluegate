@@ -27,4 +27,4 @@ jobs:
           TARGET=${ENDPOINTS[$INDEX]}
 
           echo "Pinging endpoint: $TARGET"
-          curl -v "https://bluegate-1.onrender.com/$TARGET" || true
+          curl -v "https://bluegate-44ps.onrender.com/$TARGET" || true
