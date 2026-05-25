@@ -15,9 +15,7 @@ router = APIRouter(prefix="/blogs", tags=["Blog"])
 
 
 
-# ==============================
 # ADMIN ENDPOINTS (protected)
-# ==============================
 
 @router.get("/admin", response_model=List[BlogPostOut])
 def admin_list_all_posts(

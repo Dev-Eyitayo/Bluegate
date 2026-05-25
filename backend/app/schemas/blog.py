@@ -20,8 +20,7 @@ class BlogImageOut(BlogImageBase):
     id: UUID
 
     class Config:
-        from_attributes = True  # ORM mode
-
+        from_attributes = True  
 
 
 class BlogPostBase(BaseModel):
