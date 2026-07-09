@@ -33,7 +33,7 @@ export default function CareProjectPage() {
           <div className="p-2 flex items-center justify-between">
             <Link
               to="/outreach"
-              className="flex items-center gap-2 text-sky-700 hover:text-sky-900 transition"
+              className="flex items-center gap-2 font-semibold text-brand-700 hover:text-brand-800 transition"
             >
               <ArrowLeft className="h-4 w-4" /> Back to Outreaches
             </Link>
@@ -41,14 +41,14 @@ export default function CareProjectPage() {
 
           <div className="p-2 md:p-4">
             <header className="mb-6">
-              <h1 className="text-xl md:text-2xl font-bold text-sky-800 mb-1">
+              <h1 className="font-display text-xl md:text-2xl font-bold tracking-tight text-slate-900 mb-1">
                 CARE PROJECT
               </h1>
-              <p className="text-md text-sky-600 font-semibold mb-3 tracking-wide">
+              <p className="text-md text-brand-600 font-semibold mb-3 tracking-wide">
                 Clothe And Replenish Everyone
               </p>
               
-              <div className="flex flex-wrap items-center gap-4 text-sm text-gray-600">
+              <div className="flex flex-wrap items-center gap-4 text-sm text-slate-500">
                 <span className="flex items-center gap-1">
                   <Calendar className="h-4 w-4" />
                   {format(postDate, "MMMM d, yyyy")}
@@ -60,15 +60,15 @@ export default function CareProjectPage() {
               </div>
             </header>
 
-            <p className="text-lg text-slate-700 mb-8 sentences-relaxed italic border-l-4 border-sky-500 pl-4">
+            <p className="text-lg text-slate-700 mb-8 sentences-relaxed italic border-l-4 border-brand-400 pl-4">
               The Clothe and Replenish Everyone (CARE) Project is a community-driven lifestyle intervention that empowers indigent communities by providing affordable essential resources, thereby restoring their dignity through access. This will be achieved by organising and executing regular mobile sales events in identified indigent communities.
             </p>
 
-            <div className="prose prose-sky max-w-none text-slate-800 space-y-8 border-t border-slate-100 pt-8">
+            <div className="prose max-w-none text-slate-800 space-y-8 border-t border-slate-100 pt-8">
               
               <div>
-                <h2 className="text-lg font-bold text-sky-800 mb-3 flex items-center gap-2">
-                  <CheckCircle2 className="h-5 w-5 text-sky-600" /> Project Objectives
+                <h2 className="font-display text-lg font-bold text-slate-900 mb-3 flex items-center gap-2">
+                  <CheckCircle2 className="h-5 w-5 text-brand-600" /> Project Objectives
                 </h2>
                 <ul className="list-disc pl-5 space-y-2 text-slate-700">
                   <li>Establish a sustainable system for collecting new or gently used items, including essential food items, from affluent individuals and organisations.</li>
@@ -80,8 +80,8 @@ export default function CareProjectPage() {
               </div>
 
               <div>
-                <h2 className="text-lg font-bold text-sky-800 mb-3 flex items-center gap-2">
-                  <Heart className="h-5 w-5 text-sky-600" /> Target Beneficiaries
+                <h2 className="font-display text-lg font-bold text-slate-900 mb-3 flex items-center gap-2">
+                  <Heart className="h-5 w-5 text-brand-600" /> Target Beneficiaries
                 </h2>
                 <p className="leading-relaxed text-slate-700">
                   The primary beneficiaries of this project will include low-income families and individuals, orphaned and vulnerable children, students from impoverished backgrounds, elderly individuals with limited financial resources, and anyone living below the poverty line in target communities in Oyo State through the mobile outreach model.
@@ -89,8 +89,8 @@ export default function CareProjectPage() {
               </div>
 
               <div>
-                <h2 className="text-lg font-bold text-sky-800 mb-3 flex items-center gap-2">
-                  <ShoppingBag className="h-5 w-5 text-sky-600" /> Donation Categories
+                <h2 className="font-display text-lg font-bold text-slate-900 mb-3 flex items-center gap-2">
+                  <ShoppingBag className="h-5 w-5 text-brand-600" /> Donation Categories
                 </h2>
                 <p className="leading-relaxed text-slate-700 mb-3">
                   The project will collect new or gently used household items (e.g., pots, fans, blenders), personal items (e.g., clothes, shoes, bags), educational materials (e.g., textbooks, writing materials), and essential food items (e.g., rice, beans, garri, salt, maggi, etc) from affluent individuals and organisations.
@@ -101,7 +101,7 @@ export default function CareProjectPage() {
               </div>
 
               <div>
-                <h2 className="text-lg font-bold text-sky-800 mb-3">Expected Outcomes</h2>
+                <h2 className="font-display text-lg font-bold text-slate-900 mb-3">Expected Outcomes</h2>
                 <p className="leading-relaxed text-slate-700 mb-3">
                   Indigent families will gain access to essential items, enhancing their comfort and daily living at minimal cost. Also, students will be better equipped with the necessary educational materials, fostering improved learning outcomes and school attendance. Food items will help alleviate hunger and improve nutritional intake for vulnerable individuals. The items purchasing model at highly subsidised rates promotes self-respect and empowers beneficiaries with choice and ownership.
                 </p>
@@ -112,7 +112,7 @@ export default function CareProjectPage() {
 
               {/* Program Grid Section */}
               <section className="mb-10">
-                <h2 className="text-lg font-bold text-sky-800 mb-4 tracking-tight">
+                <h2 className="font-display text-lg font-bold text-slate-900 mb-4 tracking-tight">
                   Implementation
                 </h2>
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
@@ -120,18 +120,18 @@ export default function CareProjectPage() {
                     <Link 
                       key={index}
                       to={prog.path} 
-                      className="p-4 border border-slate-200 rounded-lg bg-slate-50/50 hover:border-sky-200 transition group flex flex-col justify-between min-h-[140px]"
+                      className="p-4 border border-slate-200 rounded-2xl bg-white hover:border-brand-200 hover:shadow-soft transition group flex flex-col justify-between min-h-[140px]"
                     >
                       <div>
-                        <h3 className="font-bold text-sky-800 text-sm md:text-md mb-1.5 flex items-center justify-between">
+                        <h3 className="font-display font-bold text-slate-900 text-sm md:text-md mb-1.5 flex items-center justify-between">
                           {prog.version}
-                          <ArrowRight className="h-4 w-4 text-slate-400 group-hover:text-sky-600 transition-transform group-hover:translate-x-1 flex-shrink-0" />
+                          <ArrowRight className="h-4 w-4 text-slate-400 group-hover:text-brand-600 transition-transform group-hover:translate-x-1 flex-shrink-0" />
                         </h3>
                         <p className="text-xs leading-relaxed text-slate-600 line-clamp-2">
                           {prog.description}
                         </p>
                       </div>
-                      <span className="text-[11px] font-medium text-sky-700 mt-3 block group-hover:text-sky-900">
+                      <span className="text-[11px] font-medium text-brand-700 mt-3 block group-hover:text-brand-800">
                         Read More →
                       </span>
                     </Link>

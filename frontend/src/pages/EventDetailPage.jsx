@@ -33,10 +33,10 @@ export default function EventDetailPage() {
   if (loading) {
     return (
       <MainLayout>
-        <div className="min-h-screen bg-sky-50/30 flex items-center justify-center">
+        <div className="min-h-screen flex items-center justify-center">
           <div className="flex flex-col items-center gap-4">
-            <LoaderCircle className="h-12 w-12 animate-spin text-sky-600" />
-            <p className="text-gray-600">Loading event details...</p>
+            <LoaderCircle className="h-12 w-12 animate-spin text-brand-600" />
+            <p className="text-slate-600">Loading event details...</p>
           </div>
         </div>
       </MainLayout>
@@ -47,14 +47,14 @@ export default function EventDetailPage() {
   if (!event) {
     return (
       <MainLayout>
-        <div className="min-h-screen bg-sky-50/30 flex items-center justify-center">
+        <div className="min-h-screen flex items-center justify-center">
           <div className="text-center">
-            <div className="bg-gray-200 border-2 border-dashed rounded-xl w-32 h-32 mx-auto mb-6" />
-            <h2 className="text-2xl font-bold text-gray-800 mb-2">Event Not Found</h2>
-            <p className="text-gray-600 mb-6">The event you're looking for may have been removed or is temporarily unavailable.</p>
+            <div className="bg-slate-100 border-2 border-dashed border-slate-200 rounded-2xl w-32 h-32 mx-auto mb-6" />
+            <h2 className="font-display text-2xl font-bold text-slate-900 mb-2">Event Not Found</h2>
+            <p className="text-slate-600 mb-6">The event you're looking for may have been removed or is temporarily unavailable.</p>
             <Link
               to="/"
-              className="inline-flex items-center gap-2 px-6 py-3 bg-sky-600 text-white rounded-lg hover:bg-sky-700 transition"
+              className="inline-flex items-center gap-2 rounded-full bg-brand-600 px-7 py-3 font-semibold text-white shadow-soft transition-all duration-300 hover:bg-brand-700 hover:shadow-lift"
             >
               <ArrowLeft className="h-4 w-4" />
               Back to Home
@@ -71,18 +71,18 @@ export default function EventDetailPage() {
 
   return (
     <MainLayout>
-      <div className="min-h-screen bg-sky-50/20 py-8 px-4">
+      <div className="min-h-screen py-8 px-4">
         <div className="max-w-5xl mx-auto">
           {/* Back Link */}
           <Link
             to="/"
-            className="inline-flex items-center gap-2 text-sky-700 hover:text-sky-900 font-medium mb-8 transition"
+            className="group inline-flex items-center gap-2 text-brand-700 hover:text-brand-800 font-semibold mb-8 transition-colors"
           >
-            <ArrowLeft className="h-5 w-5" />
+            <ArrowLeft className="h-5 w-5 transition-transform duration-300 group-hover:-translate-x-0.5" />
             Back to Home
           </Link>
 
-          <article className="bg-white rounded-2xl border border-slate-200 overflow-hidden">
+          <article className="bg-white rounded-2xl border border-slate-200 shadow-soft overflow-hidden">
             {/* Hero Image or Gallery */}
             {event.images && event.images.length > 0 && (
               <div className="relative">
@@ -98,49 +98,32 @@ export default function EventDetailPage() {
             {/* Content */}
             <div className="p-6 md:p-10 lg:p-12">
               {/* Event Title */}
-              <h1 className="text-2xl font-bold text-sky-900 mb-6 leading-tight">
+              <h1 className="font-display text-2xl font-bold tracking-tight text-slate-900 mb-8 leading-tight">
                 {event.title}
               </h1>
 
               {/* Event Meta */}
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10 text-gray-700">
-                <div className="flex items-start gap-3">
-                  <Calendar className="h-6 w-6 text-sky-600 mt-1 flex-shrink-0" />
-                  <div>
-                    <p className="font-semibold text-gray-900">Date</p>
-                    <p className="text-lg">{formattedDate}</p>
-                  </div>
-                </div>
-
-                <div className="flex items-start gap-3">
-                  <Clock className="h-6 w-6 text-sky-600 mt-1 flex-shrink-0" />
-                  <div>
-                    <p className="font-semibold text-gray-900">Time</p>
-                    <p className="text-lg">{formattedTime}</p>
-                  </div>
-                </div>
-
-                {event.location && (
-                  <div className="flex items-start gap-3">
-                    <MapPin className="h-6 w-6 text-sky-600 mt-1 flex-shrink-0" />
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-10 text-slate-700">
+                {[
+                  { icon: Calendar, label: "Date", value: formattedDate },
+                  { icon: Clock, label: "Time", value: formattedTime },
+                  ...(event.location ? [{ icon: MapPin, label: "Location", value: event.location }] : []),
+                  { icon: Users, label: "Organized by", value: "Blue Gate Public Health Initiative" },
+                ].map((meta) => (
+                  <div key={meta.label} className="flex items-start gap-3.5 rounded-2xl border border-slate-200 bg-slate-50/70 p-4">
+                    <span className="flex items-center justify-center w-10 h-10 rounded-xl bg-white ring-1 ring-inset ring-brand-100 text-brand-600 flex-shrink-0">
+                      <meta.icon className="h-5 w-5" />
+                    </span>
                     <div>
-                      <p className="font-semibold text-gray-900">Location</p>
-                      <p className="text-lg">{event.location}</p>
+                      <p className="text-xs font-semibold uppercase tracking-wider text-slate-500">{meta.label}</p>
+                      <p className="font-medium text-slate-900">{meta.value}</p>
                     </div>
                   </div>
-                )}
-
-                <div className="flex items-center gap-3">
-                  <Users className="h-6 w-6 text-sky-600" />
-                  <div>
-                    <p className="font-semibold text-gray-900">Organized by</p>
-                    <p className="text-lg">Blue Gate Public Health Initiative</p>
-                  </div>
-                </div>
+                ))}
               </div>
 
               {/* Description */}
-              <div className="prose prose-lg max-w-none text-gray-700 leading-relaxed">
+              <div className="prose prose-lg max-w-none text-slate-700 leading-relaxed">
                 <div
                   className="whitespace-pre-line"
                   dangerouslySetInnerHTML={{
@@ -153,8 +136,8 @@ export default function EventDetailPage() {
               </div>
 
               {/* Optional CTA */}
-              <div className="mt-12 pt-8 border-t border-gray-200">
-                <p className="text-center text-gray-600 mb-6">
+              <div className="mt-12 pt-8 border-t border-slate-200">
+                <p className="text-center text-slate-600 mb-6">
                   We look forward to seeing you there!
                 </p>
                 {/* <div className="flex justify-center">

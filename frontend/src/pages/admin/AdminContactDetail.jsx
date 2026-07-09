@@ -67,8 +67,8 @@ export default function AdminContactDetail() {
     return (
       <AdminLayout>
         <div className="p-10 text-center">
-          <Loader2 className="h-8 w-8 mx-auto animate-spin text-sky-600" />
-          <p className="mt-2 text-gray-600">Loading message...</p>
+          <Loader2 className="h-8 w-8 mx-auto animate-spin text-brand-600" />
+          <p className="mt-2 text-slate-600">Loading message...</p>
         </div>
       </AdminLayout>
     );
@@ -81,7 +81,7 @@ export default function AdminContactDetail() {
           <p className="text-red-600">{error || "Message not found"}</p>
           <button
             onClick={() => navigate(-1)}
-            className="mt-3 text-sm text-sky-600 hover:underline"
+            className="mt-3 text-sm text-brand-600 hover:underline"
           >
             Go Back
           </button>
@@ -96,7 +96,7 @@ export default function AdminContactDetail() {
         {/* Back Button */}
         <button
           onClick={() => navigate("/admin/messages")}
-          className="flex items-center gap-1 text-sky-600 hover:text-sky-800 mb-6"
+          className="flex items-center gap-1 text-brand-600 hover:text-brand-800 mb-6"
         >
           <ArrowLeft className="h-4 w-4" />
           Back to Messages
@@ -105,10 +105,10 @@ export default function AdminContactDetail() {
         {/* Header */}
         <div className="flex justify-between items-start mb-6">
           <div>
-            <h1 className="text-2xl font-bold text-gray-900">
+            <h1 className="text-2xl font-bold text-slate-900">
               {message.subject}
             </h1>
-            <p className="text-sm text-gray-600 mt-1">
+            <p className="text-sm text-slate-600 mt-1">
               Received on {format(new Date(message.created_at), "MMM d, yyyy • h:mm a")}
             </p>
           </div>
@@ -117,15 +117,15 @@ export default function AdminContactDetail() {
         </div>
 
         {/* User Info */}
-        <div className="bg-white border border-gray-200 rounded-xl p-5 shadow-sm mb-6">
-          <h2 className="text-lg font-semibold text-gray-900 mb-4">Sender Information</h2>
+        <div className="bg-white border border-slate-200 rounded-xl p-5 shadow-sm mb-6">
+          <h2 className="text-lg font-semibold text-slate-900 mb-4">Sender Information</h2>
 
           <div className="space-y-3">
             <p>
               <span className="font-medium">Name:</span> {message.full_name}
             </p>
 
-            <p className="flex items-center gap-2 text-sky-600">
+            <p className="flex items-center gap-2 text-brand-600">
               <Mail className="h-4 w-4" />
               <a href={`mailto:${message.email}`} className="hover:underline">
                 {message.email}
@@ -133,7 +133,7 @@ export default function AdminContactDetail() {
             </p>
 
             {message.number && (
-              <p className="flex items-center gap-2 text-sky-600">
+              <p className="flex items-center gap-2 text-brand-600">
                 <Phone className="h-4 w-4" />
                 <a href={`tel:${message.number}`} className="hover:underline">
                   {message.number}
@@ -144,10 +144,10 @@ export default function AdminContactDetail() {
         </div>
 
         {/* Message Body */}
-        <div className="bg-white border border-gray-200 rounded-xl p-5 shadow-sm mb-6">
-          <h2 className="text-lg font-semibold text-gray-900 mb-3">Message</h2>
+        <div className="bg-white border border-slate-200 rounded-xl p-5 shadow-sm mb-6">
+          <h2 className="text-lg font-semibold text-slate-900 mb-3">Message</h2>
 
-          <p className="whitespace-pre-line text-gray-700 leading-relaxed">
+          <p className="whitespace-pre-line text-slate-700 leading-relaxed">
             {message.message}
           </p>
         </div>
@@ -158,7 +158,7 @@ export default function AdminContactDetail() {
             href={`mailto:${message.email}?subject=Re: ${encodeURIComponent(
               message.subject
             )}`}
-            className="px-4 py-2 bg-sky-600 text-white text-sm font-medium rounded-lg hover:bg-sky-700 transition"
+            className="px-4 py-2 bg-brand-600 text-white text-sm font-medium rounded-lg hover:bg-brand-700 transition"
           >
             Reply
           </a> */}

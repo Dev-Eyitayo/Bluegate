@@ -27,10 +27,10 @@ import {
 // Reusable Field Component
 const Field = ({ label, value, icon: Icon }) => (
   <div className="flex items-start gap-3 py-2">
-    {Icon && <Icon className="h-5 w-5 text-gray-400 mt-0.5 flex-shrink-0" />}
+    {Icon && <Icon className="h-5 w-5 text-slate-400 mt-0.5 flex-shrink-0" />}
     <div className="flex-1 min-w-0">
-      <p className="text-sm font-medium text-gray-700">{label}</p>
-      <p className="mt-0.5 text-sm text-gray-900 break-words">
+      <p className="text-sm font-medium text-slate-700">{label}</p>
+      <p className="mt-0.5 text-sm text-slate-900 break-words">
         {value || "—"}
       </p>
     </div>
@@ -172,7 +172,7 @@ export default function VolunteerDetail() {
   if (loading) {
     return (
       <AdminLayout>
-        <div className="p-8 text-center text-gray-600">Loading volunteer details...</div>
+        <div className="p-8 text-center text-slate-600">Loading volunteer details...</div>
       </AdminLayout>
     );
   }
@@ -192,17 +192,17 @@ export default function VolunteerDetail() {
       {/* Header */}
       <div className="mb-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
         <div>
-          <h1 className="text-2xl font-bold text-gray-900">
+          <h1 className="text-2xl font-bold text-slate-900">
             Volunteer #{record.id}
           </h1>
-          <p className="mt-1 text-sm text-gray-600">
+          <p className="mt-1 text-sm text-slate-600">
             Submitted on{" "}
             {format(new Date(record.created_at), "MMMM d, yyyy 'at' h:mm a")}
           </p>
         </div>
         <button
           onClick={exportToPDF}
-          className="inline-flex items-center gap-2 rounded-lg bg-sky-600 px-4 py-2.5 text-sm font-medium text-white hover:bg-sky-700 transition shadow-sm"
+          className="inline-flex items-center gap-2 rounded-lg bg-brand-600 px-4 py-2.5 text-sm font-medium text-white hover:bg-brand-700 transition shadow-sm"
         >
           <Download className="h-4 w-4" />
           Export PDF
@@ -214,9 +214,9 @@ export default function VolunteerDetail() {
         {/* LEFT: Main Info */}
         <div className="lg:col-span-2 space-y-6">
           {/* Personal */}
-          <div className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
-            <h2 className="mb-4 flex items-center gap-2 text-lg font-semibold text-gray-800">
-              <User className="h-5 w-5 text-sky-600" />
+          <div className="rounded-xl border border-slate-200 bg-white p-6 shadow-sm">
+            <h2 className="mb-4 flex items-center gap-2 text-lg font-semibold text-slate-800">
+              <User className="h-5 w-5 text-brand-600" />
               Personal Information
             </h2>
             <div className="grid gap-4 sm:grid-cols-2">
@@ -230,9 +230,9 @@ export default function VolunteerDetail() {
           </div>
 
           {/* Education */}
-          <div className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
-            <h2 className="mb-4 flex items-center gap-2 text-lg font-semibold text-gray-800">
-              <GraduationCap className="h-5 w-5 text-sky-600" />
+          <div className="rounded-xl border border-slate-200 bg-white p-6 shadow-sm">
+            <h2 className="mb-4 flex items-center gap-2 text-lg font-semibold text-slate-800">
+              <GraduationCap className="h-5 w-5 text-brand-600" />
               Education
             </h2>
             <div className="grid gap-4 sm:grid-cols-2">
@@ -249,9 +249,9 @@ export default function VolunteerDetail() {
           </div>
 
           {/* Employment */}
-          <div className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
-            <h2 className="mb-4 flex items-center gap-2 text-lg font-semibold text-gray-800">
-              <Briefcase className="h-5 w-5 text-sky-600" />
+          <div className="rounded-xl border border-slate-200 bg-white p-6 shadow-sm">
+            <h2 className="mb-4 flex items-center gap-2 text-lg font-semibold text-slate-800">
+              <Briefcase className="h-5 w-5 text-brand-600" />
               Employment
             </h2>
             <div className="grid gap-4 sm:grid-cols-2">
@@ -264,39 +264,39 @@ export default function VolunteerDetail() {
           </div>
 
           {/* Skills & Interests */}
-          <div className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
-            <h2 className="mb-4 flex items-center gap-2 text-lg font-semibold text-gray-800">
-              <Star className="h-5 w-5 text-sky-600" />
+          <div className="rounded-xl border border-slate-200 bg-white p-6 shadow-sm">
+            <h2 className="mb-4 flex items-center gap-2 text-lg font-semibold text-slate-800">
+              <Star className="h-5 w-5 text-brand-600" />
               Skills & Interests
             </h2>
             <div className="space-y-4">
               <div>
-                <p className="font-medium text-gray-700">Special Skills</p>
-                <p className="mt-1 text-sm text-gray-900">{data.special_skills || "—"}</p>
+                <p className="font-medium text-slate-700">Special Skills</p>
+                <p className="mt-1 text-sm text-slate-900">{data.special_skills || "—"}</p>
               </div>
               <div>
-                <p className="font-medium text-gray-700">Memberships</p>
-                <p className="mt-1 text-sm text-gray-900">{data.memberships || "—"}</p>
+                <p className="font-medium text-slate-700">Memberships</p>
+                <p className="mt-1 text-sm text-slate-900">{data.memberships || "—"}</p>
               </div>
               <div>
-                <p className="font-medium text-gray-700">Experience</p>
-                <p className="mt-1 text-sm text-gray-900">{data.experience || "—"}</p>
+                <p className="font-medium text-slate-700">Experience</p>
+                <p className="mt-1 text-sm text-slate-900">{data.experience || "—"}</p>
               </div>
               <div>
-                <p className="font-medium text-gray-700">Preparation</p>
-                <p className="mt-1 text-sm text-gray-900">{data.preparation || "—"}</p>
+                <p className="font-medium text-slate-700">Preparation</p>
+                <p className="mt-1 text-sm text-slate-900">{data.preparation || "—"}</p>
               </div>
               <div>
-                <p className="font-medium text-gray-700">Motivation</p>
-                <p className="mt-1 text-sm text-gray-900">{data.motivation || "—"}</p>
+                <p className="font-medium text-slate-700">Motivation</p>
+                <p className="mt-1 text-sm text-slate-900">{data.motivation || "—"}</p>
               </div>
             </div>
           </div>
 
           {/* Emergency & Availability */}
           <div className="grid gap-6 sm:grid-cols-2">
-            <div className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
-              <h2 className="mb-4 flex items-center gap-2 text-lg font-semibold text-gray-800">
+            <div className="rounded-xl border border-slate-200 bg-white p-6 shadow-sm">
+              <h2 className="mb-4 flex items-center gap-2 text-lg font-semibold text-slate-800">
                 <Heart className="h-5 w-5 text-red-600" />
                 Emergency Contact
               </h2>
@@ -304,40 +304,40 @@ export default function VolunteerDetail() {
               <Field label="Phone" value={data.emergency_phone} icon={Phone} />
             </div>
 
-            <div className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
-              <h2 className="mb-4 flex items-center gap-2 text-lg font-semibold text-gray-800">
-                <Clock className="h-5 w-5 text-sky-600" />
+            <div className="rounded-xl border border-slate-200 bg-white p-6 shadow-sm">
+              <h2 className="mb-4 flex items-center gap-2 text-lg font-semibold text-slate-800">
+                <Clock className="h-5 w-5 text-brand-600" />
                 Availability
               </h2>
               <ul className="mt-2 space-y-1">
                 {Array.isArray(data.availability) && data.availability.length > 0 ? (
                   data.availability.map((a, i) => (
-                    <li key={i} className="text-sm text-gray-700">
+                    <li key={i} className="text-sm text-slate-700">
                       • {a}
                     </li>
                   ))
                 ) : (
-                  <li className="text-sm text-gray-400">—</li>
+                  <li className="text-sm text-slate-400">—</li>
                 )}
               </ul>
             </div>
           </div>
 
           {/* Interests */}
-          <div className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
-            <h2 className="mb-4 flex items-center gap-2 text-lg font-semibold text-gray-800">
-              <Heart className="h-5 w-5 text-sky-600" />
+          <div className="rounded-xl border border-slate-200 bg-white p-6 shadow-sm">
+            <h2 className="mb-4 flex items-center gap-2 text-lg font-semibold text-slate-800">
+              <Heart className="h-5 w-5 text-brand-600" />
               Interests
             </h2>
             <ul className="mt-2 space-y-1">
               {Array.isArray(data.interest) && data.interest.length > 0 ? (
                 data.interest.map((i, idx) => (
-                  <li key={idx} className="text-sm text-gray-700">
+                  <li key={idx} className="text-sm text-slate-700">
                     • {i}
                   </li>
                 ))
               ) : (
-                <li className="text-sm text-gray-400">—</li>
+                <li className="text-sm text-slate-400">—</li>
               )}
             </ul>
           </div>
@@ -345,9 +345,9 @@ export default function VolunteerDetail() {
 
         {/* RIGHT: References */}
         <div className="space-y-6">
-          <div className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
-            <h2 className="mb-4 flex items-center gap-2 text-lg font-semibold text-gray-800">
-              <Users className="h-5 w-5 text-sky-600" />
+          <div className="rounded-xl border border-slate-200 bg-white p-6 shadow-sm">
+            <h2 className="mb-4 flex items-center gap-2 text-lg font-semibold text-slate-800">
+              <Users className="h-5 w-5 text-brand-600" />
               References
             </h2>
 
@@ -358,36 +358,36 @@ export default function VolunteerDetail() {
                     key={i}
                     className={`rounded-lg border p-4 transition ${
                       ref.name
-                        ? "border-gray-200 bg-white"
-                        : "border-gray-100 bg-gray-50 opacity-60"
+                        ? "border-slate-200 bg-white"
+                        : "border-slate-100 bg-slate-50 opacity-60"
                     }`}
                   >
                     {ref.name ? (
                       <>
-                        <p className="font-medium text-gray-900">{ref.name}</p>
+                        <p className="font-medium text-slate-900">{ref.name}</p>
                         {ref.relationship && (
-                          <p className="text-sm text-gray-600 mt-1">{ref.relationship}</p>
+                          <p className="text-sm text-slate-600 mt-1">{ref.relationship}</p>
                         )}
                         {ref.length && (
-                          <p className="text-xs text-gray-500 mt-1">
+                          <p className="text-xs text-slate-500 mt-1">
                             Known for {ref.length} year{ref.length !== "1" ? "s" : ""}
                           </p>
                         )}
                         {ref.phone && (
-                          <p className="mt-1 text-sm text-gray-700 flex items-center gap-1">
+                          <p className="mt-1 text-sm text-slate-700 flex items-center gap-1">
                             <Phone className="h-3.5 w-3.5" />
                             {ref.phone}
                           </p>
                         )}
                       </>
                     ) : (
-                      <p className="text-sm text-gray-400 italic">— Empty reference —</p>
+                      <p className="text-sm text-slate-400 italic">— Empty reference —</p>
                     )}
                   </div>
                 ))}
               </div>
             ) : (
-              <p className="text-sm text-gray-500">No references provided.</p>
+              <p className="text-sm text-slate-500">No references provided.</p>
             )}
           </div>
         </div>

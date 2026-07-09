@@ -55,7 +55,7 @@ export default function CareProjectTwoPage() {
           <div className="p-2 flex items-center justify-between">
             <Link
               to="/outreach/care-project"
-              className="flex items-center gap-2 text-sky-700 hover:text-sky-900 transition"
+              className="flex items-center gap-2 font-semibold text-brand-700 hover:text-brand-800 transition"
             >
               <ArrowLeft className="h-4 w-4" /> Back to CARE Project Overview
             </Link>
@@ -63,21 +63,21 @@ export default function CareProjectTwoPage() {
 
           <div className="p-2 md:p-4">
             <header className="mb-4">
-              <h1 className="text-xl md:text-2xl font-bold text-sky-800 mb-3">
+              <h1 className="font-display text-xl md:text-2xl font-bold tracking-tight text-slate-900 mb-3">
                 CARE Project 2.0 — Implementation
               </h1>
               
-              <div className="flex flex-wrap items-center gap-x-6 gap-y-2 text-sm text-gray-600">
+              <div className="flex flex-wrap items-center gap-x-6 gap-y-2 text-sm text-slate-500">
                 <span className="flex items-center gap-1">
-                  <MapPin className="h-4 w-4 text-sky-600" />
+                  <MapPin className="h-4 w-4 text-brand-500" />
                   Ogbere-Adabi Community, Ibadan, Oyo State
                 </span>
                 <span className="flex items-center gap-1">
-                  <Calendar className="h-4 w-4 text-sky-600" />
+                  <Calendar className="h-4 w-4 text-brand-500" />
                   {format(projectDate, "MMMM d, yyyy")}
                 </span>
                 <span className="flex items-center gap-1">
-                  <User className="h-4 w-4 text-sky-600" />
+                  <User className="h-4 w-4 text-brand-500" />
                   Blue Gate Team
                 </span>
               </div>
@@ -102,29 +102,29 @@ export default function CareProjectTwoPage() {
             </p>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
-              <div className="p-4 border border-slate-200 rounded-lg bg-slate-50/50">
-                <h3 className="font-bold text-sky-800 text-sm mb-1">Dignity-Centred Marketplace</h3>
+              <div className="p-4 border border-slate-200 rounded-2xl bg-white">
+                <h3 className="font-display font-bold text-slate-900 text-sm mb-1">Dignity-Centred Marketplace</h3>
                 <p className="text-xs leading-relaxed text-slate-600">
                   Clothes, shoes, and bags were made available at highly subsidized prices, enabling vulnerable households to access essential items at affordable rates. The subsidized sales generated ₦25,400 while promoting choice, fairness, and equitable access.
                 </p>
               </div>
 
-              <div className="p-4 border border-slate-200 rounded-lg bg-slate-50/50">
-                <h3 className="font-bold text-sky-800 text-sm mb-1">Health Quiz & Food Support</h3>
+              <div className="p-4 border border-slate-200 rounded-2xl bg-white">
+                <h3 className="font-display font-bold text-slate-900 text-sm mb-1">Health Quiz & Food Support</h3>
                 <p className="text-xs leading-relaxed text-slate-600">
                   Health education was delivered through an interactive quiz session that encouraged learning and community participation. Winners received food packs containing rice and garri, reinforcing healthy living while providing practical support to vulnerable households.
                 </p>
               </div>
 
-              <div className="p-4 border border-slate-200 rounded-lg bg-slate-50/50">
-                <h3 className="font-bold text-sky-800 text-sm mb-1">Child Engagement & Literacy</h3>
+              <div className="p-4 border border-slate-200 rounded-2xl bg-white">
+                <h3 className="font-display font-bold text-slate-900 text-sm mb-1">Child Engagement & Literacy</h3>
                 <p className="text-xs leading-relaxed text-slate-600">
                   Children were actively engaged through dance competitions and general knowledge activities. Educational materials, including notebooks donated by the Federal Competition and Consumer Protection Commission (FCCPC) and storybooks donated by supporters, were presented to participating children as prizes.
                 </p>
               </div>
 
-              <div className="p-4 border border-slate-200 rounded-lg bg-slate-50/50">
-                <h3 className="font-bold text-sky-800 text-sm mb-1">Strategic Framework</h3>
+              <div className="p-4 border border-slate-200 rounded-2xl bg-white">
+                <h3 className="font-display font-bold text-slate-900 text-sm mb-1">Strategic Framework</h3>
                 <p className="text-xs leading-relaxed text-slate-600">
                   The success of the outreach was made possible through strong collaboration between Blue Gate Initiative, community volunteers, local leadership, and security personnel from Operation Amotekun.
                 </p>
@@ -132,7 +132,7 @@ export default function CareProjectTwoPage() {
             </div>
 
             <section className="mb-8 p-4 border border-slate-200 rounded-xl bg-white">
-              <h2 className="text-md font-bold text-sky-800 mb-3">Key Highlights</h2>
+              <h2 className="text-md font-display font-bold text-slate-900 mb-3">Key Highlights</h2>
               <ul className="list-disc pl-5 space-y-1.5 text-slate-700 text-sm">
                 {highlights.map((highlight, idx) => (
                   <li key={idx}>{highlight}</li>
@@ -146,14 +146,14 @@ export default function CareProjectTwoPage() {
                 href="https://web.facebook.com/share/v/1BGh7qQqdD/" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-5 py-2.5 bg-sky-600 hover:bg-sky-700 text-white rounded-lg font-medium text-sm transition"
+                className="inline-flex items-center gap-2 px-5 py-2.5 bg-brand-600 hover:bg-brand-700 text-white rounded-full font-semibold text-sm shadow-soft transition-all duration-300 hover:shadow-lift"
               >
                 View Video Documentary <ExternalLink className="h-4 w-4" />
               </a>
             </div>
 
             <section className="bg-slate-50 border border-slate-200 rounded-xl p-4 md:p-6">
-              <h2 className="text-md font-bold text-sky-800 mb-3">Expression of Appreciation</h2>
+              <h2 className="text-md font-display font-bold text-slate-900 mb-3">Expression of Appreciation</h2>
               <p className="text-slate-700 text-sm leading-relaxed mb-4">
                 CARE Project 2.0 was made possible through the generosity of our donors and partners. We gratefully acknowledge the financial support of <strong>Dr. Oluwakemi Ogunyileka</strong>, <strong>Mrs. Ola Akintinde Modupe</strong>, and the <strong>FCCPC Oyo State Office</strong>, as well as the in-kind contributions provided by:
               </p>

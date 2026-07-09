@@ -1,5 +1,6 @@
 import React from "react";
 import SectionHeader from "../components/SectionHeader";
+import PageHeader from "../components/PageHeader";
 import ImageCarousel from "../components/ImageCarousel";
 import { loadSlides } from "../../utils/loadImages";
 
@@ -16,12 +17,10 @@ export default function MedicalOutreach() {
 
 
   return (
-    <div className="min-h-screen bg-sky-200/10 text-gray-800">
+    <div className="min-h-screen text-slate-800">
 
-      <section className="py-16 px-4 max-w-5xl mx-auto">
-        <h1 className="text-3xl font-extrabold text-sky-800 text-center mb-8">
-            Medical Outreach
-        </h1>
+      <section className="py-14 px-4 max-w-5xl mx-auto">
+        <PageHeader eyebrow="Outreach" title="Medical Outreach" />
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           <div className="order-2 lg:order-1">
             <p className="text-slate-600 leading-relaxed mb-4">
@@ -43,16 +42,16 @@ export default function MedicalOutreach() {
           </div>
           <div className="order-1 lg:order-2">
             <img
-              src="/assets/medicaloutreach.jpg" 
+              src="/assets/medicaloutreach.jpg"
               alt="Blue Gate Initiative Team"
-              className="w-full h-full object-cover rounded-lg shadow-sm"
+              className="w-full h-full object-cover rounded-2xl ring-1 ring-slate-900/10 shadow-soft"
             />
           </div>
         </div>
       </section>
 
 
-      <section className="py-16 px-4 max-w-4xl mx-auto">
+      <section className="py-12 px-4 max-w-4xl mx-auto">
         <SectionHeader title="Olubadan Medical Outreach" />
         <p className="text-slate-600 leading-relaxed mb-6">
           The event took place on 3rd of April, 2017 at the Olubadan palace popoyemoja Ibadan. The activities which include free 
@@ -65,7 +64,7 @@ export default function MedicalOutreach() {
       </section>
 
 
-      <section className="py-16 px-4 max-w-4xl mx-auto">
+      <section className="py-12 px-4 max-w-4xl mx-auto">
         <SectionHeader title="FREE MEDICAL CHECK-UP FOR COMMUNITY MEMBERS AT APATA IBADAN" />
         <p className="text-slate-600 leading-relaxed mb-6">
           The event took place at the opening of a new pharmacy at Apata Ibadan on the 2nd September 2017 for the 
@@ -77,7 +76,7 @@ export default function MedicalOutreach() {
       </section>
 
 
-      <section className="py-16 px-4 max-w-4xl mx-auto">
+      <section className="py-12 px-4 max-w-4xl mx-auto">
         <SectionHeader title="FREE MEDICAL CHECK-UP FOR NAWOJ MEMBERS" />
         <p className="text-slate-600 leading-relaxed mb-6">
           The 2020 World Diabetes Day was commemorated by Blue Gate Public Health Promotion
@@ -94,7 +93,7 @@ export default function MedicalOutreach() {
       </section>
 
 
-      <section className="py-16 px-4 max-w-4xl mx-auto">
+      <section className="py-12 px-4 max-w-4xl mx-auto">
         <SectionHeader title="MEDICAL SCREENING AND CONSULTATION FOR MEMBERS OF FOURSQUARE GOSPEL CHURCH" />
         <p className="text-slate-600 leading-relaxed mb-6">
           The event took place at the Foursquare Gospel Church at Apata Ibadan during their Youth week on the 29th of April, 
@@ -108,7 +107,7 @@ export default function MedicalOutreach() {
       </section>
 
      
-      <section className="py-16 px-4 max-w-4xl mx-auto">
+      <section className="py-12 px-4 max-w-4xl mx-auto">
         <SectionHeader title="FREE MEDICAL CONSULTATION AND SCREENING AT UNIVERSITY OF IBADAN" />
         <p className="text-slate-600 leading-relaxed mb-6">
           Free medical services was carried out for the Nigerian Association of Adult Education Student (NAAES) University of Ibadan Chapter on the 16th of November 2017.
@@ -119,7 +118,7 @@ export default function MedicalOutreach() {
       </section>
 
       {/* Malaria Day */}
-      <section className="py-16 px-4 max-w-4xl mx-auto">
+      <section className="py-12 px-4 max-w-4xl mx-auto">
         <SectionHeader title="FREE MEDICAL OUTREACH HELD TO COMMEMORATE ZONTA INTERNATIONAL 99TH BIRTHDAY" />
         <p className="text-slate-600 leading-relaxed mb-6">
           The medical outreach was held on Saturday, 10th November, 2018 by Blue Gate public Health promotion Initiative 

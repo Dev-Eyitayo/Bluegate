@@ -27,12 +27,13 @@ export default function AdminLogin() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-50/10 p-4">
+    <div className="min-h-screen flex items-center justify-center bg-slate-50 p-4">
       <div className="w-full max-w-md">
-        <div className="rounded-2xl bg-white p-8 border border-gray-200">
+        <div className="rounded-2xl bg-white p-8 border border-slate-200 shadow-soft">
           <div className="text-center mb-8">
-            <h1 className="text-3xl font-bold text-gray-900">Admin Portal</h1>
-            <p className="mt-2 text-sm text-gray-500">Sign in to manage Bluegate initiative</p>
+            <h1 className="font-display text-3xl font-bold tracking-tight text-slate-900">Admin Portal</h1>
+            <span className="mt-3 inline-block h-1 w-10 rounded-full bg-brand-500" aria-hidden="true" />
+            <p className="mt-2 text-sm text-slate-500">Sign in to manage Bluegate initiative</p>
           </div>
 
           <form onSubmit={handleSubmit} className="space-y-5">
@@ -43,25 +44,25 @@ export default function AdminLogin() {
             )}
 
             <div className="relative">
-              <Mail className="absolute left-3 top-3 h-5 w-5 text-gray-400" />
+              <Mail className="absolute left-3 top-3 h-5 w-5 text-slate-400" />
               <input
                 type="email"
                 placeholder="Email"
                 value={form.email}
                 onChange={(e) => setForm({ ...form, email: e.target.value })}
-                className="w-full rounded-lg border border-gray-300 pl-11 pr-4 py-3 text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-sky-500"
+                className="w-full rounded-lg border border-slate-300 pl-11 pr-4 py-3 text-slate-900 placeholder:text-slate-400 transition-colors focus:border-brand-500 focus:outline-none focus:ring-2 focus:ring-brand-500/20"
                 required
               />
             </div>
 
             <div className="relative">
-              <Lock className="absolute left-3 top-3 h-5 w-5 text-gray-400" />
+              <Lock className="absolute left-3 top-3 h-5 w-5 text-slate-400" />
               <input
                 type="password"
                 placeholder="Password"
                 value={form.password}
                 onChange={(e) => setForm({ ...form, password: e.target.value })}
-                className="w-full rounded-lg border border-gray-300 pl-11 pr-4 py-3 text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-sky-500"
+                className="w-full rounded-lg border border-slate-300 pl-11 pr-4 py-3 text-slate-900 placeholder:text-slate-400 transition-colors focus:border-brand-500 focus:outline-none focus:ring-2 focus:ring-brand-500/20"
                 required
               />
             </div>
@@ -69,7 +70,7 @@ export default function AdminLogin() {
             <button
               type="submit"
               disabled={loading}
-              className="w-full rounded-lg bg-sky-600 py-3 font-medium text-white hover:bg-sky-700 transition flex items-center justify-center gap-2"
+              className="w-full rounded-full bg-brand-600 py-3 font-semibold text-white shadow-soft hover:bg-brand-700 hover:shadow-lift transition-all duration-300 flex items-center justify-center gap-2 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-600"
             >
               {loading ? (
                 <>

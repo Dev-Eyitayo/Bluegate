@@ -84,12 +84,12 @@ export default function AdminBlogList() {
 
       <div className="mb-6 flex items-center justify-between">
         <div>
-          <h1 className="text-2xl font-bold text-gray-900">Outreach Posts</h1>
-          <p className="mt-1 text-sm text-gray-600">{posts.length} total</p>
+          <h1 className="text-2xl font-bold text-slate-900">Outreach Posts</h1>
+          <p className="mt-1 text-sm text-slate-600">{posts.length} total</p>
         </div>
         <Link
           to="/admin/outreach/create"
-          className="flex items-center gap-2 px-4 py-2 bg-sky-600 text-white rounded-lg hover:bg-sky-700 transition"
+          className="flex items-center gap-2 px-4 py-2 bg-brand-600 text-white rounded-lg hover:bg-brand-700 transition"
         >
           <Plus className="h-4 w-4" />
           New Post
@@ -101,14 +101,14 @@ export default function AdminBlogList() {
         {posts.map((p) => (
           <div
             key={p.id}
-            className="rounded-xl border border-gray-200 bg-white p-4 shadow-sm transition hover:shadow-md"
+            className="rounded-xl border border-slate-200 bg-white p-4 shadow-sm transition hover:shadow-md"
           >
             <div className="flex justify-between items-start">
               <div className="flex-1">
-                <h3 className="font-semibold text-gray-900 line-clamp-2">
+                <h3 className="font-semibold text-slate-900 line-clamp-2">
                   {p.title}
                 </h3>
-                <p className="text-xs text-gray-500 mt-1">
+                <p className="text-xs text-slate-500 mt-1">
                   {format(new Date(p.created_at), "MMM d, yyyy")}
                 </p>
               </div>
@@ -117,7 +117,7 @@ export default function AdminBlogList() {
             <div className="mt-3 flex gap-3">
               <Link
                 to={`/admin/outreach/edit/${p.id}`}
-                className="flex items-center gap-1 text-sky-600 text-sm font-medium hover:underline"
+                className="flex items-center gap-1 text-brand-600 text-sm font-medium hover:underline"
               >
                 <Edit className="h-4 w-4" />
                 Edit
@@ -140,33 +140,33 @@ export default function AdminBlogList() {
       </div>
 
       {/* Desktop Table */}
-      <div className="hidden md:block overflow-hidden rounded-xl border border-gray-200 bg-white shadow-sm">
-        <table className="min-w-full divide-y divide-gray-200">
-          <thead className="bg-gray-50">
+      <div className="hidden md:block overflow-hidden rounded-xl border border-slate-200 bg-white shadow-sm">
+        <table className="min-w-full divide-y divide-slate-200">
+          <thead className="bg-slate-50">
             <tr>
-              <th className="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider text-gray-500">
+              <th className="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider text-slate-500">
                 Title
               </th>
-              <th className="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider text-gray-500">
+              <th className="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider text-slate-500">
                 Created
               </th>
-              <th className="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider text-gray-500">
+              <th className="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider text-slate-500">
                 Status
               </th>
-              <th className="px-6 py-3 text-right text-xs font-medium uppercase tracking-wider text-gray-500">
+              <th className="px-6 py-3 text-right text-xs font-medium uppercase tracking-wider text-slate-500">
                 Actions
               </th>
             </tr>
           </thead>
-          <tbody className="divide-y divide-gray-200 bg-white">
+          <tbody className="divide-y divide-slate-200 bg-white">
             {posts.map((p) => (
-              <tr key={p.id} className="hover:bg-gray-50 transition">
-                <td className="px-6 py-4 text-sm text-gray-900 max-w-xs">
+              <tr key={p.id} className="hover:bg-slate-50 transition">
+                <td className="px-6 py-4 text-sm text-slate-900 max-w-xs">
                   <div className="truncate" title={p.title}>
                     {p.title}
                   </div>
                 </td>
-                <td className="px-6 py-4 text-sm text-gray-600 whitespace-nowrap">
+                <td className="px-6 py-4 text-sm text-slate-600 whitespace-nowrap">
                   {format(new Date(p.created_at), "MMM d, yyyy")}
                 </td>
                 <td className="px-6 py-4">
@@ -176,7 +176,7 @@ export default function AdminBlogList() {
                   <div className="flex items-center justify-end gap-3">
                     <Link
                       to={`/admin/outreach/edit/${p.id}`}
-                      className="text-sky-600 hover:text-sky-800 transition"
+                      className="text-brand-600 hover:text-brand-800 transition"
                       title="Edit post"
                     >
                       <Edit className="h-4 w-4" />

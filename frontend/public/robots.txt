@@ -1,0 +1,11 @@
+# robots.txt for Blue Gate Public Health Promotion Initiative
+# https://bluegateinitiative.org
+
+User-agent: *
+Allow: /
+
+# Keep private/admin areas out of search results
+Disallow: /admin
+Disallow: /admin/
+
+Sitemap: https://bluegateinitiative.org/sitemap.xml

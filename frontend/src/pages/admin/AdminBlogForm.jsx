@@ -152,7 +152,7 @@ export default function AdminBlogForm() {
     return (
       <AdminLayout>
         <div className="flex items-center justify-center h-64">
-          <Loader2 className="h-8 w-8 animate-spin text-sky-600" />
+          <Loader2 className="h-8 w-8 animate-spin text-brand-600" />
         </div>
       </AdminLayout>
     );
@@ -163,10 +163,10 @@ export default function AdminBlogForm() {
       <ToastContainer toasts={toasts} removeToast={removeToast} />
 
       <div className="mb-8">
-        <h1 className="text-3xl font-bold text-gray-900">
+        <h1 className="text-3xl font-bold text-slate-900">
           {isEdit ? "Edit Outreach Post" : "Create New Post"}
         </h1>
-        <p className="mt-1 text-sm text-gray-600">
+        <p className="mt-1 text-sm text-slate-600">
           {isEdit ? "Update your outreach post" : "Share your story with the world"}
         </p>
       </div>
@@ -175,7 +175,7 @@ export default function AdminBlogForm() {
         {/* Title & Slug */}
         <div className="grid gap-6 md:grid-cols-2">
           <div>
-            <label className="block text-sm font-semibold text-gray-800 mb-2">
+            <label className="block text-sm font-semibold text-slate-800 mb-2">
               Title <span className="text-red-500">*</span>
             </label>
             <input
@@ -183,12 +183,12 @@ export default function AdminBlogForm() {
               required
               value={form.title}
               onChange={(e) => setForm({ ...form, title: e.target.value })}
-              className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-sky-500 focus:ring-4 focus:ring-sky-100 transition"
+              className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-brand-500 focus:ring-4 focus:ring-brand-100 transition"
               placeholder="Enter post title"
             />
           </div>
           <div>
-            <label className="block text-sm font-semibold text-gray-800 mb-2">
+            <label className="block text-sm font-semibold text-slate-800 mb-2">
               Slug <span className="text-red-500">*</span>
             </label>
             <input
@@ -201,7 +201,7 @@ export default function AdminBlogForm() {
                   slug: e.target.value.toLowerCase().replace(/[^a-z0-9-]/g, "-"),
                 })
               }
-              className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-sky-500 focus:ring-4 focus:ring-sky-100 transition"
+              className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-brand-500 focus:ring-4 focus:ring-brand-100 transition"
               placeholder="auto-generated"
             />
           </div>
@@ -209,21 +209,21 @@ export default function AdminBlogForm() {
 
         {/* Excerpt */}
         <div>
-          <label className="block text-sm font-semibold text-gray-800 mb-2">
+          <label className="block text-sm font-semibold text-slate-800 mb-2">
             Excerpt (Optional)
           </label>
           <textarea
             rows={3}
             value={form.excerpt}
             onChange={(e) => setForm({ ...form, excerpt: e.target.value })}
-            className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-sky-500 focus:ring-4 focus:ring-sky-100 transition"
+            className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-brand-500 focus:ring-4 focus:ring-brand-100 transition"
             placeholder="Short summary for preview..."
           />
         </div>
 
         {/* Content */}
         <div>
-          <label className="block text-sm font-semibold text-gray-800 mb-2">
+          <label className="block text-sm font-semibold text-slate-800 mb-2">
             Content <span className="text-red-500">*</span>
           </label>
           <textarea
@@ -231,14 +231,14 @@ export default function AdminBlogForm() {
             required
             value={form.content}
             onChange={(e) => setForm({ ...form, content: e.target.value })}
-            className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-sky-500 focus:ring-4 focus:ring-sky-100 font-mono text-sm transition"
+            className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-brand-500 focus:ring-4 focus:ring-brand-100 font-mono text-sm transition"
             placeholder="Write your post in Markdown or HTML..."
           />
         </div>
 
         {/* Images – Unified Grid */}
         <div>
-          <label className="block text-sm font-semibold text-gray-800 mb-3">
+          <label className="block text-sm font-semibold text-slate-800 mb-3">
             Images
           </label>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
@@ -246,7 +246,7 @@ export default function AdminBlogForm() {
               <div
                 key={idx}
                 className={`group relative rounded-xl overflow-hidden border-2 transition
-                  ${img.isExisting ? "border-gray-100" : "border-sky-200 bg-sky-50"}`}
+                  ${img.isExisting ? "border-slate-100" : "border-brand-200 bg-brand-50"}`}
               >
                 <img
                   src={img.preview || img.url}
@@ -266,15 +266,15 @@ export default function AdminBlogForm() {
                   value={img.caption}
                   onChange={(e) => updateCaption(idx, e.target.value)}
                   className={`w-full px-2 py-1.5 text-xs border-t bg-white
-                    ${img.isExisting ? "border-gray-200" : "border-sky-200"}`}
+                    ${img.isExisting ? "border-slate-200" : "border-brand-200"}`}
                 />
               </div>
             ))}
 
             {/* Upload Button */}
-            <label className="flex flex-col items-center justify-center h-40 border-2 border-dashed border-gray-300 rounded-xl cursor-pointer hover:border-sky-400 hover:bg-sky-50 transition">
-              <Upload className="h-8 w-8 text-gray-400 mb-1" />
-              <span className="text-xs text-gray-500">Add Images</span>
+            <label className="flex flex-col items-center justify-center h-40 border-2 border-dashed border-slate-300 rounded-xl cursor-pointer hover:border-brand-400 hover:bg-brand-50 transition">
+              <Upload className="h-8 w-8 text-slate-400 mb-1" />
+              <span className="text-xs text-slate-500">Add Images</span>
               <input
                 type="file"
                 multiple
@@ -287,15 +287,15 @@ export default function AdminBlogForm() {
         </div>
 
         {/* Publish Toggle */}
-        <div className="flex items-center gap-3 p-4 bg-sky-50 rounded-xl">
+        <div className="flex items-center gap-3 p-4 bg-brand-50 rounded-xl">
           <input
             type="checkbox"
             id="publish"
             checked={form.is_published}
             onChange={(e) => setForm({ ...form, is_published: e.target.checked })}
-            className="h-5 w-5 text-sky-600 rounded focus:ring-sky-500"
+            className="h-5 w-5 text-brand-600 rounded focus:ring-brand-500"
           />
-          <label htmlFor="publish" className="font-medium text-gray-800">
+          <label htmlFor="publish" className="font-medium text-slate-800">
             {form.is_published ? (
               <>
                 <Globe className="inline h-4 w-4 text-emerald-600 mr-1" />
@@ -311,11 +311,11 @@ export default function AdminBlogForm() {
         </div>
 
         {/* Actions */}
-        <div className="flex gap-3 pt-6 border-t border-gray-200">
+        <div className="flex gap-3 pt-6 border-t border-slate-200">
           <button
             type="submit"
             disabled={saving}
-            className="flex items-center gap-2 px-6 py-3 bg-sky-600 text-white font-medium rounded-xl hover:bg-sky-700 disabled:opacity-60 disabled:cursor-not-allowed transition shadow-sm"
+            className="flex items-center gap-2 px-6 py-3 bg-brand-600 text-white font-medium rounded-xl hover:bg-brand-700 disabled:opacity-60 disabled:cursor-not-allowed transition shadow-sm"
           >
             {saving ? (
               <>
@@ -328,7 +328,7 @@ export default function AdminBlogForm() {
           </button>
           <Link
             to="/admin/outreach"
-            className="px-6 py-3 border border-gray-300 text-gray-700 font-medium rounded-xl hover:bg-gray-50 transition"
+            className="px-6 py-3 border border-slate-300 text-slate-700 font-medium rounded-xl hover:bg-slate-50 transition"
           >
             Cancel
           </Link>

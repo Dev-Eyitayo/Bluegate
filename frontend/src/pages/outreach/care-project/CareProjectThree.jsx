@@ -64,7 +64,7 @@ const projectImages = [
           <div className="p-2 flex items-center justify-between">
             <Link
               to="/outreach/care-project"
-              className="flex items-center gap-2 text-sky-700 hover:text-sky-900 transition"
+              className="flex items-center gap-2 font-semibold text-brand-700 hover:text-brand-800 transition"
             >
               <ArrowLeft className="h-4 w-4" /> Back to CARE Project Overview
             </Link>
@@ -72,21 +72,21 @@ const projectImages = [
 
           <div className="p-2 md:p-4">
             <header className="mb-4">
-              <h1 className="text-xl md:text-2xl font-bold text-sky-800 mb-3">
+              <h1 className="font-display text-xl md:text-2xl font-bold tracking-tight text-slate-900 mb-3">
                 CARE Project 3.0 — Implementation
               </h1>
               
-              <div className="flex flex-wrap items-center gap-x-6 gap-y-2 text-sm text-gray-600">
+              <div className="flex flex-wrap items-center gap-x-6 gap-y-2 text-sm text-slate-500">
                 <span className="flex items-center gap-1">
-                  <MapPin className="h-4 w-4 text-sky-600" />
+                  <MapPin className="h-4 w-4 text-brand-500" />
                   Elebolo Community, Alakia, Ibadan
                 </span>
                 <span className="flex items-center gap-1">
-                  <Calendar className="h-4 w-4 text-sky-600" />
+                  <Calendar className="h-4 w-4 text-brand-500" />
                   {format(projectDate, "MMMM d, yyyy")}
                 </span>
                 <span className="flex items-center gap-1">
-                  <User className="h-4 w-4 text-sky-600" />
+                  <User className="h-4 w-4 text-brand-500" />
                   Blue Gate Team
                 </span>
               </div>
@@ -111,29 +111,29 @@ const projectImages = [
             </p>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
-              <div className="p-4 border border-slate-200 rounded-lg bg-slate-50/50">
-                <h3 className="font-bold text-sky-800 text-sm mb-1">Dignity-Centred Marketplace</h3>
+              <div className="p-4 border border-slate-200 rounded-2xl bg-white">
+                <h3 className="font-display font-bold text-slate-900 text-sm mb-1">Dignity-Centred Marketplace</h3>
                 <p className="text-xs leading-relaxed text-slate-600">
                   Donated clothes, shoes, bags, ofi, fila, and other essential items were sold at highly subsidized prices ranging from ₦50 to ₦300, making them affordable for vulnerable households. The subsidized sales generated ₦13,550 while promoting dignity, choice, and equitable access.
                 </p>
               </div>
 
-              <div className="p-4 border border-slate-200 rounded-lg bg-slate-50/50">
-                <h3 className="font-bold text-sky-800 text-sm mb-1">Community Participation</h3>
+              <div className="p-4 border border-slate-200 rounded-2xl bg-white">
+                <h3 className="font-display font-bold text-slate-900 text-sm mb-1">Community Participation</h3>
                 <p className="text-xs leading-relaxed text-slate-600">
                   Community members actively participated in health education sessions and an interactive health quiz designed to improve awareness of common health conditions and healthy living practices.
                 </p>
               </div>
 
-              <div className="p-4 border border-slate-200 rounded-lg bg-slate-50/50">
-                <h3 className="font-bold text-sky-800 text-sm mb-1">Nutrition Incentives</h3>
+              <div className="p-4 border border-slate-200 rounded-2xl bg-white">
+                <h3 className="font-display font-bold text-slate-900 text-sm mb-1">Nutrition Incentives</h3>
                 <p className="text-xs leading-relaxed text-slate-600">
                   Participants who correctly answered quiz questions received food packs containing rice and garri, providing practical resources and structural support to vulnerable households.
                 </p>
               </div>
 
-              <div className="p-4 border border-slate-200 rounded-lg bg-slate-50/50">
-                <h3 className="font-bold text-sky-800 text-sm mb-1">Operational Model</h3>
+              <div className="p-4 border border-slate-200 rounded-2xl bg-white">
+                <h3 className="font-display font-bold text-slate-900 text-sm mb-1">Operational Model</h3>
                 <p className="text-xs leading-relaxed text-slate-600">
                   The deployment highlighted the effectiveness of community-driven interventions. The implementation framework combined active cooperation from local leaders, donors, and staff.
                 </p>
@@ -141,7 +141,7 @@ const projectImages = [
             </div>
 
             <section className="mb-8 p-4 border border-slate-200 rounded-xl bg-white">
-              <h2 className="text-md font-bold text-sky-800 mb-3">Key Highlights</h2>
+              <h2 className="text-md font-display font-bold text-slate-900 mb-3">Key Highlights</h2>
               <ul className="list-disc pl-5 space-y-1.5 text-slate-700 text-sm">
                 {highlights.map((highlight, idx) => (
                   <li key={idx}>{highlight}</li>
@@ -150,7 +150,7 @@ const projectImages = [
             </section>
 
             <section className="bg-slate-50 border border-slate-200 rounded-xl p-4 md:p-6">
-              <h2 className="text-md font-bold text-sky-800 mb-2">Expression of Appreciation</h2>
+              <h2 className="text-md font-display font-bold text-slate-900 mb-2">Expression of Appreciation</h2>
               <p className="text-slate-700 text-sm leading-relaxed mb-3">
                 CARE Project 3.0 was made possible through the collaboration of community leaders, volunteers, donors, and supporters who contributed to its successful implementation.
               </p>

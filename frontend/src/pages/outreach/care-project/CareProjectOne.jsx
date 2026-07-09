@@ -50,7 +50,7 @@ export default function CareProjectOnePage() {
           <div className="p-2 flex items-center justify-between">
             <Link
               to="/outreach/care-project"
-              className="flex items-center gap-2 text-sky-700 hover:text-sky-900 transition"
+              className="flex items-center gap-2 font-semibold text-brand-700 hover:text-brand-800 transition"
             >
               <ArrowLeft className="h-4 w-4" /> Back to CARE Project Overview
             </Link>
@@ -59,21 +59,21 @@ export default function CareProjectOnePage() {
           {/* Page Content */}
           <div className="p-2 md:p-4">
             <header className="mb-4">
-              <h1 className="text-xl md:text-2xl font-bold text-sky-800 mb-3">
+              <h1 className="font-display text-xl md:text-2xl font-bold tracking-tight text-slate-900 mb-3">
                 CARE Project 1.0 — Implementation
               </h1>
               
-              <div className="flex flex-wrap items-center gap-x-6 gap-y-2 text-sm text-gray-600">
+              <div className="flex flex-wrap items-center gap-x-6 gap-y-2 text-sm text-slate-500">
                 <span className="flex items-center gap-1">
-                  <MapPin className="h-4 w-4 text-sky-600" />
+                  <MapPin className="h-4 w-4 text-brand-500" />
                   Alagbafo Community, Kube-Atenda, Ibadan
                 </span>
                 <span className="flex items-center gap-1">
-                  <Calendar className="h-4 w-4 text-sky-600" />
+                  <Calendar className="h-4 w-4 text-brand-500" />
                   {format(projectDate, "MMMM d, yyyy")}
                 </span>
                 <span className="flex items-center gap-1">
-                  <User className="h-4 w-4 text-sky-600" />
+                  <User className="h-4 w-4 text-brand-500" />
                   Blue Gate Team
                 </span>
               </div>
@@ -101,29 +101,29 @@ export default function CareProjectOnePage() {
 
             {/* Key Framework Pillars */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
-              <div className="p-4 border border-slate-200 rounded-lg bg-slate-50/50">
-                <h3 className="font-bold text-sky-800 text-sm mb-1">Subsidized Marketplace</h3>
+              <div className="p-4 border border-slate-200 rounded-2xl bg-white">
+                <h3 className="font-display font-bold text-slate-900 text-sm mb-1">Subsidized Marketplace</h3>
                 <p className="text-xs leading-relaxed text-slate-600">
                   New and gently used clothes, shoes, bags, and household items donated by generous individuals were made available at highly subsidized prices ranging from ₦50 to ₦300, ensuring affordability for low-income households.
                 </p>
               </div>
 
-              <div className="p-4 border border-slate-200 rounded-lg bg-slate-50/50">
-                <h3 className="font-bold text-sky-800 text-sm mb-1">Health Literacy & Education</h3>
+              <div className="p-4 border border-slate-200 rounded-2xl bg-white">
+                <h3 className="font-display font-bold text-slate-900 text-sm mb-1">Health Literacy & Education</h3>
                 <p className="text-xs leading-relaxed text-slate-600">
                   Participants also benefited from health education sessions and interactive health quizzes designed to promote healthy behaviors and improve awareness of common health conditions.
                 </p>
               </div>
 
-              <div className="p-4 border border-slate-200 rounded-lg bg-slate-50/50">
-                <h3 className="font-bold text-sky-800 text-sm mb-1">Nutrition & Food Support</h3>
+              <div className="p-4 border border-slate-200 rounded-2xl bg-white">
+                <h3 className="font-display font-bold text-slate-900 text-sm mb-1">Nutrition & Food Support</h3>
                 <p className="text-xs leading-relaxed text-slate-600">
                   Food items were distributed as prizes to quiz participants, combining critical baseline learning with practical resource support for vulnerable families.
                 </p>
               </div>
 
-              <div className="p-4 border border-slate-200 rounded-lg bg-slate-50/50">
-                <h3 className="font-bold text-sky-800 text-sm mb-1">Sustainability & Dignity</h3>
+              <div className="p-4 border border-slate-200 rounded-2xl bg-white">
+                <h3 className="font-display font-bold text-slate-900 text-sm mb-1">Sustainability & Dignity</h3>
                 <p className="text-xs leading-relaxed text-slate-600">
                   A total of ₦19,800 was generated through the subsidized sales model, demonstrating organic community participation while promoting true personal dignity, choice, and project longevity.
                 </p>
@@ -131,8 +131,8 @@ export default function CareProjectOnePage() {
             </div>
 
             {/* Implementation Framework Note */}
-            <div className="p-4 rounded-lg bg-sky-50/60 border border-sky-100 flex gap-3 items-start mb-8 text-slate-700">
-              <Users className="h-5 w-5 text-sky-600 mt-0.5 flex-shrink-0" />
+            <div className="p-4 rounded-xl bg-brand-50/60 border border-brand-100 flex gap-3 items-start mb-8 text-slate-700">
+              <Users className="h-5 w-5 text-brand-600 mt-0.5 flex-shrink-0" />
               <p className="text-sm leading-relaxed">
                 The outreach was safely implemented by <strong>22 volunteers and staff members</strong> of the Blue Gate Public Health Promotion Initiative, with close collaboration and support from local community leaders and the Nigeria Police Force.
               </p>
@@ -145,7 +145,7 @@ export default function CareProjectOnePage() {
                 href="https://web.facebook.com/share/v/1BGh7qQqdD/" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-5 py-2.5 bg-sky-600 hover:bg-sky-700 text-white rounded-lg font-medium text-sm transition"
+                className="inline-flex items-center gap-2 px-5 py-2.5 bg-brand-600 hover:bg-brand-700 text-white rounded-full font-semibold text-sm shadow-soft transition-all duration-300 hover:shadow-lift"
               >
                 View Video Documentary <ExternalLink className="h-4 w-4" />
               </a>
@@ -153,8 +153,8 @@ export default function CareProjectOnePage() {
 
             {/* Appreciation Block */}
             <section className="bg-slate-50 border border-slate-200 rounded-xl p-4 md:p-6">
-              <h2 className="text-md font-bold text-sky-800 mb-3 flex items-center gap-2">
-                <Heart className="h-5 w-5 text-sky-600" /> Expression of Appreciation
+              <h2 className="text-md font-display font-bold text-slate-900 mb-3 flex items-center gap-2">
+                <Heart className="h-5 w-5 text-brand-600" /> Expression of Appreciation
               </h2>
               <p className="text-slate-700 text-sm leading-relaxed mb-4">
                 CARE Project 1.0 was made possible through the profound generosity of our donors and supporters. We gratefully acknowledge the financial contributions of <strong>Mr. Oluwaseyi Fatokunbo</strong>, <strong>Mr. Opeyemi Elujulo</strong>, and <strong>Prof. Ademola Adelekan</strong>, as well as the essential in-kind donations provided by:

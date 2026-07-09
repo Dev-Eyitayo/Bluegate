@@ -58,16 +58,16 @@ export default function ProgramsAndEvents() {
 
   return (
     <section className="max-w-6xl mx-auto px-4 py-12">
-      <div className="grid grid-cols-1 lg:grid-cols-[3fr_2fr] gap-8 items-start">
+      <div className="grid grid-cols-1 lg:grid-cols-[3fr_2fr] gap-6 items-start">
         {/* Left: Upcoming Events */}
-        <div className="border border-slate-200 rounded-xl p-6 bg-slate-50">
+        <div className="border border-slate-200 rounded-2xl p-6 md:p-7 bg-slate-50/70">
           <SectionHeader title="Upcoming Events" icon={CalendarDays} />
 
-          <div className="mt-6 space-y-7">
+          <div className="mt-6 space-y-5">
             {/* Loading */}
             {loading && (
-              <div className="text-center py-12 text-gray-500">
-                <div className="inline-block animate-spin h-8 w-8 border-4 border-sky-600 border-t-transparent rounded-full"></div>
+              <div className="text-center py-12 text-slate-500">
+                <div className="inline-block animate-spin h-8 w-8 border-4 border-brand-600 border-t-transparent rounded-full"></div>
                 <p className="mt-4">Loading upcoming events...</p>
               </div>
             )}
@@ -82,16 +82,16 @@ export default function ProgramsAndEvents() {
 
             {/* Empty */}
             {!loading && !error && events.length === 0 && (
-              <div className="text-center py-16 text-gray-500">
-                <CalendarDays className="h-16 w-16 mx-auto text-gray-300 mb-4" />
-                <p className="font-medium text-lg">No upcoming events</p>
+              <div className="text-center py-16 text-slate-500">
+                <CalendarDays className="h-16 w-16 mx-auto text-slate-300 mb-4" />
+                <p className="font-medium text-lg text-slate-700">No upcoming events</p>
                 <p className="text-sm mt-2">Stay tuned for new announcements!</p>
               </div>
             )}
 
             {/* Events List */}
             {!loading && events.length > 0 && (
-              <div className="space-y-7">
+              <div className="space-y-5">
                 {events.map((event) => (
                   <EventCard
                     key={event.id}
@@ -108,16 +108,14 @@ export default function ProgramsAndEvents() {
 
         {/* Right Column */}
         <div className="space-y-6">
-          <div className="border border-slate-200 rounded-xl p-6 bg-slate-50">
+          <div className="border border-slate-200 rounded-2xl p-6 md:p-7 bg-slate-50/70">
             <SectionHeader title="Health Promotion Programmes" />
             <div className="mt-5">
               <Accordion items={programmes} />
             </div>
           </div>
 
-          <div className="border border-slate-200 rounded-xl p-6 bg-slate-50">
-            <SupportSection />
-          </div>
+          <SupportSection />
         </div>
       </div>
     </section>

@@ -66,9 +66,9 @@ export default function BlogPage() {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-sky-200/10 flex items-center justify-center">
+      <div className="min-h-screen flex items-center justify-center">
         <div className="flex items-center gap-3">
-          <LoaderCircle className="h-12 w-12 animate-spin text-sky-600" />
+          <LoaderCircle className="h-12 w-12 animate-spin text-brand-600" />
         </div>
       </div>
     );
@@ -76,12 +76,12 @@ export default function BlogPage() {
 
   if (error) {
     return (
-      <div className="min-h-screen bg-sky-200/10 flex items-center justify-center p-2">
+      <div className="min-h-screen flex items-center justify-center p-2">
         <div className="text-center max-w-md">
           <p className="text-red-600 font-medium">{error}</p>
           <button
             onClick={() => window.location.reload()}
-            className="mt-4 px-5 py-2 bg-sky-600 text-white rounded-lg hover:bg-sky-700 transition"
+            className="mt-4 rounded-full bg-brand-600 px-6 py-2.5 font-semibold text-white shadow-soft transition-all duration-300 hover:bg-brand-700"
           >
             Retry
           </button>
@@ -91,21 +91,22 @@ export default function BlogPage() {
   }
 
   return (
-    <div className="min-h-screen bg-sky-200/10 text-gray-800">
-      <section className="py-6 max-w-7xl mx-auto text-center">
-        <h1 className="text-2xl sm:text-xl font-extrabold text-sky-800 mb-2">
+    <div className="min-h-screen text-slate-800">
+      <section className="py-10 max-w-7xl mx-auto text-center px-4">
+        <h1 className="font-display text-2xl md:text-3xl font-bold tracking-tight text-slate-900">
           Our Outreaches
         </h1>
-        <p className="text-slate-600 max-w-2xl mx-auto">
+        <span className="mt-3 inline-block h-1 w-12 rounded-full bg-brand-500" aria-hidden="true" />
+        <p className="mt-2 text-slate-600 max-w-2xl mx-auto leading-relaxed">
           Insights, stories, and updates from the outreaches of our team at Blue
           Gate Initiative.
         </p>
       </section>
 
-      <section className="max-w-6xl mx-auto px-2 py-10 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+      <section className="max-w-6xl mx-auto px-2 pb-14 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-5">
         {posts.length === 0 ? (
           <div className="col-span-full text-center py-6">
-            <p className="text-gray-500 text-lg">
+            <p className="text-slate-500 text-lg">
               No outreach posts yet. Check back soon!
             </p>
           </div>
@@ -114,18 +115,20 @@ export default function BlogPage() {
             <Link
               to={`/outreach/${post.slug}`}
               key={post.id}
-              className="border border-slate-300 rounded-md bg-white overflow-hidden hover:shadow-lg transition-shadow duration-300"
+              className="group border border-slate-200 rounded-2xl bg-white overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:border-brand-200 hover:shadow-soft focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-600"
             >
               {post.images && post.images.length > 0 && (
-                <img
-                  src={post.images[0].image_url}
-                  alt={post.title}
-                  className="w-full h-40 border-b border-slate-300 object-cover"
-                />
+                <div className="overflow-hidden border-b border-slate-100">
+                  <img
+                    src={post.images[0].image_url}
+                    alt={post.title}
+                    className="w-full h-40 object-cover transition-transform duration-500 group-hover:scale-105"
+                  />
+                </div>
               )}
 
-              <div className="p-3">
-                <h3 className="text-sm font-bold text-sky-800 mb-1 line-clamp-1">
+              <div className="p-4">
+                <h3 className="font-display text-sm font-bold text-slate-900 mb-1.5 line-clamp-1 group-hover:text-brand-700 transition-colors">
                   {post.title}
                 </h3>
 
@@ -137,7 +140,7 @@ export default function BlogPage() {
                   ...
                 </p>
 
-                <span className="inline-block mt-3 text-sm font-medium text-sky-700 hover:text-sky-900 transition">
+                <span className="inline-block mt-3 text-sm font-semibold text-brand-700">
                   Read More
                 </span>
               </div>

@@ -6,7 +6,7 @@ export default function BlogImages({ slides }) {
 
   if (!slides || slides.length === 0) {
     return (
-      <div className="w-full h-72 sm:h-80 md:h-96 flex items-center justify-center bg-gray-200 rounded-2xl text-gray-500">
+      <div className="w-full h-72 sm:h-80 md:h-96 flex items-center justify-center bg-slate-100 rounded-2xl text-slate-500">
         No images available
       </div>
     );
@@ -21,7 +21,7 @@ export default function BlogImages({ slides }) {
   };
 
   return (
-    <div className="relative w-full md:h-96 h-72 overflow-hidden rounded-2xl">
+    <div className="relative w-full md:h-96 h-72 overflow-hidden rounded-2xl ring-1 ring-slate-900/10 shadow-soft">
       {/* Images */}
       {slides.map((slide, idx) => (
         <div
@@ -40,8 +40,8 @@ export default function BlogImages({ slides }) {
             }}
           />
           {slide.caption && (
-            <div className="absolute bottom-0 w-full bg-white/80 text-center py-3 rounded-b-2xl">
-              <p className="text-sky-700 text-sm font-medium">{slide.caption}</p>
+            <div className="absolute bottom-0 w-full bg-gradient-to-t from-brand-950/85 to-brand-950/0 text-center pt-8 pb-3 px-4">
+              <p className="text-white text-sm font-medium">{slide.caption}</p>
             </div>
           )}
         </div>
@@ -52,16 +52,18 @@ export default function BlogImages({ slides }) {
         <>
           <button
             onClick={prevSlide}
-            className="absolute left-3 top-1/2 -translate-y-1/2 bg-white/0 hover:bg-white text-gray-700 rounded-full p-2 transition"
+            aria-label="Previous image"
+            className="absolute left-3 top-1/2 -translate-y-1/2 w-10 h-10 flex items-center justify-center bg-white/10 hover:bg-white/25 backdrop-blur-sm ring-1 ring-white/25 text-white rounded-full transition-colors duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-white"
           >
-            <ChevronLeft className="h-6 w-6" />
+            <ChevronLeft className="h-5 w-5" />
           </button>
 
           <button
             onClick={nextSlide}
-            className="absolute right-3 top-1/2 -translate-y-1/2 bg-white/70 hover:bg-white text-gray-700 rounded-full p-2 transition"
+            aria-label="Next image"
+            className="absolute right-3 top-1/2 -translate-y-1/2 w-10 h-10 flex items-center justify-center bg-white/10 hover:bg-white/25 backdrop-blur-sm ring-1 ring-white/25 text-white rounded-full transition-colors duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-white"
           >
-            <ChevronRight className="h-6 w-6" />
+            <ChevronRight className="h-5 w-5" />
           </button>
 
           {/* Dots */}

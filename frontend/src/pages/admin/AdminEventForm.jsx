@@ -156,7 +156,7 @@ export default function AdminEventForm() {
     return (
       <AdminLayout>
         <div className="flex items-center justify-center h-64">
-          <Loader2 className="h-10 w-10 animate-spin text-sky-600" />
+          <Loader2 className="h-10 w-10 animate-spin text-brand-600" />
         </div>
       </AdminLayout>
     );
@@ -167,10 +167,10 @@ export default function AdminEventForm() {
       <ToastContainer toasts={toasts} />
 
       <div className="mb-8">
-        <h1 className="text-3xl font-bold text-gray-900">
+        <h1 className="text-3xl font-bold text-slate-900">
           {isEdit ? "Edit Event" : "Create New Event"}
         </h1>
-        <p className="mt-1 text-sm text-gray-600">
+        <p className="mt-1 text-sm text-slate-600">
           {isEdit ? "Update event details and images" : "Announce your upcoming event"}
         </p>
       </div>
@@ -178,7 +178,7 @@ export default function AdminEventForm() {
       <form onSubmit={handleSubmit} className="space-y-8 max-w-5xl">
         {/* Title */}
         <div>
-          <label className="block text-sm font-semibold text-gray-800 mb-2">
+          <label className="block text-sm font-semibold text-slate-800 mb-2">
             Event Title <span className="text-red-500">*</span>
           </label>
           <input
@@ -186,7 +186,7 @@ export default function AdminEventForm() {
             required
             value={form.title}
             onChange={(e) => setForm({ ...form, title: e.target.value })}
-            className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-sky-500 focus:ring-4 focus:ring-sky-100 transition"
+            className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-brand-500 focus:ring-4 focus:ring-brand-100 transition"
             placeholder="e.g. Annual Community Outreach 2025"
           />
         </div>
@@ -194,7 +194,7 @@ export default function AdminEventForm() {
         {/* Date & Location */}
         <div className="grid gap-6 md:grid-cols-2">
           <div>
-            <label className="block text-sm font-semibold text-gray-800 mb-2">
+            <label className="block text-sm font-semibold text-slate-800 mb-2">
               <Calendar className="inline h-4 w-4 mr-1" />
               Date & Time <span className="text-red-500">*</span>
             </label>
@@ -203,11 +203,11 @@ export default function AdminEventForm() {
               required
               value={form.event_date}
               onChange={(e) => setForm({ ...form, event_date: e.target.value })}
-              className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-sky-500 focus:ring-4 focus:ring-sky-100 transition"
+              className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-brand-500 focus:ring-4 focus:ring-brand-100 transition"
             />
           </div>
           <div>
-            <label className="block text-sm font-semibold text-gray-800 mb-2">
+            <label className="block text-sm font-semibold text-slate-800 mb-2">
               <MapPin className="inline h-4 w-4 mr-1" />
               Location (Optional)
             </label>
@@ -215,7 +215,7 @@ export default function AdminEventForm() {
               type="text"
               value={form.location}
               onChange={(e) => setForm({ ...form, location: e.target.value })}
-              className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-sky-500 focus:ring-4 focus:ring-sky-100 transition"
+              className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-brand-500 focus:ring-4 focus:ring-brand-100 transition"
               placeholder="e.g. Central Park, New York"
             />
           </div>
@@ -223,7 +223,7 @@ export default function AdminEventForm() {
 
         {/* Description */}
         <div>
-          <label className="block text-sm font-semibold text-gray-800 mb-2">
+          <label className="block text-sm font-semibold text-slate-800 mb-2">
             Description <span className="text-red-500">*</span>
           </label>
           <textarea
@@ -231,21 +231,21 @@ export default function AdminEventForm() {
             required
             value={form.description}
             onChange={(e) => setForm({ ...form, description: e.target.value })}
-            className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-sky-500 focus:ring-4 focus:ring-sky-100 transition"
+            className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-brand-500 focus:ring-4 focus:ring-brand-100 transition"
             placeholder="Tell people what this event is about..."
           />
         </div>
 
         {/* Images Grid */}
         <div>
-          <label className="block text-sm font-semibold text-gray-800 mb-3">
+          <label className="block text-sm font-semibold text-slate-800 mb-3">
             Event Images
           </label>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5">
             {images.map((img, idx) => (
               <div
                 key={idx}
-                className="group relative rounded-xl overflow-hidden border-2 border-gray-100 bg-white shadow-sm"
+                className="group relative rounded-xl overflow-hidden border-2 border-slate-100 bg-white shadow-sm"
               >
                 <img
                   src={img.preview || img.url}
@@ -292,15 +292,15 @@ export default function AdminEventForm() {
                   placeholder="Add caption (optional)"
                   value={img.caption}
                   onChange={(e) => updateCaption(idx, e.target.value)}
-                  className="w-full px-3 py-2 text-sm border-t border-gray-200 bg-white focus:outline-none focus:border-sky-400"
+                  className="w-full px-3 py-2 text-sm border-t border-slate-200 bg-white focus:outline-none focus:border-brand-400"
                 />
               </div>
             ))}
 
             {/* Upload Trigger */}
-            <label className="flex flex-col items-center justify-center h-48 border-2 border-dashed border-gray-300 rounded-xl cursor-pointer hover:border-sky-400 hover:bg-sky-50 transition group">
-              <Upload className="h-10 w-10 text-gray-400 mb-2 group-hover:text-sky-600" />
-              <span className="text-sm text-gray-500">Add Photos</span>
+            <label className="flex flex-col items-center justify-center h-48 border-2 border-dashed border-slate-300 rounded-xl cursor-pointer hover:border-brand-400 hover:bg-brand-50 transition group">
+              <Upload className="h-10 w-10 text-slate-400 mb-2 group-hover:text-brand-600" />
+              <span className="text-sm text-slate-500">Add Photos</span>
               <input
                 type="file"
                 multiple
@@ -313,11 +313,11 @@ export default function AdminEventForm() {
         </div>
 
         {/* Submit Actions */}
-        <div className="flex gap-4 pt-8 border-t border-gray-200">
+        <div className="flex gap-4 pt-8 border-t border-slate-200">
           <button
             type="submit"
             disabled={saving}
-            className="flex items-center gap-3 px-8 py-3.5 bg-sky-600 text-white font-semibold rounded-xl hover:bg-sky-700 disabled:opacity-60 disabled:cursor-not-allowed transition shadow-lg"
+            className="flex items-center gap-3 px-8 py-3.5 bg-brand-600 text-white font-semibold rounded-xl hover:bg-brand-700 disabled:opacity-60 disabled:cursor-not-allowed transition shadow-lg"
           >
             {saving ? (
               <>
@@ -333,7 +333,7 @@ export default function AdminEventForm() {
 
           <Link
             to="/admin/event"
-            className="px-8 py-3.5 border border-gray-300 text-gray-700 font-medium rounded-xl hover:bg-gray-50 transition"
+            className="px-8 py-3.5 border border-slate-300 text-slate-700 font-medium rounded-xl hover:bg-slate-50 transition"
           >
             Cancel
           </Link>

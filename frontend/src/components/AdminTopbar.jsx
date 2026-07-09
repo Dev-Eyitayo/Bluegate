@@ -3,12 +3,12 @@ import { Menu } from "lucide-react";
 
 export default function AdminTopbar({ onMenuClick }) {
   return (
-    <header className="bg-white border-b border-gray-200">
+    <header className="bg-white border-b border-slate-200">
       <div className="flex items-center justify-between px-4 py-3 h-16 md:px-6">
         {/* Left: Menu Button */}
         <button
           onClick={onMenuClick}
-          className="rounded-lg p-2 hover:bg-gray-100 md:hidden"
+          className="rounded-lg p-2 text-slate-700 hover:bg-brand-50 md:hidden transition-colors"
           aria-label="Open menu"
         >
           <Menu className="h-6 w-6" />
@@ -16,10 +16,10 @@ export default function AdminTopbar({ onMenuClick }) {
 
         {/* Right: Admin Info */}
         <div className="flex items-center gap-3 ml-auto">
-          <div className="h-9 w-9 rounded-full bg-gradient-to-br from-sky-500 to-blue-600 flex items-center justify-center text-white font-semibold">
+          <div className="h-9 w-9 rounded-full bg-gradient-to-br from-brand-500 to-brand-700 flex items-center justify-center text-white font-semibold font-display">
             A
           </div>
-          <span className="hidden text-sm font-medium md:block">Admin</span>
+          <span className="hidden text-sm font-medium text-slate-700 md:block">Admin</span>
         </div>
       </div>
     </header>

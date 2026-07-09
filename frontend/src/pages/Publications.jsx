@@ -1,4 +1,6 @@
 import React from "react";
+import { Download } from "lucide-react";
+import PageHeader from "../components/PageHeader";
 
 export default function Publications() {
   // Static list of publications (replace paths with actual PDFs in /public or CDN)
@@ -103,66 +105,65 @@ export default function Publications() {
   ];
 
   return (
-    <div className="min-h-screen bg-sky-200/10 text-gray-800">
+    <div className="min-h-screen text-slate-800">
       {/* Page Title */}
-      <section className="py-8 px-2 max-w-7xl mx-auto">
-        <h1 className="text-3xl font-extrabold text-sky-800 text-center mb-2">
-          Publications
-        </h1>
-        <p className="text-center text-lg text-sky-700 font-medium">
-          Download our peer-reviewed research and project evaluations
-        </p>
+      <section className="py-14 px-2 max-w-7xl mx-auto">
+        <PageHeader
+          eyebrow="Resources"
+          title="Publications"
+          subtitle="Download our peer-reviewed research and project evaluations"
+        />
       </section>
 
       {/* Publications Grid */}
-      <section className="px-4 max-w-7xl mx-auto py-6">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
+      <section className="px-4 max-w-7xl mx-auto pb-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
           {publications.map((pub, index) => (
-            <div
+            <a
               key={index}
-              className="bg-white border border-slate-100 rounded-lg hover:shadow-sm transition-shadow duration-300 p-5 flex flex-col h-full"
+              href={pub.pdf}
+              target="_blank"
+              rel="noopener noreferrer"
+              title="Download PDF"
+              className="group bg-white border border-slate-200 rounded-2xl transition-all duration-300 hover:-translate-y-0.5 hover:border-brand-200 hover:shadow-soft p-6 flex flex-col h-full focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-600"
             >
-              {/* PDF Icon + Download */}
-              <div className="flex justify-end mb-3">
-                <a
-                  href={pub.pdf}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-sky-600 hover:text-sky-800 transition"
-                  title="Download PDF"
-                >
-                  <img
-                    src="/assets/pdf.png"
-                    alt="PDF"
-                    className="w-12 h-12"
-                  />
-                </a>
+              {/* PDF badge + download */}
+              <div className="flex items-center justify-between mb-4">
+                <span className="inline-flex items-center rounded-full bg-rose-50 px-3 py-1 text-xs font-semibold text-rose-700 ring-1 ring-inset ring-rose-100">
+                  PDF
+                </span>
+                <span className="flex items-center justify-center w-9 h-9 rounded-xl bg-brand-50 ring-1 ring-inset ring-brand-100 text-brand-600 transition-colors duration-300 group-hover:bg-brand-600 group-hover:text-white group-hover:ring-brand-600">
+                  <Download className="w-4 h-4" />
+                </span>
               </div>
 
               {/* Title */}
-              <h3 className="text-sm font-bold text-sky-700 leading-tight mb-2">
+              <h3 className="text-sm font-bold text-slate-900 leading-snug mb-2 group-hover:text-brand-700 transition-colors">
                 {pub.title}
               </h3>
 
               {/* Journal */}
-              <p className="text-xs italic text-gray-600 mb-2">
+              <p className="text-xs italic text-slate-500 mb-2 leading-relaxed">
                 {pub.journal}
               </p>
 
               {/* Authors */}
-              <p className="text-xs text-gray-700 flex-grow">
+              <p className="text-xs text-slate-600 flex-grow leading-relaxed">
                 {pub.authors}
               </p>
-            </div>
+            </a>
           ))}
         </div>
       </section>
 
       {/* Optional: Add note about more publications */}
-      <section className="px-2 max-w-4xl mx-auto py-8 text-center">
-        <p className="text-sm text-gray-600">
+      <section className="px-2 max-w-4xl mx-auto py-10 text-center">
+        <p className="text-sm text-slate-600 rounded-2xl bg-brand-50/70 ring-1 ring-inset ring-brand-100 px-6 py-4 inline-block">
           More publications available upon request. Contact us at{" "}
-          <a href="mailto:info@bluegateinitiative.org" className="text-sky-600 underline">
+          <a
+            href="mailto:info@bluegateinitiative.org"
+            className="font-medium text-brand-700 underline decoration-brand-300 underline-offset-2 hover:text-brand-800 transition-colors"
+          >
             info@bluegateinitiative.org
           </a>
         </p>

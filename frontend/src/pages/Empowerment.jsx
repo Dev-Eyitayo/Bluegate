@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Users, HeartHandshake, Shield, FileText, Link, ChevronLeft, ChevronRight } from "lucide-react";
+import PageHeader from "../components/PageHeader";
 
 export default function Empowerment() {
   // Enhanced Slider Data
@@ -29,40 +30,92 @@ export default function Empowerment() {
     return () => clearInterval(timer);
   }, [slides.length]);
 
+  const strategies = [
+    {
+      icon: <Users className="w-6 h-6" />,
+      title: "Life Skills & Confidence-Building",
+      points: [
+        "Self-esteem and personal agency",
+        "Communication and negotiation skills",
+        "Leadership and decision-making",
+        "Conflict resolution and problem-solving",
+      ],
+    },
+    {
+      icon: <Shield className="w-6 h-6" />,
+      title: "Human Rights & Legal Literacy",
+      points: [
+        "Rights to health, safety, and dignity",
+        "Access to legal and social support",
+        "Reporting violations and discrimination",
+      ],
+    },
+    {
+      icon: <FileText className="w-6 h-6" />,
+      title: "Economic & Livelihood Empowerment",
+      points: [
+        "Business and entrepreneurship training",
+        "Vocational skill development",
+        "Income-generating opportunities",
+        "Mentorship and cooperative support",
+      ],
+    },
+    {
+      icon: <HeartHandshake className="w-6 h-6" />,
+      title: "Peer Support & Community Mobilization",
+      points: [
+        "Peer educator and mentor groups",
+        "Safe community dialogue spaces",
+        "Shared learning and collective action",
+      ],
+    },
+    {
+      icon: <Link className="w-6 h-6" />,
+      title: "Advocacy & Voice Strengthening",
+      points: [
+        "Participation in decision-making",
+        "Engagement with policymakers",
+        "Advocacy for health and rights",
+      ],
+    },
+  ];
+
   return (
-    <div className="min-h-screen bg-sky-200/10 text-gray-800">
+    <div className="min-h-screen text-slate-800">
       {/* Hero Section */}
-      <section className="py-16 px-3 max-w-7xl mx-auto text-center">
-        <div className="flex justify-center mb-5">
-          {/* <div className="w-20 h-20 bg-sky-100 rounded-full flex items-center justify-center">
-            <HeartHandshake className="w-11 h-11 text-sky-600" />
-          </div> */}
-        </div>
-        <h1 className="text-3xl sm:text-2xl font-extrabold text-sky-800 mb-4">
-          Empowerment & Community Strengthening
-        </h1>
-        <p className="text-lg md:text-xl text-slate-600 max-w-4xl mx-auto leading-relaxed">
-          At <strong>Blue Gate Public Health Promotion Initiative</strong>, we empower marginalized communities to overcome barriers, claim their rights, and build sustainable futures.
-        </p>
+      <section className="py-14 px-3 max-w-7xl mx-auto">
+        <PageHeader
+          eyebrow="Programmes"
+          title="Empowerment & Community Strengthening"
+          subtitle={
+            <>
+              At <strong className="text-slate-900">Blue Gate Public Health Promotion Initiative</strong>,
+              we empower marginalized communities to overcome barriers, claim their rights,
+              and build sustainable futures.
+            </>
+          }
+        />
       </section>
 
       {/* Carousel Slides */}
-
-      <section className="py-16 px-3 max-w-5xl mx-auto">
-        <h2 className="text-xl  font-bold text-sky-800 text-center mb-10">
-          Empowerment in Action
-        </h2>
-        <div className="relative overflow-hidden rounded-2xl border border-slate-200">
+      <section className="pb-14 px-3 max-w-5xl mx-auto">
+        <div className="text-center mb-8">
+          <h2 className="font-display text-xl font-bold text-slate-900">
+            Empowerment in Action
+          </h2>
+          <span className="mt-2.5 inline-block h-1 w-10 rounded-full bg-brand-500" aria-hidden="true" />
+        </div>
+        <div className="relative overflow-hidden rounded-2xl ring-1 ring-slate-900/10 shadow-soft">
           <div
             className="flex transition-transform duration-700 ease-in-out"
             style={{ transform: `translateX(-${current * 100}%)` }}
           >
             {slides.map((slide, index) => (
-              <div key={index} className="min-w-full bg-gray-100 relative">
+              <div key={index} className="min-w-full bg-slate-100 relative">
                 {imageError[index] ? (
-                  <div className="w-full h-80 md:h-96 flex flex-col items-center justify-center bg-gradient-to-br from-gray-200 to-gray-300 p-6">
-                    <p className="text-gray-600 text-center">Image loading...</p>
-                    <p className="text-xs text-gray-500 mt-1">Path: {slide.image}</p>
+                  <div className="w-full h-80 md:h-96 flex flex-col items-center justify-center bg-gradient-to-br from-slate-100 to-slate-200 p-6">
+                    <p className="text-slate-600 text-center">Image loading...</p>
+                    <p className="text-xs text-slate-500 mt-1">Path: {slide.image}</p>
                   </div>
                 ) : (
                   <img
@@ -72,11 +125,13 @@ export default function Empowerment() {
                     className="w-full h-100 md:h-106 object-cover"
                   />
                 )}
-                <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 via-black/50 to-transparent p-6 text-white">
-                  <p className="text-sm md:text-base font-semibold max-w-3xl mx-auto text-center drop-shadow-md">
-                    {slide.title}
-                  </p>
-                </div>
+                {slide.title && (
+                  <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-brand-950/85 via-brand-950/40 to-transparent p-6 text-white">
+                    <p className="text-sm md:text-base font-medium max-w-3xl mx-auto text-center">
+                      {slide.title}
+                    </p>
+                  </div>
+                )}
               </div>
             ))}
           </div>
@@ -84,29 +139,29 @@ export default function Empowerment() {
           {/* Navigation */}
           <button
             onClick={() => setCurrent((prev) => (prev - 1 + slides.length) % slides.length)}
-            className="absolute left-5 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white text-sky-800 rounded-full p-3 shadow-xl transition-all duration-200"
+            className="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/10 hover:bg-white/25 backdrop-blur-sm ring-1 ring-white/25 text-white transition-colors duration-300 flex items-center justify-center focus:outline-none focus-visible:ring-2 focus-visible:ring-white"
             aria-label="Previous image"
           >
-            <ChevronLeft className="w-6 h-6" />
+            <ChevronLeft className="w-5 h-5" />
           </button>
           <button
             onClick={() => setCurrent((prev) => (prev + 1) % slides.length)}
-            className="absolute right-5 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white text-sky-800 rounded-full p-3 shadow-xl transition-all duration-200"
+            className="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/10 hover:bg-white/25 backdrop-blur-sm ring-1 ring-white/25 text-white transition-colors duration-300 flex items-center justify-center focus:outline-none focus-visible:ring-2 focus-visible:ring-white"
             aria-label="Next image"
           >
-            <ChevronRight className="w-6 h-6" />
+            <ChevronRight className="w-5 h-5" />
           </button>
 
           {/* Dots */}
-          <div className="absolute bottom-5 left-1/2 -translate-x-1/2 flex gap-2">
+          <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex items-center gap-2">
             {slides.map((_, index) => (
               <button
                 key={index}
                 onClick={() => setCurrent(index)}
-                className={`transition-all duration-300 ${
+                className={`h-2 rounded-full transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-white ${
                   index === current
-                    ? "w-9 h-2 bg-white rounded-full shadow-md"
-                    : "w-2 h-2 bg-white/60 rounded-full hover:bg-white"
+                    ? "w-7 bg-white"
+                    : "w-2 bg-white/50 hover:bg-white/80"
                 }`}
                 aria-label={`Go to slide ${index + 1}`}
               />
@@ -116,15 +171,16 @@ export default function Empowerment() {
       </section>
 
       {/* Introduction */}
-      <section className="px-3 max-w-5xl mx-auto mb-16">
-        <div className="bg-white rounded-2xl p-6 md:p-9 border border-sky-100">
-          <p className="text-slate-700 leading-relaxed text-justify mb-5">
-            Empowerment enables individuals and communities — especially those who are <strong>marginalized or disadvantaged</strong> — to gain the <em>knowledge, confidence, and resources</em> they need to make decisions, advocate for themselves, and improve their quality of life.
+      <section className="px-3 max-w-5xl mx-auto mb-14">
+        <div className="bg-white rounded-2xl p-6 md:p-9 border border-slate-200 shadow-soft">
+          <p className="text-slate-600 leading-relaxed mb-5">
+            Empowerment enables individuals and communities — especially those who are{" "}
+            <strong className="text-slate-900">marginalized or disadvantaged</strong> — to gain the{" "}
+            <em>knowledge, confidence, and resources</em> they need to make decisions, advocate
+            for themselves, and improve their quality of life.
           </p>
-          <p className="text-slate-700 leading-relaxed text-justify mb-5">
-            We work with:
-          </p>
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mb-6">
+          <p className="text-slate-600 leading-relaxed mb-5">We work with:</p>
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-3 mb-6">
             {[
               "Women & adolescent girls",
               "Children & youth",
@@ -133,84 +189,48 @@ export default function Empowerment() {
               "Incarcerated individuals",
               "Low-income communities",
             ].map((group) => (
-              <div key={group} className="bg-sky-50 p-3 rounded-lg text-center text-sm font-medium text-sky-800 border border-sky-200">
+              <div
+                key={group}
+                className="rounded-xl bg-brand-50 px-3 py-3 text-center text-sm font-medium text-brand-800 ring-1 ring-inset ring-brand-100"
+              >
                 {group}
               </div>
             ))}
           </div>
-          <p className="text-slate-700 leading-relaxed text-justify">
-            These groups often face <strong>discrimination, limited access to education or healthcare, social exclusion, legal vulnerability, and economic challenges</strong>. Our empowerment programmes aim to <strong>bridge these gaps</strong> and create opportunities for <em>growth, dignity, and independence</em>.
+          <p className="text-slate-600 leading-relaxed">
+            These groups often face{" "}
+            <strong className="text-slate-900">
+              discrimination, limited access to education or healthcare, social exclusion, legal
+              vulnerability, and economic challenges
+            </strong>
+            . Our empowerment programmes aim to <strong className="text-slate-900">bridge these gaps</strong>{" "}
+            and create opportunities for <em>growth, dignity, and independence</em>.
           </p>
         </div>
       </section>
 
       {/* Our Strategies - Icon Cards */}
-      <section className="py-16 px-3 max-w-5xl mx-auto">
-        <h2 className="text-2xl font-bold text-sky-800 text-center mb-12">
-          Our Empowerment Strategies & Activities
-        </h2>
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-3">
-          {[
-            {
-              icon: <Users className="w-8 h-8" />,
-              title: "Life Skills & Confidence-Building",
-              points: [
-                "Self-esteem and personal agency",
-                "Communication and negotiation skills",
-                "Leadership and decision-making",
-                "Conflict resolution and problem-solving",
-              ],
-            },
-            {
-              icon: <Shield className="w-8 h-8" />,
-              title: "Human Rights & Legal Literacy",
-              points: [
-                "Rights to health, safety, and dignity",
-                "Access to legal and social support",
-                "Reporting violations and discrimination",
-              ],
-            },
-            {
-              icon: <FileText className="w-8 h-8" />,
-              title: "Economic & Livelihood Empowerment",
-              points: [
-                "Business and entrepreneurship training",
-                "Vocational skill development",
-                "Income-generating opportunities",
-                "Mentorship and cooperative support",
-              ],
-            },
-            {
-              icon: <HeartHandshake className="w-8 h-8" />,
-              title: "Peer Support & Community Mobilization",
-              points: [
-                "Peer educator and mentor groups",
-                "Safe community dialogue spaces",
-                "Shared learning and collective action",
-              ],
-            },
-            {
-              icon: <Link className="w-8 h-8" />,
-              title: "Advocacy & Voice Strengthening",
-              points: [
-                "Participation in decision-making",
-                "Engagement with policymakers",
-                "Advocacy for health and rights",
-              ],
-            },
-          ].map((item, i) => (
+      <section className="py-14 px-3 max-w-5xl mx-auto">
+        <div className="text-center mb-12">
+          <h2 className="font-display text-2xl font-bold tracking-tight text-slate-900">
+            Our Empowerment Strategies & Activities
+          </h2>
+          <span className="mt-4 inline-block h-1 w-12 rounded-full bg-brand-500" aria-hidden="true" />
+        </div>
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {strategies.map((item, i) => (
             <div
               key={i}
-              className="bg-white p-6 rounded-xl transition-all border border-sky-100 group"
+              className="group bg-white p-6 rounded-2xl border border-slate-200 transition-all duration-300 hover:-translate-y-1 hover:border-brand-200 hover:shadow-soft"
             >
-              <div className="w-16 h-16 bg-sky-100 rounded-full flex items-center justify-center text-sky-600 mb-4 group-hover:bg-sky-200 transition">
+              <div className="w-12 h-12 rounded-2xl bg-brand-50 ring-1 ring-inset ring-brand-100 flex items-center justify-center text-brand-600 mb-4 transition-transform duration-300 group-hover:scale-105">
                 {item.icon}
               </div>
-              <h3 className="font-bold text-sky-800 mb-3 text-lg">{item.title}</h3>
+              <h3 className="font-display font-bold text-slate-900 mb-3">{item.title}</h3>
               <ul className="space-y-2 text-sm text-slate-600">
                 {item.points.map((point, j) => (
-                  <li key={j} className="flex items-start">
-                    <span className="text-sky-600 mr-2">•</span>
+                  <li key={j} className="flex items-start gap-2.5">
+                    <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-brand-400 flex-shrink-0" aria-hidden="true" />
                     {point}
                   </li>
                 ))}
@@ -219,8 +239,6 @@ export default function Empowerment() {
           ))}
         </div>
       </section>
-
-      
     </div>
   );
 }

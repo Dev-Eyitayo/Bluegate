@@ -66,8 +66,8 @@ export default function AdminContactList() {
     return (
       <AdminLayout>
         <div className="p-8 text-center">
-          <Loader2 className="mx-auto h-8 w-8 animate-spin text-sky-600" />
-          <p className="mt-2 text-gray-600">Loading messages...</p>
+          <Loader2 className="mx-auto h-8 w-8 animate-spin text-brand-600" />
+          <p className="mt-2 text-slate-600">Loading messages...</p>
         </div>
       </AdminLayout>
     );
@@ -80,7 +80,7 @@ export default function AdminContactList() {
           <p className="text-red-600">{error}</p>
           <button
             onClick={() => window.location.reload()}
-            className="mt-2 text-sm text-sky-600 hover:underline"
+            className="mt-2 text-sm text-brand-600 hover:underline"
           >
             Retry
           </button>
@@ -93,8 +93,8 @@ export default function AdminContactList() {
     <AdminLayout>
       {/* Header */}
       <div className="mb-6">
-        <h1 className="text-2xl font-bold text-gray-900">Contact Messages</h1>
-        <p className="text-sm text-gray-600">
+        <h1 className="text-2xl font-bold text-slate-900">Contact Messages</h1>
+        <p className="text-sm text-slate-600">
           {messages.length} message{messages.length !== 1 ? "s" : ""}
         </p>
       </div>
@@ -104,13 +104,13 @@ export default function AdminContactList() {
         {sortedMessages.map((msg) => (
           <div
             key={msg.id}
-            className="rounded-xl border border-gray-200 bg-white p-4 shadow-sm"
+            className="rounded-xl border border-slate-200 bg-white p-4 shadow-sm"
           >
             <div className="flex justify-between items-start">
               <div>
-                <p className="font-semibold text-gray-900">{msg.name}</p>
-                <p className="text-sm text-gray-500">{msg.email}</p>
-                <p className="mt-1 text-sm text-gray-600">
+                <p className="font-semibold text-slate-900">{msg.name}</p>
+                <p className="text-sm text-slate-500">{msg.email}</p>
+                <p className="mt-1 text-sm text-slate-600">
                   {format(new Date(msg.created_at), "MMM d, yyyy")}
                 </p>
               </div>
@@ -120,7 +120,7 @@ export default function AdminContactList() {
             <div className="mt-4 flex justify-between items-center">
               <Link
                 to={`/admin/messages/${msg.id}`}
-                className="text-sky-600 text-sm font-medium flex items-center gap-1"
+                className="text-brand-600 text-sm font-medium flex items-center gap-1"
               >
                 <Eye className="h-4 w-4" /> View
               </Link>
@@ -150,44 +150,44 @@ export default function AdminContactList() {
       </div>
 
       {/* Desktop Table */}
-      <div className="hidden md:block rounded-xl border border-gray-200 overflow-hidden bg-white">
-        <table className="min-w-full divide-y divide-gray-200">
-          <thead className="bg-gray-50">
+      <div className="hidden md:block rounded-xl border border-slate-200 overflow-hidden bg-white">
+        <table className="min-w-full divide-y divide-slate-200">
+          <thead className="bg-slate-50">
             <tr>
-              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+              <th className="px-6 py-3 text-left text-xs font-medium text-slate-500 uppercase tracking-wider">
                 Name
               </th>
-              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+              <th className="px-6 py-3 text-left text-xs font-medium text-slate-500 uppercase tracking-wider">
                 Email
               </th>
-              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+              <th className="px-6 py-3 text-left text-xs font-medium text-slate-500 uppercase tracking-wider">
                 Subject
               </th>
-              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+              <th className="px-6 py-3 text-left text-xs font-medium text-slate-500 uppercase tracking-wider">
                 Date
               </th>
-              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+              <th className="px-6 py-3 text-left text-xs font-medium text-slate-500 uppercase tracking-wider">
                 Status
               </th>
-              <th className="px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">
+              <th className="px-6 py-3 text-right text-xs font-medium text-slate-500 uppercase tracking-wider">
                 Actions
               </th>
             </tr>
           </thead>
 
-          <tbody className="divide-y divide-gray-200">
+          <tbody className="divide-y divide-slate-200">
             {sortedMessages.map((msg) => (
-              <tr key={msg.id} className="hover:bg-gray-50">
-                <td className="px-6 py-4 text-sm font-medium text-gray-900">
+              <tr key={msg.id} className="hover:bg-slate-50">
+                <td className="px-6 py-4 text-sm font-medium text-slate-900">
                   {msg.name}
                 </td>
-                <td className="px-6 py-4 text-sm text-gray-600">
+                <td className="px-6 py-4 text-sm text-slate-600">
                   {msg.email}
                 </td>
-                <td className="px-6 py-4 text-sm text-gray-600">
+                <td className="px-6 py-4 text-sm text-slate-600">
                   {msg.subject}
                 </td>
-                <td className="px-6 py-4 text-sm text-gray-600">
+                <td className="px-6 py-4 text-sm text-slate-600">
                   {format(new Date(msg.created_at), "MMM d, yyyy")}
                 </td>
                 <td className="px-6 py-4">
@@ -217,7 +217,7 @@ export default function AdminContactList() {
 
                   <Link
                     to={`/admin/messages/${msg.id}`}
-                    className="flex items-center gap-1 text-sky-600 hover:text-sky-800 text-sm"
+                    className="flex items-center gap-1 text-brand-600 hover:text-brand-800 text-sm"
                   >
                     <Eye className="h-4 w-4" /> View
                   </Link>

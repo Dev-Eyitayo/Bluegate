@@ -28,10 +28,9 @@ export default function BlogDetailPage() {
   if (loading)
     return (
       <MainLayout>
-        <div className="min-h-screen bg-sky-200/10 flex items-center justify-center">
+        <div className="min-h-screen flex items-center justify-center">
           <div className="flex items-center gap-3">
-            <LoaderCircle className="h-12 w-12 animate-spin text-sky-600" />
-            {/* <span className="text-lg text-gray-700">Loading posts...</span> */}
+            <LoaderCircle className="h-12 w-12 animate-spin text-brand-600" />
           </div>
         </div>
       </MainLayout>
@@ -54,25 +53,25 @@ export default function BlogDetailPage() {
           <div className="p-2 flex items-center justify-between">
             <Link
               to="/outreach"
-              className="flex items-center gap-2 text-sky-700 hover:text-sky-900 transition"
+              className="group inline-flex items-center gap-2 text-sm font-semibold text-brand-700 hover:text-brand-800 transition-colors"
             >
-              <ArrowLeft className="h-4 w-4" /> Back to Outreaches
+              <ArrowLeft className="h-4 w-4 transition-transform duration-300 group-hover:-translate-x-0.5" /> Back to Outreaches
             </Link>
           </div>
 
           {/* Blog content */}
           <div className="p-2 md:p-4">
-            <header className="mb-4">
-              <h1 className="text-xl md:text-2xl font-bold text-sky-800 mb-3">
+            <header className="mb-6">
+              <h1 className="font-display text-xl md:text-2xl font-bold tracking-tight text-slate-900 mb-3">
                 {post.title}
               </h1>
-              <div className="flex flex-wrap items-center gap-4 text-sm text-gray-600">
-                <span className="flex items-center gap-1">
-                  <Calendar className="h-4 w-4" />
+              <div className="flex flex-wrap items-center gap-4 text-sm text-slate-500">
+                <span className="flex items-center gap-1.5">
+                  <Calendar className="h-4 w-4 text-brand-500" />
                   {format(new Date(post.created_at), "MMMM d, yyyy")}
                 </span>
-                <span className="flex items-center gap-1">
-                  <User className="h-4 w-4" />
+                <span className="flex items-center gap-1.5">
+                  <User className="h-4 w-4 text-brand-500" />
                   Blue Gate Team
                 </span>
               </div>
@@ -90,13 +89,13 @@ export default function BlogDetailPage() {
             )}
 
             {post.excerpt && (
-              <p className="text-lg text-slate-700 mb-6 italic border-l-4 border-sky-500 pl-4">
+              <p className="text-lg text-slate-600 mb-6 italic border-l-4 border-brand-400 pl-4">
                 {post.excerpt}
               </p>
             )}
 
             <div
-              className="prose prose-sky max-w-none leading-relaxed text-slate-800 whitespace-pre-wrap"
+              className="prose max-w-none leading-relaxed text-slate-700 whitespace-pre-wrap"
               dangerouslySetInnerHTML={{
                 __html: post.content.replace(/\n/g, "<br />"),
               }}

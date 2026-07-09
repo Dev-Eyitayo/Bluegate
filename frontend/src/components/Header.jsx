@@ -410,13 +410,13 @@ export default function Header() {
   const NavItem = ({ item, isMobile = false }) => {
     // Determine active state for both link and dropdown container
     const activeClass = (path) => isActive(path)
-      ? "text-blue-600 font-bold"
-      : "text-gray-700 hover:text-blue-600 transition-colors duration-200";
+      ? "text-brand-700 font-bold"
+      : "text-slate-600 hover:text-brand-700 transition-colors duration-200";
 
     // Standard Link
     if (!item.subItems) {
-      const buttonClasses = item.isButton 
-        ? "bg-blue-600 text-white px-5 py-2.5 rounded-full font-semibold hover:bg-blue-700 shadow-lg shadow-blue-500/30 transition-all duration-300" 
+      const buttonClasses = item.isButton
+        ? "bg-brand-600 text-white px-5 py-2.5 rounded-full font-semibold hover:bg-brand-700 shadow-soft transition-all duration-300"
         : activeClass(item.href);
 
       return (
@@ -442,14 +442,14 @@ export default function Header() {
           data-dropdown-trigger={item.label} // For outside click logic
           aria-expanded={isOpen}
           aria-controls={`dropdown-${item.label}`}
-          className={`flex items-center justify-between gap-1 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 ${
-            isParentActive ? "text-blue-600 font-bold" : "text-gray-700 hover:text-blue-600"
+          className={`flex items-center justify-between gap-1 transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:ring-offset-2 rounded-sm ${
+            isParentActive ? "text-brand-700 font-bold" : "text-slate-600 hover:text-brand-700"
           } ${isMobile ? "w-full py-2.5 text-sm uppercase tracking-wider font-semibold" : "text-sm font-medium"}`}
         >
           {item.label}
           <ChevronDown
             className={`w-4 h-4 transition-transform duration-300 ${
-              isOpen ? "rotate-180 text-blue-600" : ""
+              isOpen ? "rotate-180 text-brand-600" : ""
             }`}
           />
         </button>
@@ -458,17 +458,17 @@ export default function Header() {
         {!isMobile && isOpen && (
           <div 
             id={`dropdown-${item.label}`}
-            className="absolute left-0 mt-3 w-60 bg-white shadow-sm border border-gray-100 rounded-lg overflow-hidden z-30 animate-fade-in-down"
+            className="absolute left-0 mt-3 w-60 bg-white shadow-lift ring-1 ring-slate-900/5 rounded-xl overflow-hidden z-30 animate-fade-in-down p-1.5"
             onMouseLeave={() => setOpenDropdown(null)} // Optional: close on mouse leave for smoother desktop UX
           >
             {item.subItems.map((sub, sIdx) => (
               <Link
                 key={sIdx}
                 to={sub.href}
-                className={`block px-5 py-3 text-sm transition-colors duration-150 border-b border-gray-100 last:border-b-0 ${
+                className={`block px-3.5 py-2.5 text-sm rounded-lg transition-colors duration-150 ${
                   isActive(sub.href)
-                    ? "text-blue-700 font-semibold bg-blue-50"
-                    : "text-gray-700 hover:bg-blue-50 hover:text-blue-700"
+                    ? "text-brand-700 font-semibold bg-brand-50"
+                    : "text-slate-600 hover:bg-brand-50 hover:text-brand-700"
                 }`}
               >
                 {sub.label}
@@ -479,7 +479,7 @@ export default function Header() {
 
         {/* Submenu Panel - Mobile */}
         {isMobile && isOpen && (
-          <div className="mt-2 ml-4 border-l-2 border-blue-200 pl-4 flex flex-col gap-1.5">
+          <div className="mt-2 ml-4 border-l-2 border-brand-200 pl-4 flex flex-col gap-1.5">
             {item.subItems.map((sub, sIdx) => (
               <Link
                 key={sIdx}
@@ -487,8 +487,8 @@ export default function Header() {
                 onClick={closeMenuAndDropdowns} // Close mobile menu when navigating
                 className={`block py-1.5 text-sm transition-colors duration-150 ${
                   isActive(sub.href)
-                    ? "text-blue-600 font-semibold border-b border-blue-500 w-fit"
-                    : "text-gray-600 hover:text-blue-600"
+                    ? "text-brand-700 font-semibold border-b border-brand-500 w-fit"
+                    : "text-slate-600 hover:text-brand-700"
                 }`}
               >
                 {sub.label}
@@ -502,21 +502,21 @@ export default function Header() {
 
   
   return (
-    <header className="bg-white sticky top-0 z-30 shadow-sm border-b border-slate-200" ref={headerRef}>
+    <header className="bg-white/95 backdrop-blur-sm sticky top-0 z-30 border-b border-slate-200" ref={headerRef}>
       {/* Top Bar - Contact Info */}
-      <div className="bg-blue-800 text-white text-xs sm:text-sm">
+      <div className="bg-brand-950 text-brand-100 text-xs sm:text-sm">
         <div className="max-w-7xl mx-auto px-4 py-2 flex flex-col sm:flex-row sm:justify-end sm:items-center gap-2 sm:gap-6">
           <div className="flex items-center gap-1">
-            <Phone className="w-3 h-3 mr-1" />
+            <Phone className="w-3.5 h-3.5 mr-1 text-brand-300" />
             <span className="font-medium">Emergency:</span>
-            <strong className="hover:text-blue-200 transition">+234-806-590-3150</strong>
+            <strong className="text-white hover:text-brand-200 transition">+234-806-590-3150</strong>
           </div>
           <div className="flex items-center gap-1">
-            <Mail className="w-3 h-3 mr-1" />
+            <Mail className="w-3.5 h-3.5 mr-1 text-brand-300" />
             <span className="font-medium">Support:</span>
             <a
               href="mailto:info@bluegateinitiative.org"
-              className="underline hover:text-blue-200 transition-colors duration-200"
+              className="text-white underline decoration-brand-400/50 underline-offset-2 hover:text-brand-200 transition-colors duration-200"
             >
               info@bluegateinitiative.org
             </a>
@@ -526,13 +526,13 @@ export default function Header() {
 
       {/* Main Nav Bar */}
       <div className="max-w-7xl mx-auto px-2 sm:px-4 lg:px-3 py-4 flex items-center justify-between">
-        
+
         {/* Logo and Branding */}
         <Link to="/" className="flex items-center gap-3 group">
           <img
-            src="/assets/logo.jpg" 
+            src="/assets/logo.jpg"
             alt="Blue Gate Initiative logo"
-            className="w-full h-16 sm:h-14"
+            className="h-16 sm:h-14 w-auto transition-opacity duration-200 group-hover:opacity-90"
           />
           {/* <div>
             <h1 className="font-extrabold text-blue-900 text-lg md:text-xl tracking-tight leading-none">
@@ -545,7 +545,7 @@ export default function Header() {
         </Link>
 
         {/* ---------- Desktop Navigation ---------- */}
-        <nav className="hidden lg:flex items-center gap-8 text-gray-700 font-medium">
+        <nav className="hidden lg:flex items-center gap-8 text-slate-600 font-medium">
           {NAV_ITEMS.map((item, idx) => (
             <NavItem key={idx} item={item} />
           ))}
@@ -556,7 +556,7 @@ export default function Header() {
           <button
             onClick={() => setIsMenuOpen((p) => !p)}
             aria-label="Toggle menu"
-            className="p-3 rounded-lg text-gray-700 hover:bg-blue-50 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="p-3 rounded-lg text-slate-700 hover:bg-brand-50 transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-500"
           >
             {isMenuOpen ? (
               <X className="w-6 h-6" />
@@ -578,7 +578,7 @@ export default function Header() {
           
           <div
             ref={menuRef}
-            className="absolute right-0 top-full w-full sm:w-80 bg-white shadow-2xl border-t border-gray-200 p-6 flex flex-col gap-2 z-30 lg:hidden"
+            className="absolute right-0 top-full w-full sm:w-80 bg-white shadow-lift border-t border-slate-200 sm:rounded-bl-2xl p-6 flex flex-col gap-2 z-30 lg:hidden animate-fade-in-down"
           >
             {NAV_ITEMS.map((item, idx) => (
               <NavItem key={idx} item={item} isMobile={true} />

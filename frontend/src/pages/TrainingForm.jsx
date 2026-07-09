@@ -204,18 +204,21 @@ export default function TrainingForm() {
   ];
 
   return (
-    <div className="min-h-screen bg-sky-200/10 text-gray-800">
-      <section className="py-8 px-2 max-w-7xl mx-auto">
-        <h1 className="text-3xl font-extrabold text-sky-800 text-center mb-2">TRAINING FORM</h1>
-        <p className="text-center text-lg text-sky-700 font-medium max-w-4xl mx-auto">
+    <div className="min-h-screen text-slate-800">
+      <section className="py-12 px-2 max-w-7xl mx-auto text-center">
+        <h1 className="font-display text-3xl font-bold tracking-tight text-slate-900">Training Form</h1>
+        <span className="mt-3 inline-block h-1 w-12 rounded-full bg-brand-500" aria-hidden="true" />
+        <p className="mt-2 text-lg text-slate-600 max-w-4xl mx-auto">
           Register for Research Capacity Building Training
         </p>
       </section>
 
       {notification.message && (
         <div
-          className={`fixed top-5 right-5 z-50 flex items-center gap-3 px-5 py-3 rounded-lg shadow-md text-sm font-medium transition-all ${
-            notification.type === "success" ? "bg-green-600 text-white" : "bg-red-600 text-white"
+          className={`fixed top-5 right-5 z-50 flex items-center gap-3 px-5 py-3 rounded-xl border shadow-lift text-sm font-medium animate-fade-in-down ${
+            notification.type === "success"
+              ? "bg-emerald-50 border-emerald-200 text-emerald-800"
+              : "bg-red-50 border-red-200 text-red-800"
           }`}
         >
           {notification.type === "success" ? <CheckCircle className="w-5 h-5" /> : <AlertCircle className="w-5 h-5" />}
@@ -224,17 +227,18 @@ export default function TrainingForm() {
       )}
 
       <section className="px-2 max-w-4xl mx-auto py-8">
-        <form onSubmit={handleSubmit} className="bg-white rounded-xl border border-slate-300 p-8 space-y-8" noValidate>
+        <form onSubmit={handleSubmit} className="bg-white rounded-2xl border border-slate-200 shadow-soft p-8 space-y-8" noValidate>
           {/* SECTION A */}
           <div>
-            <h2 className="text-2xl font-bold text-sky-700 mb-4">SECTION A: SOCIO-DEMOGRAPHIC INFORMATION</h2>
+            <h2 className="font-display text-lg font-bold text-slate-900 mb-1">Section A</h2>
+            <p className="text-sm font-semibold uppercase tracking-wider text-brand-700 mb-5">Socio-Demographic Information</p>
 
             {/* Name */}
             <div className="mb-5">
-              <label className="block font-medium text-gray-700 mb-1">1. Full Name <span className="text-red-500">*</span></label>
+              <label className="block text-sm font-medium text-slate-700 mb-1.5">1. Full Name <span className="text-red-500">*</span></label>
               <input
                 type="text" name="name" value={formData.name} onChange={handleChange}
-                className={`w-full px-4 py-2 border rounded-lg ${errors.name ? "border-red-500" : "border-gray-300"}`}
+                className={`w-full px-3.5 py-2.5 text-sm border rounded-lg bg-white placeholder:text-slate-400 transition-colors focus:border-brand-500 focus:outline-none focus:ring-2 focus:ring-brand-500/20 ${errors.name ? "border-red-500" : "border-slate-300"}`}
                 placeholder="Enter your full name"
               />
               {errors.name && <p className="text-red-600 text-xs mt-1">{errors.name}</p>}
@@ -242,7 +246,7 @@ export default function TrainingForm() {
 
             {/* Gender */}
             <div className="mb-5">
-              <label className="block font-medium text-gray-700 mb-2">2. Gender <span className="text-red-500">*</span></label>
+              <label className="block text-sm font-medium text-slate-700 mb-2">2. Gender <span className="text-red-500">*</span></label>
               <div className="flex gap-6">
                 {["Male", "Female"].map((g) => (
                   <label key={g} className="flex items-center">
@@ -256,20 +260,20 @@ export default function TrainingForm() {
 
             {/* Phone */}
             <div className="mb-5">
-              <label className="block font-medium text-gray-700 mb-1">3. Phone Number</label>
+              <label className="block text-sm font-medium text-slate-700 mb-1.5">3. Phone Number</label>
               <input
                 type="tel" name="number" value={formData.number} onChange={handleChange}
-                className="w-full px-4 py-2 border border-gray-300 rounded-lg"
+                className="w-full px-3.5 py-2.5 text-sm border border-slate-300 rounded-lg bg-white placeholder:text-slate-400 transition-colors focus:border-brand-500 focus:outline-none focus:ring-2 focus:ring-brand-500/20"
                 placeholder="+234..."
               />
             </div>
 
             {/* Email */}
             <div className="mb-5">
-              <label className="block font-medium text-gray-700 mb-1">4. Email Address <span className="text-red-500">*</span></label>
+              <label className="block text-sm font-medium text-slate-700 mb-1.5">4. Email Address <span className="text-red-500">*</span></label>
               <input
                 type="email" name="email" value={formData.email} onChange={handleChange}
-                className={`w-full px-4 py-2 border rounded-lg ${errors.email ? "border-red-500" : "border-gray-300"}`}
+                className={`w-full px-3.5 py-2.5 text-sm border rounded-lg bg-white placeholder:text-slate-400 transition-colors focus:border-brand-500 focus:outline-none focus:ring-2 focus:ring-brand-500/20 ${errors.email ? "border-red-500" : "border-slate-300"}`}
                 placeholder="you@example.com"
               />
               {errors.email && <p className="text-red-600 text-xs mt-1">{errors.email}</p>}
@@ -277,7 +281,7 @@ export default function TrainingForm() {
 
             {/* Student? */}
             <div className="mb-5">
-              <label className="block font-medium text-gray-700 mb-2">5. Are you a student? <span className="text-red-500">*</span></label>
+              <label className="block text-sm font-medium text-slate-700 mb-2">5. Are you a student? <span className="text-red-500">*</span></label>
               <div className="flex gap-6">
                 {["yes", "no"].map((opt) => (
                   <label key={opt} className="flex items-center">
@@ -291,7 +295,7 @@ export default function TrainingForm() {
 
             {/* Student Fields */}
             {showStudentFields && (
-              <div className="space-y-4 p-4 bg-sky-50 rounded-lg">
+              <div className="space-y-4 p-5 bg-brand-50 ring-1 ring-inset ring-brand-100 rounded-xl">
                 {[
                   { name: "institution", label: "6. Institution", req: true },
                   { name: "faculty", label: "7. Faculty", req: true },
@@ -299,12 +303,12 @@ export default function TrainingForm() {
                   { name: "matricNumber", label: "9. Matric Number", req: true },
                 ].map((f) => (
                   <div key={f.name}>
-                    <label className="block font-medium text-sky-700">
+                    <label className="block text-sm font-medium text-brand-900 mb-1.5">
                       {f.label} {f.req && <span className="text-red-500">*</span>}
                     </label>
                     <input
                       type="text" name={f.name} value={formData[f.name]} onChange={handleChange}
-                      className={`w-full px-4 py-2 border rounded-lg ${errors[f.name] ? "border-red-500" : "border-gray-300"}`}
+                      className={`w-full px-3.5 py-2.5 text-sm border rounded-lg bg-white placeholder:text-slate-400 transition-colors focus:border-brand-500 focus:outline-none focus:ring-2 focus:ring-brand-500/20 ${errors[f.name] ? "border-red-500" : "border-slate-300"}`}
                     />
                     {errors[f.name] && <p className="text-red-600 text-xs mt-1">{errors[f.name]}</p>}
                   </div>
@@ -314,7 +318,7 @@ export default function TrainingForm() {
 
             {/* Org Fields */}
             {showOrgFields && (
-              <div className="space-y-4 p-4 bg-amber-50 rounded-lg">
+              <div className="space-y-4 p-5 bg-amber-50 ring-1 ring-inset ring-amber-100 rounded-xl">
                 {[
                   { name: "affiliatedOrg", label: "10. Affiliated Organisation", req: true },
                   { name: "departmentUnit", label: "11. Department/Unit", req: true },
@@ -322,12 +326,12 @@ export default function TrainingForm() {
                   { name: "yearsOfResearch", label: "13. Years of Research Experience", req: true },
                 ].map((f) => (
                   <div key={f.name}>
-                    <label className="block font-medium text-amber-700">
+                    <label className="block text-sm font-medium text-amber-900 mb-1.5">
                       {f.label} {f.req && <span className="text-red-500">*</span>}
                     </label>
                     <input
                       type="text" name={f.name} value={formData[f.name]} onChange={handleChange}
-                      className={`w-full px-4 py-2 border rounded-lg ${errors[f.name] ? "border-red-500" : "border-gray-300"}`}
+                      className={`w-full px-3.5 py-2.5 text-sm border rounded-lg bg-white placeholder:text-slate-400 transition-colors focus:border-brand-500 focus:outline-none focus:ring-2 focus:ring-brand-500/20 ${errors[f.name] ? "border-red-500" : "border-slate-300"}`}
                     />
                     {errors[f.name] && <p className="text-red-600 text-xs mt-1">{errors[f.name]}</p>}
                   </div>
@@ -336,50 +340,62 @@ export default function TrainingForm() {
             )}
           </div>
 
-          <hr className="border-red-500" />
+          <hr className="border-slate-200" />
 
           {/* SECTION B */}
           <div>
-            <h3 className="text-xl font-bold text-sky-700 mb-3">SECTION B: THEMATIC AREAS</h3>
-            <p className="text-red-600 font-medium mb-4">YOU CAN PARTICIPATE IN UP TO 3 THEMATIC AREAS</p>
+            <h3 className="font-display text-lg font-bold text-slate-900 mb-1">Section B</h3>
+            <p className="text-sm font-semibold uppercase tracking-wider text-brand-700 mb-3">Thematic Areas</p>
+            <p className="inline-block rounded-full bg-amber-50 px-4 py-1.5 text-xs font-semibold text-amber-800 ring-1 ring-inset ring-amber-200 mb-4">
+              You can participate in up to 3 thematic areas
+            </p>
             {errors.thematic && <p className="text-red-600 text-sm mb-2 flex items-center gap-1"><AlertCircle className="w-4 h-4" />{errors.thematic}</p>}
-            <div className="space-y-6">
+            <div className="space-y-4">
               {thematicAreas.map((area) => (
-                <div key={area.id} className="flex items-start gap-3">
+                <label
+                  key={area.id}
+                  className={`flex items-start gap-3.5 rounded-xl border p-4 cursor-pointer transition-colors duration-200 ${
+                    formData[area.id]
+                      ? "border-brand-300 bg-brand-50/60"
+                      : "border-slate-200 bg-white hover:border-brand-200"
+                  }`}
+                >
                   <input
                     type="checkbox" name={area.id} checked={formData[area.id]} onChange={handleChange}
-                    className="mt-1 h-5 w-5 text-sky-600 rounded"
+                    className="mt-1 h-5 w-5 text-brand-600 rounded border-slate-300 focus:ring-brand-500"
                   />
-                  <div>
-                    <h4 className="font-bold text-sky-700">{area.title}</h4>
-                    <p className="text-gray-700 text-sm">{area.desc}</p>
-                  </div>
-                </div>
+                  <span>
+                    <span className="block font-display font-bold text-slate-900">{area.title}</span>
+                    <span className="block text-slate-600 text-sm mt-0.5">{area.desc}</span>
+                  </span>
+                </label>
               ))}
             </div>
           </div>
 
-          <hr className="border-red-500" />
+          <hr className="border-slate-200" />
 
           {/* SECTION C */}
           <div>
-            <h3 className="text-xl font-bold text-sky-700 mb-3">SECTION C: PAYMENT EVIDENCE</h3>
-            <p className="text-gray-700 mb-4">Upload payment receipt (JPG, PNG, PDF ≤ 5 MB)</p>
+            <h3 className="font-display text-lg font-bold text-slate-900 mb-1">Section C</h3>
+            <p className="text-sm font-semibold uppercase tracking-wider text-brand-700 mb-3">Payment Evidence</p>
+            <p className="text-slate-600 text-sm mb-4">Upload payment receipt (JPG, PNG, PDF ≤ 5 MB)</p>
             <input
               type="file" name="paymentProof" onChange={handleChange} accept="image/*,.pdf"
-              className={`block w-full text-sm text-gray-700 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-sky-600 file:text-white hover:file:bg-sky-700 ${errors.paymentProof ? "border-red-500" : ""}`}
+              className={`block w-full text-sm text-slate-600 file:mr-4 file:py-2.5 file:px-5 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-brand-600 file:text-white hover:file:bg-brand-700 file:transition-colors file:cursor-pointer ${errors.paymentProof ? "border-red-500" : ""}`}
             />
             {errors.paymentProof && <p className="text-red-600 text-xs mt-1">{errors.paymentProof}</p>}
           </div>
 
-          <hr className="border-red-500" />
+          <hr className="border-slate-200" />
 
           {/* SECTION D */}
           <div>
-            <h3 className="text-xl font-bold text-sky-700 mb-4">SECTION D: BASELINE INFORMATION</h3>
+            <h3 className="font-display text-lg font-bold text-slate-900 mb-1">Section D</h3>
+            <p className="text-sm font-semibold uppercase tracking-wider text-brand-700 mb-5">Baseline Information</p>
 
             <div className="mb-5">
-              <label className="block font-medium text-gray-700 mb-2">Have you attended similar training before? <span className="text-red-500">*</span></label>
+              <label className="block text-sm font-medium text-slate-700 mb-2">Have you attended similar training before? <span className="text-red-500">*</span></label>
               <div className="flex gap-6">
                 {["Yes", "No"].map((opt) => (
                   <label key={opt} className="flex items-center">
@@ -392,19 +408,19 @@ export default function TrainingForm() {
             </div>
 
             <div className="mb-5">
-              <label className="block font-medium text-gray-700 mb-1">What are your expectations from this training? <span className="text-red-500">*</span></label>
+              <label className="block text-sm font-medium text-slate-700 mb-1.5">What are your expectations from this training? <span className="text-red-500">*</span></label>
               <textarea
                 name="expectation" value={formData.expectation} onChange={handleChange} rows={4}
-                className={`w-full px-4 py-2 border rounded-lg ${errors.expectation ? "border-red-500" : "border-gray-300"}`}
+                className={`w-full px-3.5 py-2.5 text-sm border rounded-lg bg-white placeholder:text-slate-400 transition-colors focus:border-brand-500 focus:outline-none focus:ring-2 focus:ring-brand-500/20 ${errors.expectation ? "border-red-500" : "border-slate-300"}`}
               />
               {errors.expectation && <p className="text-red-600 text-xs mt-1">{errors.expectation}</p>}
             </div>
 
             <div className="mb-5">
-              <label className="block font-medium text-gray-700 mb-1">What specific skills do you hope to learn? <span className="text-red-500">*</span></label>
+              <label className="block text-sm font-medium text-slate-700 mb-1.5">What specific skills do you hope to learn? <span className="text-red-500">*</span></label>
               <textarea
                 name="hopeToLearn" value={formData.hopeToLearn} onChange={handleChange} rows={4}
-                className={`w-full px-4 py-2 border rounded-lg ${errors.hopeToLearn ? "border-red-500" : "border-gray-300"}`}
+                className={`w-full px-3.5 py-2.5 text-sm border rounded-lg bg-white placeholder:text-slate-400 transition-colors focus:border-brand-500 focus:outline-none focus:ring-2 focus:ring-brand-500/20 ${errors.hopeToLearn ? "border-red-500" : "border-slate-300"}`}
               />
               {errors.hopeToLearn && <p className="text-red-600 text-xs mt-1">{errors.hopeToLearn}</p>}
             </div>
@@ -413,7 +429,7 @@ export default function TrainingForm() {
           <div className="text-center pt-6">
             <button
               type="submit" disabled={isSubmitting}
-              className={`flex items-center justify-center gap-2 w-full sm:w-auto bg-sky-600 hover:bg-sky-700 text-white font-bold py-3 px-10 rounded-lg shadow-md transition text-lg ${isSubmitting ? "opacity-70 cursor-not-allowed" : ""}`}
+              className={`inline-flex items-center justify-center gap-2 w-full sm:w-auto rounded-full bg-brand-600 px-10 py-3.5 font-semibold text-white text-lg shadow-soft transition-all duration-300 hover:bg-brand-700 hover:shadow-lift focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-600 ${isSubmitting ? "opacity-70 cursor-not-allowed" : ""}`}
             >
               {isSubmitting && <Loader2 className="animate-spin w-5 h-5" />}
               {isSubmitting ? "Submitting..." : "Submit Application"}

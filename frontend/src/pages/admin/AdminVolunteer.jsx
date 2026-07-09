@@ -125,10 +125,10 @@ export default function AdminVolunteer() {
       <ToastContainer toasts={toasts} removeToast={removeToast} />
 
       <div className="mb-6">
-        <h1 className="text-2xl font-bold text-gray-900">
+        <h1 className="text-2xl font-bold text-slate-900">
           Volunteer Submissions
         </h1>
-        <p className="mt-1 text-sm text-gray-600">
+        <p className="mt-1 text-sm text-slate-600">
           {apps.length} total applications
         </p>
       </div>
@@ -138,15 +138,15 @@ export default function AdminVolunteer() {
         {sortedApps.map((a) => (
           <div
             key={a.id}
-            className="rounded-xl border border-gray-200 bg-white p-4 shadow-sm transition hover:shadow-md"
+            className="rounded-xl border border-slate-200 bg-white p-4 shadow-sm transition hover:shadow-md"
           >
             <div className="flex items-start justify-between">
               <div className="flex-1">
-                <p className="font-mono text-xs text-gray-500">#{a.id}</p>
-                <p className="mt-1 font-semibold text-gray-900">
+                <p className="font-mono text-xs text-slate-500">#{a.id}</p>
+                <p className="mt-1 font-semibold text-slate-900">
                   {a.data?.name || a.data?.email || "Anonymous"}
                 </p>
-                <p className="mt-1 text-sm text-gray-600">
+                <p className="mt-1 text-sm text-slate-600">
                   {format(new Date(a.created_at), "MMM d, yyyy")}
                 </p>
               </div>
@@ -156,7 +156,7 @@ export default function AdminVolunteer() {
             <div className="mt-4 flex items-center justify-between gap-2">
               <Link
                 to={`/admin/volunteers/${a.id}`}
-                className="flex items-center gap-1 text-sky-600 text-sm font-medium hover:underline"
+                className="flex items-center gap-1 text-brand-600 text-sm font-medium hover:underline"
               >
                 <Eye className="h-4 w-4" />
                 View
@@ -195,44 +195,44 @@ export default function AdminVolunteer() {
       </div>
 
       {/* Desktop: Table */}
-      <div className="hidden md:block overflow-hidden rounded-xl border border-gray-200 bg-white shadow-sm">
-        <table className="min-w-full divide-y divide-gray-200">
-          <thead className="bg-gray-50">
+      <div className="hidden md:block overflow-hidden rounded-xl border border-slate-200 bg-white shadow-sm">
+        <table className="min-w-full divide-y divide-slate-200">
+          <thead className="bg-slate-50">
             <tr>
-              <th className="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider text-gray-500">
+              <th className="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider text-slate-500">
                 ID
               </th>
-              <th className="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider text-gray-500">
+              <th className="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider text-slate-500">
                 Applicant
               </th>
-              <th className="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider text-gray-500">
+              <th className="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider text-slate-500">
                 Submitted
               </th>
-              <th className="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider text-gray-500">
+              <th className="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider text-slate-500">
                 Status
               </th>
-              <th className="px-6 py-3 text-right text-xs font-medium uppercase tracking-wider text-gray-500">
+              <th className="px-6 py-3 text-right text-xs font-medium uppercase tracking-wider text-slate-500">
                 Actions
               </th>
             </tr>
           </thead>
-          <tbody className="divide-y divide-gray-200 bg-white">
+          <tbody className="divide-y divide-slate-200 bg-white">
             {sortedApps.map((a) => (
-              <tr key={a.id} className="hover:bg-gray-50 transition">
-                <td className="whitespace-nowrap px-6 py-4 font-mono text-sm text-gray-900">
+              <tr key={a.id} className="hover:bg-slate-50 transition">
+                <td className="whitespace-nowrap px-6 py-4 font-mono text-sm text-slate-900">
                   #{a.id}
                 </td>
                 <td className="px-6 py-4 text-sm">
                   <div>
-                    <p className="font-medium text-gray-900">
+                    <p className="font-medium text-slate-900">
                       {a.data?.name || "—"}
                     </p>
-                    <p className="text-gray-500 text-xs">
+                    <p className="text-slate-500 text-xs">
                       {a.data?.email || "—"}
                     </p>
                   </div>
                 </td>
-                <td className="whitespace-nowrap px-6 py-4 text-sm text-gray-600">
+                <td className="whitespace-nowrap px-6 py-4 text-sm text-slate-600">
                   {format(new Date(a.created_at), "MMM d, yyyy")}
                 </td>
                 <td className="px-6 py-4">
@@ -262,7 +262,7 @@ export default function AdminVolunteer() {
 
                     <Link
                       to={`/admin/volunteers/${a.id}`}
-                      className="flex items-center gap-1 text-sky-600 hover:text-sky-800 font-medium text-sm transition"
+                      className="flex items-center gap-1 text-brand-600 hover:text-brand-800 font-medium text-sm transition"
                     >
                       <Eye className="h-4 w-4" />
                       View

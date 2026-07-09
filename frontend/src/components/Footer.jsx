@@ -1,47 +1,106 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { MapPin, Phone, Mail, Facebook, Twitter, Instagram } from 'lucide-react';
+
+const quickLinks = [
+  { to: '/about', label: 'About Us' },
+  { to: '/health-promotion', label: 'Health Promotion' },
+  { to: '/health-communication', label: 'SBCC' },
+  { to: '/empowerment', label: 'Empowerment' },
+  { to: '/human-rights', label: 'Human Rights' },
+  { to: '/outreach', label: 'Outreach Posts' },
+  { to: '/contact-us', label: 'Contact Us' },
+];
+
+const socialLinks = [
+  { href: 'https://web.facebook.com/BlueGateInitiative', label: 'Facebook', icon: Facebook },
+  { href: 'https://x.com/BlueInitiative', label: 'Twitter', icon: Twitter },
+  { href: 'https://instagram.com/BlueGateInitiative', label: 'Instagram', icon: Instagram },
+];
 
 export default function Footer() {
   return (
-    <footer className="bg-[#0B0C1A] text-white mt-12">
-      <div className="max-w-6xl mx-auto px-4 py-8 md:flex md:justify-between">
-        <div className="mb-6 md:mb-0 md:mr-8">
-          <h4 className="font-bold text-lg mb-2">Our Contact</h4>
-          <ul className="text-sm text-gray-400 space-y-1">
-            <li>64, Blue Gate House,</li>
-            <li>Adeyi Avenue, Old Bodija,</li>
-            <li>Ibadan, Nigeria.</li>
-            <li><a href="tel:+2348065903150" className="underline hover:text-sky-300 transition-colors">+234-806-590-3150</a></li>
-            <li><a href="tel:+2348051659422" className="underline hover:text-sky-300 transition-colors">+234-805-165-9422</a></li>
-            <li><a href="mailto:info@bluegateinitiative.org" className="underline hover:text-sky-300 transition-colors">info@bluegateinitiative.org</a></li>
+    <footer className="bg-brand-950 text-white mt-12">
+      {/* Brand accent line */}
+      <div className="h-1 bg-gradient-to-r from-brand-600 via-brand-400 to-brand-600" aria-hidden="true" />
+
+      <div className="max-w-6xl mx-auto px-4 py-12 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10">
+        <div>
+          <h4 className="font-display font-semibold text-sm uppercase tracking-wider text-brand-200 mb-4">
+            Our Contact
+          </h4>
+          <ul className="text-sm text-brand-100/80 space-y-2.5">
+            <li className="flex items-start gap-2.5">
+              <MapPin className="w-4 h-4 mt-0.5 flex-shrink-0 text-brand-400" />
+              <span className="leading-relaxed">
+                64, Blue Gate House,<br />
+                Adeyi Avenue, Old Bodija,<br />
+                Ibadan, Nigeria.
+              </span>
+            </li>
+            <li className="flex items-center gap-2.5">
+              <Phone className="w-4 h-4 flex-shrink-0 text-brand-400" />
+              <a href="tel:+2348065903150" className="hover:text-white transition-colors">+234-806-590-3150</a>
+            </li>
+            <li className="flex items-center gap-2.5">
+              <Phone className="w-4 h-4 flex-shrink-0 text-brand-400" />
+              <a href="tel:+2348051659422" className="hover:text-white transition-colors">+234-805-165-9422</a>
+            </li>
+            <li className="flex items-center gap-2.5">
+              <Mail className="w-4 h-4 flex-shrink-0 text-brand-400" />
+              <a href="mailto:info@bluegateinitiative.org" className="hover:text-white transition-colors break-all">
+                info@bluegateinitiative.org
+              </a>
+            </li>
           </ul>
         </div>
-        <div className="mb-6 md:mb-0 md:mx-8">
-          <h4 className="font-bold text-lg mb-2">Quick Links</h4>
-          <ul className="text-sm text-gray-400 space-y-1">
-            <li><Link to="/about" className="hover:text-sky-300 transition-colors">About Us</Link></li>
-            <li><Link to="/health-promotion" className="hover:text-sky-300 transition-colors">Health Promotion</Link></li>
-            <li><Link to="/health-communication" className="hover:text-sky-300 transition-colors">SBCC</Link></li>
-            <li><Link to="/empowerment" className="hover:text-sky-300 transition-colors">Empowerment</Link></li>
-            <li><Link to="/human-rights" className="hover:text-sky-300 transition-colors">Human Rights</Link></li>
-            {/* <li><Link to="/un-days" className="hover:text-sky-300 transition-colors">UN Days Activities</Link></li> */}
-            <li><Link to="/outreach" className="hover:text-sky-300 transition-colors">Outreach Posts</Link></li>
-            <li><Link to="/contact-us" className="hover:text-sky-300 transition-colors">Contact Us</Link></li>
+
+        <div>
+          <h4 className="font-display font-semibold text-sm uppercase tracking-wider text-brand-200 mb-4">
+            Quick Links
+          </h4>
+          <ul className="text-sm text-brand-100/80 space-y-2.5">
+            {quickLinks.map((link) => (
+              <li key={link.to}>
+                <Link
+                  to={link.to}
+                  className="inline-block hover:text-white hover:translate-x-0.5 transition-all duration-200"
+                >
+                  {link.label}
+                </Link>
+              </li>
+            ))}
           </ul>
         </div>
-        <div className="md:ml-8">
-          <h4 className="font-bold text-lg mb-2">Follow Us</h4>
-          <ul className="text-sm text-gray-400 space-y-1">
-            <li><a href="https://web.facebook.com/BlueGateInitiative" className="hover:text-sky-300 transition-colors">Facebook</a></li>
-            <li><a href="https://x.com/BlueInitiative" className="hover:text-sky-300 transition-colors">Twitter</a></li>
-            <li><a href="https://instagram.com/BlueGateInitiative" className="hover:text-sky-300 transition-colors">Instagram</a></li>
+
+        <div>
+          <h4 className="font-display font-semibold text-sm uppercase tracking-wider text-brand-200 mb-4">
+            Follow Us
+          </h4>
+          <ul className="text-sm text-brand-100/80 space-y-2.5">
+            {socialLinks.map(({ href, label, icon: Icon }) => (
+              <li key={label}>
+                <a
+                  href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group inline-flex items-center gap-2.5 hover:text-white transition-colors"
+                >
+                  <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-white/5 ring-1 ring-inset ring-white/10 text-brand-300 transition-colors duration-200 group-hover:bg-brand-600 group-hover:text-white group-hover:ring-brand-500">
+                    <Icon className="w-4 h-4" />
+                  </span>
+                  {label}
+                </a>
+              </li>
+            ))}
           </ul>
-          
-          
         </div>
       </div>
-      <div className="text-center text-sm text-gray-500 py-4 border-t border-gray-800">
-        &copy; {new Date().getFullYear()} Blue Gate Initiative. All rights reserved.
+
+      <div className="border-t border-white/10">
+        <div className="max-w-6xl mx-auto px-4 py-5 text-center text-sm text-brand-100/60">
+          &copy; {new Date().getFullYear()} Blue Gate Initiative. All rights reserved.
+        </div>
       </div>
     </footer>
   );

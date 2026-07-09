@@ -247,17 +247,17 @@ export default function VolunteerForm() {
   ];
 
   return (
-    <div className="min-h-screen bg-sky-200/10 text-gray-800">
-      <section className="py-16 px-2 max-w-5xl mx-auto">
+    <div className="min-h-screen text-slate-800">
+      <section className="py-14 px-2 max-w-5xl mx-auto">
         <SectionHeader icon={HeartHandshake} title="Volunteer Application Form" />
 
         {/* Notification Toast */}
         {notification.message && (
           <div
-            className={`fixed top-5 right-5 z-50 flex items-center gap-3 px-5 py-3 rounded-lg shadow-md text-sm sm:text-base font-medium transition-all duration-300 ease-in-out transform ${
+            className={`fixed top-5 right-5 z-50 flex items-center gap-3 px-5 py-3 rounded-xl border shadow-lift text-sm sm:text-base font-medium animate-fade-in-down ${
               notification.type === "success"
-                ? "bg-emerald-50 border-emerald-200 text-white"
-                : "bg-red-50 boder-red-200 text-white"
+                ? "bg-emerald-50 border-emerald-200 text-emerald-800"
+                : "bg-red-50 border-red-200 text-red-800"
             }`}
           >
             <AlertCircle className="w-5 h-5 shrink-0" />
@@ -268,12 +268,12 @@ export default function VolunteerForm() {
 
         <form
           onSubmit={handleSubmit}
-          className="bg-white rounded-2xl border border-slate-300 p-8 mt-8 space-y-10"
+          className="bg-white rounded-2xl border border-slate-200 shadow-soft p-8 mt-8 space-y-10"
           noValidate
         >
           {/* Thematic Areas */}
           <div>
-            <h2 className="text-xl font-semibold text-sky-800 mb-4">
+            <h2 className="font-display text-lg font-bold text-slate-900 mb-4">
               Thematic Areas of Interest
             </h2>
             {errors.interest && (
@@ -290,7 +290,7 @@ export default function VolunteerForm() {
                     name={interest}
                     checked={!!formData[interest]}
                     onChange={handleChange}
-                    className="text-sky-600 rounded border-sky-300 focus:ring-sky-500"
+                    className="text-brand-600 rounded border-slate-300 focus:ring-brand-500"
                   />
                   {interest}
                 </label>
@@ -300,7 +300,7 @@ export default function VolunteerForm() {
 
           {/* Personal Information */}
           <div>
-            <h2 className="text-xl font-semibold text-sky-800 mb-4">Personal Information</h2>
+            <h2 className="font-display text-lg font-bold text-slate-900 mb-4">Personal Information</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div>
                 <input
@@ -308,7 +308,7 @@ export default function VolunteerForm() {
                   placeholder="Full Name *"
                   value={formData.name || ""}
                   onChange={handleChange}
-                  className={`border rounded-md p-2 w-full ${
+                  className={`rounded-lg border bg-white px-3.5 py-2.5 text-sm w-full placeholder:text-slate-400 transition-colors focus:border-brand-500 focus:outline-none focus:ring-2 focus:ring-brand-500/20 ${
                     errors.name ? "border-red-500" : "border-slate-300"
                   }`}
                 />
@@ -322,7 +322,7 @@ export default function VolunteerForm() {
                   placeholder="Age (Years) *"
                   value={formData.age || ""}
                   onChange={handleChange}
-                  className={`border rounded-md p-2 w-full ${
+                  className={`rounded-lg border bg-white px-3.5 py-2.5 text-sm w-full placeholder:text-slate-400 transition-colors focus:border-brand-500 focus:outline-none focus:ring-2 focus:ring-brand-500/20 ${
                     errors.age ? "border-red-500" : "border-slate-300"
                   }`}
                 />
@@ -361,7 +361,7 @@ export default function VolunteerForm() {
                   placeholder="E-mail *"
                   value={formData.email || ""}
                   onChange={handleChange}
-                  className={`border rounded-md p-2 w-full ${
+                  className={`rounded-lg border bg-white px-3.5 py-2.5 text-sm w-full placeholder:text-slate-400 transition-colors focus:border-brand-500 focus:outline-none focus:ring-2 focus:ring-brand-500/20 ${
                     errors.email ? "border-red-500" : "border-slate-300"
                   }`}
                 />
@@ -374,7 +374,7 @@ export default function VolunteerForm() {
                   placeholder="Home Address *"
                   value={formData.address || ""}
                   onChange={handleChange}
-                  className={`border rounded-md p-2 w-full ${
+                  className={`rounded-lg border bg-white px-3.5 py-2.5 text-sm w-full placeholder:text-slate-400 transition-colors focus:border-brand-500 focus:outline-none focus:ring-2 focus:ring-brand-500/20 ${
                     errors.address ? "border-red-500" : "border-slate-300"
                   }`}
                 />
@@ -387,7 +387,7 @@ export default function VolunteerForm() {
                   placeholder="Languages Spoken *"
                   value={formData.languages || ""}
                   onChange={handleChange}
-                  className={`border rounded-md p-2 w-full ${
+                  className={`rounded-lg border bg-white px-3.5 py-2.5 text-sm w-full placeholder:text-slate-400 transition-colors focus:border-brand-500 focus:outline-none focus:ring-2 focus:ring-brand-500/20 ${
                     errors.languages ? "border-red-500" : "border-slate-300"
                   }`}
                 />
@@ -398,7 +398,7 @@ export default function VolunteerForm() {
 
           {/* Education */}
           <div>
-            <h2 className="text-xl font-semibold text-sky-800 mb-4">Education</h2>
+            <h2 className="font-display text-lg font-bold text-slate-900 mb-4">Education</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div>
                 <input
@@ -406,7 +406,7 @@ export default function VolunteerForm() {
                   placeholder="Highest Level of Education *"
                   value={formData.education_level || ""}
                   onChange={handleChange}
-                  className={`border rounded-md p-2 w-full ${
+                  className={`rounded-lg border bg-white px-3.5 py-2.5 text-sm w-full placeholder:text-slate-400 transition-colors focus:border-brand-500 focus:outline-none focus:ring-2 focus:ring-brand-500/20 ${
                     errors.education_level ? "border-red-500" : "border-slate-300"
                   }`}
                 />
@@ -419,7 +419,7 @@ export default function VolunteerForm() {
                 placeholder="Area of Specialization"
                 value={formData.specialization || ""}
                 onChange={handleChange}
-                className="border border-slate-300 rounded-md p-2 w-full"
+                className="rounded-lg border border-slate-300 bg-white px-3.5 py-2.5 text-sm w-full placeholder:text-slate-400 transition-colors focus:border-brand-500 focus:outline-none focus:ring-2 focus:ring-brand-500/20"
               />
               <div className="flex gap-4 items-center">
                 <span className="text-sm text-slate-700">Currently a student?</span>
@@ -449,49 +449,49 @@ export default function VolunteerForm() {
                 placeholder="Institution (if student)"
                 value={formData.institution || ""}
                 onChange={handleChange}
-                className="border border-slate-300 rounded-md p-2 w-full"
+                className="rounded-lg border border-slate-300 bg-white px-3.5 py-2.5 text-sm w-full placeholder:text-slate-400 transition-colors focus:border-brand-500 focus:outline-none focus:ring-2 focus:ring-brand-500/20"
               />
               <input
                 name="course"
                 placeholder="Course Of Study"
                 value={formData.course || ""}
                 onChange={handleChange}
-                className="border border-slate-300 rounded-md p-2 w-full"
+                className="rounded-lg border border-slate-300 bg-white px-3.5 py-2.5 text-sm w-full placeholder:text-slate-400 transition-colors focus:border-brand-500 focus:outline-none focus:ring-2 focus:ring-brand-500/20"
               />
             </div>
           </div>
 
           {/* Employment */}
           <div>
-            <h2 className="text-xl font-semibold text-sky-800 mb-4">Employment</h2>
+            <h2 className="font-display text-lg font-bold text-slate-900 mb-4">Employment</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <input
                 name="employer"
                 placeholder="Current Employer"
                 value={formData.employer || ""}
                 onChange={handleChange}
-                className="border border-slate-300 rounded-md p-2 w-full"
+                className="rounded-lg border border-slate-300 bg-white px-3.5 py-2.5 text-sm w-full placeholder:text-slate-400 transition-colors focus:border-brand-500 focus:outline-none focus:ring-2 focus:ring-brand-500/20"
               />
               <input
                 name="position"
                 placeholder="Position/Title"
                 value={formData.position || ""}
                 onChange={handleChange}
-                className="border border-slate-300 rounded-md p-2 w-full"
+                className="rounded-lg border border-slate-300 bg-white px-3.5 py-2.5 text-sm w-full placeholder:text-slate-400 transition-colors focus:border-brand-500 focus:outline-none focus:ring-2 focus:ring-brand-500/20"
               />
               <input
                 name="employment_date"
                 placeholder="Date of Employment"
                 value={formData.employment_date || ""}
                 onChange={handleChange}
-                className="border border-slate-300 rounded-md p-2 w-full"
+                className="rounded-lg border border-slate-300 bg-white px-3.5 py-2.5 text-sm w-full placeholder:text-slate-400 transition-colors focus:border-brand-500 focus:outline-none focus:ring-2 focus:ring-brand-500/20"
               />
               <input
                 name="employer_address"
                 placeholder="Employer Address"
                 value={formData.employer_address || ""}
                 onChange={handleChange}
-                className="border border-slate-300 rounded-md p-2 w-full"
+                className="rounded-lg border border-slate-300 bg-white px-3.5 py-2.5 text-sm w-full placeholder:text-slate-400 transition-colors focus:border-brand-500 focus:outline-none focus:ring-2 focus:ring-brand-500/20"
               />
               <div className="flex gap-4 items-center md:col-span-2">
                 <p className="text-slate-700">Keep employer informed of volunteer service?</p>
@@ -521,7 +521,7 @@ export default function VolunteerForm() {
 
           {/* Skills & Experience */}
           <div>
-            <h2 className="text-xl font-semibold text-sky-800 mb-4">Skills & Experience</h2>
+            <h2 className="font-display text-lg font-bold text-slate-900 mb-4">Skills & Experience</h2>
             {[
               { name: "special_skills", placeholder: "Special training, skills, hobbies" },
               { name: "memberships", placeholder: "Groups, clubs, or organizational memberships" },
@@ -535,7 +535,7 @@ export default function VolunteerForm() {
                 placeholder={field.placeholder}
                 value={formData[field.name] || ""}
                 onChange={handleChange}
-                className="border border-slate-300 rounded-md p-2 w-full mb-4"
+                className="rounded-lg border border-slate-300 bg-white px-3.5 py-2.5 text-sm w-full mb-4 placeholder:text-slate-400 transition-colors focus:border-brand-500 focus:outline-none focus:ring-2 focus:ring-brand-500/20"
                 rows={3}
               />
             ))}
@@ -543,7 +543,7 @@ export default function VolunteerForm() {
 
           {/* Emergency Contact & Availability */}
           <div>
-            <h2 className="text-xl font-semibold text-sky-800 mb-4">Emergency Contact</h2>
+            <h2 className="font-display text-lg font-bold text-slate-900 mb-4">Emergency Contact</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-4">
               <div>
                 <input
@@ -551,7 +551,7 @@ export default function VolunteerForm() {
                   placeholder="Who to notify in case of emergency? *"
                   value={formData.emergency_contact || ""}
                   onChange={handleChange}
-                  className={`border rounded-md p-2 w-full ${
+                  className={`rounded-lg border bg-white px-3.5 py-2.5 text-sm w-full placeholder:text-slate-400 transition-colors focus:border-brand-500 focus:outline-none focus:ring-2 focus:ring-brand-500/20 ${
                     errors.emergency_contact ? "border-red-500" : "border-slate-300"
                   }`}
                 />
@@ -565,7 +565,7 @@ export default function VolunteerForm() {
                   placeholder="Telephone Number *"
                   value={formData.emergency_phone || ""}
                   onChange={handleChange}
-                  className={`border rounded-md p-2 w-full ${
+                  className={`rounded-lg border bg-white px-3.5 py-2.5 text-sm w-full placeholder:text-slate-400 transition-colors focus:border-brand-500 focus:outline-none focus:ring-2 focus:ring-brand-500/20 ${
                     errors.emergency_phone ? "border-red-500" : "border-slate-300"
                   }`}
                 />
@@ -575,7 +575,7 @@ export default function VolunteerForm() {
               </div>
             </div>
 
-            <h2 className="text-xl font-semibold mt-8 text-sky-800 mb-4">
+            <h2 className="font-display text-lg font-bold mt-8 text-slate-900 mb-4">
               Availability (check all applicable)
             </h2>
             {errors.availability && (
@@ -592,7 +592,7 @@ export default function VolunteerForm() {
                     name={opt}
                     checked={!!formData[opt]}
                     onChange={handleChange}
-                    className="text-sky-600 rounded border-sky-300 focus:ring-sky-500"
+                    className="text-brand-600 rounded border-slate-300 focus:ring-brand-500"
                   />{" "}
                   {opt}
                 </label>
@@ -602,7 +602,7 @@ export default function VolunteerForm() {
 
           {/* References */}
           <div>
-            <h2 className="text-xl font-semibold text-sky-800 mb-1">References</h2>
+            <h2 className="font-display text-lg font-bold text-slate-900 mb-1">References</h2>
             <p className="text-sm text-slate-700 leading-relaxed mb-4">
               Please list three people who know you well and can attest to your character, skills, and dependability.
             </p>
@@ -619,35 +619,35 @@ export default function VolunteerForm() {
                   name={`ref_name_${num}`}
                   value={formData[`ref_name_${num}`] || ""}
                   onChange={handleChange}
-                  className="border border-slate-300 rounded-md p-2"
+                  className="rounded-lg border border-slate-300 bg-white px-3.5 py-2.5 text-sm placeholder:text-slate-400 transition-colors focus:border-brand-500 focus:outline-none focus:ring-2 focus:ring-brand-500/20"
                 />
                 <input
                   placeholder="Relationship"
                   name={`ref_relationship_${num}`}
                   value={formData[`ref_relationship_${num}`] || ""}
                   onChange={handleChange}
-                  className="border border-slate-300 rounded-md p-2"
+                  className="rounded-lg border border-slate-300 bg-white px-3.5 py-2.5 text-sm placeholder:text-slate-400 transition-colors focus:border-brand-500 focus:outline-none focus:ring-2 focus:ring-brand-500/20"
                 />
                 <input
                   placeholder="Length of relationship"
                   name={`ref_length_${num}`}
                   value={formData[`ref_length_${num}`] || ""}
                   onChange={handleChange}
-                  className="border border-slate-300 rounded-md p-2"
+                  className="rounded-lg border border-slate-300 bg-white px-3.5 py-2.5 text-sm placeholder:text-slate-400 transition-colors focus:border-brand-500 focus:outline-none focus:ring-2 focus:ring-brand-500/20"
                 />
                 <input
                   placeholder="Phone number"
                   name={`ref_phone_${num}`}
                   value={formData[`ref_phone_${num}`] || ""}
                   onChange={handleChange}
-                  className="border border-slate-300 rounded-md p-2"
+                  className="rounded-lg border border-slate-300 bg-white px-3.5 py-2.5 text-sm placeholder:text-slate-400 transition-colors focus:border-brand-500 focus:outline-none focus:ring-2 focus:ring-brand-500/20"
                 />
               </div>
             ))}
           </div>
 
           {/* Declaration */}
-          <div className="bg-sky-50 border border-sky-100 rounded-md p-4 space-y-3">
+          <div className="bg-brand-50 border border-brand-100 rounded-xl p-5 space-y-3">
             <p className="text-slate-700 text-sm leading-relaxed">
               I understand that this is an application for and not a commitment or promise of
               volunteer opportunity. I certify that the information provided is true and complete to
@@ -658,7 +658,7 @@ export default function VolunteerForm() {
                 type="checkbox"
                 checked={agree}
                 onChange={(e) => setAgree(e.target.checked)}
-                className="text-sky-600 rounded border-sky-300 focus:ring-sky-500"
+                className="text-brand-600 rounded border-slate-300 focus:ring-brand-500"
               />
               I have read and understand the above statement. *
             </label>
@@ -670,8 +670,9 @@ export default function VolunteerForm() {
             disabled={isSubmitting}
             className={`
               flex items-center justify-center gap-2 w-full sm:w-auto
-              bg-sky-700 hover:bg-sky-800 text-white font-semibold
-              py-2 px-6 rounded-md shadow-md transition-all
+              rounded-full bg-brand-600 px-8 py-3 font-semibold text-white
+              shadow-soft transition-all duration-300 hover:bg-brand-700 hover:shadow-lift
+              focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-600
               ${isSubmitting ? "opacity-70 cursor-not-allowed" : ""}
             `}
           >

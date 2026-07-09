@@ -52,8 +52,8 @@ export default function ImageCarousel({
 
   if (!slides.length) {
     return (
-      <div className="w-full bg-gray-100 rounded-2xl flex items-center justify-center h-96">
-        <p className="text-gray-500">No images available</p>
+      <div className="w-full bg-slate-100 rounded-2xl flex items-center justify-center h-96">
+        <p className="text-slate-500">No images available</p>
       </div>
     );
   }
@@ -74,12 +74,12 @@ export default function ImageCarousel({
 
   return (
     <div
-      className="relative group overflow-hidden rounded-2xl bg-gray-50"
+      className="relative group overflow-hidden rounded-2xl bg-slate-50 ring-1 ring-slate-900/10 shadow-soft"
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
-     
-      <div className="relative w-full h-72 border border-gray-300 md:h-96 lg:h-112 overflow-hidden">
+
+      <div className="relative w-full h-72 md:h-96 lg:h-112 overflow-hidden">
         {/* Slides */}
         <div
           className="absolute inset-0 flex transition-transform duration-700 ease-in-out"
@@ -92,8 +92,8 @@ export default function ImageCarousel({
               <div key={index} className="min-w-full h-full relative">
                 {!isLoaded ? (
                   // Skeleton loader
-                  <div className="absolute inset-0 flex items-center justify-center bg-gray-200 animate-pulse">
-                    <div className="text-gray-400">
+                  <div className="absolute inset-0 flex items-center justify-center bg-slate-100 animate-pulse">
+                    <div className="text-slate-300">
                       <svg className="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
                       </svg>
@@ -116,8 +116,8 @@ export default function ImageCarousel({
 
                 {/* Optional caption overlay */}
                 {slide.title && (
-                  <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-6 text-white">
-                    <h3 className="text-lg font-semibold drop-shadow-md">{slide.title}</h3>
+                  <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-brand-950/80 to-transparent p-6 text-white">
+                    <h3 className="text-base md:text-lg font-medium leading-snug">{slide.title}</h3>
                   </div>
                 )}
               </div>
@@ -129,7 +129,7 @@ export default function ImageCarousel({
         {slides.length > 1 && (
           <button
             onClick={goPrev}
-            className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white text-gray-800 rounded-full p-3 shadow-lg opacity-0 group-hover:opacity-100 transition-all duration-300 z-10"
+            className="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 flex items-center justify-center bg-white/10 hover:bg-white/25 backdrop-blur-sm ring-1 ring-white/25 text-white rounded-full opacity-0 group-hover:opacity-100 transition-all duration-300 z-10 focus:outline-none focus-visible:opacity-100 focus-visible:ring-2 focus-visible:ring-white"
             aria-label="Previous slide"
           >
             <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -142,7 +142,7 @@ export default function ImageCarousel({
         {slides.length > 1 && (
           <button
             onClick={goNext}
-            className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white text-gray-800 rounded-full p-3 shadow-lg opacity-0 group-hover:opacity-100 transition-all duration-300 z-10"
+            className="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 flex items-center justify-center bg-white/10 hover:bg-white/25 backdrop-blur-sm ring-1 ring-white/25 text-white rounded-full opacity-0 group-hover:opacity-100 transition-all duration-300 z-10 focus:outline-none focus-visible:opacity-100 focus-visible:ring-2 focus-visible:ring-white"
             aria-label="Next slide"
           >
             <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -158,10 +158,10 @@ export default function ImageCarousel({
               <button
                 key={index}
                 onClick={() => goToSlide(index)}
-                className={`transition-all duration-300 ${
+                className={`h-2 rounded-full transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-white ${
                   index === current
-                    ? "w-8 h-2 bg-white rounded-full shadow-md"
-                    : "w-2 h-2 bg-white/60 rounded-full hover:bg-white/90"
+                    ? "w-7 bg-white"
+                    : "w-2 bg-white/50 hover:bg-white/80"
                 }`}
                 aria-label={`Go to slide ${index + 1}`}
               />

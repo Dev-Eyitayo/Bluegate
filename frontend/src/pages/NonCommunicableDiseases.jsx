@@ -1,6 +1,5 @@
 import React from "react";
-import { Activity, HeartPulse, AlertCircle } from "lucide-react";
-import SectionHeader from "../components/SectionHeader";
+import PageHeader from "../components/PageHeader";
 import ImageCarousel from "../components/ImageCarousel";
 
 const ncdSlides = [
@@ -12,16 +11,27 @@ const ncdSlides = [
     image: "/assets/updatedImages/Diabetes.jpg",
     title: "",
   },
-
 ];
+
+const BulletList = ({ items }) => (
+  <ul className="space-y-2.5 text-slate-600">
+    {items.map((item) => (
+      <li key={item} className="flex items-start gap-2.5 leading-relaxed">
+        <span className="mt-2 h-1.5 w-1.5 rounded-full bg-brand-400 flex-shrink-0" aria-hidden="true" />
+        {item}
+      </li>
+    ))}
+  </ul>
+);
 
 export default function NonCommunicableDiseases() {
   return (
-    <div className="min-h-screen bg-sky-200/10 px-2 text-gray-800">
-      <section className="py-16 px-3 max-w-5xl mx-auto">
-        <h1 className="text-2xl font-extrabold text-sky-800 text-center mb-8">
-          Non-Communicable Diseases (NCDs) Prevention & Management
-        </h1>
+    <div className="min-h-screen px-2 text-slate-800">
+      <section className="py-14 px-3 max-w-5xl mx-auto">
+        <PageHeader
+          eyebrow="Health promotion"
+          title="Non-Communicable Diseases (NCDs) Prevention & Management"
+        />
         <p className="text-slate-600 leading-relaxed mb-6 text-left">
           Non-communicable diseases (NCDs) are long-term health conditions that are not spread from person to person. They are often linked to factors such as lifestyle, environment, genetics, and long-term exposure to risks like pollution or stress. NCDs are now among the leading causes of illness and death globally including in Nigeria.
         </p>
@@ -33,29 +43,33 @@ export default function NonCommunicableDiseases() {
       <section className="py-12 px-3 max-w-5xl mx-auto space-y-16">
         {/* 1. Hypertension & Diabetes */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-start">
-          <img
-            src="/assets/diabetes.jpg"
-            alt="Diabetes and Hypertension Control"
-            className="rounded-xl shadow-md w-full h-auto"
-          />
+          <div className="rounded-2xl overflow-hidden ring-1 ring-slate-900/10 shadow-soft">
+            <img
+              src="/assets/diabetes.jpg"
+              alt="Diabetes and Hypertension Control"
+              className="w-full h-auto object-cover"
+            />
+          </div>
           <div>
-            <h3 className="text-xl font-bold text-sky-800 mb-4 flex items-center">
-            
-              1. Hypertension & Diabetes Prevention and Control
+            <h3 className="font-display text-xl font-bold text-slate-900 mb-4">
+              <span className="text-brand-600 mr-2">1.</span>
+              Hypertension & Diabetes Prevention and Control
             </h3>
             <p className="text-slate-600 leading-relaxed mb-4">
               We support individuals and communities to:
             </p>
-            <ul className="list-disc list-inside text-slate-600 space-y-2">
-              <li>Understand risk factors such as diet, inactivity, and stress</li>
-              <li>Access screening, monitoring, and referral services</li>
-              <li>Adopt healthy lifestyle practices</li>
-              <li>Receive follow-up support for long-term management</li>
-            </ul>
-            <p className="text-slate-600 mt-4">
+            <BulletList
+              items={[
+                "Understand risk factors such as diet, inactivity, and stress",
+                "Access screening, monitoring, and referral services",
+                "Adopt healthy lifestyle practices",
+                "Receive follow-up support for long-term management",
+              ]}
+            />
+            <p className="text-slate-600 leading-relaxed mt-4">
               Blue Gate improves detection and screening by implementing programmes for early detection of NCDs, such as screening for diabetes, hypertension, and breast and cervical cancer screening.
             </p>
-            <p className="text-slate-600">
+            <p className="text-slate-600 leading-relaxed mt-3">
               We also promote healthy lifestyles by encouraging healthy eating habits, regular physical activity, and behaviours that reduce the risk of NCDs.
             </p>
           </div>
@@ -68,27 +82,29 @@ export default function NonCommunicableDiseases() {
         {/* 2. Cancer Awareness */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-start">
           <div>
-            <h3 className="text-xl font-bold text-sky-800 mb-4 flex items-center">
-              {/* <AlertCircle className="w-6 h-6 mr-2 text-pink-600" /> */}
-              2. Cancer Awareness, Screening & Referral
+            <h3 className="font-display text-xl font-bold text-slate-900 mb-4">
+              <span className="text-brand-600 mr-2">2.</span>
+              Cancer Awareness, Screening & Referral
             </h3>
             <p className="text-slate-600 leading-relaxed mb-4">
               Our programs focus on early detection, which greatly increases survival chances. We provide:
             </p>
-            <ul className="list-disc list-inside text-slate-600 space-y-2">
-              <li>Breast cancer self-exam education and community awareness</li>
-              <li>Cervical cancer screening (in partnership with health facilities)</li>
-              <li>Prostate cancer awareness and early risk assessment</li>
-              <li>Referral linkages for diagnostic and treatment services</li>
-              <li>Survivor support networks and caregiver education</li>
-            </ul>
+            <BulletList
+              items={[
+                "Breast cancer self-exam education and community awareness",
+                "Cervical cancer screening (in partnership with health facilities)",
+                "Prostate cancer awareness and early risk assessment",
+                "Referral linkages for diagnostic and treatment services",
+                "Survivor support networks and caregiver education",
+              ]}
+            />
           </div>
-          <div className="bg-gray-200 border-2 border-dashed rounded-xl mt-4 w-full h-64 flex items-center justify-center text-slate-500">
+          <div className="rounded-2xl overflow-hidden ring-1 ring-slate-900/10 shadow-soft mt-4 md:mt-0">
             <img
-            src="/assets/updatedImages/Cervical cancer screening.jpg"
-            alt="Cancer screening"
-            className="rounded-xl shadow-md w-full h-auto"
-          />
+              src="/assets/updatedImages/Cervical cancer screening.jpg"
+              alt="Cancer screening"
+              className="w-full h-auto object-cover"
+            />
           </div>
         </div>
       </section>
