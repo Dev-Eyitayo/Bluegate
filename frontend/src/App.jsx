@@ -44,7 +44,7 @@ import CareProjectPage from "./pages/outreach/care-project/CareProject";
 import CareProjectOnePage from "./pages/outreach/care-project/CareProjectOne";
 import CareProjectTwoPage from "./pages/outreach/care-project/CareProjectTwo";
 import CareProjectThreePage from "./pages/outreach/care-project/CareProjectThree";
-// import CareProjectFourPage from "./pages/outreach/care-project/CareProjectFour";
+import CareProjectFourPage from "./pages/outreach/care-project/CareProjectFour";
 
 
 
@@ -246,7 +246,7 @@ export default function App() {
         <Route path="/outreach/care-project/1" element={<CareProjectOnePage />} />
         <Route path="/outreach/care-project/2" element={<CareProjectTwoPage />} />
         <Route path="/outreach/care-project/3" element={<CareProjectThreePage />} />
-        {/* <Route path="/outreach/care-project/1" element={<CareProjectFourPage />} /> */}
+        <Route path="/outreach/care-project/4" element={<CareProjectFourPage />} />
         <Route path="/admin/event" element={<AdminEventList />} />
         <Route path="/admin/event/create" element={<AdminEventForm />} />
         <Route path="/admin/event/edit/:id" element={<AdminEventForm />} />

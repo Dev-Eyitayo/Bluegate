@@ -23,6 +23,11 @@ export default function CareProjectPage() {
       description: "The third edition of the Clothe and Replenish Everyone (CARE) Project was successfully implemented at Elebolo Community, bringing healthcare, essential items, health education, and hope to vulnerable individuals and families.",
       path: "/outreach/care-project/3"
     },
+    {
+      version: "CARE Project 4.0",
+      description: "The fourth edition of the Clothe and Replenish Everyone (CARE) Project was successfully implemented at Ifelodun Community, Koloko, bringing healthcare, hope, and dignity to vulnerable members.",
+      path: "/outreach/care-project/4"
+    },
   ];
 
   return (
@@ -115,7 +120,7 @@ export default function CareProjectPage() {
                 <h2 className="font-display text-lg font-bold text-slate-900 mb-4 tracking-tight">
                   Implementation
                 </h2>
-                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
                   {programs.map((prog, index) => (
                     <Link 
                       key={index}

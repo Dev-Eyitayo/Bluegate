@@ -28,9 +28,33 @@ export default function BlogDetailPage() {
   if (loading)
     return (
       <MainLayout>
-        <div className="min-h-screen flex items-center justify-center">
-          <div className="flex items-center gap-3">
-            <LoaderCircle className="h-12 w-12 animate-spin text-brand-600" />
+        <div className="min-h-screen px-0 py-2">
+          <div className="max-w-5xl mx-auto bg-white overflow-hidden animate-pulse">
+            <div className="p-2 flex items-center justify-between">
+              <div className="h-4 bg-slate-200 rounded w-32" />
+            </div>
+
+            <div className="p-2 md:p-4 space-y-6">
+              <div className="space-y-3">
+                <div className="h-8 bg-slate-200 rounded-md w-3/4" />
+                <div className="flex items-center gap-4">
+                  <div className="h-4 bg-slate-200 rounded w-28" />
+                  <div className="h-4 bg-slate-200 rounded w-24" />
+                </div>
+              </div>
+
+              <div className="w-full h-72 md:h-96 bg-slate-200 rounded-2xl" />
+
+              <div className="h-5 bg-slate-200 rounded w-5/6 border-l-4 border-slate-300 pl-4" />
+
+              <div className="space-y-3 pt-2">
+                <div className="h-4 bg-slate-200 rounded w-full" />
+                <div className="h-4 bg-slate-200 rounded w-11/12" />
+                <div className="h-4 bg-slate-200 rounded w-full" />
+                <div className="h-4 bg-slate-200 rounded w-4/5" />
+                <div className="h-4 bg-slate-200 rounded w-3/4" />
+              </div>
+            </div>
           </div>
         </div>
       </MainLayout>

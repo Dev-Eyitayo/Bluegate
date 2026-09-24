@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { format } from "date-fns";
-import { Calendar, User, ArrowLeft, MapPin } from "lucide-react";
+import { Calendar, User, ArrowLeft, MapPin, ExternalLink } from "lucide-react";
 import BlogImages from "../../../components/BlogImages";
 import MainLayout from "../../../layouts/MainLayout";
 
@@ -148,6 +148,18 @@ const projectImages = [
                 ))}
               </ul>
             </section>
+
+            <div className="mb-10 text-center py-6 border-y border-slate-100">
+              <h3 className="text-sm font-bold text-slate-700 mb-2">Watch the Care Project 3.0 Video Documentation</h3>
+              <a 
+                href="https://web.facebook.com/reel/1776340627142148" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-5 py-2.5 bg-brand-600 hover:bg-brand-700 text-white rounded-full font-semibold text-sm shadow-soft transition-all duration-300 hover:shadow-lift"
+              >
+                View Video Documentation <ExternalLink className="h-4 w-4" />
+              </a>
+            </div>
 
             <section className="bg-slate-50 border border-slate-200 rounded-xl p-4 md:p-6">
               <h2 className="text-md font-display font-bold text-slate-900 mb-2">Expression of Appreciation</h2>

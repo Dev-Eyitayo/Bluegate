@@ -33,10 +33,36 @@ export default function EventDetailPage() {
   if (loading) {
     return (
       <MainLayout>
-        <div className="min-h-screen flex items-center justify-center">
-          <div className="flex flex-col items-center gap-4">
-            <LoaderCircle className="h-12 w-12 animate-spin text-brand-600" />
-            <p className="text-slate-600">Loading event details...</p>
+        <div className="min-h-screen py-8 px-4">
+          <div className="max-w-5xl mx-auto animate-pulse">
+            <div className="h-5 bg-slate-200 rounded w-32 mb-8" />
+
+            <article className="bg-white rounded-2xl border border-slate-200 shadow-soft overflow-hidden">
+              <div className="w-full h-72 md:h-96 bg-slate-200" />
+
+              <div className="p-6 md:p-10 lg:p-12 space-y-8">
+                <div className="h-8 bg-slate-200 rounded-md w-2/3" />
+
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  {[1, 2, 3, 4].map((i) => (
+                    <div key={i} className="flex items-start gap-3.5 rounded-2xl border border-slate-200 bg-slate-50/70 p-4">
+                      <div className="w-10 h-10 rounded-xl bg-slate-200 flex-shrink-0" />
+                      <div className="space-y-2 flex-1">
+                        <div className="h-3 bg-slate-200 rounded w-16" />
+                        <div className="h-4 bg-slate-200 rounded w-32" />
+                      </div>
+                    </div>
+                  ))}
+                </div>
+
+                <div className="space-y-3 pt-4 border-t border-slate-100">
+                  <div className="h-4 bg-slate-200 rounded w-full" />
+                  <div className="h-4 bg-slate-200 rounded w-11/12" />
+                  <div className="h-4 bg-slate-200 rounded w-5/6" />
+                  <div className="h-4 bg-slate-200 rounded w-3/4" />
+                </div>
+              </div>
+            </article>
           </div>
         </div>
       </MainLayout>

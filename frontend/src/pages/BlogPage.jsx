@@ -66,10 +66,42 @@ export default function BlogPage() {
 
   if (loading) {
     return (
-      <div className="min-h-screen flex items-center justify-center">
-        <div className="flex items-center gap-3">
-          <LoaderCircle className="h-12 w-12 animate-spin text-brand-600" />
-        </div>
+      <div className="min-h-screen text-slate-800">
+        <section className="py-10 max-w-7xl mx-auto text-center px-4">
+          <h1 className="font-display text-2xl md:text-3xl font-bold tracking-tight text-slate-900">
+            Our Outreaches
+          </h1>
+          <span className="mt-3 inline-block h-1 w-12 rounded-full bg-brand-500" aria-hidden="true" />
+          <p className="mt-2 text-slate-600 max-w-2xl mx-auto leading-relaxed">
+            Insights, stories, and updates from the outreaches of our team at Blue
+            Gate Initiative.
+          </p>
+        </section>
+
+        <section className="max-w-6xl mx-auto px-2 pb-14 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-5">
+          {[...Array(8)].map((_, i) => (
+            <div
+              key={i}
+              className="border border-slate-200 rounded-2xl bg-white overflow-hidden animate-pulse flex flex-col justify-between"
+            >
+              <div className="w-full h-40 bg-slate-200" />
+              <div className="p-4 space-y-3">
+                <div className="h-4 bg-slate-200 rounded w-4/5" />
+                <div className="space-y-1.5 pt-1">
+                  <div className="h-3 bg-slate-200 rounded w-full" />
+                  <div className="h-3 bg-slate-200 rounded w-2/3" />
+                </div>
+                <div className="mt-3 flex items-center justify-between pt-2">
+                  <div className="h-3 bg-slate-200 rounded w-16" />
+                  <div className="h-3 bg-slate-200 rounded w-14" />
+                </div>
+                <div className="pt-1">
+                  <div className="h-3.5 bg-slate-200 rounded w-20" />
+                </div>
+              </div>
+            </div>
+          ))}
+        </section>
       </div>
     );
   }

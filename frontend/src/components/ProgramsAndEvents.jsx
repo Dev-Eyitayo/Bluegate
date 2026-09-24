@@ -64,11 +64,34 @@ export default function ProgramsAndEvents() {
           <SectionHeader title="Upcoming Events" icon={CalendarDays} />
 
           <div className="mt-6 space-y-5">
-            {/* Loading */}
+            {/* Skeleton Loading */}
             {loading && (
-              <div className="text-center py-12 text-slate-500">
-                <div className="inline-block animate-spin h-8 w-8 border-4 border-brand-600 border-t-transparent rounded-full"></div>
-                <p className="mt-4">Loading upcoming events...</p>
+              <div className="space-y-5">
+                {[1, 2, 3].map((item) => (
+                  <div
+                    key={item}
+                    className="bg-white rounded-2xl border border-slate-200 p-6 animate-pulse space-y-3.5"
+                  >
+                    {/* Title */}
+                    <div className="h-5 bg-slate-200 rounded-md w-3/4" />
+                    {/* Location */}
+                    <div className="flex items-center gap-2">
+                      <div className="h-4 w-4 bg-slate-200 rounded-full" />
+                      <div className="h-4 bg-slate-200 rounded-md w-1/3" />
+                    </div>
+                    {/* Description */}
+                    <div className="space-y-2 pt-1">
+                      <div className="h-3.5 bg-slate-200 rounded w-full" />
+                      <div className="h-3.5 bg-slate-200 rounded w-5/6" />
+                      <div className="h-3.5 bg-slate-200 rounded w-2/3" />
+                    </div>
+                    {/* View Details Link */}
+                    <div className="flex items-center gap-2 pt-1">
+                      <div className="h-4 bg-slate-200 rounded w-24" />
+                      <div className="h-4 w-4 bg-slate-200 rounded-full" />
+                    </div>
+                  </div>
+                ))}
               </div>
             )}
 
