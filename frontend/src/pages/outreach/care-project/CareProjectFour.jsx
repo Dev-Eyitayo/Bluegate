@@ -142,7 +142,7 @@ export default function CareProjectFourPage() {
               <a 
                 href="https://web.facebook.com/reel/2651039491982585" 
                 target="_blank" 
-                rel="noopener noreferrer"
+                rel="noopener noreferrer" 
                 className="inline-flex items-center gap-2 px-5 py-2.5 bg-brand-600 hover:bg-brand-700 text-white rounded-full font-semibold text-sm shadow-soft transition-all duration-300 hover:shadow-lift"
               >
                 View Video Documentation <ExternalLink className="h-4 w-4" />
